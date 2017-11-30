@@ -10,7 +10,9 @@ module mojo_top (
     output spi_channel [4], // AVR general purpose pins (used by default to select ADC channel)
     input avr_tx,           // AVR TX (FPGA RX)
     output avr_rx,          // AVR RX (FPGA TX)
-    input avr_rx_busy       // AVR RX buffer full
+    input avr_rx_busy,       // AVR RX buffer full
+    output row [6],
+    output col [6]
   ) {
   
   sig rst;                  // reset signal
@@ -21,6 +23,8 @@ module mojo_top (
     reset_conditioner reset_cond;
   }
   
+  led_multiplexer led_multiplexer(.clk(clk), .rst(rst));
+  
   always {
     reset_cond.in = ~rst_n; // input raw inverted reset signal
     rst = reset_cond.out;   // conditioned reset
@@ -29,5 +33,20 @@ module mojo_top (
     spi_miso = bz;          // not using SPI
     spi_channel = bzzzz;    // not using flags
     avr_rx = bz;            // not using serial port
+    
+
+        
+    led_multiplexer.inp_int[0] = b001100;
+    led_multiplexer.inp_int[1] = b001100;
+    led_multiplexer.inp_int[2] = b001100;
+    led_multiplexer.inp_int[3] = b001100;
+    led_multiplexer.inp_int[4] = b111111;
+    led_multiplexer.inp_int[5] = b111111;
+    
+    row = led_multiplexer.row;
+    col = led_multiplexer.column;
+    
+    led[0] = led_multiplexer.timerout;
+    
   }
 }

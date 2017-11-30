@@ -1,0 +1,25 @@
+NET "row[0]" LOC = P57;
+NET "row[0]" IOSTANDARD = LVTTL;
+NET "row[1]" LOC = P66;
+NET "row[1]" IOSTANDARD = LVTTL;
+NET "row[2]" LOC = P74;
+NET "row[2]" IOSTANDARD = LVTTL;
+NET "row[3]" LOC = P78;
+NET "row[3]" IOSTANDARD = LVTTL;
+NET "row[4]" LOC = P80;
+NET "row[4]" IOSTANDARD = LVTTL;
+NET "row[5]" LOC = P82;
+NET "row[5]" IOSTANDARD = LVTTL;
+
+NET "col[0]" LOC = P58;
+NET "col[0]" IOSTANDARD = LVTTL;
+NET "col[1]" LOC = P67;
+NET "col[1]" IOSTANDARD = LVTTL;
+NET "col[2]" LOC = P75;
+NET "col[2]" IOSTANDARD = LVTTL;
+NET "col[3]" LOC = P79;
+NET "col[3]" IOSTANDARD = LVTTL;
+NET "col[4]" LOC = P81;
+NET "col[4]" IOSTANDARD = LVTTL;
+NET "col[5]" LOC = P83;
+NET "col[5]" IOSTANDARD = LVTTL;

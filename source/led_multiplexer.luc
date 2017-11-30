@@ -1,0 +1,54 @@
+module led_multiplexer (
+    input clk,  // clock
+    input rst,  // reset
+    output row[6], //led row output
+    output column[6], //led column output
+    input inp_int[6][6], //input integer array where each int[n] --> one 6-bit integer
+    output timerout //timer output for timer dff
+  ) {
+  
+  const N = 10;
+  dff timer[N](.clk(clk), .rst(rst));
+  fsm column_sel(.clk(timer.q[N-1]), .rst(rst)) = {ONE, TWO, THREE, FOUR, FIVE, SIX};
+  
+  always {
+    timerout = timer.q[N-1];
+    row = 8x{0};
+    column = 8x{0};
+    
+    case(column_sel.q) {
+      
+      column_sel.ONE:
+        row[0] = 1;
+        column = ~inp_int[0]; //output inverted for 8x8 off the shelf matrix
+        column_sel.d = column_sel.TWO;
+        
+      column_sel.TWO:
+        row[1] = 1;
+        column = ~inp_int[1];
+        column_sel.d = column_sel.THREE;
+        
+      column_sel.THREE:
+        row[2] = 1;
+        column = ~inp_int[2];
+        column_sel.d = column_sel.FOUR;
+       
+      column_sel.FOUR:
+        row[3] = 1;
+        column = ~inp_int[3];
+        column_sel.d = column_sel.FIVE;
+        
+      column_sel.FIVE:
+        row[4] = 1;
+        column = ~inp_int[4];
+        column_sel.d = column_sel.SIX;
+        
+      column_sel.SIX:
+        row[5] = 1;
+        column = ~inp_int[5];
+        column_sel.d = column_sel.ONE;
+      
+    }
+    timer.d = timer.q+1;
+  }
+}
