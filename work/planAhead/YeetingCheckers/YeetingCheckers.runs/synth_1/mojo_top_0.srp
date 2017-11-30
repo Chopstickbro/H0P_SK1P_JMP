@@ -55,10 +55,18 @@ Netlist Hierarchy                  : rebuilt
 =========================================================================
 *                          HDL Parsing                                  *
 =========================================================================
+Analyzing Verilog file "/home/tianlerk/mojo/YeetingCheckers/work/planAhead/YeetingCheckers/YeetingCheckers.srcs/sources_1/imports/verilog/pipeline_28.v" into library work
+Parsing module <pipeline_28>.
+Analyzing Verilog file "/home/tianlerk/mojo/YeetingCheckers/work/planAhead/YeetingCheckers/YeetingCheckers.srcs/sources_1/imports/verilog/edge_detector_4.v" into library work
+Parsing module <edge_detector_4>.
+Analyzing Verilog file "/home/tianlerk/mojo/YeetingCheckers/work/planAhead/YeetingCheckers/YeetingCheckers.srcs/sources_1/imports/verilog/button_conditioner_16.v" into library work
+Parsing module <button_conditioner_16>.
 Analyzing Verilog file "/home/tianlerk/mojo/YeetingCheckers/work/planAhead/YeetingCheckers/YeetingCheckers.srcs/sources_1/imports/verilog/reset_conditioner_1.v" into library work
 Parsing module <reset_conditioner_1>.
 Analyzing Verilog file "/home/tianlerk/mojo/YeetingCheckers/work/planAhead/YeetingCheckers/YeetingCheckers.srcs/sources_1/imports/verilog/led_multiplexer_2.v" into library work
 Parsing module <led_multiplexer_2>.
+Analyzing Verilog file "/home/tianlerk/mojo/YeetingCheckers/work/planAhead/YeetingCheckers/YeetingCheckers.srcs/sources_1/imports/verilog/button_sensing_3.v" into library work
+Parsing module <button_sensing_3>.
 Analyzing Verilog file "/home/tianlerk/mojo/YeetingCheckers/work/planAhead/YeetingCheckers/YeetingCheckers.srcs/sources_1/imports/verilog/mojo_top_0.v" into library work
 Parsing module <mojo_top_0>.
 
@@ -72,6 +80,15 @@ Elaborating module <reset_conditioner_1>.
 
 Elaborating module <led_multiplexer_2>.
 
+Elaborating module <button_sensing_3>.
+
+Elaborating module <edge_detector_4>.
+
+Elaborating module <button_conditioner_16>.
+
+Elaborating module <pipeline_28>.
+WARNING:HDLCompiler:1127 - "/home/tianlerk/mojo/YeetingCheckers/work/planAhead/YeetingCheckers/YeetingCheckers.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 67: Assignment to M_button_sensing_read ignored, since the identifier is never used
+
 =========================================================================
 *                           HDL Synthesis                               *
 =========================================================================
@@ -84,12 +101,13 @@ WARNING:Xst:647 - Input <spi_mosi> is never used. This port will be preserved an
 WARNING:Xst:647 - Input <spi_sck> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <avr_tx> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <avr_rx_busy> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-    Found 1-bit tristate buffer for signal <spi_miso> created at line 49
-    Found 1-bit tristate buffer for signal <spi_channel<3>> created at line 49
-    Found 1-bit tristate buffer for signal <spi_channel<2>> created at line 49
-    Found 1-bit tristate buffer for signal <spi_channel<1>> created at line 49
-    Found 1-bit tristate buffer for signal <spi_channel<0>> created at line 49
-    Found 1-bit tristate buffer for signal <avr_rx> created at line 49
+INFO:Xst:3210 - "/home/tianlerk/mojo/YeetingCheckers/work/planAhead/YeetingCheckers/YeetingCheckers.srcs/sources_1/imports/verilog/mojo_top_0.v" line 58: Output port <read> of the instance <button_sensing> is unconnected or connected to loadless signal.
+    Found 1-bit tristate buffer for signal <spi_miso> created at line 70
+    Found 1-bit tristate buffer for signal <spi_channel<3>> created at line 70
+    Found 1-bit tristate buffer for signal <spi_channel<2>> created at line 70
+    Found 1-bit tristate buffer for signal <spi_channel<1>> created at line 70
+    Found 1-bit tristate buffer for signal <spi_channel<0>> created at line 70
+    Found 1-bit tristate buffer for signal <avr_rx> created at line 70
     Summary:
 	inferred   6 Tristate(s).
 Unit <mojo_top_0> synthesized.
@@ -103,14 +121,14 @@ Unit <reset_conditioner_1> synthesized.
 
 Synthesizing Unit <led_multiplexer_2>.
     Related source file is "/home/tianlerk/mojo/YeetingCheckers/work/planAhead/YeetingCheckers/YeetingCheckers.srcs/sources_1/imports/verilog/led_multiplexer_2.v".
-    Found 10-bit register for signal <M_timer_q>.
     Found 3-bit register for signal <M_column_sel_q>.
+    Found 10-bit register for signal <M_timer_q>.
     Found finite state machine <FSM_0> for signal <M_column_sel_q>.
     -----------------------------------------------------------------------
     | States             | 6                                              |
     | Transitions        | 6                                              |
     | Inputs             | 0                                              |
-    | Outputs            | 10                                             |
+    | Outputs            | 9                                              |
     | Clock              | timerout (rising_edge)                         |
     | Reset              | rst (positive)                                 |
     | Reset type         | synchronous                                    |
@@ -120,21 +138,69 @@ Synthesizing Unit <led_multiplexer_2>.
     | Implementation     | LUT                                            |
     -----------------------------------------------------------------------
     Found 10-bit adder for signal <M_timer_d> created at line 72.
+    Found 6-bit 7-to-1 multiplexer for signal <column> created at line 40.
     Summary:
 	inferred   1 Adder/Subtractor(s).
 	inferred  10 D-type flip-flop(s).
+	inferred   1 Multiplexer(s).
 	inferred   1 Finite State Machine(s).
 Unit <led_multiplexer_2> synthesized.
+
+Synthesizing Unit <button_sensing_3>.
+    Related source file is "/home/tianlerk/mojo/YeetingCheckers/work/planAhead/YeetingCheckers/YeetingCheckers.srcs/sources_1/imports/verilog/button_sensing_3.v".
+    Found 1-bit register for signal <M_c_ready_q>.
+    Found 3-bit register for signal <M_ar_q>.
+    Found 3-bit register for signal <M_ac_q>.
+    Found 3-bit register for signal <M_br_q>.
+    Found 3-bit register for signal <M_bc_q>.
+    Found 1-bit register for signal <M_state_q>.
+    Found 1-bit register for signal <M_r_ready_q>.
+    Summary:
+	inferred  15 D-type flip-flop(s).
+	inferred  13 Multiplexer(s).
+Unit <button_sensing_3> synthesized.
+
+Synthesizing Unit <edge_detector_4>.
+    Related source file is "/home/tianlerk/mojo/YeetingCheckers/work/planAhead/YeetingCheckers/YeetingCheckers.srcs/sources_1/imports/verilog/edge_detector_4.v".
+    Found 1-bit register for signal <M_last_q>.
+    Summary:
+	inferred   1 D-type flip-flop(s).
+Unit <edge_detector_4> synthesized.
+
+Synthesizing Unit <button_conditioner_16>.
+    Related source file is "/home/tianlerk/mojo/YeetingCheckers/work/planAhead/YeetingCheckers/YeetingCheckers.srcs/sources_1/imports/verilog/button_conditioner_16.v".
+    Found 20-bit register for signal <M_ctr_q>.
+    Found 20-bit adder for signal <M_ctr_q[19]_GND_6_o_add_2_OUT> created at line 39.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred  20 D-type flip-flop(s).
+Unit <button_conditioner_16> synthesized.
+
+Synthesizing Unit <pipeline_28>.
+    Related source file is "/home/tianlerk/mojo/YeetingCheckers/work/planAhead/YeetingCheckers/YeetingCheckers.srcs/sources_1/imports/verilog/pipeline_28.v".
+    Found 2-bit register for signal <M_pipe_q>.
+    Summary:
+	inferred   2 D-type flip-flop(s).
+Unit <pipeline_28> synthesized.
 
 =========================================================================
 HDL Synthesis Report
 
 Macro Statistics
-# Adders/Subtractors                                   : 1
+# Adders/Subtractors                                   : 13
  10-bit adder                                          : 1
-# Registers                                            : 2
+ 20-bit adder                                          : 12
+# Registers                                            : 45
+ 1-bit register                                        : 15
  10-bit register                                       : 1
+ 2-bit register                                        : 12
+ 20-bit register                                       : 12
+ 3-bit register                                        : 4
  4-bit register                                        : 1
+# Multiplexers                                         : 14
+ 1-bit 2-to-1 multiplexer                              : 1
+ 3-bit 2-to-1 multiplexer                              : 12
+ 6-bit 7-to-1 multiplexer                              : 1
 # Tristates                                            : 6
  1-bit tristate buffer                                 : 6
 # FSMs                                                 : 1
@@ -146,6 +212,10 @@ Macro Statistics
 =========================================================================
 
 
+Synthesizing (advanced) Unit <button_conditioner_16>.
+The following registers are absorbed into counter <M_ctr_q>: 1 register on signal <M_ctr_q>.
+Unit <button_conditioner_16> synthesized (advanced).
+
 Synthesizing (advanced) Unit <led_multiplexer_2>.
 The following registers are absorbed into counter <M_timer_q>: 1 register on signal <M_timer_q>.
 Unit <led_multiplexer_2> synthesized (advanced).
@@ -154,10 +224,15 @@ Unit <led_multiplexer_2> synthesized (advanced).
 Advanced HDL Synthesis Report
 
 Macro Statistics
-# Counters                                             : 1
+# Counters                                             : 13
  10-bit up counter                                     : 1
-# Registers                                            : 4
- Flip-Flops                                            : 4
+ 20-bit up counter                                     : 12
+# Registers                                            : 55
+ Flip-Flops                                            : 55
+# Multiplexers                                         : 14
+ 1-bit 2-to-1 multiplexer                              : 1
+ 3-bit 2-to-1 multiplexer                              : 12
+ 6-bit 7-to-1 multiplexer                              : 1
 # FSMs                                                 : 1
 
 =========================================================================
@@ -166,7 +241,7 @@ Macro Statistics
 *                         Low Level Synthesis                           *
 =========================================================================
 Analyzing FSM <MFsm> for best encoding.
-Optimizing FSM <FSM_0> on signal <M_column_sel_q[1:6]> with one-hot encoding.
+Optimizing FSM <led_multiplexer/FSM_0> on signal <M_column_sel_q[1:6]> with one-hot encoding.
 -------------------
  State | Encoding
 -------------------
@@ -180,13 +255,29 @@ Optimizing FSM <FSM_0> on signal <M_column_sel_q[1:6]> with one-hot encoding.
 
 Optimizing unit <mojo_top_0> ...
 
+Optimizing unit <button_sensing_3> ...
+
+Optimizing unit <led_multiplexer_2> ...
+
 Mapping all equations...
 Building and optimizing final netlist ...
-Found area constraint ratio of 100 (+ 0) on block mojo_top_0, actual ratio is 0.
+Found area constraint ratio of 100 (+ 0) on block mojo_top_0, actual ratio is 7.
 
 Final Macro Processing ...
 
 Processing Unit <mojo_top_0> :
+	Found 2-bit shift register for signal <button_sensing/button_condc5/sync/M_pipe_q_1>.
+	Found 2-bit shift register for signal <button_sensing/button_condc4/sync/M_pipe_q_1>.
+	Found 2-bit shift register for signal <button_sensing/button_condc3/sync/M_pipe_q_1>.
+	Found 2-bit shift register for signal <button_sensing/button_condc2/sync/M_pipe_q_1>.
+	Found 2-bit shift register for signal <button_sensing/button_condc1/sync/M_pipe_q_1>.
+	Found 2-bit shift register for signal <button_sensing/button_condc0/sync/M_pipe_q_1>.
+	Found 2-bit shift register for signal <button_sensing/button_condr5/sync/M_pipe_q_1>.
+	Found 2-bit shift register for signal <button_sensing/button_condr4/sync/M_pipe_q_1>.
+	Found 2-bit shift register for signal <button_sensing/button_condr3/sync/M_pipe_q_1>.
+	Found 2-bit shift register for signal <button_sensing/button_condr2/sync/M_pipe_q_1>.
+	Found 2-bit shift register for signal <button_sensing/button_condr1/sync/M_pipe_q_1>.
+	Found 2-bit shift register for signal <button_sensing/button_condr0/sync/M_pipe_q_1>.
 INFO:Xst:741 - HDL ADVISOR - A 4-bit shift register was found for signal <reset_cond/M_stage_q_3> and currently occupies 4 logic cells (2 slices). Removing the set/reset logic would take advantage of SRL32 (and derived) primitives and reduce this to 1 logic cells (1 slices). Evaluate if the set/reset can be removed for this simple shift register. The majority of simple pipeline structures do not need to be set/reset operationally.
 Unit <mojo_top_0> processed.
 
@@ -194,8 +285,10 @@ Unit <mojo_top_0> processed.
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 20
- Flip-Flops                                            : 20
+# Registers                                            : 287
+ Flip-Flops                                            : 287
+# Shift Registers                                      : 12
+ 2-bit shift register                                  : 12
 
 =========================================================================
 
@@ -218,21 +311,30 @@ Top Level Output File Name         : mojo_top_0.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 36
-#      GND                         : 3
-#      INV                         : 2
-#      LUT1                        : 9
-#      LUT2                        : 1
-#      MUXCY                       : 9
-#      VCC                         : 2
-#      XORCY                       : 10
-# FlipFlops/Latches                : 20
-#      FDR                         : 15
+# BELS                             : 916
+#      GND                         : 27
+#      INV                         : 27
+#      LUT1                        : 237
+#      LUT2                        : 5
+#      LUT3                        : 3
+#      LUT4                        : 7
+#      LUT5                        : 29
+#      LUT6                        : 68
+#      MUXCY                       : 237
+#      VCC                         : 26
+#      XORCY                       : 250
+# FlipFlops/Latches                : 299
+#      FD                          : 12
+#      FDE                         : 12
+#      FDR                         : 19
+#      FDRE                        : 251
 #      FDS                         : 5
+# Shift Registers                  : 12
+#      SRLC16E                     : 12
 # Clock Buffers                    : 1
 #      BUFGP                       : 1
-# IO Buffers                       : 27
-#      IBUF                        : 1
+# IO Buffers                       : 39
+#      IBUF                        : 13
 #      OBUF                        : 20
 #      OBUFT                       : 6
 
@@ -243,20 +345,22 @@ Selected Device : 6slx9tqg144-2
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:              20  out of  11440     0%  
- Number of Slice LUTs:                   12  out of   5720     0%  
-    Number used as Logic:                12  out of   5720     0%  
+ Number of Slice Registers:             299  out of  11440     2%  
+ Number of Slice LUTs:                  388  out of   5720     6%  
+    Number used as Logic:               376  out of   5720     6%  
+    Number used as Memory:               12  out of   1440     0%  
+       Number used as SRL:               12
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:     32
-   Number with an unused Flip Flop:      12  out of     32    37%  
-   Number with an unused LUT:            20  out of     32    62%  
-   Number of fully used LUT-FF pairs:     0  out of     32     0%  
-   Number of unique control sets:         3
+ Number of LUT Flip Flop pairs used:    410
+   Number with an unused Flip Flop:     111  out of    410    27%  
+   Number with an unused LUT:            22  out of    410     5%  
+   Number of fully used LUT-FF pairs:   277  out of    410    67%  
+   Number of unique control sets:        44
 
 IO Utilization: 
- Number of IOs:                          34
- Number of bonded IOBs:                  28  out of    102    27%  
+ Number of IOs:                          46
+ Number of bonded IOBs:                  40  out of    102    39%  
 
 Specific Feature Utilization:
  Number of BUFG/BUFGCTRLs:                1  out of     16     6%  
@@ -282,8 +386,8 @@ Clock Information:
 -----------------------------------+----------------------------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)                        | Load  |
 -----------------------------------+----------------------------------------------+-------+
-clk                                | BUFGP                                        | 14    |
-led_multiplexer/M_timer_q_9        | NONE(led_multiplexer/M_column_sel_q_FSM_FFd5)| 6     |
+clk                                | BUFGP                                        | 305   |
+led_multiplexer/M_timer_q_9        | NONE(led_multiplexer/M_column_sel_q_FSM_FFd6)| 6     |
 -----------------------------------+----------------------------------------------+-------+
 INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
 
@@ -295,10 +399,10 @@ Timing Summary:
 ---------------
 Speed Grade: -2
 
-   Minimum period: 2.165ns (Maximum Frequency: 461.894MHz)
+   Minimum period: 5.742ns (Maximum Frequency: 174.155MHz)
    Minimum input arrival time before clock: 3.526ns
-   Maximum output required time after clock: 5.364ns
-   Maximum combinational path delay: No path found
+   Maximum output required time after clock: 6.707ns
+   Maximum combinational path delay: 6.941ns
 
 Timing Details:
 ---------------
@@ -306,51 +410,56 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk'
-  Clock period: 2.165ns (frequency: 461.894MHz)
-  Total number of paths / destination ports: 68 / 23
+  Clock period: 5.742ns (frequency: 174.155MHz)
+  Total number of paths / destination ports: 10336 / 808
 -------------------------------------------------------------------------
-Delay:               2.165ns (Levels of Logic = 1)
-  Source:            reset_cond/M_stage_q_3 (FF)
-  Destination:       led_multiplexer/M_timer_q_0 (FF)
+Delay:               5.742ns (Levels of Logic = 6)
+  Source:            button_sensing/button_condr2/M_ctr_q_9 (FF)
+  Destination:       button_sensing/M_ar_q_0 (FF)
   Source Clock:      clk rising
   Destination Clock: clk rising
 
-  Data Path: reset_cond/M_stage_q_3 to led_multiplexer/M_timer_q_0
+  Data Path: button_sensing/button_condr2/M_ctr_q_9 to button_sensing/M_ar_q_0
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDS:C->Q             16   0.525   1.181  M_stage_q_3 (M_stage_q_3)
-     end scope: 'reset_cond:out'
-     begin scope: 'led_multiplexer:rst'
-     FDR:R                     0.459          M_timer_q_0
+     FDRE:C->Q             2   0.525   1.181  M_ctr_q_9 (M_ctr_q_9)
+     LUT6:I0->O            3   0.254   0.994  out3 (out2)
+     end scope: 'button_sensing/button_condr2:out2'
+     begin scope: 'button_sensing/edge_detectorr2:out2'
+     LUT6:I3->O            9   0.235   1.204  out1 (out)
+     end scope: 'button_sensing/edge_detectorr2:out'
+     LUT3:I0->O            1   0.235   0.790  _n0213_inv1_SW1 (N26)
+     LUT6:I4->O            1   0.250   0.000  M_ar_q_0_rstpot (M_ar_q_0_rstpot)
+     FDR:D                     0.074          M_ar_q_0
     ----------------------------------------
-    Total                      2.165ns (0.984ns logic, 1.181ns route)
-                                       (45.5% logic, 54.5% route)
+    Total                      5.742ns (1.573ns logic, 4.169ns route)
+                                       (27.4% logic, 72.6% route)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'led_multiplexer/M_timer_q_9'
-  Clock period: 1.364ns (frequency: 733.138MHz)
+  Clock period: 1.542ns (frequency: 648.508MHz)
   Total number of paths / destination ports: 6 / 6
 -------------------------------------------------------------------------
-Delay:               1.364ns (Levels of Logic = 0)
-  Source:            led_multiplexer/M_column_sel_q_FSM_FFd2 (FF)
-  Destination:       led_multiplexer/M_column_sel_q_FSM_FFd1 (FF)
+Delay:               1.542ns (Levels of Logic = 0)
+  Source:            led_multiplexer/M_column_sel_q_FSM_FFd1 (FF)
+  Destination:       led_multiplexer/M_column_sel_q_FSM_FFd6 (FF)
   Source Clock:      led_multiplexer/M_timer_q_9 rising
   Destination Clock: led_multiplexer/M_timer_q_9 rising
 
-  Data Path: led_multiplexer/M_column_sel_q_FSM_FFd2 to led_multiplexer/M_column_sel_q_FSM_FFd1
+  Data Path: led_multiplexer/M_column_sel_q_FSM_FFd1 to led_multiplexer/M_column_sel_q_FSM_FFd6
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDR:C->Q              3   0.525   0.765  M_column_sel_q_FSM_FFd2 (M_column_sel_q_FSM_FFd2)
-     FDR:D                     0.074          M_column_sel_q_FSM_FFd1
+     FDR:C->Q              8   0.525   0.943  M_column_sel_q_FSM_FFd1 (M_column_sel_q_FSM_FFd1)
+     FDS:D                     0.074          M_column_sel_q_FSM_FFd6
     ----------------------------------------
-    Total                      1.364ns (0.599ns logic, 0.765ns route)
-                                       (43.9% logic, 56.1% route)
+    Total                      1.542ns (0.599ns logic, 0.943ns route)
+                                       (38.8% logic, 61.2% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
-  Total number of paths / destination ports: 4 / 4
+  Total number of paths / destination ports: 16 / 16
 -------------------------------------------------------------------------
 Offset:              3.526ns (Levels of Logic = 3)
   Source:            rst_n (PAD)
@@ -371,44 +480,71 @@ Offset:              3.526ns (Levels of Logic = 3)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
-  Total number of paths / destination ports: 1 / 1
+  Total number of paths / destination ports: 13 / 4
 -------------------------------------------------------------------------
-Offset:              4.380ns (Levels of Logic = 2)
-  Source:            led_multiplexer/M_timer_q_9 (FF)
-  Destination:       led<0> (PAD)
+Offset:              6.243ns (Levels of Logic = 5)
+  Source:            button_sensing/M_br_q_2 (FF)
+  Destination:       col<2> (PAD)
   Source Clock:      clk rising
 
-  Data Path: led_multiplexer/M_timer_q_9 to led<0>
+  Data Path: button_sensing/M_br_q_2 to col<2>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDR:C->Q              8   0.525   0.943  M_timer_q_9 (M_timer_q_9)
-     end scope: 'led_multiplexer:timerout'
-     OBUF:I->O                 2.912          led_0_OBUF (led<0>)
+     FDRE:C->Q             2   0.525   0.954  M_br_q_2 (M_br_q_2)
+     end scope: 'button_sensing:b_row<2>'
+     begin scope: 'led_multiplexer:inp_int<32>'
+     LUT6:I3->O            1   0.235   0.682  Mmux_column<2>_SW0 (N16)
+     LUT5:I4->O            1   0.254   0.681  Mmux_column<2> (column<2>)
+     end scope: 'led_multiplexer:column<2>'
+     OBUF:I->O                 2.912          col_2_OBUF (col<2>)
     ----------------------------------------
-    Total                      4.380ns (3.437ns logic, 0.943ns route)
-                                       (78.5% logic, 21.5% route)
+    Total                      6.243ns (3.926ns logic, 2.317ns route)
+                                       (62.9% logic, 37.1% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'led_multiplexer/M_timer_q_9'
-  Total number of paths / destination ports: 14 / 10
+  Total number of paths / destination ports: 36 / 12
 -------------------------------------------------------------------------
-Offset:              5.364ns (Levels of Logic = 3)
-  Source:            led_multiplexer/M_column_sel_q_FSM_FFd2 (FF)
-  Destination:       col<5> (PAD)
+Offset:              6.707ns (Levels of Logic = 4)
+  Source:            led_multiplexer/M_column_sel_q_FSM_FFd5 (FF)
+  Destination:       col<2> (PAD)
   Source Clock:      led_multiplexer/M_timer_q_9 rising
 
-  Data Path: led_multiplexer/M_column_sel_q_FSM_FFd2 to col<5>
+  Data Path: led_multiplexer/M_column_sel_q_FSM_FFd5 to col<2>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDR:C->Q              3   0.525   0.874  M_column_sel_q_FSM_FFd2 (M_column_sel_q_FSM_FFd2)
-     end scope: 'led_multiplexer:row<4>'
-     LUT2:I0->O            4   0.250   0.803  col<5>1 (col_5_OBUF)
-     OBUF:I->O                 2.912          col_5_OBUF (col<5>)
+     FDR:C->Q              8   0.525   1.399  M_column_sel_q_FSM_FFd5 (M_column_sel_q_FSM_FFd5)
+     LUT6:I0->O            1   0.254   0.682  Mmux_column<2>_SW0 (N16)
+     LUT5:I4->O            1   0.254   0.681  Mmux_column<2> (column<2>)
+     end scope: 'led_multiplexer:column<2>'
+     OBUF:I->O                 2.912          col_2_OBUF (col<2>)
     ----------------------------------------
-    Total                      5.364ns (3.687ns logic, 1.677ns route)
-                                       (68.7% logic, 31.3% route)
+    Total                      6.707ns (3.945ns logic, 2.762ns route)
+                                       (58.8% logic, 41.2% route)
+
+=========================================================================
+Timing constraint: Default path analysis
+  Total number of paths / destination ports: 6 / 6
+-------------------------------------------------------------------------
+Delay:               6.941ns (Levels of Logic = 5)
+  Source:            buttoncol<2> (PAD)
+  Destination:       col<2> (PAD)
+
+  Data Path: buttoncol<2> to col<2>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             2   1.328   0.834  buttoncol_2_IBUF (buttoncol_2_IBUF)
+     begin scope: 'led_multiplexer:inp_int<14>'
+     LUT6:I4->O            1   0.250   0.682  Mmux_column<2>_SW0 (N16)
+     LUT5:I4->O            1   0.254   0.681  Mmux_column<2> (column<2>)
+     end scope: 'led_multiplexer:column<2>'
+     OBUF:I->O                 2.912          col_2_OBUF (col<2>)
+    ----------------------------------------
+    Total                      6.941ns (4.744ns logic, 2.197ns route)
+                                       (68.3% logic, 31.7% route)
 
 =========================================================================
 
@@ -420,7 +556,7 @@ Clock to Setup on destination clock clk
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-clk            |    2.165|         |         |         |
+clk            |    5.742|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock led_multiplexer/M_timer_q_9
@@ -428,22 +564,22 @@ Clock to Setup on destination clock led_multiplexer/M_timer_q_9
                            | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock               |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------------------+---------+---------+---------+---------+
-clk                        |    2.165|         |         |         |
-led_multiplexer/M_timer_q_9|    1.364|         |         |         |
+clk                        |    2.363|         |         |         |
+led_multiplexer/M_timer_q_9|    1.542|         |         |         |
 ---------------------------+---------+---------+---------+---------+
 
 =========================================================================
 
 
-Total REAL time to Xst completion: 4.00 secs
-Total CPU time to Xst completion: 3.46 secs
+Total REAL time to Xst completion: 5.00 secs
+Total CPU time to Xst completion: 4.66 secs
  
 --> 
 
 
-Total memory usage is 393556 kilobytes
+Total memory usage is 394392 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :    6 (   0 filtered)
-Number of infos    :    2 (   0 filtered)
+Number of warnings :    7 (   0 filtered)
+Number of infos    :    3 (   0 filtered)
 

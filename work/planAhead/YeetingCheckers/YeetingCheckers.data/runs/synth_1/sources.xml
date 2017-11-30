@@ -2,10 +2,37 @@
 <DARoots Version="1" Minor="26">
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
+    <File Path="$PSRCDIR/sources_1/imports/verilog/pipeline_28.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../verilog/pipeline_28.v"/>
+        <Attr Name="ImportTime" Val="1512046768"/>
+        <Attr Name="UsedInSynthesis" Val="1"/>
+        <Attr Name="UsedInImplementation" Val="1"/>
+        <Attr Name="UsedInSimulation" Val="1"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/verilog/edge_detector_4.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../verilog/edge_detector_4.v"/>
+        <Attr Name="ImportTime" Val="1512046768"/>
+        <Attr Name="UsedInSynthesis" Val="1"/>
+        <Attr Name="UsedInImplementation" Val="1"/>
+        <Attr Name="UsedInSimulation" Val="1"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/verilog/button_conditioner_16.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../verilog/button_conditioner_16.v"/>
+        <Attr Name="ImportTime" Val="1512046768"/>
+        <Attr Name="UsedInSynthesis" Val="1"/>
+        <Attr Name="UsedInImplementation" Val="1"/>
+        <Attr Name="UsedInSimulation" Val="1"/>
+      </FileInfo>
+    </File>
     <File Path="$PSRCDIR/sources_1/imports/verilog/reset_conditioner_1.v">
       <FileInfo>
         <Attr Name="ImportPath" Val="$PPRDIR/../../verilog/reset_conditioner_1.v"/>
-        <Attr Name="ImportTime" Val="1511762515"/>
+        <Attr Name="ImportTime" Val="1512046768"/>
         <Attr Name="UsedInSynthesis" Val="1"/>
         <Attr Name="UsedInImplementation" Val="1"/>
         <Attr Name="UsedInSimulation" Val="1"/>
@@ -14,7 +41,16 @@
     <File Path="$PSRCDIR/sources_1/imports/verilog/led_multiplexer_2.v">
       <FileInfo>
         <Attr Name="ImportPath" Val="$PPRDIR/../../verilog/led_multiplexer_2.v"/>
-        <Attr Name="ImportTime" Val="1511762515"/>
+        <Attr Name="ImportTime" Val="1512046768"/>
+        <Attr Name="UsedInSynthesis" Val="1"/>
+        <Attr Name="UsedInImplementation" Val="1"/>
+        <Attr Name="UsedInSimulation" Val="1"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/verilog/button_sensing_3.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../verilog/button_sensing_3.v"/>
+        <Attr Name="ImportTime" Val="1512046768"/>
         <Attr Name="UsedInSynthesis" Val="1"/>
         <Attr Name="UsedInImplementation" Val="1"/>
         <Attr Name="UsedInSimulation" Val="1"/>
@@ -23,7 +59,7 @@
     <File Path="$PSRCDIR/sources_1/imports/verilog/mojo_top_0.v">
       <FileInfo>
         <Attr Name="ImportPath" Val="$PPRDIR/../../verilog/mojo_top_0.v"/>
-        <Attr Name="ImportTime" Val="1511762515"/>
+        <Attr Name="ImportTime" Val="1512046768"/>
         <Attr Name="UsedInSynthesis" Val="1"/>
         <Attr Name="UsedInImplementation" Val="1"/>
         <Attr Name="UsedInSimulation" Val="1"/>

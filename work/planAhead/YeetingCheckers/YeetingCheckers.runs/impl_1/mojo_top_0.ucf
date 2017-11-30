@@ -5,6 +5,48 @@
 
 
 ####################################################################################
+# Constraints from file : 'buttons.ucf'
+####################################################################################
+
+NET "buttonrow[0]" LOC = P51;
+NET "buttonrow[0]" IOSTANDARD = LVTTL;
+NET "buttonrow[0]" PULLDOWN;
+NET "buttonrow[1]" LOC = P41;
+NET "buttonrow[1]" IOSTANDARD = LVTTL;
+NET "buttonrow[1]" PULLDOWN;
+NET "buttonrow[2]" LOC = P35;
+NET "buttonrow[2]" IOSTANDARD = LVTTL;
+NET "buttonrow[2]" PULLDOWN;
+NET "buttonrow[3]" LOC = P33;
+NET "buttonrow[3]" IOSTANDARD = LVTTL;
+NET "buttonrow[3]" PULLDOWN;
+NET "buttonrow[4]" LOC = P30;
+NET "buttonrow[4]" IOSTANDARD = LVTTL;
+NET "buttonrow[4]" PULLDOWN;
+NET "buttonrow[5]" LOC = P27;
+NET "buttonrow[5]" IOSTANDARD = LVTTL;
+NET "buttonrow[5]" PULLDOWN;
+
+NET "buttoncol[0]" LOC = P50;
+NET "buttoncol[0]" IOSTANDARD = LVTTL;
+NET "buttoncol[0]" PULLDOWN;
+NET "buttoncol[1]" LOC = P40;
+NET "buttoncol[1]" IOSTANDARD = LVTTL;
+NET "buttoncol[1]" PULLDOWN;
+NET "buttoncol[2]" LOC = P34;
+NET "buttoncol[2]" IOSTANDARD = LVTTL;
+NET "buttoncol[2]" PULLDOWN;
+NET "buttoncol[3]" LOC = P32;
+NET "buttoncol[3]" IOSTANDARD = LVTTL;
+NET "buttoncol[3]" PULLDOWN;
+NET "buttoncol[4]" LOC = P29;
+NET "buttoncol[4]" IOSTANDARD = LVTTL;
+NET "buttoncol[4]" PULLDOWN;
+NET "buttoncol[5]" LOC = P26;
+NET "buttoncol[5]" IOSTANDARD = LVTTL;
+NET "buttoncol[5]" PULLDOWN;
+
+####################################################################################
 # Constraints from file : 'led.ucf'
 ####################################################################################
 
