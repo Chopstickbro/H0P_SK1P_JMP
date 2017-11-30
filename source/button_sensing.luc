@@ -1,0 +1,209 @@
+module button_sensing (
+    input clk,  // clock
+    input rst,  // reset
+    input buttonrow[6],
+    input buttoncol[6],
+    output a_row[3],  //button A Row
+    output a_col[3],  //button A Column
+    output b_row[3],  //button B Row
+    output b_col[3],  //button B Column
+    output read   //read ready
+  ) {
+  
+  
+  .clk(clk) {
+    //edge detectors for rows
+    edge_detector edge_detectorr0(#RISE(1), #FALL(0));
+    edge_detector edge_detectorr1(#RISE(1), #FALL(0));
+    edge_detector edge_detectorr2(#RISE(1), #FALL(0));
+    edge_detector edge_detectorr3(#RISE(1), #FALL(0));
+    edge_detector edge_detectorr4(#RISE(1), #FALL(0));
+    edge_detector edge_detectorr5(#RISE(1), #FALL(0));
+    //edge detectors for columns
+    edge_detector edge_detectorc0(#RISE(1), #FALL(0));
+    edge_detector edge_detectorc1(#RISE(1), #FALL(0));
+    edge_detector edge_detectorc2(#RISE(1), #FALL(0));
+    edge_detector edge_detectorc3(#RISE(1), #FALL(0));
+    edge_detector edge_detectorc4(#RISE(1), #FALL(0));
+    edge_detector edge_detectorc5(#RISE(1), #FALL(0));
+    
+    //button conditioners for rows
+    button_conditioner button_condr0;
+    button_conditioner button_condr1;
+    button_conditioner button_condr2;
+    button_conditioner button_condr3;
+    button_conditioner button_condr4;
+    button_conditioner button_condr5;
+    //button conditioners for columns
+    button_conditioner button_condc0;
+    button_conditioner button_condc1;
+    button_conditioner button_condc2;
+    button_conditioner button_condc3;
+    button_conditioner button_condc4;
+    button_conditioner button_condc5;
+         
+    .rst(rst) {
+      fsm state = {BUTTONA, BUTTONB};
+      dff r_ready[1];
+      dff c_ready[1];
+      dff ar[3];
+      dff ac[3];
+      dff br[3];
+      dff bc[3];      
+    }
+  }
+  
+         
+  always {
+    read = 0;
+    a_row = ar.q;
+    b_row = br.q;
+    a_col = ac.q;
+    b_col = bc.q;
+    
+    button_condr0.in = buttonrow[0];
+    button_condr1.in = buttonrow[1];
+    button_condr2.in = buttonrow[2];
+    button_condr3.in = buttonrow[3];
+    button_condr4.in = buttonrow[4];
+    button_condr5.in = buttonrow[5];
+    
+    button_condc0.in = buttoncol[0];
+    button_condc1.in = buttoncol[1];
+    button_condc2.in = buttoncol[2];
+    button_condc3.in = buttoncol[3];
+    button_condc4.in = buttoncol[4];
+    button_condc5.in = buttoncol[5];
+       
+    edge_detectorr0.in=button_condr0.out;
+    edge_detectorr1.in=button_condr1.out;
+    edge_detectorr2.in=button_condr2.out;
+    edge_detectorr3.in=button_condr3.out;
+    edge_detectorr4.in=button_condr4.out;
+    edge_detectorr5.in=button_condr5.out;
+    
+    edge_detectorc0.in=button_condc0.out;
+    edge_detectorc1.in=button_condc1.out;
+    edge_detectorc2.in=button_condc2.out;
+    edge_detectorc3.in=button_condc3.out;
+    edge_detectorc4.in=button_condc4.out;
+    edge_detectorc5.in=button_condc5.out;
+        
+    
+    case(state.q) {
+      state.BUTTONA:
+        if (edge_detectorr0.out==1){
+        	ar.d = 0;
+          r_ready.d=1;
+        }
+        else if (edge_detectorr1.out==1){
+        	ar.d = 1;
+          r_ready.d=1;
+        }
+        else if (edge_detectorr2.out==1){
+        	ar.d = 2;
+          r_ready.d=1;
+        }
+        else if (edge_detectorr3.out==1){
+        	ar.d = 3;
+          r_ready.d=1;
+        }
+        else if (edge_detectorr4.out==1){
+        	ar.d = 4;
+          r_ready.d=1;
+        }
+        else if (edge_detectorr5.out==1){
+        	ar.d = 5;
+          r_ready.d=1;
+        }
+        
+        if (edge_detectorc0.out==1){
+        	ac.d = 0;
+          c_ready.d=1;
+        }
+        else if (edge_detectorc1.out==1){
+        	ac.d = 1;
+          c_ready.d=1;
+        }
+        else if (edge_detectorc2.out==1){
+        	ac.d = 2;
+          c_ready.d=1;
+        }
+        else if (edge_detectorc3.out==1){
+        	ac.d = 3;
+          c_ready.d=1;
+        }
+        else if (edge_detectorc4.out==1){
+        	ac.d = 4;
+          c_ready.d=1;
+        }
+        else if (edge_detectorc5.out==1){
+        	ac.d = 5;
+          c_ready.d=1;
+        }
+        if (r_ready.q == 1 && c_ready.q ==1) {
+          r_ready.d = 0;
+          c_ready.d = 0;
+          state.d = state.BUTTONB;
+        }
+        
+      state.BUTTONB:
+        if (edge_detectorr0.out==1){
+        	br.d = 0;
+          r_ready.d=1;
+        }
+        else if (edge_detectorr1.out==1){
+        	br.d = 1;
+          r_ready.d=1;
+        }
+        else if (edge_detectorr2.out==1){
+        	br.d = 2;
+          r_ready.d=1;
+        }
+        else if (edge_detectorr3.out==1){
+        	br.d = 3;
+          r_ready.d=1;
+        }
+        else if (edge_detectorr4.out==1){
+        	br.d = 4;
+          r_ready.d=1;
+        }
+        else if (edge_detectorr5.out==1){
+        	br.d = 5;
+          r_ready.d=1;
+        }
+        
+        if (edge_detectorc0.out==1){
+        	bc.d = 0;
+          c_ready.d=1;
+        }
+        else if (edge_detectorc1.out==1){
+        	bc.d = 1;
+          c_ready.d=1;
+        }
+        else if (edge_detectorc2.out==1){
+        	bc.d = 2;
+          c_ready.d=1;
+        }
+        else if (edge_detectorc3.out==1){
+        	bc.d = 3;
+          c_ready.d=1;
+        }
+        else if (edge_detectorc4.out==1){
+        	bc.d = 4;
+          c_ready.d=1;
+        }
+        else if (edge_detectorc5.out==1){
+        	bc.d = 5;
+          c_ready.d=1;
+        }
+        if (r_ready.q == 1 && c_ready.q ==1) {
+          r_ready.d = 0;
+          c_ready.d = 0;
+          read = 1;
+          state.d = state.BUTTONA;
+        }
+    }
+        
+  }
+}
