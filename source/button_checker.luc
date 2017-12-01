@@ -1,0 +1,133 @@
+module button_checker (
+    input clk,  // clock
+    input rst,  // reset
+    input matrixin[6][6],
+    input a_row[3],
+    input b_row[3],
+    input a_col[3],
+    input b_col[3],
+    input read,
+    output validout,
+    output matrixout[6][6],
+    output invalidout
+  ) {
+  
+  .clk(clk) {
+    .rst(rst) {
+      fsm state = {READ,CHECKDIST1, CHECKDIST2, CHECKLANDING, CHECKMIDDLE1, CHECKMIDDLE2, VALID, INVALID};
+      dff ar[3];
+      dff br[3];
+      dff ac[3];
+      dff bc[3];
+      dff mc[3];
+      dff mr[3];
+      dff valid[1];
+      dff invalid[1];
+      dff change_matrix[6][6];
+    }
+  }
+
+  always {
+    
+
+    validout = valid.q;
+    invalidout = invalid.q;
+    matrixout = change_matrix.q;
+    
+    case(state.q) {
+      
+      state.READ:
+        if (read) {
+          //store inputs in dffs
+          change_matrix.d = 6x{{6b0}};
+          ar.d = a_row;
+          br.d = b_row;
+          ac.d = a_col;
+          bc.d = b_col;
+          state.d = state.CHECKLANDING;
+          valid.d = 0;
+          invalid.d = 0;
+        }
+       
+      state.CHECKLANDING:
+        if ((matrixin[ar.q][ac.q] == 1) &&
+            (matrixin[br.q][bc.q] == 0)
+           ) state.d = state.CHECKDIST1;
+        else state.d = state.INVALID;
+        
+      state.CHECKDIST1:
+        if (ar.q == br.q) {
+            if ((ac.q-bc.q == 2) | (bc.q-ac.q == 2)) {
+              state.d = state.CHECKMIDDLE1;
+            }
+        }
+        else {
+          state.d = state.CHECKDIST2;
+        }
+        
+        
+      state.CHECKDIST2:
+        if (ac.q == bc.q) {
+          if ((ar.q-br.q == 2) | (br.q-ar.q==2)) {
+            state.d = state.CHECKMIDDLE2;
+          }
+        }
+        else {
+          state.d = state.INVALID;
+        }
+        
+      state.CHECKMIDDLE1:
+        if (ac.q > bc.q) {
+          if (matrixin[ar.q][ac.q-1] == 1) {
+            mc.d = ac.q-1;
+            mr.d = ar.q;
+            state.d = state.VALID;
+          }
+        }
+        else {
+          if (matrixin[ar.q][ac.q+1] == 1) {
+            mc.d = ac.q+1;
+            mr.d = ar.q;
+            state.d = state.VALID;
+          }
+          else {
+            state.d = state.INVALID;
+          }
+        } 
+        
+        
+      state.CHECKMIDDLE2:
+        if (ar.q > br.q) {
+          if (matrixin[ar.q-1][ac.q] == 1) {
+            mc.d = ac.q;
+            mr.d = ar.q-1;
+            state.d = state.VALID;
+          }
+        }
+        else {
+          if (matrixin[ar.q+1][ac.q] == 1) {
+            mc.d = ac.q;
+            mr.d = ar.q+1;
+            state.d = state.VALID;
+          }
+          else {
+            state.d = state.INVALID;
+          }
+        }
+        
+      state.VALID:
+        //generate output matrix
+        change_matrix.d[mr.q][mc.q] = 1;
+        change_matrix.d[ar.q][ac.q] = 1;
+        change_matrix.d[br.q][bc.q] = 1;
+        valid.d = 1;
+        invalid.d = 0;
+        state.d = state.READ;
+        
+      state.INVALID:
+        valid.d = 0;
+        invalid.d = 1;
+        state.d = state.READ;
+    }
+  }        
+}

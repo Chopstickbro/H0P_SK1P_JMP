@@ -1,5 +1,5 @@
 //! **************************************************************************
-// Written by: Map P.20131013 on Thu Nov 30 20:59:57 2017
+// Written by: Map P.20131013 on Fri Dec 01 20:54:47 2017
 //! **************************************************************************
 
 SCHEMATIC START;
@@ -50,8 +50,8 @@ TIMEGRP clk = BEL "button_sensing/M_br_q_2" BEL "button_sensing/M_br_q_1" BEL
         "button_sensing/M_bc_q_2" BEL "button_sensing/M_bc_q_1" BEL
         "button_sensing/M_bc_q_0" BEL "button_sensing/M_ar_q_2" BEL
         "button_sensing/M_ar_q_1" BEL "button_sensing/M_r_ready_q_0" BEL
-        "button_sensing/M_c_ready_q_0" BEL "button_sensing/M_ar_q_0" BEL
-        "button_sensing/M_state_q" BEL
+        "button_sensing/M_state_q" BEL "button_sensing/M_c_ready_q_0" BEL
+        "button_sensing/M_ar_q_0" BEL
         "button_sensing/button_condr5/M_ctr_q_19" BEL
         "button_sensing/button_condr5/M_ctr_q_18" BEL
         "button_sensing/button_condr5/M_ctr_q_17" BEL
@@ -328,14 +328,62 @@ TIMEGRP clk = BEL "button_sensing/M_br_q_2" BEL "button_sensing/M_br_q_1" BEL
         "button_sensing/button_condr4/M_ctr_q_0" BEL
         "button_sensing/button_condr4/sync/M_pipe_q_1" BEL
         "button_sensing/button_condr4/sync/Mshreg_M_pipe_q_1" BEL
-        "clk_BUFGP/BUFG" BEL "reset_cond/M_stage_q_3" BEL
-        "reset_cond/M_stage_q_2" BEL "reset_cond/M_stage_q_1" BEL
-        "reset_cond/M_stage_q_0" BEL "led_multiplexer/M_timer_q_9" BEL
-        "led_multiplexer/M_timer_q_8" BEL "led_multiplexer/M_timer_q_7" BEL
-        "led_multiplexer/M_timer_q_6" BEL "led_multiplexer/M_timer_q_5" BEL
-        "led_multiplexer/M_timer_q_4" BEL "led_multiplexer/M_timer_q_3" BEL
-        "led_multiplexer/M_timer_q_2" BEL "led_multiplexer/M_timer_q_1" BEL
-        "led_multiplexer/M_timer_q_0";
+        "clk_BUFGP/BUFG" BEL "button_checker/M_ac_q_0" BEL
+        "button_checker/M_ac_q_1" BEL "button_checker/M_ac_q_2" BEL
+        "button_checker/M_bc_q_0" BEL "button_checker/M_bc_q_1" BEL
+        "button_checker/M_bc_q_2" BEL "button_checker/M_ar_q_0" BEL
+        "button_checker/M_ar_q_1" BEL "button_checker/M_ar_q_2" BEL
+        "button_checker/M_br_q_0" BEL "button_checker/M_state_q_FSM_FFd1" BEL
+        "button_checker/M_br_q_1" BEL "button_checker/M_state_q_FSM_FFd2" BEL
+        "button_checker/M_br_q_2" BEL "button_checker/M_state_q_FSM_FFd3" BEL
+        "button_checker/M_br_q_0_1" BEL "button_checker/Maddsub_n03461_1" BEL
+        "button_checker/Maddsub_n03461_2" BEL
+        "button_checker/Maddsub_n03461_3" BEL "button_checker/M_ar_q_0_1" BEL
+        "button_checker/M_invalid_q_0" BEL "button_checker/M_ar_q_1_1" BEL
+        "button_checker/M_change_matrix_q_0" BEL
+        "button_checker/M_change_matrix_q_1" BEL
+        "button_checker/M_change_matrix_q_2" BEL
+        "button_checker/M_change_matrix_q_3" BEL
+        "button_checker/M_change_matrix_q_4" BEL
+        "button_checker/M_change_matrix_q_5" BEL
+        "button_checker/M_change_matrix_q_6" BEL
+        "button_checker/M_change_matrix_q_7" BEL
+        "button_checker/M_change_matrix_q_8" BEL
+        "button_checker/M_change_matrix_q_9" BEL "button_checker/M_mr_q_0" BEL
+        "button_checker/M_mr_q_1" BEL "button_checker/M_mr_q_2" BEL
+        "button_checker/M_change_matrix_q_10" BEL
+        "button_checker/M_change_matrix_q_11" BEL
+        "button_checker/M_change_matrix_q_12" BEL
+        "button_checker/M_change_matrix_q_13" BEL
+        "button_checker/M_change_matrix_q_14" BEL
+        "button_checker/M_change_matrix_q_20" BEL
+        "button_checker/M_change_matrix_q_15" BEL
+        "button_checker/M_change_matrix_q_21" BEL
+        "button_checker/M_change_matrix_q_16" BEL
+        "button_checker/M_change_matrix_q_22" BEL
+        "button_checker/M_change_matrix_q_17" BEL
+        "button_checker/M_change_matrix_q_18" BEL
+        "button_checker/M_change_matrix_q_23" BEL
+        "button_checker/M_change_matrix_q_24" BEL
+        "button_checker/M_change_matrix_q_19" BEL
+        "button_checker/M_change_matrix_q_30" BEL
+        "button_checker/M_change_matrix_q_25" BEL
+        "button_checker/M_change_matrix_q_31" BEL
+        "button_checker/M_change_matrix_q_26" BEL
+        "button_checker/M_change_matrix_q_32" BEL
+        "button_checker/M_change_matrix_q_27" BEL
+        "button_checker/M_change_matrix_q_28" BEL
+        "button_checker/M_change_matrix_q_33" BEL
+        "button_checker/M_change_matrix_q_34" BEL
+        "button_checker/M_change_matrix_q_29" BEL
+        "button_checker/M_change_matrix_q_35" BEL "button_checker/M_valid_q_0"
+        BEL "reset_cond/M_stage_q_3" BEL "reset_cond/M_stage_q_2" BEL
+        "reset_cond/M_stage_q_1" BEL "reset_cond/M_stage_q_0" BEL
+        "led_multiplexer/M_timer_q_9" BEL "led_multiplexer/M_timer_q_8" BEL
+        "led_multiplexer/M_timer_q_7" BEL "led_multiplexer/M_timer_q_6" BEL
+        "led_multiplexer/M_timer_q_5" BEL "led_multiplexer/M_timer_q_4" BEL
+        "led_multiplexer/M_timer_q_3" BEL "led_multiplexer/M_timer_q_2" BEL
+        "led_multiplexer/M_timer_q_1" BEL "led_multiplexer/M_timer_q_0";
 TS_clk = PERIOD TIMEGRP "clk" 50 MHz HIGH 50%;
 SCHEMATIC END;
 

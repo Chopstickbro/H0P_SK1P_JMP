@@ -1,0 +1,20 @@
+module matrix_store (
+    input toggle,  // toggle
+    input rst,  // reset
+    input mat_in[6][6],
+    output mat_out[6][6]
+  ) {
+  
+  .clk(toggle) {
+    .rst(rst) {
+      dff matrix[6][6];
+    }
+  }
+     
+      
+
+  always {
+    matrix.d = mat_in;
+    mat_out = matrix.q;
+  }
+}
