@@ -1,0 +1,29 @@
+module matrix_former (
+    input clk,  // clock
+    input rst,  // reset
+    input old_matrix[6][6],
+    input change_matrix[6][6],
+    input valid,
+    output new_matrix[6][6],
+    input multiplier,
+    input old_score[8],
+    output new_score[8]
+  ) {
+  
+  .clk(clk) {
+    edge_detector edge_detector(#RISE(1), #FALL(0));
+    .rst(rst) {
+      
+    }
+  }
+  
+  always {
+    edge_detector.in = valid;
+    new_matrix = old_matrix;
+    new_score = old_score;
+    if(edge_detector.out) {
+      new_matrix = old_matrix^change_matrix;
+      new_score = old_score+1*multiplier;
+    }
+  }
+}

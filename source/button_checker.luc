@@ -9,7 +9,9 @@ module button_checker (
     input read,
     output validout,
     output matrixout[6][6],
-    output invalidout
+    output invalidout,
+    output probe1,
+    output probe2
   ) {
   
   .clk(clk) {
@@ -29,7 +31,8 @@ module button_checker (
 
   always {
     
-
+    probe1 = matrixin[ar.q][ac.q];
+    probe2 = matrixin[br.q][bc.q];
     validout = valid.q;
     invalidout = invalid.q;
     matrixout = change_matrix.q;

@@ -15,9 +15,9 @@ module led_multiplexer_2 (
   
   
   
-  localparam N = 4'ha;
+  localparam N = 5'h11;
   
-  reg [9:0] M_timer_d, M_timer_q = 1'h0;
+  reg [16:0] M_timer_d, M_timer_q = 1'h0;
   
   
   localparam ONE_column_sel = 3'd0;
@@ -33,7 +33,7 @@ module led_multiplexer_2 (
     M_column_sel_d = M_column_sel_q;
     M_timer_d = M_timer_q;
     
-    timerout = M_timer_q[9+0-:1];
+    timerout = M_timer_q[16+0-:1];
     row = 8'h00;
     column = 8'h00;
     
@@ -72,20 +72,20 @@ module led_multiplexer_2 (
     M_timer_d = M_timer_q + 1'h1;
   end
   
-  always @(posedge M_timer_q[9+0-:1]) begin
-    if (rst == 1'b1) begin
-      M_column_sel_q <= 1'h0;
-    end else begin
-      M_column_sel_q <= M_column_sel_d;
-    end
-  end
-  
-  
   always @(posedge clk) begin
     if (rst == 1'b1) begin
       M_timer_q <= 1'h0;
     end else begin
       M_timer_q <= M_timer_d;
+    end
+  end
+  
+  
+  always @(posedge M_timer_q[16+0-:1]) begin
+    if (rst == 1'b1) begin
+      M_column_sel_q <= 1'h0;
+    end else begin
+      M_column_sel_q <= M_column_sel_d;
     end
   end
   

@@ -23,11 +23,18 @@ module mojo_top (
     // The reset conditioner is used to synchronize the reset signal to the FPGA
     // clock. This ensures the entire FPGA comes out of reset at the same time.
     reset_conditioner reset_cond;
+    .rst(rst) {
+      dff matrix_store[6][6]; //store matrix
+      fsm game_state = {INIT, PLAYING};
+      dff score[8];
+    }
   }
   
   led_multiplexer led_multiplexer(.clk(clk), .rst(rst));
   button_sensing button_sensing(.clk(clk), .rst(rst));
   button_checker button_checker(.clk(clk), .rst(rst));
+  matrix_former matrix_former(.clk(clk), .rst(rst));
+    
   
   always {
     reset_cond.in = ~rst_n; // input raw inverted reset signal
@@ -38,21 +45,43 @@ module mojo_top (
     spi_channel = bzzzz;    // not using flags
     avr_rx = bz;            // not using serial port
     
-    button_sensing.buttoncol=buttoncol;
-    button_sensing.buttonrow=buttonrow;
+    button_sensing.buttoncol = buttoncol;
+    button_sensing.buttonrow = buttonrow;
+    
+
     
     button_checker.read = button_sensing.read;
     button_checker.a_col = button_sensing.a_col;
     button_checker.b_col = button_sensing.b_col;
     button_checker.a_row = button_sensing.a_row;
     button_checker.b_row = button_sensing.b_row;
-    button_checker.matrixin = {6b111111, 6b111111,6b111000,6b000111,6b111111,6b111111};
+    button_checker.matrixin = matrix_store.q;
     led[0] = button_checker.validout;
     led[1] = button_checker.invalidout;
-    
-    led_multiplexer.inp_int = button_checker.matrixout;
-    
-    
+      
+    led_multiplexer.inp_int = matrix_store.q;
+    //led_multiplexer.inp_int = {6b111111, 6b111111, 6b110111, 6b111111, 6b111111,6b111111};
+    row = led_multiplexer.row;
+    col = led_multiplexer.column;
+
+    matrix_former.old_matrix = matrix_store.q;
+    matrix_store.d = matrix_former.new_matrix;
+    matrix_former.valid = button_checker.validout;
+    matrix_former.old_score = score.q;
+    score.d = matrix_former.new_score;
+    matrix_former.multiplier = 1;
+    matrix_former.change_matrix = button_checker.matrixout;
+
+    case(game_state.q){
+      game_state.INIT:
+        matrix_store.d = {6b111111, 6b111111, 6b110111, 6b111111, 6b111111,6b111111};
+        game_state.d = game_state.PLAYING;
+        
+      game_state.PLAYING:
+        led[2] = 1;
+    }
+
+        
 
     /*    
     led_multiplexer.inp_int[0] = button_sensing.a_col;
@@ -62,8 +91,7 @@ module mojo_top (
     led_multiplexer.inp_int[4] = button_sensing.b_col;
     led_multiplexer.inp_int[5] = button_sensing.b_row;
     */
-    row = led_multiplexer.row;
-    col = led_multiplexer.column;
+
 
     
   }

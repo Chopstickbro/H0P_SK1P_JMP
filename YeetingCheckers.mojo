@@ -3,6 +3,7 @@
   <files>
     <src top="true">mojo_top.luc</src>
     <src>button_sensing.luc</src>
+    <src>matrix_former.luc</src>
     <src>led_multiplexer.luc</src>
     <src>button_checker.luc</src>
     <src>matrix_store.luc</src>
