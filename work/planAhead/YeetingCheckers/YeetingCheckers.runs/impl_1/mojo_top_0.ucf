@@ -46,6 +46,13 @@ NET "buttoncol[5]" LOC = P26;
 NET "buttoncol[5]" IOSTANDARD = LVTTL;
 NET "buttoncol[5]" PULLDOWN;
 
+NET "shiftright" LOC = P1;
+NET "shiftright" IOSTANDARD = LVTTL;
+NET "shiftright" PULLDOWN;
+NET "shiftleft" LOC = P2;
+NET "shiftleft" IOSTANDARD = LVTTL;
+NET "shiftleft" PULLDOWN;
+
 ####################################################################################
 # Constraints from file : 'led.ucf'
 ####################################################################################

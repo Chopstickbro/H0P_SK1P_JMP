@@ -7,6 +7,7 @@
     <src>led_multiplexer.luc</src>
     <src>button_checker.luc</src>
     <src>matrix_store.luc</src>
+    <src>shifter.luc</src>
     <ucf>buttons.ucf</ucf>
     <ucf>led.ucf</ucf>
     <ucf lib="true">mojo.ucf</ucf>
