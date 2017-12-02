@@ -44,6 +44,7 @@ module mojo_top_0 (
   reg [1:0] M_game_state_d, M_game_state_q = INIT_game_state;
   reg [7:0] M_score_d, M_score_q = 1'h0;
   reg M_powerup_d, M_powerup_q = 1'h0;
+  reg [7:0] M_multiplier_dff_d, M_multiplier_dff_q = 1'h0;
   
   wire [6-1:0] M_led_multiplexer_row;
   wire [6-1:0] M_led_multiplexer_column;
@@ -109,7 +110,7 @@ module mojo_top_0 (
   reg [36-1:0] M_matrix_former_old_matrix;
   reg [36-1:0] M_matrix_former_change_matrix;
   reg [1-1:0] M_matrix_former_valid;
-  reg [1-1:0] M_matrix_former_multiplier;
+  reg [8-1:0] M_matrix_former_multiplier;
   reg [8-1:0] M_matrix_former_old_score;
   reg [1-1:0] M_matrix_former_enable;
   matrix_former_5 matrix_former (
@@ -144,11 +145,31 @@ module mojo_top_0 (
     .new_matrix(M_shifter_new_matrix)
   );
   
+  wire [8-1:0] M_multiplier_new_multiplier;
+  reg [8-1:0] M_multiplier_old_multiplier;
+  reg [3-1:0] M_multiplier_ar;
+  reg [3-1:0] M_multiplier_ac;
+  reg [3-1:0] M_multiplier_br;
+  reg [3-1:0] M_multiplier_bc;
+  reg [1-1:0] M_multiplier_valid;
+  multiplier_7 multiplier (
+    .clk(clk),
+    .rst(rst),
+    .old_multiplier(M_multiplier_old_multiplier),
+    .ar(M_multiplier_ar),
+    .ac(M_multiplier_ac),
+    .br(M_multiplier_br),
+    .bc(M_multiplier_bc),
+    .valid(M_multiplier_valid),
+    .new_multiplier(M_multiplier_new_multiplier)
+  );
+  
   always @* begin
     M_game_state_d = M_game_state_q;
     M_powerup_d = M_powerup_q;
     M_score_d = M_score_q;
     M_matrix_store_d = M_matrix_store_q;
+    M_multiplier_dff_d = M_multiplier_dff_q;
     
     M_reset_cond_in = ~rst_n;
     rst = M_reset_cond_out;
@@ -172,7 +193,7 @@ module mojo_top_0 (
     M_matrix_former_old_matrix = M_matrix_store_q;
     M_matrix_former_valid = M_button_checker_validout;
     M_matrix_former_old_score = M_score_q;
-    M_matrix_former_multiplier = 1'h1;
+    M_matrix_former_multiplier = M_multiplier_dff_q;
     M_matrix_former_change_matrix = M_button_checker_matrixout;
     M_matrix_former_enable = 1'h0;
     M_shifter_old_matrix = M_matrix_store_q;
@@ -180,6 +201,13 @@ module mojo_top_0 (
     M_shifter_shift_left = shiftleft;
     M_shifter_shift_right = shiftright;
     M_shifter_old_powerup_counter = M_powerup_q;
+    M_multiplier_ar = M_button_sensing_a_row;
+    M_multiplier_ac = M_button_sensing_a_col;
+    M_multiplier_br = M_button_sensing_b_row;
+    M_multiplier_bc = M_button_sensing_b_col;
+    M_multiplier_valid = M_button_checker_validout;
+    M_multiplier_old_multiplier = M_multiplier_dff_q;
+    M_multiplier_dff_d = M_multiplier_new_multiplier;
     
     case (M_game_state_q)
       INIT_game_state: begin
@@ -207,11 +235,13 @@ module mojo_top_0 (
       M_matrix_store_q <= 1'h0;
       M_score_q <= 1'h0;
       M_powerup_q <= 1'h0;
+      M_multiplier_dff_q <= 1'h0;
       M_game_state_q <= 1'h0;
     end else begin
       M_matrix_store_q <= M_matrix_store_d;
       M_score_q <= M_score_d;
       M_powerup_q <= M_powerup_d;
+      M_multiplier_dff_q <= M_multiplier_dff_d;
       M_game_state_q <= M_game_state_d;
     end
   end

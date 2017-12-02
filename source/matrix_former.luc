@@ -5,7 +5,7 @@ module matrix_former (
     input change_matrix[6][6],
     input valid,
     output new_matrix[6][6],
-    input multiplier,
+    input multiplier[8],
     input old_score[8],
     output new_score[8],
     input enable

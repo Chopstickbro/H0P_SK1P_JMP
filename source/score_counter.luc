@@ -1,0 +1,12 @@
+module score_counter (
+    input clk,  // clock
+    input rst,  // reset
+    output out
+  ) {
+  
+  .clk(.rst
+
+  always {
+    out = 0;
+  }
+}

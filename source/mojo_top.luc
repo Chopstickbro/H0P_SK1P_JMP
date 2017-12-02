@@ -30,6 +30,7 @@ module mojo_top (
       fsm game_state = {INIT, UPDATEMATRIX, SHIFTMATRIX};
       dff score[8];
       dff powerup;
+      dff multiplier_dff[8];
     }
   }
   
@@ -38,6 +39,7 @@ module mojo_top (
   button_checker button_checker(.clk(clk), .rst(rst));
   matrix_former matrix_former(.clk(clk), .rst(rst));
   shifter shifter (.clk(clk), .rst(rst));
+  multiplier multiplier(.clk(clk), .rst(rst));
     
   
   always {
@@ -72,7 +74,7 @@ module mojo_top (
     
     matrix_former.valid = button_checker.validout;
     matrix_former.old_score = score.q;
-    matrix_former.multiplier = 1;
+    matrix_former.multiplier = multiplier_dff.q;
     matrix_former.change_matrix = button_checker.matrixout;
     matrix_former.enable = 0;
     
@@ -83,9 +85,19 @@ module mojo_top (
     shifter.shift_right = shiftright;
     shifter.old_powerup_counter = powerup.q;
     
-
+    
+    multiplier.ar = button_sensing.a_row;
+    multiplier.ac = button_sensing.a_col;
+    multiplier.br = button_sensing.b_row;
+    multiplier.bc = button_sensing.b_col;
+    multiplier.valid = button_checker.validout;
+    multiplier.old_multiplier = multiplier_dff.q;
+    multiplier_dff.d = multiplier.new_multiplier;
+    
     
 
+    
+    
     case(game_state.q){
       game_state.INIT:
         matrix_store.d = {6b111111, 6b111111, 6b110111, 6b111111, 6b111111,6b111111};
