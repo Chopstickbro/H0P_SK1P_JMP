@@ -1,0 +1,41 @@
+module fake_button_conditioner (
+    input clk,  // clock
+    input rst,  // reset
+    input bc[3],
+    input br[3],
+    output brout[3],
+    output bcout[3],
+    output valid
+  ) {
+  .clk(clk) {
+    .rst(rst) {
+      dff brout_dff[3];
+      dff bcout_dff[3];
+      fsm state = {GET_BUTTON, OUTPUT, WAIT};
+      dff timer[24];
+    }
+  }
+
+  always {
+    valid = 0;
+    brout = brout_dff.q;
+    bcout = bcout_dff.q;
+    case (state.q) {
+      state.GET_BUTTON:
+        if (bc != 6 && br != 6) {
+          brout_dff.d = br;
+          bcout_dff.d = bc;
+          timer.d = 0;
+          state.d = state.OUTPUT;
+        }
+      state.OUTPUT:
+        valid =1;
+        state.d = state.WAIT;
+      state.WAIT:
+        timer.d = timer.q +1;
+        if (timer.q[23]) {
+          state.d = state.GET_BUTTON;
+        }
+    }
+  }
+}

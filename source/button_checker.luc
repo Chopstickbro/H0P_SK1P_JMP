@@ -11,7 +11,9 @@ module button_checker (
     output matrixout[6][6],
     output invalidout,
     output probe1,
-    output probe2
+    output probe2,
+    output a_rowout[3],
+    output a_colout[3]
   ) {
   
   .clk(clk) {
@@ -36,6 +38,8 @@ module button_checker (
     validout = valid.q;
     invalidout = invalid.q;
     matrixout = change_matrix.q;
+    a_rowout =ar.q;
+    a_colout=ac.q;
     
     case(state.q) {
       

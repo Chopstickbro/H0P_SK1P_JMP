@@ -1,0 +1,39 @@
+module score_adder (
+    input clk,  // clock
+    input rst,  // reset
+    input add,
+    input multiplier[8],
+    output inc_trig
+  ) {
+  
+  .clk(clk) {
+    .rst(rst) {
+      dff add_buffer[8];
+      fsm state = {IDLE, ADD};    
+    }
+  }
+  
+  edge_detector edge_detector(.clk(clk));
+  
+
+  always {
+    edge_detector.in = add;
+    if (edge_detector.out) {   
+      add_buffer.d = add_buffer.q + multiplier * 1;
+    }
+    inc_trig = 0;
+    
+    case(state.q) {
+      state.IDLE:
+        if (add_buffer.q > 0) {
+          state.d = state.ADD;
+        }
+        
+      state.ADD:
+        state.d = state.IDLE;
+        inc_trig = 1;
+        add_buffer.d = add_buffer.q - 1;
+    }
+      
+  }
+}

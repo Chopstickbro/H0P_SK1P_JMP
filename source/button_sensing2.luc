@@ -1,0 +1,51 @@
+module button_sensing2 (
+    input clk,  // clock
+    input rst,  // reset
+    input but_col[3],
+    input but_row[3],
+    output a_row[3],  //button A Row
+    output a_col[3],  //button A Column
+    output b_row[3],  //button B Row
+    output b_col[3],  //button B Column
+    output read,   //read ready
+    input valid
+  ) {
+  
+  .clk(clk) {
+    .rst(rst) {
+      dff a_rowdff[3];
+      dff a_coldff[3];
+      dff b_rowdff[3];
+      dff b_coldff[3];
+      fsm state = {GETA, GETB, OUTPUT};
+    }
+  }
+ 
+  always {
+    read = 0;
+    a_row = a_rowdff.q;
+    a_col = a_coldff.q;
+    b_row = b_rowdff.q;
+    b_col = b_coldff.q;
+    
+    case(state.q) {
+      state.GETA:
+        a_rowdff.d = but_row;
+        a_coldff.d = but_col;
+        if (valid) {    
+          state.d = state.GETB;
+        }
+        
+      state.GETB:
+        b_rowdff.d = but_row;
+        b_coldff.d = but_col;
+        if (valid) {
+          state.d = state.OUTPUT;
+        }
+        
+      state.OUTPUT:
+        read = 1;
+        state.d = state.GETA;
+    }
+  }
+}

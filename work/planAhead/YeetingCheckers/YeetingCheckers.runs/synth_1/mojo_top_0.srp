@@ -55,26 +55,48 @@ Netlist Hierarchy                  : rebuilt
 =========================================================================
 *                          HDL Parsing                                  *
 =========================================================================
-Analyzing Verilog file "/home/tianlerk/mojo/YeetingCheckers/work/planAhead/YeetingCheckers/YeetingCheckers.srcs/sources_1/imports/verilog/pipeline_38.v" into library work
-Parsing module <pipeline_38>.
-Analyzing Verilog file "/home/tianlerk/mojo/YeetingCheckers/work/planAhead/YeetingCheckers/YeetingCheckers.srcs/sources_1/imports/verilog/edge_detector_8.v" into library work
-Parsing module <edge_detector_8>.
-Analyzing Verilog file "/home/tianlerk/mojo/YeetingCheckers/work/planAhead/YeetingCheckers/YeetingCheckers.srcs/sources_1/imports/verilog/button_conditioner_20.v" into library work
-Parsing module <button_conditioner_20>.
-Analyzing Verilog file "/home/tianlerk/mojo/YeetingCheckers/work/planAhead/YeetingCheckers/YeetingCheckers.srcs/sources_1/imports/verilog/shifter_6.v" into library work
-Parsing module <shifter_6>.
+Analyzing Verilog file "/home/tianlerk/mojo/YeetingCheckers/work/planAhead/YeetingCheckers/YeetingCheckers.srcs/sources_1/imports/verilog/pipeline_26.v" into library work
+Parsing module <pipeline_26>.
+Analyzing Verilog file "/home/tianlerk/mojo/YeetingCheckers/work/planAhead/YeetingCheckers/YeetingCheckers.srcs/sources_1/imports/verilog/seven_seg_23.v" into library work
+Parsing module <seven_seg_23>.
+Analyzing Verilog file "/home/tianlerk/mojo/YeetingCheckers/work/planAhead/YeetingCheckers/YeetingCheckers.srcs/sources_1/imports/verilog/edge_detector_25.v" into library work
+Parsing module <edge_detector_25>.
+Analyzing Verilog file "/home/tianlerk/mojo/YeetingCheckers/work/planAhead/YeetingCheckers/YeetingCheckers.srcs/sources_1/imports/verilog/edge_detector_14.v" into library work
+Parsing module <edge_detector_14>.
+Analyzing Verilog file "/home/tianlerk/mojo/YeetingCheckers/work/planAhead/YeetingCheckers/YeetingCheckers.srcs/sources_1/imports/verilog/decoder_24.v" into library work
+Parsing module <decoder_24>.
+Analyzing Verilog file "/home/tianlerk/mojo/YeetingCheckers/work/planAhead/YeetingCheckers/YeetingCheckers.srcs/sources_1/imports/verilog/decimal_counter_21.v" into library work
+Parsing module <decimal_counter_21>.
+Analyzing Verilog file "/home/tianlerk/mojo/YeetingCheckers/work/planAhead/YeetingCheckers/YeetingCheckers.srcs/sources_1/imports/verilog/counter_22.v" into library work
+Parsing module <counter_22>.
+Analyzing Verilog file "/home/tianlerk/mojo/YeetingCheckers/work/planAhead/YeetingCheckers/YeetingCheckers.srcs/sources_1/imports/verilog/button_conditioner_17.v" into library work
+Parsing module <button_conditioner_17>.
+Analyzing Verilog file "/home/tianlerk/mojo/YeetingCheckers/work/planAhead/YeetingCheckers/YeetingCheckers.srcs/sources_1/imports/verilog/shifter_8.v" into library work
+Parsing module <shifter_8>.
+Analyzing Verilog file "/home/tianlerk/mojo/YeetingCheckers/work/planAhead/YeetingCheckers/YeetingCheckers.srcs/sources_1/imports/verilog/score_adder_12.v" into library work
+Parsing module <score_adder_12>.
 Analyzing Verilog file "/home/tianlerk/mojo/YeetingCheckers/work/planAhead/YeetingCheckers/YeetingCheckers.srcs/sources_1/imports/verilog/reset_conditioner_1.v" into library work
 Parsing module <reset_conditioner_1>.
-Analyzing Verilog file "/home/tianlerk/mojo/YeetingCheckers/work/planAhead/YeetingCheckers/YeetingCheckers.srcs/sources_1/imports/verilog/multiplier_7.v" into library work
-Parsing module <multiplier_7>.
-Analyzing Verilog file "/home/tianlerk/mojo/YeetingCheckers/work/planAhead/YeetingCheckers/YeetingCheckers.srcs/sources_1/imports/verilog/matrix_former_5.v" into library work
-Parsing module <matrix_former_5>.
+Analyzing Verilog file "/home/tianlerk/mojo/YeetingCheckers/work/planAhead/YeetingCheckers/YeetingCheckers.srcs/sources_1/imports/verilog/multi_seven_seg_11.v" into library work
+Parsing module <multi_seven_seg_11>.
+Analyzing Verilog file "/home/tianlerk/mojo/YeetingCheckers/work/planAhead/YeetingCheckers/YeetingCheckers.srcs/sources_1/imports/verilog/multi_dec_ctr_10.v" into library work
+Parsing module <multi_dec_ctr_10>.
+Analyzing Verilog file "/home/tianlerk/mojo/YeetingCheckers/work/planAhead/YeetingCheckers/YeetingCheckers.srcs/sources_1/imports/verilog/multiplier_9.v" into library work
+Parsing module <multiplier_9>.
+Analyzing Verilog file "/home/tianlerk/mojo/YeetingCheckers/work/planAhead/YeetingCheckers/YeetingCheckers.srcs/sources_1/imports/verilog/matrix_former_7.v" into library work
+Parsing module <matrix_former_7>.
 Analyzing Verilog file "/home/tianlerk/mojo/YeetingCheckers/work/planAhead/YeetingCheckers/YeetingCheckers.srcs/sources_1/imports/verilog/led_multiplexer_2.v" into library work
 Parsing module <led_multiplexer_2>.
-Analyzing Verilog file "/home/tianlerk/mojo/YeetingCheckers/work/planAhead/YeetingCheckers/YeetingCheckers.srcs/sources_1/imports/verilog/button_sensing_3.v" into library work
-Parsing module <button_sensing_3>.
-Analyzing Verilog file "/home/tianlerk/mojo/YeetingCheckers/work/planAhead/YeetingCheckers/YeetingCheckers.srcs/sources_1/imports/verilog/button_checker_4.v" into library work
-Parsing module <button_checker_4>.
+Analyzing Verilog file "/home/tianlerk/mojo/YeetingCheckers/work/planAhead/YeetingCheckers/YeetingCheckers.srcs/sources_1/imports/verilog/init_get_hole_13.v" into library work
+Parsing module <init_get_hole_13>.
+Analyzing Verilog file "/home/tianlerk/mojo/YeetingCheckers/work/planAhead/YeetingCheckers/YeetingCheckers.srcs/sources_1/imports/verilog/fake_button_conditioner_4.v" into library work
+Parsing module <fake_button_conditioner_4>.
+Analyzing Verilog file "/home/tianlerk/mojo/YeetingCheckers/work/planAhead/YeetingCheckers/YeetingCheckers.srcs/sources_1/imports/verilog/button_sensing2_5.v" into library work
+Parsing module <button_sensing2_5>.
+Analyzing Verilog file "/home/tianlerk/mojo/YeetingCheckers/work/planAhead/YeetingCheckers/YeetingCheckers.srcs/sources_1/imports/verilog/button_multiplex_3.v" into library work
+Parsing module <button_multiplex_3>.
+Analyzing Verilog file "/home/tianlerk/mojo/YeetingCheckers/work/planAhead/YeetingCheckers/YeetingCheckers.srcs/sources_1/imports/verilog/button_checker_6.v" into library work
+Parsing module <button_checker_6>.
 Analyzing Verilog file "/home/tianlerk/mojo/YeetingCheckers/work/planAhead/YeetingCheckers/YeetingCheckers.srcs/sources_1/imports/verilog/mojo_top_0.v" into library work
 Parsing module <mojo_top_0>.
 
@@ -87,25 +109,51 @@ Elaborating module <mojo_top_0>.
 Elaborating module <reset_conditioner_1>.
 
 Elaborating module <led_multiplexer_2>.
-WARNING:HDLCompiler:1127 - "/home/tianlerk/mojo/YeetingCheckers/work/planAhead/YeetingCheckers/YeetingCheckers.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 59: Assignment to M_led_multiplexer_timerout ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/tianlerk/mojo/YeetingCheckers/work/planAhead/YeetingCheckers/YeetingCheckers.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 61: Assignment to M_led_multiplexer_timerout ignored, since the identifier is never used
 
-Elaborating module <button_sensing_3>.
+Elaborating module <button_multiplex_3>.
+WARNING:HDLCompiler:1127 - "/home/tianlerk/mojo/YeetingCheckers/work/planAhead/YeetingCheckers/YeetingCheckers.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 74: Assignment to M_button_multiplex_new_button ignored, since the identifier is never used
 
-Elaborating module <edge_detector_8>.
+Elaborating module <fake_button_conditioner_4>.
 
-Elaborating module <button_conditioner_20>.
+Elaborating module <button_sensing2_5>.
 
-Elaborating module <pipeline_38>.
+Elaborating module <button_checker_6>.
+WARNING:HDLCompiler:1127 - "/home/tianlerk/mojo/YeetingCheckers/work/planAhead/YeetingCheckers/YeetingCheckers.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 140: Assignment to M_button_checker_probe1 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/tianlerk/mojo/YeetingCheckers/work/planAhead/YeetingCheckers/YeetingCheckers.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 141: Assignment to M_button_checker_probe2 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/tianlerk/mojo/YeetingCheckers/work/planAhead/YeetingCheckers/YeetingCheckers.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 142: Assignment to M_button_checker_a_rowout ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/tianlerk/mojo/YeetingCheckers/work/planAhead/YeetingCheckers/YeetingCheckers.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 143: Assignment to M_button_checker_a_colout ignored, since the identifier is never used
 
-Elaborating module <button_checker_4>.
-WARNING:HDLCompiler:1127 - "/home/tianlerk/mojo/YeetingCheckers/work/planAhead/YeetingCheckers/YeetingCheckers.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 104: Assignment to M_button_checker_probe1 ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "/home/tianlerk/mojo/YeetingCheckers/work/planAhead/YeetingCheckers/YeetingCheckers.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 105: Assignment to M_button_checker_probe2 ignored, since the identifier is never used
+Elaborating module <matrix_former_7>.
 
-Elaborating module <matrix_former_5>.
+Elaborating module <edge_detector_14>.
 
-Elaborating module <shifter_6>.
+Elaborating module <shifter_8>.
 
-Elaborating module <multiplier_7>.
+Elaborating module <button_conditioner_17>.
+
+Elaborating module <pipeline_26>.
+
+Elaborating module <multiplier_9>.
+
+Elaborating module <multi_dec_ctr_10>.
+
+Elaborating module <decimal_counter_21>.
+
+Elaborating module <multi_seven_seg_11>.
+
+Elaborating module <counter_22>.
+
+Elaborating module <seven_seg_23>.
+
+Elaborating module <decoder_24>.
+
+Elaborating module <score_adder_12>.
+
+Elaborating module <edge_detector_25>.
+
+Elaborating module <init_get_hole_13>.
+WARNING:HDLCompiler:1127 - "/home/tianlerk/mojo/YeetingCheckers/work/planAhead/YeetingCheckers/YeetingCheckers.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 332: Assignment to M_test_q ignored, since the identifier is never used
 
 =========================================================================
 *                           HDL Synthesis                               *
@@ -119,10 +167,12 @@ WARNING:Xst:647 - Input <spi_mosi> is never used. This port will be preserved an
 WARNING:Xst:647 - Input <spi_sck> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <avr_tx> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <avr_rx_busy> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-INFO:Xst:3210 - "/home/tianlerk/mojo/YeetingCheckers/work/planAhead/YeetingCheckers/YeetingCheckers.srcs/sources_1/imports/verilog/mojo_top_0.v" line 53: Output port <timerout> of the instance <led_multiplexer> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/tianlerk/mojo/YeetingCheckers/work/planAhead/YeetingCheckers/YeetingCheckers.srcs/sources_1/imports/verilog/mojo_top_0.v" line 92: Output port <probe1> of the instance <button_checker> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/tianlerk/mojo/YeetingCheckers/work/planAhead/YeetingCheckers/YeetingCheckers.srcs/sources_1/imports/verilog/mojo_top_0.v" line 92: Output port <probe2> of the instance <button_checker> is unconnected or connected to loadless signal.
-    Found 8-bit register for signal <M_score_q>.
+INFO:Xst:3210 - "/home/tianlerk/mojo/YeetingCheckers/work/planAhead/YeetingCheckers/YeetingCheckers.srcs/sources_1/imports/verilog/mojo_top_0.v" line 55: Output port <timerout> of the instance <led_multiplexer> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/tianlerk/mojo/YeetingCheckers/work/planAhead/YeetingCheckers/YeetingCheckers.srcs/sources_1/imports/verilog/mojo_top_0.v" line 69: Output port <new_button> of the instance <button_multiplex> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/tianlerk/mojo/YeetingCheckers/work/planAhead/YeetingCheckers/YeetingCheckers.srcs/sources_1/imports/verilog/mojo_top_0.v" line 128: Output port <a_rowout> of the instance <button_checker> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/tianlerk/mojo/YeetingCheckers/work/planAhead/YeetingCheckers/YeetingCheckers.srcs/sources_1/imports/verilog/mojo_top_0.v" line 128: Output port <a_colout> of the instance <button_checker> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/tianlerk/mojo/YeetingCheckers/work/planAhead/YeetingCheckers/YeetingCheckers.srcs/sources_1/imports/verilog/mojo_top_0.v" line 128: Output port <probe1> of the instance <button_checker> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/tianlerk/mojo/YeetingCheckers/work/planAhead/YeetingCheckers/YeetingCheckers.srcs/sources_1/imports/verilog/mojo_top_0.v" line 128: Output port <probe2> of the instance <button_checker> is unconnected or connected to loadless signal.
     Found 1-bit register for signal <M_powerup_q>.
     Found 8-bit register for signal <M_multiplier_dff_q>.
     Found 2-bit register for signal <M_game_state_q>.
@@ -130,8 +180,8 @@ INFO:Xst:3210 - "/home/tianlerk/mojo/YeetingCheckers/work/planAhead/YeetingCheck
     Found finite state machine <FSM_0> for signal <M_game_state_q>.
     -----------------------------------------------------------------------
     | States             | 3                                              |
-    | Transitions        | 3                                              |
-    | Inputs             | 0                                              |
+    | Transitions        | 4                                              |
+    | Inputs             | 1                                              |
     | Outputs            | 4                                              |
     | Clock              | clk (rising_edge)                              |
     | Reset              | M_reset_cond_out (positive)                    |
@@ -141,15 +191,15 @@ INFO:Xst:3210 - "/home/tianlerk/mojo/YeetingCheckers/work/planAhead/YeetingCheck
     | Encoding           | auto                                           |
     | Implementation     | LUT                                            |
     -----------------------------------------------------------------------
-    Found 1-bit tristate buffer for signal <spi_miso> created at line 167
-    Found 1-bit tristate buffer for signal <spi_channel<3>> created at line 167
-    Found 1-bit tristate buffer for signal <spi_channel<2>> created at line 167
-    Found 1-bit tristate buffer for signal <spi_channel<1>> created at line 167
-    Found 1-bit tristate buffer for signal <spi_channel<0>> created at line 167
-    Found 1-bit tristate buffer for signal <avr_rx> created at line 167
+    Found 1-bit tristate buffer for signal <spi_miso> created at line 251
+    Found 1-bit tristate buffer for signal <spi_channel<3>> created at line 251
+    Found 1-bit tristate buffer for signal <spi_channel<2>> created at line 251
+    Found 1-bit tristate buffer for signal <spi_channel<1>> created at line 251
+    Found 1-bit tristate buffer for signal <spi_channel<0>> created at line 251
+    Found 1-bit tristate buffer for signal <avr_rx> created at line 251
     Summary:
-	inferred  53 D-type flip-flop(s).
-	inferred   3 Multiplexer(s).
+	inferred  45 D-type flip-flop(s).
+	inferred   5 Multiplexer(s).
 	inferred   6 Tristate(s).
 	inferred   1 Finite State Machine(s).
 Unit <mojo_top_0> synthesized.
@@ -163,8 +213,8 @@ Unit <reset_conditioner_1> synthesized.
 
 Synthesizing Unit <led_multiplexer_2>.
     Related source file is "/home/tianlerk/mojo/YeetingCheckers/work/planAhead/YeetingCheckers/YeetingCheckers.srcs/sources_1/imports/verilog/led_multiplexer_2.v".
-    Found 10-bit register for signal <M_timer_q>.
     Found 3-bit register for signal <M_column_sel_q>.
+    Found 10-bit register for signal <M_timer_q>.
     Found finite state machine <FSM_1> for signal <M_column_sel_q>.
     -----------------------------------------------------------------------
     | States             | 6                                              |
@@ -188,45 +238,89 @@ Synthesizing Unit <led_multiplexer_2>.
 	inferred   1 Finite State Machine(s).
 Unit <led_multiplexer_2> synthesized.
 
-Synthesizing Unit <button_sensing_3>.
-    Related source file is "/home/tianlerk/mojo/YeetingCheckers/work/planAhead/YeetingCheckers/YeetingCheckers.srcs/sources_1/imports/verilog/button_sensing_3.v".
-    Found 1-bit register for signal <M_c_ready_q>.
-    Found 3-bit register for signal <M_ar_q>.
-    Found 3-bit register for signal <M_ac_q>.
-    Found 3-bit register for signal <M_br_q>.
-    Found 3-bit register for signal <M_bc_q>.
-    Found 1-bit register for signal <M_state_q>.
-    Found 1-bit register for signal <M_r_ready_q>.
-    Summary:
-	inferred  15 D-type flip-flop(s).
-	inferred  17 Multiplexer(s).
-Unit <button_sensing_3> synthesized.
-
-Synthesizing Unit <edge_detector_8>.
-    Related source file is "/home/tianlerk/mojo/YeetingCheckers/work/planAhead/YeetingCheckers/YeetingCheckers.srcs/sources_1/imports/verilog/edge_detector_8.v".
-    Found 1-bit register for signal <M_last_q>.
-    Summary:
-	inferred   1 D-type flip-flop(s).
-Unit <edge_detector_8> synthesized.
-
-Synthesizing Unit <button_conditioner_20>.
-    Related source file is "/home/tianlerk/mojo/YeetingCheckers/work/planAhead/YeetingCheckers/YeetingCheckers.srcs/sources_1/imports/verilog/button_conditioner_20.v".
-    Found 20-bit register for signal <M_ctr_q>.
-    Found 20-bit adder for signal <M_ctr_q[19]_GND_6_o_add_2_OUT> created at line 39.
+Synthesizing Unit <button_multiplex_3>.
+    Related source file is "/home/tianlerk/mojo/YeetingCheckers/work/planAhead/YeetingCheckers/YeetingCheckers.srcs/sources_1/imports/verilog/button_multiplex_3.v".
+    Found 3-bit register for signal <M_state_q>.
+    Found 10-bit register for signal <M_timer_q>.
+    Found finite state machine <FSM_2> for signal <M_state_q>.
+    -----------------------------------------------------------------------
+    | States             | 6                                              |
+    | Transitions        | 6                                              |
+    | Inputs             | 0                                              |
+    | Outputs            | 9                                              |
+    | Clock              | M_timer_q<9> (rising_edge)                     |
+    | Reset              | rst (positive)                                 |
+    | Reset type         | synchronous                                    |
+    | Reset State        | 000                                            |
+    | Power Up State     | 000                                            |
+    | Encoding           | auto                                           |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 10-bit adder for signal <M_timer_d> created at line 290.
+    Found 3-bit 7-to-1 multiplexer for signal <br> created at line 42.
     Summary:
 	inferred   1 Adder/Subtractor(s).
-	inferred  20 D-type flip-flop(s).
-Unit <button_conditioner_20> synthesized.
+	inferred  10 D-type flip-flop(s).
+	inferred  43 Multiplexer(s).
+	inferred   1 Finite State Machine(s).
+Unit <button_multiplex_3> synthesized.
 
-Synthesizing Unit <pipeline_38>.
-    Related source file is "/home/tianlerk/mojo/YeetingCheckers/work/planAhead/YeetingCheckers/YeetingCheckers.srcs/sources_1/imports/verilog/pipeline_38.v".
-    Found 2-bit register for signal <M_pipe_q>.
+Synthesizing Unit <fake_button_conditioner_4>.
+    Related source file is "/home/tianlerk/mojo/YeetingCheckers/work/planAhead/YeetingCheckers/YeetingCheckers.srcs/sources_1/imports/verilog/fake_button_conditioner_4.v".
+    Found 3-bit register for signal <M_bcout_dff_q>.
+    Found 24-bit register for signal <M_timer_q>.
+    Found 2-bit register for signal <M_state_q>.
+    Found 3-bit register for signal <M_brout_dff_q>.
+    Found finite state machine <FSM_3> for signal <M_state_q>.
+    -----------------------------------------------------------------------
+    | States             | 3                                              |
+    | Transitions        | 6                                              |
+    | Inputs             | 3                                              |
+    | Outputs            | 3                                              |
+    | Clock              | clk (rising_edge)                              |
+    | Reset              | rst (positive)                                 |
+    | Reset type         | synchronous                                    |
+    | Reset State        | 00                                             |
+    | Power Up State     | 00                                             |
+    | Encoding           | auto                                           |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 24-bit adder for signal <M_timer_q[23]_GND_5_o_add_6_OUT> created at line 52.
     Summary:
-	inferred   2 D-type flip-flop(s).
-Unit <pipeline_38> synthesized.
+	inferred   1 Adder/Subtractor(s).
+	inferred  30 D-type flip-flop(s).
+	inferred   1 Multiplexer(s).
+	inferred   1 Finite State Machine(s).
+Unit <fake_button_conditioner_4> synthesized.
 
-Synthesizing Unit <button_checker_4>.
-    Related source file is "/home/tianlerk/mojo/YeetingCheckers/work/planAhead/YeetingCheckers/YeetingCheckers.srcs/sources_1/imports/verilog/button_checker_4.v".
+Synthesizing Unit <button_sensing2_5>.
+    Related source file is "/home/tianlerk/mojo/YeetingCheckers/work/planAhead/YeetingCheckers/YeetingCheckers.srcs/sources_1/imports/verilog/button_sensing2_5.v".
+    Found 3-bit register for signal <M_a_coldff_q>.
+    Found 3-bit register for signal <M_b_rowdff_q>.
+    Found 3-bit register for signal <M_b_coldff_q>.
+    Found 2-bit register for signal <M_state_q>.
+    Found 3-bit register for signal <M_a_rowdff_q>.
+    Found finite state machine <FSM_4> for signal <M_state_q>.
+    -----------------------------------------------------------------------
+    | States             | 3                                              |
+    | Transitions        | 5                                              |
+    | Inputs             | 1                                              |
+    | Outputs            | 3                                              |
+    | Clock              | clk (rising_edge)                              |
+    | Reset              | rst (positive)                                 |
+    | Reset type         | synchronous                                    |
+    | Reset State        | 00                                             |
+    | Power Up State     | 00                                             |
+    | Encoding           | auto                                           |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Summary:
+	inferred  12 D-type flip-flop(s).
+	inferred   1 Finite State Machine(s).
+Unit <button_sensing2_5> synthesized.
+
+Synthesizing Unit <button_checker_6>.
+    Related source file is "/home/tianlerk/mojo/YeetingCheckers/work/planAhead/YeetingCheckers/YeetingCheckers.srcs/sources_1/imports/verilog/button_checker_6.v".
     Found 3-bit register for signal <M_br_q>.
     Found 3-bit register for signal <M_ac_q>.
     Found 3-bit register for signal <M_bc_q>.
@@ -237,7 +331,7 @@ Synthesizing Unit <button_checker_4>.
     Found 36-bit register for signal <M_change_matrix_q>.
     Found 3-bit register for signal <M_state_q>.
     Found 3-bit register for signal <M_ar_q>.
-    Found finite state machine <FSM_2> for signal <M_state_q>.
+    Found finite state machine <FSM_5> for signal <M_state_q>.
     -----------------------------------------------------------------------
     | States             | 8                                              |
     | Transitions        | 21                                             |
@@ -251,38 +345,38 @@ Synthesizing Unit <button_checker_4>.
     | Encoding           | auto                                           |
     | Implementation     | LUT                                            |
     -----------------------------------------------------------------------
-    Found 3-bit subtractor for signal <M_ac_q[2]_M_bc_q[2]_sub_23_OUT> created at line 85.
-    Found 3-bit subtractor for signal <M_bc_q[2]_M_ac_q[2]_sub_25_OUT> created at line 85.
-    Found 3-bit subtractor for signal <M_ar_q[2]_M_br_q[2]_sub_30_OUT> created at line 94.
-    Found 3-bit subtractor for signal <M_br_q[2]_M_ar_q[2]_sub_32_OUT> created at line 94.
-    Found 4-bit subtractor for signal <GND_8_o_GND_8_o_sub_38_OUT> created at line 103.
-    Found 3-bit subtractor for signal <M_ac_q[2]_GND_8_o_sub_42_OUT> created at line 104.
-    Found 4-bit subtractor for signal <GND_8_o_GND_8_o_sub_59_OUT> created at line 120.
-    Found 3-bit subtractor for signal <M_ar_q[2]_GND_8_o_sub_64_OUT> created at line 122.
-    Found 6-bit adder for signal <M_ar_q[2]_GND_8_o_add_1_OUT> created at line 57.
-    Found 6-bit adder for signal <M_br_q[2]_GND_8_o_add_4_OUT> created at line 58.
-    Found 32-bit adder for signal <n0263> created at line 103.
-    Found 6-bit adder for signal <M_ar_q[2]_GND_8_o_add_47_OUT> created at line 109.
-    Found 4-bit adder for signal <n0343[3:0]> created at line 110.
-    Found 32-bit adder for signal <n0280> created at line 120.
-    Found 4-bit adder for signal <n0325> created at line 126.
-    Found 7-bit adder for signal <n0288> created at line 126.
-    Found 6-bit adder for signal <M_mr_q[2]_GND_8_o_add_80_OUT> created at line 136.
-    Found 3x3-bit multiplier for signal <n0330> created at line 57.
-    Found 71-bit shifter logical right for signal <n0309> created at line 57
-    Found 3x3-bit multiplier for signal <n0333> created at line 58.
-    Found 71-bit shifter logical right for signal <n0310> created at line 58
-    Found 71-bit shifter logical right for signal <n0264> created at line 103
-    Found 71-bit shifter logical right for signal <n0270> created at line 109
-    Found 32x3-bit multiplier for signal <n0279> created at line 120.
-    Found 71-bit shifter logical right for signal <n0281> created at line 120
-    Found 4x3-bit multiplier for signal <n0349> created at line 126.
-    Found 71-bit shifter logical right for signal <n0289> created at line 126
-    Found 3x3-bit multiplier for signal <n0352> created at line 136.
-    Found 3-bit comparator equal for signal <M_ar_q[2]_M_br_q[2]_equal_22_o> created at line 84
-    Found 3-bit comparator equal for signal <M_ac_q[2]_M_bc_q[2]_equal_29_o> created at line 93
-    Found 3-bit comparator greater for signal <M_bc_q[2]_M_ac_q[2]_LessThan_36_o> created at line 102
-    Found 3-bit comparator greater for signal <M_br_q[2]_M_ar_q[2]_LessThan_58_o> created at line 119
+    Found 3-bit subtractor for signal <M_ac_q[2]_M_bc_q[2]_sub_23_OUT> created at line 89.
+    Found 3-bit subtractor for signal <M_bc_q[2]_M_ac_q[2]_sub_25_OUT> created at line 89.
+    Found 3-bit subtractor for signal <M_ar_q[2]_M_br_q[2]_sub_30_OUT> created at line 98.
+    Found 3-bit subtractor for signal <M_br_q[2]_M_ar_q[2]_sub_32_OUT> created at line 98.
+    Found 4-bit subtractor for signal <GND_7_o_GND_7_o_sub_38_OUT> created at line 107.
+    Found 3-bit subtractor for signal <M_ac_q[2]_GND_7_o_sub_42_OUT> created at line 108.
+    Found 4-bit subtractor for signal <GND_7_o_GND_7_o_sub_59_OUT> created at line 124.
+    Found 3-bit subtractor for signal <M_ar_q[2]_GND_7_o_sub_64_OUT> created at line 126.
+    Found 6-bit adder for signal <M_ar_q[2]_GND_7_o_add_1_OUT> created at line 59.
+    Found 6-bit adder for signal <M_br_q[2]_GND_7_o_add_4_OUT> created at line 60.
+    Found 32-bit adder for signal <n0267> created at line 107.
+    Found 6-bit adder for signal <M_ar_q[2]_GND_7_o_add_47_OUT> created at line 113.
+    Found 4-bit adder for signal <n0347[3:0]> created at line 114.
+    Found 32-bit adder for signal <n0284> created at line 124.
+    Found 4-bit adder for signal <n0329> created at line 130.
+    Found 7-bit adder for signal <n0292> created at line 130.
+    Found 6-bit adder for signal <M_mr_q[2]_GND_7_o_add_80_OUT> created at line 140.
+    Found 3x3-bit multiplier for signal <n0334> created at line 59.
+    Found 71-bit shifter logical right for signal <n0313> created at line 59
+    Found 3x3-bit multiplier for signal <n0337> created at line 60.
+    Found 71-bit shifter logical right for signal <n0314> created at line 60
+    Found 71-bit shifter logical right for signal <n0268> created at line 107
+    Found 71-bit shifter logical right for signal <n0274> created at line 113
+    Found 32x3-bit multiplier for signal <n0283> created at line 124.
+    Found 71-bit shifter logical right for signal <n0285> created at line 124
+    Found 4x3-bit multiplier for signal <n0353> created at line 130.
+    Found 71-bit shifter logical right for signal <n0293> created at line 130
+    Found 3x3-bit multiplier for signal <n0356> created at line 140.
+    Found 3-bit comparator equal for signal <M_ar_q[2]_M_br_q[2]_equal_22_o> created at line 88
+    Found 3-bit comparator equal for signal <M_ac_q[2]_M_bc_q[2]_equal_29_o> created at line 97
+    Found 3-bit comparator greater for signal <M_bc_q[2]_M_ac_q[2]_LessThan_36_o> created at line 106
+    Found 3-bit comparator greater for signal <M_br_q[2]_M_ar_q[2]_LessThan_58_o> created at line 123
     Summary:
 	inferred   5 Multiplier(s).
 	inferred  17 Adder/Subtractor(s).
@@ -291,23 +385,29 @@ Synthesizing Unit <button_checker_4>.
 	inferred 113 Multiplexer(s).
 	inferred   6 Combinational logic shifter(s).
 	inferred   1 Finite State Machine(s).
-Unit <button_checker_4> synthesized.
+Unit <button_checker_6> synthesized.
 
-Synthesizing Unit <matrix_former_5>.
-    Related source file is "/home/tianlerk/mojo/YeetingCheckers/work/planAhead/YeetingCheckers/YeetingCheckers.srcs/sources_1/imports/verilog/matrix_former_5.v".
+Synthesizing Unit <matrix_former_7>.
+    Related source file is "/home/tianlerk/mojo/YeetingCheckers/work/planAhead/YeetingCheckers/YeetingCheckers.srcs/sources_1/imports/verilog/matrix_former_7.v".
+    Found 1-bit register for signal <M_valid_dff_q>.
     Found 1-bit register for signal <M_state_q>.
     Found 36-bit register for signal <M_change_matrix_dff_q>.
-    Found 8-bit adder for signal <old_score[7]_multiplier[7]_add_2_OUT> created at line 53.
     Summary:
-	inferred   1 Adder/Subtractor(s).
-	inferred  37 D-type flip-flop(s).
-	inferred   4 Multiplexer(s).
-Unit <matrix_former_5> synthesized.
+	inferred  38 D-type flip-flop(s).
+	inferred   2 Multiplexer(s).
+Unit <matrix_former_7> synthesized.
 
-Synthesizing Unit <shifter_6>.
-    Related source file is "/home/tianlerk/mojo/YeetingCheckers/work/planAhead/YeetingCheckers/YeetingCheckers.srcs/sources_1/imports/verilog/shifter_6.v".
+Synthesizing Unit <edge_detector_14>.
+    Related source file is "/home/tianlerk/mojo/YeetingCheckers/work/planAhead/YeetingCheckers/YeetingCheckers.srcs/sources_1/imports/verilog/edge_detector_14.v".
+    Found 1-bit register for signal <M_last_q>.
+    Summary:
+	inferred   1 D-type flip-flop(s).
+Unit <edge_detector_14> synthesized.
+
+Synthesizing Unit <shifter_8>.
+    Related source file is "/home/tianlerk/mojo/YeetingCheckers/work/planAhead/YeetingCheckers/YeetingCheckers.srcs/sources_1/imports/verilog/shifter_8.v".
     Found 2-bit register for signal <M_state_q>.
-    Found finite state machine <FSM_3> for signal <M_state_q>.
+    Found finite state machine <FSM_6> for signal <M_state_q>.
     -----------------------------------------------------------------------
     | States             | 3                                              |
     | Transitions        | 7                                              |
@@ -327,13 +427,29 @@ Synthesizing Unit <shifter_6>.
 	inferred   1 Adder/Subtractor(s).
 	inferred   3 Multiplexer(s).
 	inferred   1 Finite State Machine(s).
-Unit <shifter_6> synthesized.
+Unit <shifter_8> synthesized.
 
-Synthesizing Unit <multiplier_7>.
-    Related source file is "/home/tianlerk/mojo/YeetingCheckers/work/planAhead/YeetingCheckers/YeetingCheckers.srcs/sources_1/imports/verilog/multiplier_7.v".
+Synthesizing Unit <button_conditioner_17>.
+    Related source file is "/home/tianlerk/mojo/YeetingCheckers/work/planAhead/YeetingCheckers/YeetingCheckers.srcs/sources_1/imports/verilog/button_conditioner_17.v".
+    Found 20-bit register for signal <M_ctr_q>.
+    Found 20-bit adder for signal <M_ctr_q[19]_GND_14_o_add_2_OUT> created at line 39.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred  20 D-type flip-flop(s).
+Unit <button_conditioner_17> synthesized.
+
+Synthesizing Unit <pipeline_26>.
+    Related source file is "/home/tianlerk/mojo/YeetingCheckers/work/planAhead/YeetingCheckers/YeetingCheckers.srcs/sources_1/imports/verilog/pipeline_26.v".
+    Found 2-bit register for signal <M_pipe_q>.
+    Summary:
+	inferred   2 D-type flip-flop(s).
+Unit <pipeline_26> synthesized.
+
+Synthesizing Unit <multiplier_9>.
+    Related source file is "/home/tianlerk/mojo/YeetingCheckers/work/planAhead/YeetingCheckers/YeetingCheckers.srcs/sources_1/imports/verilog/multiplier_9.v".
     Found 3-bit register for signal <M_last_col_q>.
     Found 3-bit register for signal <M_last_row_q>.
-    Found 8-bit adder for signal <old_multiplier[7]_GND_15_o_add_2_OUT> created at line 39.
+    Found 8-bit adder for signal <old_multiplier[7]_GND_17_o_add_2_OUT> created at line 39.
     Found 3-bit comparator equal for signal <ar[2]_M_last_row_q[2]_equal_1_o> created at line 38
     Found 3-bit comparator equal for signal <ac[2]_M_last_col_q[2]_equal_2_o> created at line 38
     Summary:
@@ -341,85 +457,223 @@ Synthesizing Unit <multiplier_7>.
 	inferred   6 D-type flip-flop(s).
 	inferred   2 Comparator(s).
 	inferred   2 Multiplexer(s).
-Unit <multiplier_7> synthesized.
+Unit <multiplier_9> synthesized.
+
+Synthesizing Unit <multi_dec_ctr_10>.
+    Related source file is "/home/tianlerk/mojo/YeetingCheckers/work/planAhead/YeetingCheckers/YeetingCheckers.srcs/sources_1/imports/verilog/multi_dec_ctr_10.v".
+INFO:Xst:3210 - "/home/tianlerk/mojo/YeetingCheckers/work/planAhead/YeetingCheckers/YeetingCheckers.srcs/sources_1/imports/verilog/multi_dec_ctr_10.v" line 35: Output port <ovf> of the instance <dctr_gen_0[3].dctr> is unconnected or connected to loadless signal.
+    Summary:
+	no macro.
+Unit <multi_dec_ctr_10> synthesized.
+
+Synthesizing Unit <decimal_counter_21>.
+    Related source file is "/home/tianlerk/mojo/YeetingCheckers/work/planAhead/YeetingCheckers/YeetingCheckers.srcs/sources_1/imports/verilog/decimal_counter_21.v".
+    Found 4-bit register for signal <M_val_q>.
+    Found 4-bit adder for signal <M_val_q[3]_GND_19_o_add_2_OUT> created at line 28.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred   4 D-type flip-flop(s).
+	inferred   1 Multiplexer(s).
+Unit <decimal_counter_21> synthesized.
+
+Synthesizing Unit <multi_seven_seg_11>.
+    Related source file is "/home/tianlerk/mojo/YeetingCheckers/work/planAhead/YeetingCheckers/YeetingCheckers.srcs/sources_1/imports/verilog/multi_seven_seg_11.v".
+    Found 4-bit adder for signal <M_ctr_value[1]_GND_20_o_add_0_OUT> created at line 48.
+    Found 31-bit shifter logical right for signal <n0010> created at line 48
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred   1 Combinational logic shifter(s).
+Unit <multi_seven_seg_11> synthesized.
+
+Synthesizing Unit <counter_22>.
+    Related source file is "/home/tianlerk/mojo/YeetingCheckers/work/planAhead/YeetingCheckers/YeetingCheckers.srcs/sources_1/imports/verilog/counter_22.v".
+    Found 18-bit register for signal <M_ctr_q>.
+    Found 18-bit adder for signal <M_ctr_q[17]_GND_21_o_add_0_OUT> created at line 35.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred  18 D-type flip-flop(s).
+	inferred   1 Multiplexer(s).
+Unit <counter_22> synthesized.
+
+Synthesizing Unit <seven_seg_23>.
+    Related source file is "/home/tianlerk/mojo/YeetingCheckers/work/planAhead/YeetingCheckers/YeetingCheckers.srcs/sources_1/imports/verilog/seven_seg_23.v".
+    Found 16x7-bit Read Only RAM for signal <segs>
+    Summary:
+	inferred   1 RAM(s).
+Unit <seven_seg_23> synthesized.
+
+Synthesizing Unit <decoder_24>.
+    Related source file is "/home/tianlerk/mojo/YeetingCheckers/work/planAhead/YeetingCheckers/YeetingCheckers.srcs/sources_1/imports/verilog/decoder_24.v".
+    Summary:
+	no macro.
+Unit <decoder_24> synthesized.
+
+Synthesizing Unit <score_adder_12>.
+    Related source file is "/home/tianlerk/mojo/YeetingCheckers/work/planAhead/YeetingCheckers/YeetingCheckers.srcs/sources_1/imports/verilog/score_adder_12.v".
+    Found 1-bit register for signal <M_state_q>.
+    Found 8-bit register for signal <M_add_buffer_q>.
+    Found 8-bit subtractor for signal <M_add_buffer_q[7]_GND_24_o_sub_4_OUT> created at line 50.
+    Found 8-bit adder for signal <M_add_buffer_q[7]_multiplier[7]_add_0_OUT> created at line 37.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred   9 D-type flip-flop(s).
+	inferred   1 Multiplexer(s).
+Unit <score_adder_12> synthesized.
+
+Synthesizing Unit <edge_detector_25>.
+    Related source file is "/home/tianlerk/mojo/YeetingCheckers/work/planAhead/YeetingCheckers/YeetingCheckers.srcs/sources_1/imports/verilog/edge_detector_25.v".
+    Found 1-bit register for signal <M_last_q>.
+    Summary:
+	inferred   1 D-type flip-flop(s).
+	inferred   1 Multiplexer(s).
+Unit <edge_detector_25> synthesized.
+
+Synthesizing Unit <init_get_hole_13>.
+    Related source file is "/home/tianlerk/mojo/YeetingCheckers/work/planAhead/YeetingCheckers/YeetingCheckers.srcs/sources_1/imports/verilog/init_get_hole_13.v".
+    Found 1-bit register for signal <M_test_q>.
+    Found 24-bit register for signal <M_timer_q>.
+    Found 24-bit adder for signal <M_timer_d> created at line 32.
+    Found 6-bit adder for signal <br[2]_GND_26_o_add_3_OUT> created at line 38.
+    Found 3x3-bit multiplier for signal <n0064> created at line 38.
+    Summary:
+	inferred   1 Multiplier(s).
+	inferred   2 Adder/Subtractor(s).
+	inferred  25 D-type flip-flop(s).
+	inferred   1 Multiplexer(s).
+Unit <init_get_hole_13> synthesized.
 
 =========================================================================
 HDL Synthesis Report
 
 Macro Statistics
-# Multipliers                                          : 5
+# RAMs                                                 : 1
+ 16x7-bit single-port Read Only RAM                    : 1
+# Multipliers                                          : 6
  32x3-bit multiplier                                   : 1
- 3x3-bit multiplier                                    : 3
+ 3x3-bit multiplier                                    : 4
  4x3-bit multiplier                                    : 1
-# Adders/Subtractors                                   : 35
+# Adders/Subtractors                                   : 33
  1-bit subtractor                                      : 1
- 10-bit adder                                          : 1
- 20-bit adder                                          : 14
+ 10-bit adder                                          : 2
+ 18-bit adder                                          : 1
+ 20-bit adder                                          : 2
+ 24-bit adder                                          : 2
  3-bit subtractor                                      : 6
  32-bit adder                                          : 2
- 4-bit adder                                           : 2
+ 4-bit adder                                           : 7
  4-bit subtractor                                      : 2
- 6-bit adder                                           : 4
+ 6-bit adder                                           : 5
  7-bit adder                                           : 1
- 8-bit adder                                           : 2
-# Registers                                            : 70
- 1-bit register                                        : 23
- 10-bit register                                       : 1
- 2-bit register                                        : 14
- 20-bit register                                       : 14
- 3-bit register                                        : 12
+ 8-bit adder                                           : 1
+ 8-bit addsub                                          : 1
+# Registers                                            : 46
+ 1-bit register                                        : 13
+ 10-bit register                                       : 2
+ 18-bit register                                       : 1
+ 2-bit register                                        : 2
+ 20-bit register                                       : 2
+ 24-bit register                                       : 2
+ 3-bit register                                        : 14
  36-bit register                                       : 3
- 4-bit register                                        : 1
+ 4-bit register                                        : 5
  8-bit register                                        : 2
 # Comparators                                          : 6
  3-bit comparator equal                                : 4
  3-bit comparator greater                              : 2
-# Multiplexers                                         : 143
- 1-bit 2-to-1 multiplexer                              : 110
- 3-bit 2-to-1 multiplexer                              : 20
- 36-bit 2-to-1 multiplexer                             : 7
+# Multiplexers                                         : 178
+ 1-bit 2-to-1 multiplexer                              : 116
+ 18-bit 2-to-1 multiplexer                             : 1
+ 24-bit 2-to-1 multiplexer                             : 1
+ 3-bit 2-to-1 multiplexer                              : 40
+ 3-bit 7-to-1 multiplexer                              : 1
+ 36-bit 2-to-1 multiplexer                             : 9
  36-bit 4-to-1 multiplexer                             : 1
+ 4-bit 2-to-1 multiplexer                              : 4
  6-bit 7-to-1 multiplexer                              : 1
  8-bit 2-to-1 multiplexer                              : 4
-# Logic shifters                                       : 6
+# Logic shifters                                       : 7
+ 31-bit shifter logical right                          : 1
  71-bit shifter logical right                          : 6
 # Tristates                                            : 6
  1-bit tristate buffer                                 : 6
-# FSMs                                                 : 4
+# FSMs                                                 : 7
 # Xors                                                 : 1
  36-bit xor2                                           : 1
 
 =========================================================================
+INFO:Xst:1767 - HDL ADVISOR - Resource sharing has identified that some arithmetic operations in this design can share the same physical resources for reduced device utilization. For improved clock frequency you may try to disable resource sharing.
 
 =========================================================================
 *                       Advanced HDL Synthesis                          *
 =========================================================================
 
 
-Synthesizing (advanced) Unit <button_checker_4>.
-	Multiplier <Mmult_n0352> in block <button_checker_4> and adder/subtractor <Madd_M_mr_q[2]_GND_8_o_add_80_OUT> in block <button_checker_4> are combined into a MAC<Maddsub_n0352>.
-	The following registers are also absorbed by the MAC: <M_mc_q> in block <button_checker_4>.
-	Multiplier <Mmult_n0349> in block <button_checker_4> and adder/subtractor <Madd_n0288_Madd> in block <button_checker_4> are combined into a MAC<Maddsub_n0349>.
-	Multiplier <Mmult_n0333> in block <button_checker_4> and adder/subtractor <Madd_M_br_q[2]_GND_8_o_add_4_OUT> in block <button_checker_4> are combined into a MAC<Maddsub_n0333>.
-	The following registers are also absorbed by the MAC: <M_bc_q> in block <button_checker_4>.
-	Adder/Subtractor <Madd_n0325> in block <button_checker_4> and  <Maddsub_n0349> in block <button_checker_4> are combined into a MAC with pre-adder <Maddsub_n03491>.
-	The following registers are also absorbed by the MAC with pre-adder: <M_ac_q> in block <button_checker_4>.
-Unit <button_checker_4> synthesized (advanced).
+Synthesizing (advanced) Unit <button_checker_6>.
+	Multiplier <Mmult_n0356> in block <button_checker_6> and adder/subtractor <Madd_M_mr_q[2]_GND_7_o_add_80_OUT> in block <button_checker_6> are combined into a MAC<Maddsub_n0356>.
+	The following registers are also absorbed by the MAC: <M_mc_q> in block <button_checker_6>.
+	Multiplier <Mmult_n0353> in block <button_checker_6> and adder/subtractor <Madd_n0292_Madd> in block <button_checker_6> are combined into a MAC<Maddsub_n0353>.
+	Multiplier <Mmult_n0337> in block <button_checker_6> and adder/subtractor <Madd_M_br_q[2]_GND_7_o_add_4_OUT> in block <button_checker_6> are combined into a MAC<Maddsub_n0337>.
+	The following registers are also absorbed by the MAC: <M_bc_q> in block <button_checker_6>.
+	Adder/Subtractor <Madd_n0329> in block <button_checker_6> and  <Maddsub_n0353> in block <button_checker_6> are combined into a MAC with pre-adder <Maddsub_n03531>.
+	The following registers are also absorbed by the MAC with pre-adder: <M_ac_q> in block <button_checker_6>.
+Unit <button_checker_6> synthesized (advanced).
 
-Synthesizing (advanced) Unit <button_conditioner_20>.
+Synthesizing (advanced) Unit <button_conditioner_17>.
 The following registers are absorbed into counter <M_ctr_q>: 1 register on signal <M_ctr_q>.
-Unit <button_conditioner_20> synthesized (advanced).
+Unit <button_conditioner_17> synthesized (advanced).
+
+Synthesizing (advanced) Unit <button_multiplex_3>.
+The following registers are absorbed into counter <M_timer_q>: 1 register on signal <M_timer_q>.
+Unit <button_multiplex_3> synthesized (advanced).
+
+Synthesizing (advanced) Unit <counter_22>.
+The following registers are absorbed into counter <M_ctr_q>: 1 register on signal <M_ctr_q>.
+Unit <counter_22> synthesized (advanced).
+
+Synthesizing (advanced) Unit <decimal_counter_21>.
+The following registers are absorbed into counter <M_val_q>: 1 register on signal <M_val_q>.
+Unit <decimal_counter_21> synthesized (advanced).
+
+Synthesizing (advanced) Unit <fake_button_conditioner_4>.
+The following registers are absorbed into counter <M_timer_q>: 1 register on signal <M_timer_q>.
+Unit <fake_button_conditioner_4> synthesized (advanced).
+
+Synthesizing (advanced) Unit <init_get_hole_13>.
+The following registers are absorbed into counter <M_timer_q>: 1 register on signal <M_timer_q>.
+	Multiplier <Mmult_n0064> in block <init_get_hole_13> and adder/subtractor <Madd_br[2]_GND_26_o_add_3_OUT> in block <init_get_hole_13> are combined into a MAC<Maddsub_n0064>.
+	The following registers are also absorbed by the MAC: <fake_button_conditioner/M_bcout_dff_q> in block <mojo_top_0>.
+Unit <init_get_hole_13> synthesized (advanced).
 
 Synthesizing (advanced) Unit <led_multiplexer_2>.
 The following registers are absorbed into counter <M_timer_q>: 1 register on signal <M_timer_q>.
 Unit <led_multiplexer_2> synthesized (advanced).
 
+Synthesizing (advanced) Unit <score_adder_12>.
+The following registers are absorbed into accumulator <M_add_buffer_q>: 1 register on signal <M_add_buffer_q>.
+Unit <score_adder_12> synthesized (advanced).
+
+Synthesizing (advanced) Unit <seven_seg_23>.
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_segs> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 16-word x 7-bit                     |          |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <char>          |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to signal <segs>          |          |
+    -----------------------------------------------------------------------
+Unit <seven_seg_23> synthesized (advanced).
+
 =========================================================================
 Advanced HDL Synthesis Report
 
 Macro Statistics
-# MACs                                                 : 3
- 3x3-to-6-bit MAC                                      : 2
+# RAMs                                                 : 1
+ 16x7-bit single-port distributed Read Only RAM        : 1
+# MACs                                                 : 4
+ 3x3-to-6-bit MAC                                      : 3
  3x4-to-6-bit MAC with pre-adder                       : 1
 # Multipliers                                          : 2
  32x3-bit multiplier                                   : 1
@@ -427,28 +681,35 @@ Macro Statistics
 # Adders/Subtractors                                   : 17
  1-bit subtractor                                      : 1
  3-bit subtractor                                      : 6
- 4-bit adder                                           : 2
+ 4-bit adder                                           : 3
  4-bit subtractor                                      : 2
  6-bit adder                                           : 4
- 8-bit adder                                           : 2
-# Counters                                             : 15
- 10-bit up counter                                     : 1
- 20-bit up counter                                     : 14
-# Registers                                            : 212
- Flip-Flops                                            : 212
+ 8-bit adder                                           : 1
+# Counters                                             : 11
+ 10-bit up counter                                     : 2
+ 18-bit up counter                                     : 1
+ 20-bit up counter                                     : 2
+ 24-bit up counter                                     : 2
+ 4-bit up counter                                      : 4
+# Accumulators                                         : 1
+ 8-bit updown accumulator                              : 1
+# Registers                                            : 176
+ Flip-Flops                                            : 176
 # Comparators                                          : 6
  3-bit comparator equal                                : 4
  3-bit comparator greater                              : 2
-# Multiplexers                                         : 143
- 1-bit 2-to-1 multiplexer                              : 110
- 3-bit 2-to-1 multiplexer                              : 20
- 36-bit 2-to-1 multiplexer                             : 7
+# Multiplexers                                         : 171
+ 1-bit 2-to-1 multiplexer                              : 115
+ 3-bit 2-to-1 multiplexer                              : 40
+ 3-bit 7-to-1 multiplexer                              : 1
+ 36-bit 2-to-1 multiplexer                             : 9
  36-bit 4-to-1 multiplexer                             : 1
  6-bit 7-to-1 multiplexer                              : 1
  8-bit 2-to-1 multiplexer                              : 4
-# Logic shifters                                       : 6
+# Logic shifters                                       : 7
+ 31-bit shifter logical right                          : 1
  71-bit shifter logical right                          : 6
-# FSMs                                                 : 4
+# FSMs                                                 : 7
 # Xors                                                 : 1
  36-bit xor2                                           : 1
 
@@ -458,6 +719,15 @@ Macro Statistics
 *                         Low Level Synthesis                           *
 =========================================================================
 Analyzing FSM <MFsm> for best encoding.
+Optimizing FSM <FSM_3> on signal <M_state_q[1:2]> with user encoding.
+-------------------
+ State | Encoding
+-------------------
+ 00    | 00
+ 01    | 01
+ 10    | 10
+-------------------
+Analyzing FSM <MFsm> for best encoding.
 Optimizing FSM <FSM_0> on signal <M_game_state_q[1:2]> with user encoding.
 -------------------
  State | Encoding
@@ -465,6 +735,18 @@ Optimizing FSM <FSM_0> on signal <M_game_state_q[1:2]> with user encoding.
  00    | 00
  01    | 01
  10    | 10
+-------------------
+Analyzing FSM <MFsm> for best encoding.
+Optimizing FSM <button_multiplex/FSM_2> on signal <M_state_q[1:6]> with one-hot encoding.
+-------------------
+ State | Encoding
+-------------------
+ 000   | 000001
+ 001   | 000010
+ 010   | 000100
+ 011   | 001000
+ 100   | 010000
+ 101   | 100000
 -------------------
 Analyzing FSM <MFsm> for best encoding.
 Optimizing FSM <led_multiplexer/FSM_1> on signal <M_column_sel_q[1:6]> with one-hot encoding.
@@ -479,7 +761,16 @@ Optimizing FSM <led_multiplexer/FSM_1> on signal <M_column_sel_q[1:6]> with one-
  101   | 100000
 -------------------
 Analyzing FSM <MFsm> for best encoding.
-Optimizing FSM <button_checker/FSM_2> on signal <M_state_q[1:3]> with user encoding.
+Optimizing FSM <button_sensing2/FSM_4> on signal <M_state_q[1:2]> with user encoding.
+-------------------
+ State | Encoding
+-------------------
+ 00    | 00
+ 01    | 01
+ 10    | 10
+-------------------
+Analyzing FSM <MFsm> for best encoding.
+Optimizing FSM <button_checker/FSM_5> on signal <M_state_q[1:3]> with user encoding.
 -------------------
  State | Encoding
 -------------------
@@ -493,7 +784,7 @@ Optimizing FSM <button_checker/FSM_2> on signal <M_state_q[1:3]> with user encod
  110   | 110
 -------------------
 Analyzing FSM <MFsm> for best encoding.
-Optimizing FSM <shifter/FSM_3> on signal <M_state_q[1:3]> with one-hot encoding.
+Optimizing FSM <shifter/FSM_6> on signal <M_state_q[1:3]> with one-hot encoding.
 -------------------
  State | Encoding
 -------------------
@@ -501,58 +792,61 @@ Optimizing FSM <shifter/FSM_3> on signal <M_state_q[1:3]> with one-hot encoding.
  10    | 010
  01    | 100
 -------------------
-WARNING:Xst:1710 - FF/Latch <Maddsub_n03331_0> (without init value) has a constant value of 0 in block <button_checker_4>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <Maddsub_n034911_0> (without init value) has a constant value of 0 in block <button_checker_4>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <Maddsub_n03521_0> (without init value) has a constant value of 0 in block <button_checker_4>. This FF/Latch will be trimmed during the optimization process.
-INFO:Xst:2261 - The FF/Latch <M_bc_q_2> in Unit <button_checker_4> is equivalent to the following FF/Latch, which will be removed : <Maddsub_n03331_1> 
-INFO:Xst:2261 - The FF/Latch <M_ac_q_0> in Unit <button_checker_4> is equivalent to the following FF/Latch, which will be removed : <Maddsub_n034911_3> 
-INFO:Xst:2261 - The FF/Latch <M_ac_q_1> in Unit <button_checker_4> is equivalent to the following FF/Latch, which will be removed : <Maddsub_n034911_2> 
-INFO:Xst:2261 - The FF/Latch <M_ac_q_2> in Unit <button_checker_4> is equivalent to the following FF/Latch, which will be removed : <Maddsub_n034911_1> 
-INFO:Xst:2261 - The FF/Latch <M_bc_q_0> in Unit <button_checker_4> is equivalent to the following FF/Latch, which will be removed : <Maddsub_n03331_3> 
-INFO:Xst:2261 - The FF/Latch <M_bc_q_1> in Unit <button_checker_4> is equivalent to the following FF/Latch, which will be removed : <Maddsub_n03331_2> 
+WARNING:Xst:1710 - FF/Latch <Maddsub_n03371_0> (without init value) has a constant value of 0 in block <button_checker_6>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <Maddsub_n035311_0> (without init value) has a constant value of 0 in block <button_checker_6>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <Maddsub_n03561_0> (without init value) has a constant value of 0 in block <button_checker_6>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <init_get_hole/Maddsub_n00641_0> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+INFO:Xst:2261 - The FF/Latch <fake_button_conditioner/M_bcout_dff_q_0> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <init_get_hole/Maddsub_n00641_3> 
+INFO:Xst:2261 - The FF/Latch <fake_button_conditioner/M_bcout_dff_q_1> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <init_get_hole/Maddsub_n00641_2> 
+INFO:Xst:2261 - The FF/Latch <fake_button_conditioner/M_bcout_dff_q_2> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <init_get_hole/Maddsub_n00641_1> 
+INFO:Xst:2261 - The FF/Latch <M_ac_q_1> in Unit <button_checker_6> is equivalent to the following FF/Latch, which will be removed : <Maddsub_n035311_2> 
+INFO:Xst:2261 - The FF/Latch <M_ac_q_2> in Unit <button_checker_6> is equivalent to the following FF/Latch, which will be removed : <Maddsub_n035311_1> 
+INFO:Xst:2261 - The FF/Latch <M_bc_q_0> in Unit <button_checker_6> is equivalent to the following FF/Latch, which will be removed : <Maddsub_n03371_3> 
+INFO:Xst:2261 - The FF/Latch <M_bc_q_1> in Unit <button_checker_6> is equivalent to the following FF/Latch, which will be removed : <Maddsub_n03371_2> 
+INFO:Xst:2261 - The FF/Latch <M_bc_q_2> in Unit <button_checker_6> is equivalent to the following FF/Latch, which will be removed : <Maddsub_n03371_1> 
+INFO:Xst:2261 - The FF/Latch <M_ac_q_0> in Unit <button_checker_6> is equivalent to the following FF/Latch, which will be removed : <Maddsub_n035311_3> 
 
 Optimizing unit <mojo_top_0> ...
 
-Optimizing unit <button_sensing_3> ...
+Optimizing unit <button_multiplex_3> ...
 
 Optimizing unit <led_multiplexer_2> ...
 
-Optimizing unit <button_checker_4> ...
+Optimizing unit <button_sensing2_5> ...
 
-Optimizing unit <matrix_former_5> ...
+Optimizing unit <button_checker_6> ...
 
-Optimizing unit <shifter_6> ...
+Optimizing unit <matrix_former_7> ...
 
-Optimizing unit <multiplier_7> ...
-WARNING:Xst:2677 - Node <M_score_q_0> of sequential type is unconnected in block <mojo_top_0>.
-WARNING:Xst:2677 - Node <M_score_q_1> of sequential type is unconnected in block <mojo_top_0>.
-WARNING:Xst:2677 - Node <M_score_q_2> of sequential type is unconnected in block <mojo_top_0>.
-WARNING:Xst:2677 - Node <M_score_q_3> of sequential type is unconnected in block <mojo_top_0>.
-WARNING:Xst:2677 - Node <M_score_q_4> of sequential type is unconnected in block <mojo_top_0>.
-WARNING:Xst:2677 - Node <M_score_q_5> of sequential type is unconnected in block <mojo_top_0>.
-WARNING:Xst:2677 - Node <M_score_q_6> of sequential type is unconnected in block <mojo_top_0>.
-WARNING:Xst:2677 - Node <M_score_q_7> of sequential type is unconnected in block <mojo_top_0>.
+Optimizing unit <shifter_8> ...
+
+Optimizing unit <multiplier_9> ...
+
+Optimizing unit <score_adder_12> ...
 WARNING:Xst:2677 - Node <M_powerup_q> of sequential type is unconnected in block <mojo_top_0>.
-WARNING:Xst:2677 - Node <M_multiplier_dff_q_0> of sequential type is unconnected in block <mojo_top_0>.
-WARNING:Xst:2677 - Node <M_multiplier_dff_q_1> of sequential type is unconnected in block <mojo_top_0>.
-WARNING:Xst:2677 - Node <M_multiplier_dff_q_2> of sequential type is unconnected in block <mojo_top_0>.
-WARNING:Xst:2677 - Node <M_multiplier_dff_q_3> of sequential type is unconnected in block <mojo_top_0>.
-WARNING:Xst:2677 - Node <M_multiplier_dff_q_4> of sequential type is unconnected in block <mojo_top_0>.
-WARNING:Xst:2677 - Node <M_multiplier_dff_q_5> of sequential type is unconnected in block <mojo_top_0>.
-WARNING:Xst:2677 - Node <M_multiplier_dff_q_6> of sequential type is unconnected in block <mojo_top_0>.
-WARNING:Xst:2677 - Node <M_multiplier_dff_q_7> of sequential type is unconnected in block <mojo_top_0>.
-WARNING:Xst:2677 - Node <multiplier/edge_detector/M_last_q> of sequential type is unconnected in block <mojo_top_0>.
-WARNING:Xst:2677 - Node <multiplier/M_last_col_q_2> of sequential type is unconnected in block <mojo_top_0>.
-WARNING:Xst:2677 - Node <multiplier/M_last_col_q_1> of sequential type is unconnected in block <mojo_top_0>.
-WARNING:Xst:2677 - Node <multiplier/M_last_col_q_0> of sequential type is unconnected in block <mojo_top_0>.
-WARNING:Xst:2677 - Node <multiplier/M_last_row_q_2> of sequential type is unconnected in block <mojo_top_0>.
-WARNING:Xst:2677 - Node <multiplier/M_last_row_q_1> of sequential type is unconnected in block <mojo_top_0>.
-WARNING:Xst:2677 - Node <multiplier/M_last_row_q_0> of sequential type is unconnected in block <mojo_top_0>.
-INFO:Xst:2261 - The FF/Latch <M_game_state_q_FSM_FFd2> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <led_multiplexer/M_timer_q_0> 
+INFO:Xst:2261 - The FF/Latch <matrix_former/edge_detector/M_last_q> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <multiplier/edge_detector/M_last_q> 
+INFO:Xst:2261 - The FF/Latch <multi_seven_seg/ctr/M_ctr_q_0> in Unit <mojo_top_0> is equivalent to the following 3 FFs/Latches, which will be removed : <init_get_hole/M_timer_q_0> <button_multiplex/M_timer_q_0> <led_multiplexer/M_timer_q_0> 
+INFO:Xst:2261 - The FF/Latch <multi_seven_seg/ctr/M_ctr_q_1> in Unit <mojo_top_0> is equivalent to the following 3 FFs/Latches, which will be removed : <init_get_hole/M_timer_q_1> <button_multiplex/M_timer_q_1> <led_multiplexer/M_timer_q_1> 
+INFO:Xst:2261 - The FF/Latch <multi_seven_seg/ctr/M_ctr_q_2> in Unit <mojo_top_0> is equivalent to the following 3 FFs/Latches, which will be removed : <init_get_hole/M_timer_q_2> <button_multiplex/M_timer_q_2> <led_multiplexer/M_timer_q_2> 
+INFO:Xst:2261 - The FF/Latch <multi_seven_seg/ctr/M_ctr_q_3> in Unit <mojo_top_0> is equivalent to the following 3 FFs/Latches, which will be removed : <init_get_hole/M_timer_q_3> <button_multiplex/M_timer_q_3> <led_multiplexer/M_timer_q_3> 
+INFO:Xst:2261 - The FF/Latch <multi_seven_seg/ctr/M_ctr_q_4> in Unit <mojo_top_0> is equivalent to the following 3 FFs/Latches, which will be removed : <init_get_hole/M_timer_q_4> <button_multiplex/M_timer_q_4> <led_multiplexer/M_timer_q_4> 
+INFO:Xst:2261 - The FF/Latch <multi_seven_seg/ctr/M_ctr_q_5> in Unit <mojo_top_0> is equivalent to the following 3 FFs/Latches, which will be removed : <init_get_hole/M_timer_q_5> <button_multiplex/M_timer_q_5> <led_multiplexer/M_timer_q_5> 
+INFO:Xst:2261 - The FF/Latch <multi_seven_seg/ctr/M_ctr_q_6> in Unit <mojo_top_0> is equivalent to the following 3 FFs/Latches, which will be removed : <init_get_hole/M_timer_q_6> <button_multiplex/M_timer_q_6> <led_multiplexer/M_timer_q_6> 
+INFO:Xst:2261 - The FF/Latch <multi_seven_seg/ctr/M_ctr_q_7> in Unit <mojo_top_0> is equivalent to the following 3 FFs/Latches, which will be removed : <init_get_hole/M_timer_q_7> <button_multiplex/M_timer_q_7> <led_multiplexer/M_timer_q_7> 
+INFO:Xst:2261 - The FF/Latch <multi_seven_seg/ctr/M_ctr_q_8> in Unit <mojo_top_0> is equivalent to the following 3 FFs/Latches, which will be removed : <init_get_hole/M_timer_q_8> <button_multiplex/M_timer_q_8> <led_multiplexer/M_timer_q_8> 
+INFO:Xst:2261 - The FF/Latch <multi_seven_seg/ctr/M_ctr_q_9> in Unit <mojo_top_0> is equivalent to the following 3 FFs/Latches, which will be removed : <init_get_hole/M_timer_q_9> <button_multiplex/M_timer_q_9> <led_multiplexer/M_timer_q_9> 
+INFO:Xst:2261 - The FF/Latch <multi_seven_seg/ctr/M_ctr_q_10> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <init_get_hole/M_timer_q_10> 
+INFO:Xst:2261 - The FF/Latch <multi_seven_seg/ctr/M_ctr_q_11> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <init_get_hole/M_timer_q_11> 
+INFO:Xst:2261 - The FF/Latch <multi_seven_seg/ctr/M_ctr_q_12> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <init_get_hole/M_timer_q_12> 
+INFO:Xst:2261 - The FF/Latch <multi_seven_seg/ctr/M_ctr_q_13> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <init_get_hole/M_timer_q_13> 
+INFO:Xst:2261 - The FF/Latch <multi_seven_seg/ctr/M_ctr_q_14> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <init_get_hole/M_timer_q_14> 
+INFO:Xst:2261 - The FF/Latch <multi_seven_seg/ctr/M_ctr_q_15> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <init_get_hole/M_timer_q_15> 
+INFO:Xst:2261 - The FF/Latch <multi_seven_seg/ctr/M_ctr_q_16> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <init_get_hole/M_timer_q_16> 
+INFO:Xst:2261 - The FF/Latch <multi_seven_seg/ctr/M_ctr_q_17> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <init_get_hole/M_timer_q_17> 
 
 Mapping all equations...
 Building and optimizing final netlist ...
-Found area constraint ratio of 100 (+ 0) on block mojo_top_0, actual ratio is 17.
+Found area constraint ratio of 100 (+ 0) on block mojo_top_0, actual ratio is 14.
 FlipFlop button_checker/M_ac_q_0 has been replicated 3 time(s)
 FlipFlop button_checker/M_ac_q_1 has been replicated 3 time(s)
 FlipFlop button_checker/M_ac_q_2 has been replicated 2 time(s)
@@ -564,18 +858,6 @@ FlipFlop button_checker/M_br_q_0 has been replicated 1 time(s)
 Final Macro Processing ...
 
 Processing Unit <mojo_top_0> :
-	Found 2-bit shift register for signal <button_sensing/button_condc5/sync/M_pipe_q_1>.
-	Found 2-bit shift register for signal <button_sensing/button_condc4/sync/M_pipe_q_1>.
-	Found 2-bit shift register for signal <button_sensing/button_condc3/sync/M_pipe_q_1>.
-	Found 2-bit shift register for signal <button_sensing/button_condc2/sync/M_pipe_q_1>.
-	Found 2-bit shift register for signal <button_sensing/button_condc1/sync/M_pipe_q_1>.
-	Found 2-bit shift register for signal <button_sensing/button_condc0/sync/M_pipe_q_1>.
-	Found 2-bit shift register for signal <button_sensing/button_condr5/sync/M_pipe_q_1>.
-	Found 2-bit shift register for signal <button_sensing/button_condr4/sync/M_pipe_q_1>.
-	Found 2-bit shift register for signal <button_sensing/button_condr3/sync/M_pipe_q_1>.
-	Found 2-bit shift register for signal <button_sensing/button_condr2/sync/M_pipe_q_1>.
-	Found 2-bit shift register for signal <button_sensing/button_condr1/sync/M_pipe_q_1>.
-	Found 2-bit shift register for signal <button_sensing/button_condr0/sync/M_pipe_q_1>.
 	Found 2-bit shift register for signal <shifter/button_conditionerright/sync/M_pipe_q_1>.
 	Found 2-bit shift register for signal <shifter/button_conditionerleft/sync/M_pipe_q_1>.
 INFO:Xst:741 - HDL ADVISOR - A 4-bit shift register was found for signal <reset_cond/M_stage_q_3> and currently occupies 4 logic cells (2 slices). Removing the set/reset logic would take advantage of SRL32 (and derived) primitives and reduce this to 1 logic cells (1 slices). Evaluate if the set/reset can be removed for this simple shift register. The majority of simple pipeline structures do not need to be set/reset operationally.
@@ -585,10 +867,10 @@ Unit <mojo_top_0> processed.
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 481
- Flip-Flops                                            : 481
-# Shift Registers                                      : 14
- 2-bit shift register                                  : 14
+# Registers                                            : 324
+ Flip-Flops                                            : 324
+# Shift Registers                                      : 2
+ 2-bit shift register                                  : 2
 
 =========================================================================
 
@@ -611,32 +893,32 @@ Top Level Output File Name         : mojo_top_0.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 1547
-#      GND                         : 32
-#      INV                         : 31
-#      LUT1                        : 277
-#      LUT2                        : 32
-#      LUT3                        : 34
-#      LUT4                        : 90
-#      LUT5                        : 110
-#      LUT6                        : 313
-#      MUXCY                       : 284
-#      MUXF7                       : 15
-#      VCC                         : 30
-#      XORCY                       : 299
-# FlipFlops/Latches                : 495
-#      FD                          : 15
-#      FDE                         : 14
-#      FDR                         : 30
-#      FDRE                        : 430
-#      FDS                         : 6
-# Shift Registers                  : 14
-#      SRLC16E                     : 14
+# BELS                             : 974
+#      GND                         : 10
+#      INV                         : 12
+#      LUT1                        : 81
+#      LUT2                        : 62
+#      LUT3                        : 60
+#      LUT4                        : 73
+#      LUT5                        : 68
+#      LUT6                        : 359
+#      MUXCY                       : 120
+#      MUXF7                       : 13
+#      VCC                         : 7
+#      XORCY                       : 109
+# FlipFlops/Latches                : 326
+#      FD                          : 5
+#      FDE                         : 2
+#      FDR                         : 62
+#      FDRE                        : 250
+#      FDS                         : 7
+# Shift Registers                  : 2
+#      SRLC16E                     : 2
 # Clock Buffers                    : 1
 #      BUFGP                       : 1
-# IO Buffers                       : 41
-#      IBUF                        : 15
-#      OBUF                        : 20
+# IO Buffers                       : 52
+#      IBUF                        : 9
+#      OBUF                        : 37
 #      OBUFT                       : 6
 
 Device utilization summary:
@@ -646,22 +928,22 @@ Selected Device : 6slx9tqg144-2
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:             495  out of  11440     4%  
- Number of Slice LUTs:                  901  out of   5720    15%  
-    Number used as Logic:               887  out of   5720    15%  
-    Number used as Memory:               14  out of   1440     0%  
-       Number used as SRL:               14
+ Number of Slice Registers:             326  out of  11440     2%  
+ Number of Slice LUTs:                  717  out of   5720    12%  
+    Number used as Logic:               715  out of   5720    12%  
+    Number used as Memory:                2  out of   1440     0%  
+       Number used as SRL:                2
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:    996
-   Number with an unused Flip Flop:     501  out of    996    50%  
-   Number with an unused LUT:            95  out of    996     9%  
-   Number of fully used LUT-FF pairs:   400  out of    996    40%  
-   Number of unique control sets:        61
+ Number of LUT Flip Flop pairs used:    831
+   Number with an unused Flip Flop:     505  out of    831    60%  
+   Number with an unused LUT:           114  out of    831    13%  
+   Number of fully used LUT-FF pairs:   212  out of    831    25%  
+   Number of unique control sets:        38
 
 IO Utilization: 
- Number of IOs:                          48
- Number of bonded IOBs:                  42  out of    102    41%  
+ Number of IOs:                          59
+ Number of bonded IOBs:                  53  out of    102    51%  
 
 Specific Feature Utilization:
  Number of BUFG/BUFGCTRLs:                1  out of     16     6%  
@@ -687,8 +969,8 @@ Clock Information:
 -----------------------------------+----------------------------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)                        | Load  |
 -----------------------------------+----------------------------------------------+-------+
-clk                                | BUFGP                                        | 503   |
-led_multiplexer/M_timer_q_9        | NONE(led_multiplexer/M_column_sel_q_FSM_FFd6)| 6     |
+clk                                | BUFGP                                        | 316   |
+multi_seven_seg/ctr/M_ctr_q_9      | NONE(led_multiplexer/M_column_sel_q_FSM_FFd6)| 12    |
 -----------------------------------+----------------------------------------------+-------+
 INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
 
@@ -701,8 +983,8 @@ Timing Summary:
 Speed Grade: -2
 
    Minimum period: 8.420ns (Maximum Frequency: 118.765MHz)
-   Minimum input arrival time before clock: 3.526ns
-   Maximum output required time after clock: 6.881ns
+   Minimum input arrival time before clock: 8.842ns
+   Maximum output required time after clock: 9.420ns
    Maximum combinational path delay: No path found
 
 Timing Details:
@@ -712,7 +994,7 @@ All values displayed in nanoseconds (ns)
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk'
   Clock period: 8.420ns (frequency: 118.765MHz)
-  Total number of paths / destination ports: 25590 / 1374
+  Total number of paths / destination ports: 18338 / 860
 -------------------------------------------------------------------------
 Delay:               8.420ns (Levels of Logic = 7)
   Source:            M_matrix_store_q_27 (FF)
@@ -728,25 +1010,25 @@ Delay:               8.420ns (Levels of Logic = 7)
      begin scope: 'button_checker:matrixin<27>'
      LUT3:I1->O            1   0.250   0.682  Sh112411 (Sh11241)
      LUT6:I5->O            4   0.254   1.032  Sh11243 (Sh1124)
-     LUT6:I3->O            1   0.235   0.958  M_state_q_FSM_FFd3-In26_SW1_SW2 (N135)
-     LUT6:I2->O            1   0.254   0.682  M_state_q_FSM_FFd3-In26_SW1 (N87)
+     LUT6:I3->O            1   0.235   0.958  M_state_q_FSM_FFd3-In26_SW1_SW2 (N136)
+     LUT6:I2->O            1   0.254   0.682  M_state_q_FSM_FFd3-In26_SW1 (N88)
      LUT6:I5->O            7   0.254   0.910  M_state_q_FSM_FFd3-In26 (M_state_q_FSM_FFd3-In26)
-     LUT6:I5->O            1   0.254   0.681  _n0417_inv1_cepot (_n0417_inv1_cepot)
+     LUT6:I5->O            1   0.254   0.681  _n0421_inv1_cepot (_n0421_inv1_cepot)
      FDRE:CE                   0.302          M_mr_q_1
     ----------------------------------------
     Total                      8.420ns (2.328ns logic, 6.092ns route)
                                        (27.6% logic, 72.4% route)
 
 =========================================================================
-Timing constraint: Default period analysis for Clock 'led_multiplexer/M_timer_q_9'
+Timing constraint: Default period analysis for Clock 'multi_seven_seg/ctr/M_ctr_q_9'
   Clock period: 1.542ns (frequency: 648.508MHz)
-  Total number of paths / destination ports: 6 / 6
+  Total number of paths / destination ports: 12 / 12
 -------------------------------------------------------------------------
 Delay:               1.542ns (Levels of Logic = 0)
   Source:            led_multiplexer/M_column_sel_q_FSM_FFd1 (FF)
   Destination:       led_multiplexer/M_column_sel_q_FSM_FFd6 (FF)
-  Source Clock:      led_multiplexer/M_timer_q_9 rising
-  Destination Clock: led_multiplexer/M_timer_q_9 rising
+  Source Clock:      multi_seven_seg/ctr/M_ctr_q_9 rising
+  Destination Clock: multi_seven_seg/ctr/M_ctr_q_9 rising
 
   Data Path: led_multiplexer/M_column_sel_q_FSM_FFd1 to led_multiplexer/M_column_sel_q_FSM_FFd6
                                 Gate     Net
@@ -760,69 +1042,75 @@ Delay:               1.542ns (Levels of Logic = 0)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
-  Total number of paths / destination ports: 18 / 18
+  Total number of paths / destination ports: 1094 / 43
 -------------------------------------------------------------------------
-Offset:              3.526ns (Levels of Logic = 3)
-  Source:            rst_n (PAD)
-  Destination:       reset_cond/M_stage_q_3 (FF)
+Offset:              8.842ns (Levels of Logic = 7)
+  Source:            buttoncol<4> (PAD)
+  Destination:       fake_button_conditioner/M_timer_q_0 (FF)
   Destination Clock: clk rising
 
-  Data Path: rst_n to reset_cond/M_stage_q_3
+  Data Path: buttoncol<4> to fake_button_conditioner/M_timer_q_0
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O             1   1.328   0.681  rst_n_IBUF (rst_n_IBUF)
-     INV:I->O              4   0.255   0.803  M_reset_cond_in1_INV_0 (M_reset_cond_in)
-     begin scope: 'reset_cond:in'
-     FDS:S                     0.459          M_stage_q_0
+     IBUF:I->O             3   1.328   1.221  buttoncol_4_IBUF (buttoncol_4_IBUF)
+     begin scope: 'button_multiplex:button_cols<4>'
+     LUT6:I0->O            4   0.254   1.259  new_button1 (new_button)
+     LUT6:I0->O            2   0.254   1.181  M_state_q_br<2> (br<2>)
+     end scope: 'button_multiplex:br<2>'
+     begin scope: 'fake_button_conditioner:br<2>'
+     LUT6:I0->O            2   0.254   1.156  n0002<2>1 (n0002)
+     LUT6:I1->O           24   0.254   1.379  _n0074_inv1 (_n0074_inv)
+     FDRE:CE                   0.302          M_timer_q_0
     ----------------------------------------
-    Total                      3.526ns (2.042ns logic, 1.484ns route)
-                                       (57.9% logic, 42.1% route)
+    Total                      8.842ns (2.646ns logic, 6.196ns route)
+                                       (29.9% logic, 70.1% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
-  Total number of paths / destination ports: 38 / 8
+  Total number of paths / destination ports: 269 / 20
 -------------------------------------------------------------------------
-Offset:              6.881ns (Levels of Logic = 4)
-  Source:            M_matrix_store_q_17 (FF)
+Offset:              9.420ns (Levels of Logic = 5)
+  Source:            M_game_state_q_FSM_FFd1 (FF)
   Destination:       col<5> (PAD)
   Source Clock:      clk rising
 
-  Data Path: M_matrix_store_q_17 to col<5>
+  Data Path: M_game_state_q_FSM_FFd1 to col<5>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDRE:C->Q            11   0.525   1.469  M_matrix_store_q_17 (M_matrix_store_q_17)
-     begin scope: 'led_multiplexer:inp_int<17>'
-     LUT6:I1->O            1   0.254   0.790  Mmux_column<5>1 (Mmux_column<5>)
-     LUT2:I0->O            1   0.250   0.681  Mmux_column<5>3 (column<5>)
+     FDR:C->Q             49   0.525   1.912  M_game_state_q_FSM_FFd1 (M_game_state_q_FSM_FFd1)
+     LUT2:I0->O           20   0.250   1.741  _n0108<1>1 (_n0108)
+     begin scope: 'led_multiplexer:_n0108'
+     LUT6:I0->O            1   0.254   0.910  Mmux_column<5>2 (Mmux_column<5>1)
+     LUT3:I0->O            1   0.235   0.681  Mmux_column<5>4 (column<5>)
      end scope: 'led_multiplexer:column<5>'
      OBUF:I->O                 2.912          col_5_OBUF (col<5>)
     ----------------------------------------
-    Total                      6.881ns (3.941ns logic, 2.940ns route)
-                                       (57.3% logic, 42.7% route)
+    Total                      9.420ns (4.176ns logic, 5.244ns route)
+                                       (44.3% logic, 55.7% route)
 
 =========================================================================
-Timing constraint: Default OFFSET OUT AFTER for Clock 'led_multiplexer/M_timer_q_9'
-  Total number of paths / destination ports: 42 / 12
+Timing constraint: Default OFFSET OUT AFTER for Clock 'multi_seven_seg/ctr/M_ctr_q_9'
+  Total number of paths / destination ports: 48 / 18
 -------------------------------------------------------------------------
-Offset:              6.811ns (Levels of Logic = 4)
-  Source:            led_multiplexer/M_column_sel_q_FSM_FFd4 (FF)
+Offset:              6.737ns (Levels of Logic = 4)
+  Source:            led_multiplexer/M_column_sel_q_FSM_FFd3 (FF)
   Destination:       col<5> (PAD)
-  Source Clock:      led_multiplexer/M_timer_q_9 rising
+  Source Clock:      multi_seven_seg/ctr/M_ctr_q_9 rising
 
-  Data Path: led_multiplexer/M_column_sel_q_FSM_FFd4 to col<5>
+  Data Path: led_multiplexer/M_column_sel_q_FSM_FFd3 to col<5>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDR:C->Q              8   0.525   1.399  M_column_sel_q_FSM_FFd4 (M_column_sel_q_FSM_FFd4)
-     LUT6:I0->O            1   0.254   0.790  Mmux_column<5>1 (Mmux_column<5>)
-     LUT2:I0->O            1   0.250   0.681  Mmux_column<5>3 (column<5>)
+     FDR:C->Q              8   0.525   1.220  M_column_sel_q_FSM_FFd3 (M_column_sel_q_FSM_FFd3)
+     LUT6:I2->O            1   0.254   0.910  Mmux_column<5>2 (Mmux_column<5>1)
+     LUT3:I0->O            1   0.235   0.681  Mmux_column<5>4 (column<5>)
      end scope: 'led_multiplexer:column<5>'
      OBUF:I->O                 2.912          col_5_OBUF (col<5>)
     ----------------------------------------
-    Total                      6.811ns (3.941ns logic, 2.870ns route)
-                                       (57.9% logic, 42.1% route)
+    Total                      6.737ns (3.926ns logic, 2.811ns route)
+                                       (58.3% logic, 41.7% route)
 
 =========================================================================
 
@@ -830,34 +1118,35 @@ Cross Clock Domains Report:
 --------------------------
 
 Clock to Setup on destination clock clk
----------------+---------+---------+---------+---------+
-               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
-Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
----------------+---------+---------+---------+---------+
-clk            |    8.420|         |         |         |
----------------+---------+---------+---------+---------+
+-----------------------------+---------+---------+---------+---------+
+                             | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock                 |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+-----------------------------+---------+---------+---------+---------+
+clk                          |    8.420|         |         |         |
+multi_seven_seg/ctr/M_ctr_q_9|    7.439|         |         |         |
+-----------------------------+---------+---------+---------+---------+
 
-Clock to Setup on destination clock led_multiplexer/M_timer_q_9
----------------------------+---------+---------+---------+---------+
-                           | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
-Source Clock               |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
----------------------------+---------+---------+---------+---------+
-clk                        |    3.380|         |         |         |
-led_multiplexer/M_timer_q_9|    1.542|         |         |         |
----------------------------+---------+---------+---------+---------+
+Clock to Setup on destination clock multi_seven_seg/ctr/M_ctr_q_9
+-----------------------------+---------+---------+---------+---------+
+                             | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock                 |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+-----------------------------+---------+---------+---------+---------+
+clk                          |    3.415|         |         |         |
+multi_seven_seg/ctr/M_ctr_q_9|    1.542|         |         |         |
+-----------------------------+---------+---------+---------+---------+
 
 =========================================================================
 
 
-Total REAL time to Xst completion: 12.00 secs
-Total CPU time to Xst completion: 11.60 secs
+Total REAL time to Xst completion: 11.00 secs
+Total CPU time to Xst completion: 10.81 secs
  
 --> 
 
 
-Total memory usage is 400064 kilobytes
+Total memory usage is 402320 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :   36 (   0 filtered)
-Number of infos    :   12 (   0 filtered)
+Number of warnings :   18 (   0 filtered)
+Number of infos    :   39 (   0 filtered)
 

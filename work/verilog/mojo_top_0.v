@@ -20,9 +20,11 @@ module mojo_top_0 (
     output reg [5:0] row,
     output reg [5:0] col,
     input [5:0] buttoncol,
-    input [5:0] buttonrow,
+    output reg [5:0] buttonrow,
     input shiftright,
-    input shiftleft
+    input shiftleft,
+    output reg [6:0] seg,
+    output reg [3:0] sel
   );
   
   
@@ -42,9 +44,9 @@ module mojo_top_0 (
   localparam SHIFTMATRIX_game_state = 2'd2;
   
   reg [1:0] M_game_state_d, M_game_state_q = INIT_game_state;
-  reg [7:0] M_score_d, M_score_q = 1'h0;
   reg M_powerup_d, M_powerup_q = 1'h0;
   reg [7:0] M_multiplier_dff_d, M_multiplier_dff_q = 1'h0;
+  reg [0:0] M_test_d, M_test_q = 1'h0;
   
   wire [6-1:0] M_led_multiplexer_row;
   wire [6-1:0] M_led_multiplexer_column;
@@ -59,23 +61,55 @@ module mojo_top_0 (
     .timerout(M_led_multiplexer_timerout)
   );
   
-  wire [3-1:0] M_button_sensing_a_row;
-  wire [3-1:0] M_button_sensing_a_col;
-  wire [3-1:0] M_button_sensing_b_row;
-  wire [3-1:0] M_button_sensing_b_col;
-  wire [1-1:0] M_button_sensing_read;
-  reg [6-1:0] M_button_sensing_buttonrow;
-  reg [6-1:0] M_button_sensing_buttoncol;
-  button_sensing_3 button_sensing (
+  wire [6-1:0] M_button_multiplex_button_rows;
+  wire [1-1:0] M_button_multiplex_new_button;
+  wire [3-1:0] M_button_multiplex_br;
+  wire [3-1:0] M_button_multiplex_bc;
+  reg [6-1:0] M_button_multiplex_button_cols;
+  button_multiplex_3 button_multiplex (
     .clk(clk),
     .rst(rst),
-    .buttonrow(M_button_sensing_buttonrow),
-    .buttoncol(M_button_sensing_buttoncol),
-    .a_row(M_button_sensing_a_row),
-    .a_col(M_button_sensing_a_col),
-    .b_row(M_button_sensing_b_row),
-    .b_col(M_button_sensing_b_col),
-    .read(M_button_sensing_read)
+    .button_cols(M_button_multiplex_button_cols),
+    .button_rows(M_button_multiplex_button_rows),
+    .new_button(M_button_multiplex_new_button),
+    .br(M_button_multiplex_br),
+    .bc(M_button_multiplex_bc)
+  );
+  
+  wire [3-1:0] M_fake_button_conditioner_brout;
+  wire [3-1:0] M_fake_button_conditioner_bcout;
+  wire [1-1:0] M_fake_button_conditioner_valid;
+  reg [3-1:0] M_fake_button_conditioner_bc;
+  reg [3-1:0] M_fake_button_conditioner_br;
+  fake_button_conditioner_4 fake_button_conditioner (
+    .clk(clk),
+    .rst(rst),
+    .bc(M_fake_button_conditioner_bc),
+    .br(M_fake_button_conditioner_br),
+    .brout(M_fake_button_conditioner_brout),
+    .bcout(M_fake_button_conditioner_bcout),
+    .valid(M_fake_button_conditioner_valid)
+  );
+  
+  wire [3-1:0] M_button_sensing2_a_row;
+  wire [3-1:0] M_button_sensing2_a_col;
+  wire [3-1:0] M_button_sensing2_b_row;
+  wire [3-1:0] M_button_sensing2_b_col;
+  wire [1-1:0] M_button_sensing2_read;
+  reg [3-1:0] M_button_sensing2_but_col;
+  reg [3-1:0] M_button_sensing2_but_row;
+  reg [1-1:0] M_button_sensing2_valid;
+  button_sensing2_5 button_sensing2 (
+    .clk(clk),
+    .rst(rst),
+    .but_col(M_button_sensing2_but_col),
+    .but_row(M_button_sensing2_but_row),
+    .valid(M_button_sensing2_valid),
+    .a_row(M_button_sensing2_a_row),
+    .a_col(M_button_sensing2_a_col),
+    .b_row(M_button_sensing2_b_row),
+    .b_col(M_button_sensing2_b_col),
+    .read(M_button_sensing2_read)
   );
   
   wire [1-1:0] M_button_checker_validout;
@@ -83,13 +117,15 @@ module mojo_top_0 (
   wire [1-1:0] M_button_checker_invalidout;
   wire [1-1:0] M_button_checker_probe1;
   wire [1-1:0] M_button_checker_probe2;
+  wire [3-1:0] M_button_checker_a_rowout;
+  wire [3-1:0] M_button_checker_a_colout;
   reg [36-1:0] M_button_checker_matrixin;
   reg [3-1:0] M_button_checker_a_row;
   reg [3-1:0] M_button_checker_b_row;
   reg [3-1:0] M_button_checker_a_col;
   reg [3-1:0] M_button_checker_b_col;
   reg [1-1:0] M_button_checker_read;
-  button_checker_4 button_checker (
+  button_checker_6 button_checker (
     .clk(clk),
     .rst(rst),
     .matrixin(M_button_checker_matrixin),
@@ -102,28 +138,26 @@ module mojo_top_0 (
     .matrixout(M_button_checker_matrixout),
     .invalidout(M_button_checker_invalidout),
     .probe1(M_button_checker_probe1),
-    .probe2(M_button_checker_probe2)
+    .probe2(M_button_checker_probe2),
+    .a_rowout(M_button_checker_a_rowout),
+    .a_colout(M_button_checker_a_colout)
   );
   
   wire [36-1:0] M_matrix_former_new_matrix;
-  wire [8-1:0] M_matrix_former_new_score;
+  wire [1-1:0] M_matrix_former_add_score;
   reg [36-1:0] M_matrix_former_old_matrix;
   reg [36-1:0] M_matrix_former_change_matrix;
   reg [1-1:0] M_matrix_former_valid;
-  reg [8-1:0] M_matrix_former_multiplier;
-  reg [8-1:0] M_matrix_former_old_score;
   reg [1-1:0] M_matrix_former_enable;
-  matrix_former_5 matrix_former (
+  matrix_former_7 matrix_former (
     .clk(clk),
     .rst(rst),
     .old_matrix(M_matrix_former_old_matrix),
     .change_matrix(M_matrix_former_change_matrix),
     .valid(M_matrix_former_valid),
-    .multiplier(M_matrix_former_multiplier),
-    .old_score(M_matrix_former_old_score),
     .enable(M_matrix_former_enable),
     .new_matrix(M_matrix_former_new_matrix),
-    .new_score(M_matrix_former_new_score)
+    .add_score(M_matrix_former_add_score)
   );
   
   wire [1-1:0] M_shifter_new_power_counter;
@@ -133,7 +167,7 @@ module mojo_top_0 (
   reg [36-1:0] M_shifter_old_matrix;
   reg [1-1:0] M_shifter_old_powerup_counter;
   reg [1-1:0] M_shifter_enable;
-  shifter_6 shifter (
+  shifter_8 shifter (
     .clk(clk),
     .rst(rst),
     .shift_left(M_shifter_shift_left),
@@ -152,7 +186,7 @@ module mojo_top_0 (
   reg [3-1:0] M_multiplier_br;
   reg [3-1:0] M_multiplier_bc;
   reg [1-1:0] M_multiplier_valid;
-  multiplier_7 multiplier (
+  multiplier_9 multiplier (
     .clk(clk),
     .rst(rst),
     .old_multiplier(M_multiplier_old_multiplier),
@@ -164,10 +198,59 @@ module mojo_top_0 (
     .new_multiplier(M_multiplier_new_multiplier)
   );
   
+  wire [16-1:0] M_score_digits;
+  reg [1-1:0] M_score_inc;
+  multi_dec_ctr_10 score (
+    .clk(clk),
+    .rst(rst),
+    .inc(M_score_inc),
+    .digits(M_score_digits)
+  );
+  
+  wire [7-1:0] M_multi_seven_seg_seg;
+  wire [4-1:0] M_multi_seven_seg_sel;
+  reg [16-1:0] M_multi_seven_seg_values;
+  multi_seven_seg_11 multi_seven_seg (
+    .clk(clk),
+    .rst(rst),
+    .values(M_multi_seven_seg_values),
+    .seg(M_multi_seven_seg_seg),
+    .sel(M_multi_seven_seg_sel)
+  );
+  
+  wire [1-1:0] M_score_adder_inc_trig;
+  reg [1-1:0] M_score_adder_add;
+  reg [8-1:0] M_score_adder_multiplier;
+  score_adder_12 score_adder (
+    .clk(clk),
+    .rst(rst),
+    .add(M_score_adder_add),
+    .multiplier(M_score_adder_multiplier),
+    .inc_trig(M_score_adder_inc_trig)
+  );
+  
+  wire [36-1:0] M_init_get_hole_mat_out;
+  wire [36-1:0] M_init_get_hole_led_mat;
+  wire [1-1:0] M_init_get_hole_done;
+  wire [1-1:0] M_init_get_hole_test_led;
+  reg [1-1:0] M_init_get_hole_valid;
+  reg [3-1:0] M_init_get_hole_bc;
+  reg [3-1:0] M_init_get_hole_br;
+  init_get_hole_13 init_get_hole (
+    .clk(clk),
+    .rst(rst),
+    .valid(M_init_get_hole_valid),
+    .bc(M_init_get_hole_bc),
+    .br(M_init_get_hole_br),
+    .mat_out(M_init_get_hole_mat_out),
+    .led_mat(M_init_get_hole_led_mat),
+    .done(M_init_get_hole_done),
+    .test_led(M_init_get_hole_test_led)
+  );
+  
   always @* begin
     M_game_state_d = M_game_state_q;
     M_powerup_d = M_powerup_q;
-    M_score_d = M_score_q;
     M_matrix_store_d = M_matrix_store_q;
     M_multiplier_dff_d = M_multiplier_dff_q;
     
@@ -177,13 +260,19 @@ module mojo_top_0 (
     spi_miso = 1'bz;
     spi_channel = 4'bzzzz;
     avr_rx = 1'bz;
-    M_button_sensing_buttoncol = buttoncol;
-    M_button_sensing_buttonrow = buttonrow;
-    M_button_checker_read = M_button_sensing_read;
-    M_button_checker_a_col = M_button_sensing_a_col;
-    M_button_checker_b_col = M_button_sensing_b_col;
-    M_button_checker_a_row = M_button_sensing_a_row;
-    M_button_checker_b_row = M_button_sensing_b_row;
+    M_button_multiplex_button_cols = buttoncol;
+    buttonrow = M_button_multiplex_button_rows;
+    led[7+0-:1] = M_init_get_hole_test_led;
+    M_fake_button_conditioner_bc = M_button_multiplex_bc;
+    M_fake_button_conditioner_br = M_button_multiplex_br;
+    M_button_sensing2_but_col = M_fake_button_conditioner_bcout;
+    M_button_sensing2_but_row = M_fake_button_conditioner_brout;
+    M_button_sensing2_valid = M_fake_button_conditioner_valid;
+    M_button_checker_read = M_button_sensing2_read;
+    M_button_checker_a_col = M_button_sensing2_a_col;
+    M_button_checker_b_col = M_button_sensing2_b_col;
+    M_button_checker_a_row = M_button_sensing2_a_row;
+    M_button_checker_b_row = M_button_sensing2_b_row;
     M_button_checker_matrixin = M_matrix_store_q;
     led[0+0-:1] = M_button_checker_validout;
     led[1+0-:1] = M_button_checker_invalidout;
@@ -192,8 +281,6 @@ module mojo_top_0 (
     col = M_led_multiplexer_column;
     M_matrix_former_old_matrix = M_matrix_store_q;
     M_matrix_former_valid = M_button_checker_validout;
-    M_matrix_former_old_score = M_score_q;
-    M_matrix_former_multiplier = M_multiplier_dff_q;
     M_matrix_former_change_matrix = M_button_checker_matrixout;
     M_matrix_former_enable = 1'h0;
     M_shifter_old_matrix = M_matrix_store_q;
@@ -201,23 +288,35 @@ module mojo_top_0 (
     M_shifter_shift_left = shiftleft;
     M_shifter_shift_right = shiftright;
     M_shifter_old_powerup_counter = M_powerup_q;
-    M_multiplier_ar = M_button_sensing_a_row;
-    M_multiplier_ac = M_button_sensing_a_col;
-    M_multiplier_br = M_button_sensing_b_row;
-    M_multiplier_bc = M_button_sensing_b_col;
+    M_multiplier_ar = M_button_sensing2_a_row;
+    M_multiplier_ac = M_button_sensing2_a_col;
+    M_multiplier_br = M_button_sensing2_b_row;
+    M_multiplier_bc = M_button_sensing2_b_col;
     M_multiplier_valid = M_button_checker_validout;
     M_multiplier_old_multiplier = M_multiplier_dff_q;
     M_multiplier_dff_d = M_multiplier_new_multiplier;
+    M_score_adder_add = M_matrix_former_add_score;
+    M_score_adder_multiplier = M_multiplier_dff_q;
+    M_score_inc = M_score_adder_inc_trig;
+    M_multi_seven_seg_values = M_score_digits;
+    seg = ~M_multi_seven_seg_seg;
+    sel = M_multi_seven_seg_sel;
+    M_init_get_hole_br = M_fake_button_conditioner_brout;
+    M_init_get_hole_bc = M_fake_button_conditioner_bcout;
+    M_init_get_hole_valid = M_fake_button_conditioner_valid;
     
     case (M_game_state_q)
       INIT_game_state: begin
-        M_matrix_store_d = 36'hfffdfffff;
+        M_matrix_store_d = M_init_get_hole_mat_out;
+        M_led_multiplexer_inp_int = M_init_get_hole_led_mat;
         M_powerup_d = 1'h0;
-        M_game_state_d = UPDATEMATRIX_game_state;
+        M_multiplier_dff_d = 1'h1;
+        if (M_init_get_hole_done) begin
+          M_game_state_d = UPDATEMATRIX_game_state;
+        end
       end
       UPDATEMATRIX_game_state: begin
         M_matrix_store_d = M_matrix_former_new_matrix;
-        M_score_d = M_matrix_former_new_score;
         M_matrix_former_enable = 1'h1;
         M_game_state_d = SHIFTMATRIX_game_state;
       end
@@ -233,15 +332,15 @@ module mojo_top_0 (
   always @(posedge clk) begin
     if (rst == 1'b1) begin
       M_matrix_store_q <= 1'h0;
-      M_score_q <= 1'h0;
       M_powerup_q <= 1'h0;
       M_multiplier_dff_q <= 1'h0;
+      M_test_q <= 1'h0;
       M_game_state_q <= 1'h0;
     end else begin
       M_matrix_store_q <= M_matrix_store_d;
-      M_score_q <= M_score_d;
       M_powerup_q <= M_powerup_d;
       M_multiplier_dff_q <= M_multiplier_dff_d;
+      M_test_q <= M_test_d;
       M_game_state_q <= M_game_state_d;
     end
   end
