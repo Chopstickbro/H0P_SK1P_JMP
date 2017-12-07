@@ -34,6 +34,12 @@ module mojo_top_0 (
     .in(M_reset_cond_in),
     .out(M_reset_cond_out)
   );
+  reg [35:0] M_matrix_store_d, M_matrix_store_q = 1'h0;
+  localparam INIT_game_state = 1'd0;
+  localparam PLAYING_game_state = 1'd1;
+  
+  reg M_game_state_d, M_game_state_q = INIT_game_state;
+  reg [7:0] M_score_d, M_score_q = 1'h0;
   
   wire [6-1:0] M_led_multiplexer_row;
   wire [6-1:0] M_led_multiplexer_column;
@@ -70,6 +76,8 @@ module mojo_top_0 (
   wire [1-1:0] M_button_checker_validout;
   wire [36-1:0] M_button_checker_matrixout;
   wire [1-1:0] M_button_checker_invalidout;
+  wire [1-1:0] M_button_checker_probe1;
+  wire [1-1:0] M_button_checker_probe2;
   reg [36-1:0] M_button_checker_matrixin;
   reg [3-1:0] M_button_checker_a_row;
   reg [3-1:0] M_button_checker_b_row;
@@ -87,10 +95,35 @@ module mojo_top_0 (
     .read(M_button_checker_read),
     .validout(M_button_checker_validout),
     .matrixout(M_button_checker_matrixout),
-    .invalidout(M_button_checker_invalidout)
+    .invalidout(M_button_checker_invalidout),
+    .probe1(M_button_checker_probe1),
+    .probe2(M_button_checker_probe2)
+  );
+  
+  wire [36-1:0] M_matrix_former_new_matrix;
+  wire [8-1:0] M_matrix_former_new_score;
+  reg [36-1:0] M_matrix_former_old_matrix;
+  reg [36-1:0] M_matrix_former_change_matrix;
+  reg [1-1:0] M_matrix_former_valid;
+  reg [1-1:0] M_matrix_former_multiplier;
+  reg [8-1:0] M_matrix_former_old_score;
+  matrix_former_5 matrix_former (
+    .clk(clk),
+    .rst(rst),
+    .old_matrix(M_matrix_former_old_matrix),
+    .change_matrix(M_matrix_former_change_matrix),
+    .valid(M_matrix_former_valid),
+    .multiplier(M_matrix_former_multiplier),
+    .old_score(M_matrix_former_old_score),
+    .new_matrix(M_matrix_former_new_matrix),
+    .new_score(M_matrix_former_new_score)
   );
   
   always @* begin
+    M_game_state_d = M_game_state_q;
+    M_score_d = M_score_q;
+    M_matrix_store_d = M_matrix_store_q;
+    
     M_reset_cond_in = ~rst_n;
     rst = M_reset_cond_out;
     led = 8'h00;
@@ -104,11 +137,41 @@ module mojo_top_0 (
     M_button_checker_b_col = M_button_sensing_b_col;
     M_button_checker_a_row = M_button_sensing_a_row;
     M_button_checker_b_row = M_button_sensing_b_row;
-    M_button_checker_matrixin = 36'hfffe07fff;
+    M_button_checker_matrixin = M_matrix_store_q;
     led[0+0-:1] = M_button_checker_validout;
     led[1+0-:1] = M_button_checker_invalidout;
-    M_led_multiplexer_inp_int = M_button_checker_matrixout;
+    M_led_multiplexer_inp_int = M_matrix_store_q;
     row = M_led_multiplexer_row;
     col = M_led_multiplexer_column;
+    M_matrix_former_old_matrix = M_matrix_store_q;
+    M_matrix_store_d = M_matrix_former_new_matrix;
+    M_matrix_former_valid = M_button_checker_validout;
+    M_matrix_former_old_score = M_score_q;
+    M_score_d = M_matrix_former_new_score;
+    M_matrix_former_multiplier = 1'h1;
+    M_matrix_former_change_matrix = M_button_checker_matrixout;
+    
+    case (M_game_state_q)
+      INIT_game_state: begin
+        M_matrix_store_d = 36'hfffdfffff;
+        M_game_state_d = PLAYING_game_state;
+      end
+      PLAYING_game_state: begin
+        led[2+0-:1] = 1'h1;
+      end
+    endcase
   end
+  
+  always @(posedge clk) begin
+    if (rst == 1'b1) begin
+      M_matrix_store_q <= 1'h0;
+      M_score_q <= 1'h0;
+      M_game_state_q <= 1'h0;
+    end else begin
+      M_matrix_store_q <= M_matrix_store_d;
+      M_score_q <= M_score_d;
+      M_game_state_q <= M_game_state_d;
+    end
+  end
+  
 endmodule
