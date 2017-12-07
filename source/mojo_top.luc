@@ -18,7 +18,8 @@ module mojo_top (
     input shiftright,
     input shiftleft,
     output seg[7],
-    output sel[4]
+    output sel[4],
+    input powerupbut
   ) {
   
   sig rst;                  // reset signal
@@ -29,10 +30,9 @@ module mojo_top (
     reset_conditioner reset_cond;
     .rst(rst) {
       dff matrix_store[6][6]; //store matrix
-      fsm game_state = {INIT, UPDATEMATRIX, SHIFTMATRIX};
-      dff powerup;
+      fsm game_state = {SELECTLVL, SELECTHOLE, UPDATEMATRIX, SHIFTMATRIX, MULTIPLIER};
+      dff powerup[3];
       dff multiplier_dff[8];
-      dff test[1];
     }
   }
   
@@ -42,12 +42,14 @@ module mojo_top (
   button_sensing2 button_sensing2(.clk(clk), .rst(rst));
   button_checker button_checker(.clk(clk), .rst(rst));
   matrix_former matrix_former(.clk(clk), .rst(rst));
-  shifter shifter (.clk(clk), .rst(rst));
+  mat_shifter mat_shifter (.clk(clk), .rst(rst));
   multiplier multiplier(.clk(clk), .rst(rst));
   multi_dec_ctr score(.clk(clk), .rst(rst));
   multi_seven_seg multi_seven_seg(.clk(clk), .rst(rst));
   score_adder score_adder(.clk(clk), .rst(rst));
-  init_get_hole init_get_hole(.clk(clk), .rst(rst));  
+  init_get_hole init_get_hole(.clk(clk), .rst(rst));
+  level_selector level_selector(.clk(clk), .rst(rst));
+  alu alu;  
     
   
   always {
@@ -59,11 +61,16 @@ module mojo_top (
     spi_channel = bzzzz;    // not using flags
     avr_rx = bz;            // not using serial port
     
+    alu.a = 0;
+    alu.b = 0;
+    alu.alufn = 0;
+    
     button_multiplex.button_cols = buttoncol;
     buttonrow = button_multiplex.button_rows;
     //led[7:5] = button_sensing2.a_col;
     //led[4:2] = button_sensing2.a_row;
-    led[7] = init_get_hole.test_led;
+    led[7:5] = multiplier.check_signala;
+    led[4:2] = multiplier.check_signalb;
     
     fake_button_conditioner.bc = button_multiplex.bc;
     fake_button_conditioner.br = button_multiplex.br;
@@ -72,6 +79,9 @@ module mojo_top (
     button_sensing2.but_row = fake_button_conditioner.brout;
     button_sensing2.valid = fake_button_conditioner.valid;
     
+    level_selector.enable = 0;
+    level_selector.button_row = 0;
+    level_selector.valid = 0;
     
     button_checker.read = button_sensing2.read;
     button_checker.a_col = button_sensing2.a_col;
@@ -92,22 +102,26 @@ module mojo_top (
     matrix_former.valid = button_checker.validout;
     matrix_former.change_matrix = button_checker.matrixout;
     matrix_former.enable = 0;
+    matrix_former.alu_result = 0;
     
 
-    shifter.old_matrix = matrix_store.q;
-    shifter.enable = 0;
-    shifter.shift_left = shiftleft;
-    shifter.shift_right = shiftright;
-    shifter.old_powerup_counter = powerup.q;
+    mat_shifter.old_matrix = matrix_store.q;
+    mat_shifter.enable = 0;
+    mat_shifter.shift_left = shiftleft;
+    mat_shifter.shift_right = shiftright;
+    mat_shifter.old_powerup_counter = powerup.q;
+    mat_shifter.alu_result = 0;
     
     
-    multiplier.ar = button_sensing2.a_row;
-    multiplier.ac = button_sensing2.a_col;
-    multiplier.br = button_sensing2.b_row;
-    multiplier.bc = button_sensing2.b_col;
+    multiplier.ar = button_checker.a_rowout;
+    multiplier.ac = button_checker.a_colout;
+    multiplier.br = button_checker.b_rowout;
+    multiplier.bc = button_checker.b_colout;
     multiplier.valid = button_checker.validout;
     multiplier.old_multiplier = multiplier_dff.q;
     multiplier_dff.d = multiplier.new_multiplier;
+    multiplier.enable = 0;
+    multiplier.alu_result = 0;
     
     score_adder.add = matrix_former.add_score;
     score_adder.multiplier = multiplier_dff.q;
@@ -122,14 +136,36 @@ module mojo_top (
     init_get_hole.valid = fake_button_conditioner.valid;
     
 
-    
+    if (powerupbut) {
+      case (powerup.q){
+        1: led_multiplexer.inp_int = {6b0,6b0,6b0,6b0,6b000001,6b0};
+        2: led_multiplexer.inp_int = {6b0,6b0,6b0,6b000011,6b0,6b0};
+        3: led_multiplexer.inp_int = {6b0,6b0,6b000111,6b0,6b0,6b0};
+        4: led_multiplexer.inp_int = {6b0,6b0,6b001111,6b0,6b0,6b0};
+        5: led_multiplexer.inp_int = {6b0,6b011111,6b0,6b0,6b0,6b0};
+        6: led_multiplexer.inp_int = {6b111111,6b0,6b0,6b0,6b0,6b0};
+        0: led_multiplexer.inp_int = 6x{{6b0}};       
+      }
+    }
     
     case(game_state.q){
-      game_state.INIT:
+      game_state.SELECTLVL:
+        powerup.d = level_selector.powerup_set;
+        led_multiplexer.inp_int = level_selector.led_matrix;
+        level_selector.button_row = fake_button_conditioner.brout;
+        level_selector.valid = fake_button_conditioner.valid;
+        level_selector.enable = 1;
+        multiplier.valid = 0;
+        button_sensing2.valid = 0;
+        if (level_selector.done) {
+          game_state.d = game_state.SELECTHOLE;
+        }
+      game_state.SELECTHOLE:
         matrix_store.d = init_get_hole.mat_out;
         led_multiplexer.inp_int = init_get_hole.led_mat;
-        powerup.d = 0;
         multiplier_dff.d = 1;
+        button_sensing2.valid = 0;
+        multiplier.valid = 0;
         if (init_get_hole.done) {
           game_state.d = game_state.UPDATEMATRIX;
         }
@@ -138,15 +174,36 @@ module mojo_top (
         
       game_state.UPDATEMATRIX:
         matrix_store.d = matrix_former.new_matrix;
-        
+        alu.a = matrix_former.a;
+        alu.b = matrix_former.b;
+        alu.alufn = matrix_former.alufn;
+        matrix_former.alu_result = alu.out;
         matrix_former.enable = 1;
-        game_state.d = game_state.SHIFTMATRIX;
+        if (matrix_former.done) {
+          game_state.d = game_state.SHIFTMATRIX;
+        }
         
       game_state.SHIFTMATRIX:
-        matrix_store.d = shifter.new_matrix;
-        powerup.d = shifter.new_power_counter;
-        shifter.enable = 1;
-        game_state.d = game_state.UPDATEMATRIX;
+        matrix_store.d = mat_shifter.new_matrix;
+        alu.a = mat_shifter.a;
+        alu.b = mat_shifter.b;
+        alu.alufn = mat_shifter.alufn;
+        mat_shifter.alu_result = alu.out;
+        powerup.d = mat_shifter.new_power_counter;
+        mat_shifter.enable = 1;
+        if (mat_shifter.done) {
+          game_state.d = game_state.MULTIPLIER;
+        }
+        
+      game_state.MULTIPLIER:
+        alu.a = multiplier.a;
+        alu.b = multiplier.b;
+        alu.alufn = multiplier.alufn;
+        multiplier.alu_result = alu.out;
+        multiplier.enable = 1;
+        if (multiplier.done) {
+          game_state.d = game_state.UPDATEMATRIX;
+        }
     }
 
         

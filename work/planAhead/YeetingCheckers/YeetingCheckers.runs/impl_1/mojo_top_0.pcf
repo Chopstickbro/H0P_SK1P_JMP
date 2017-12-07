@@ -1,5 +1,5 @@
 //! **************************************************************************
-// Written by: Map P.20131013 on Wed Dec 06 13:22:48 2017
+// Written by: Map P.20131013 on Fri Dec 08 00:50:53 2017
 //! **************************************************************************
 
 SCHEMATIC START;
@@ -9,6 +9,7 @@ COMP "cclk" LOCATE = SITE "P70" LEVEL 1;
 COMP "shiftright" LOCATE = SITE "P1" LEVEL 1;
 COMP "rst_n" LOCATE = SITE "P38" LEVEL 1;
 COMP "spi_sck" LOCATE = SITE "P43" LEVEL 1;
+COMP "powerupbut" LOCATE = SITE "P6" LEVEL 1;
 COMP "avr_rx_busy" LOCATE = SITE "P39" LEVEL 1;
 COMP "shiftleft" LOCATE = SITE "P2" LEVEL 1;
 COMP "col[0]" LOCATE = SITE "P58" LEVEL 1;
@@ -57,45 +58,8 @@ COMP "buttonrow[3]" LOCATE = SITE "P33" LEVEL 1;
 COMP "buttonrow[4]" LOCATE = SITE "P30" LEVEL 1;
 COMP "buttonrow[5]" LOCATE = SITE "P27" LEVEL 1;
 COMP "spi_mosi" LOCATE = SITE "P44" LEVEL 1;
-TIMEGRP clk = BEL "M_multiplier_dff_q_0" BEL "M_multiplier_dff_q_1" BEL
-        "M_multiplier_dff_q_2" BEL "M_multiplier_dff_q_3" BEL
-        "M_multiplier_dff_q_4" BEL "M_multiplier_dff_q_5" BEL
-        "M_multiplier_dff_q_6" BEL "M_multiplier_dff_q_7" BEL
-        "M_matrix_store_q_0" BEL "M_matrix_store_q_1" BEL "M_matrix_store_q_2"
-        BEL "M_matrix_store_q_3" BEL "M_matrix_store_q_4" BEL
-        "M_matrix_store_q_5" BEL "M_matrix_store_q_6" BEL "M_matrix_store_q_7"
-        BEL "M_matrix_store_q_8" BEL "M_matrix_store_q_9" BEL
-        "M_matrix_store_q_10" BEL "M_matrix_store_q_11" BEL
-        "M_matrix_store_q_12" BEL "M_matrix_store_q_13" BEL
-        "M_matrix_store_q_14" BEL "M_matrix_store_q_15" BEL
-        "M_matrix_store_q_16" BEL "M_matrix_store_q_17" BEL
-        "M_matrix_store_q_18" BEL "M_matrix_store_q_19" BEL
-        "M_matrix_store_q_20" BEL "M_matrix_store_q_21" BEL
-        "M_matrix_store_q_22" BEL "M_matrix_store_q_23" BEL
-        "M_matrix_store_q_24" BEL "M_matrix_store_q_25" BEL
-        "M_matrix_store_q_26" BEL "M_matrix_store_q_27" BEL
-        "M_matrix_store_q_28" BEL "M_matrix_store_q_29" BEL
-        "M_matrix_store_q_30" BEL "M_matrix_store_q_31" BEL
-        "M_matrix_store_q_32" BEL "M_matrix_store_q_33" BEL
-        "M_matrix_store_q_34" BEL "M_matrix_store_q_35" BEL
-        "M_game_state_q_FSM_FFd2" BEL "M_game_state_q_FSM_FFd1" BEL
-        "score/dctr_gen_0[3].dctr/M_val_q_0" BEL
-        "score/dctr_gen_0[3].dctr/M_val_q_1" BEL
-        "score/dctr_gen_0[3].dctr/M_val_q_2" BEL
-        "score/dctr_gen_0[3].dctr/M_val_q_3" BEL
-        "score/edge_detector/M_last_q" BEL
-        "score/dctr_gen_0[2].dctr/M_val_q_0" BEL
-        "score/dctr_gen_0[2].dctr/M_val_q_1" BEL
-        "score/dctr_gen_0[2].dctr/M_val_q_2" BEL
-        "score/dctr_gen_0[2].dctr/M_val_q_3" BEL
-        "score/dctr_gen_0[1].dctr/M_val_q_0" BEL
-        "score/dctr_gen_0[1].dctr/M_val_q_1" BEL
-        "score/dctr_gen_0[1].dctr/M_val_q_2" BEL
-        "score/dctr_gen_0[1].dctr/M_val_q_3" BEL
-        "score/dctr_gen_0[0].dctr/M_val_q_0" BEL
-        "score/dctr_gen_0[0].dctr/M_val_q_1" BEL
-        "score/dctr_gen_0[0].dctr/M_val_q_2" BEL
-        "score/dctr_gen_0[0].dctr/M_val_q_3" BEL "clk_BUFGP/BUFG" BEL
+TIMEGRP clk = BEL "reset_cond/M_stage_q_3" BEL "reset_cond/M_stage_q_2" BEL
+        "reset_cond/M_stage_q_1" BEL "reset_cond/M_stage_q_0" BEL
         "fake_button_conditioner/M_brout_dff_q_0" BEL
         "fake_button_conditioner/M_brout_dff_q_1" BEL
         "fake_button_conditioner/M_brout_dff_q_2" BEL
@@ -127,65 +91,13 @@ TIMEGRP clk = BEL "M_multiplier_dff_q_0" BEL "M_multiplier_dff_q_1" BEL
         "fake_button_conditioner/M_timer_q_22" BEL
         "fake_button_conditioner/M_timer_q_23" BEL
         "fake_button_conditioner/M_state_q_FSM_FFd2" BEL
-        "fake_button_conditioner/M_state_q_FSM_FFd1" BEL
-        "button_checker/M_valid_q_0" BEL "button_checker/M_mr_q_0" BEL
-        "button_checker/M_mr_q_1" BEL "button_checker/M_mr_q_2" BEL
-        "button_checker/M_ac_q_0" BEL "button_checker/M_ac_q_1" BEL
-        "button_checker/M_ac_q_2" BEL "button_checker/M_bc_q_0" BEL
-        "button_checker/M_bc_q_1" BEL "button_checker/M_bc_q_2" BEL
-        "button_checker/M_change_matrix_q_0" BEL
-        "button_checker/M_change_matrix_q_1" BEL
-        "button_checker/M_change_matrix_q_2" BEL
-        "button_checker/M_change_matrix_q_3" BEL
-        "button_checker/M_change_matrix_q_4" BEL
-        "button_checker/M_change_matrix_q_5" BEL
-        "button_checker/M_change_matrix_q_6" BEL
-        "button_checker/M_change_matrix_q_7" BEL
-        "button_checker/M_change_matrix_q_8" BEL
-        "button_checker/M_change_matrix_q_9" BEL "button_checker/M_ar_q_0_1"
-        BEL "button_checker/M_ar_q_0_2" BEL "button_checker/M_ar_q_0_3" BEL
-        "button_checker/M_ar_q_1_1" BEL "button_checker/M_ar_q_1_2" BEL
-        "button_checker/M_ar_q_2_1" BEL "button_checker/M_ar_q_0" BEL
-        "button_checker/M_ar_q_1" BEL "button_checker/M_ar_q_2" BEL
-        "button_checker/M_state_q_FSM_FFd1" BEL
-        "button_checker/M_state_q_FSM_FFd2" BEL
-        "button_checker/M_state_q_FSM_FFd3" BEL "button_checker/M_br_q_0" BEL
-        "button_checker/M_br_q_1" BEL "button_checker/M_br_q_2" BEL
-        "button_checker/M_ac_q_0_1" BEL "button_checker/M_ac_q_0_2" BEL
-        "button_checker/M_ac_q_0_3" BEL "button_checker/Maddsub_n03561_1" BEL
-        "button_checker/Maddsub_n03561_2" BEL
-        "button_checker/Maddsub_n03561_3" BEL "button_checker/M_ac_q_1_1" BEL
-        "button_checker/M_ac_q_1_2" BEL "button_checker/M_ac_q_1_3" BEL
-        "button_checker/M_ac_q_2_1" BEL "button_checker/M_ac_q_2_2" BEL
-        "button_checker/M_change_matrix_q_10" BEL
-        "button_checker/M_change_matrix_q_11" BEL
-        "button_checker/M_change_matrix_q_12" BEL
-        "button_checker/M_change_matrix_q_13" BEL
-        "button_checker/M_change_matrix_q_14" BEL
-        "button_checker/M_change_matrix_q_15" BEL
-        "button_checker/M_change_matrix_q_20" BEL
-        "button_checker/M_change_matrix_q_16" BEL
-        "button_checker/M_change_matrix_q_21" BEL
-        "button_checker/M_change_matrix_q_17" BEL
-        "button_checker/M_change_matrix_q_22" BEL
-        "button_checker/M_change_matrix_q_18" BEL
-        "button_checker/M_change_matrix_q_23" BEL
-        "button_checker/M_change_matrix_q_19" BEL
-        "button_checker/M_change_matrix_q_24" BEL
-        "button_checker/M_change_matrix_q_25" BEL
-        "button_checker/M_change_matrix_q_30" BEL
-        "button_checker/M_change_matrix_q_26" BEL
-        "button_checker/M_change_matrix_q_31" BEL
-        "button_checker/M_change_matrix_q_27" BEL
-        "button_checker/M_change_matrix_q_32" BEL
-        "button_checker/M_change_matrix_q_28" BEL
-        "button_checker/M_change_matrix_q_33" BEL
-        "button_checker/M_change_matrix_q_29" BEL
-        "button_checker/M_change_matrix_q_34" BEL
-        "button_checker/M_change_matrix_q_35" BEL
-        "button_checker/M_invalid_q_0" BEL "button_checker/M_br_q_0_1" BEL
-        "button_sensing2/M_state_q_FSM_FFd1" BEL
-        "button_sensing2/M_state_q_FSM_FFd2" BEL
+        "fake_button_conditioner/M_state_q_FSM_FFd1" BEL "M_matrix_store_q_0"
+        BEL "M_matrix_store_q_1" BEL "M_matrix_store_q_2" BEL
+        "M_matrix_store_q_3" BEL "M_matrix_store_q_4" BEL "M_matrix_store_q_5"
+        BEL "M_matrix_store_q_6" BEL "M_matrix_store_q_7" BEL
+        "M_matrix_store_q_8" BEL "M_matrix_store_q_9" BEL
+        "level_selector/M_state_q" BEL "button_sensing2/M_state_q_FSM_FFd1"
+        BEL "button_sensing2/M_state_q_FSM_FFd2" BEL
         "button_sensing2/M_a_rowdff_q_2" BEL "button_sensing2/M_a_rowdff_q_1"
         BEL "button_sensing2/M_a_rowdff_q_0" BEL
         "button_sensing2/M_b_coldff_q_2" BEL "button_sensing2/M_b_coldff_q_1"
@@ -193,21 +105,128 @@ TIMEGRP clk = BEL "M_multiplier_dff_q_0" BEL "M_multiplier_dff_q_1" BEL
         "button_sensing2/M_a_coldff_q_2" BEL "button_sensing2/M_a_coldff_q_1"
         BEL "button_sensing2/M_a_coldff_q_0" BEL
         "button_sensing2/M_b_rowdff_q_2" BEL "button_sensing2/M_b_rowdff_q_1"
-        BEL "button_sensing2/M_b_rowdff_q_0" BEL "init_get_hole/M_timer_q_18"
-        BEL "init_get_hole/M_timer_q_19" BEL "init_get_hole/M_timer_q_20" BEL
-        "init_get_hole/M_timer_q_21" BEL "init_get_hole/M_timer_q_22" BEL
-        "init_get_hole/M_timer_q_23" BEL "init_get_hole/M_test_q" BEL
-        "reset_cond/M_stage_q_3" BEL "reset_cond/M_stage_q_2" BEL
-        "reset_cond/M_stage_q_1" BEL "reset_cond/M_stage_q_0" BEL
-        "score_adder/M_add_buffer_q_7" BEL "score_adder/M_add_buffer_q_6" BEL
-        "score_adder/M_add_buffer_q_5" BEL "score_adder/M_add_buffer_q_4" BEL
-        "score_adder/M_add_buffer_q_3" BEL "score_adder/M_add_buffer_q_2" BEL
-        "score_adder/M_add_buffer_q_1" BEL "score_adder/M_add_buffer_q_0" BEL
-        "score_adder/M_state_q" BEL "score_adder/edge_detector/M_last_q" BEL
+        BEL "button_sensing2/M_b_rowdff_q_0" BEL
+        "multiplier/M_state_q_FSM_FFd1" BEL "multiplier/M_state_q_FSM_FFd2"
+        BEL "multiplier/M_state_q_FSM_FFd3" BEL "multiplier/M_last_row_q_2"
+        BEL "multiplier/M_last_row_q_1" BEL "multiplier/M_last_row_q_0" BEL
         "multiplier/M_last_col_q_2" BEL "multiplier/M_last_col_q_1" BEL
-        "multiplier/M_last_col_q_0" BEL "multiplier/M_last_row_q_2" BEL
-        "multiplier/M_last_row_q_1" BEL "multiplier/M_last_row_q_0" BEL
-        "matrix_former/M_change_matrix_dff_q_35" BEL
+        "multiplier/M_last_col_q_0" BEL "multiplier/M_bc_dff_q_2" BEL
+        "multiplier/M_bc_dff_q_1" BEL "multiplier/M_bc_dff_q_0" BEL
+        "multiplier/M_br_dff_q_2" BEL "multiplier/M_br_dff_q_1" BEL
+        "multiplier/M_br_dff_q_0" BEL "multiplier/M_ac_dff_q_2" BEL
+        "multiplier/M_ac_dff_q_1" BEL "multiplier/M_ac_dff_q_0" BEL
+        "multiplier/M_ar_dff_q_2" BEL "multiplier/M_ar_dff_q_1" BEL
+        "multiplier/M_ar_dff_q_0" BEL "multiplier/edge_detector/M_last_q" BEL
+        "M_powerup_q_0" BEL "M_powerup_q_1" BEL "M_powerup_q_2" BEL
+        "M_game_state_q_FSM_FFd1_1" BEL "M_game_state_q_FSM_FFd1_2" BEL
+        "M_game_state_q_FSM_FFd2_1" BEL "M_game_state_q_FSM_FFd2_2" BEL
+        "mat_shifter/M_state_q_FSM_FFd1" BEL "mat_shifter/M_state_q_FSM_FFd3"
+        BEL "mat_shifter/M_state_q_FSM_FFd2" BEL
+        "mat_shifter/M_state_q_FSM_FFd2_1" BEL
+        "mat_shifter/M_state_q_FSM_FFd1_1" BEL
+        "mat_shifter/M_state_q_FSM_FFd3_1" BEL
+        "mat_shifter/M_state_q_FSM_FFd2_2" BEL
+        "mat_shifter/M_state_q_FSM_FFd2_3" BEL
+        "mat_shifter/M_state_q_FSM_FFd3_2" BEL
+        "mat_shifter/M_state_q_FSM_FFd1_2" BEL
+        "mat_shifter/edge_detectorright/M_last_q" BEL
+        "mat_shifter/edge_detectorleft/M_last_q" BEL
+        "mat_shifter/button_conditionerright/M_ctr_q_19" BEL
+        "mat_shifter/button_conditionerright/M_ctr_q_18" BEL
+        "mat_shifter/button_conditionerright/M_ctr_q_17" BEL
+        "mat_shifter/button_conditionerright/M_ctr_q_16" BEL
+        "mat_shifter/button_conditionerright/M_ctr_q_15" BEL
+        "mat_shifter/button_conditionerright/M_ctr_q_14" BEL
+        "mat_shifter/button_conditionerright/M_ctr_q_13" BEL
+        "mat_shifter/button_conditionerright/M_ctr_q_12" BEL
+        "mat_shifter/button_conditionerright/M_ctr_q_11" BEL
+        "mat_shifter/button_conditionerright/M_ctr_q_10" BEL
+        "mat_shifter/button_conditionerright/M_ctr_q_9" BEL
+        "mat_shifter/button_conditionerright/M_ctr_q_8" BEL
+        "mat_shifter/button_conditionerright/M_ctr_q_7" BEL
+        "mat_shifter/button_conditionerright/M_ctr_q_6" BEL
+        "mat_shifter/button_conditionerright/M_ctr_q_5" BEL
+        "mat_shifter/button_conditionerright/M_ctr_q_4" BEL
+        "mat_shifter/button_conditionerright/M_ctr_q_3" BEL
+        "mat_shifter/button_conditionerright/M_ctr_q_2" BEL
+        "mat_shifter/button_conditionerright/M_ctr_q_1" BEL
+        "mat_shifter/button_conditionerright/M_ctr_q_0" BEL
+        "mat_shifter/button_conditionerright/sync/M_pipe_q_1" BEL
+        "mat_shifter/button_conditionerright/sync/Mshreg_M_pipe_q_1" BEL
+        "mat_shifter/button_conditionerleft/M_ctr_q_19" BEL
+        "mat_shifter/button_conditionerleft/M_ctr_q_18" BEL
+        "mat_shifter/button_conditionerleft/M_ctr_q_17" BEL
+        "mat_shifter/button_conditionerleft/M_ctr_q_16" BEL
+        "mat_shifter/button_conditionerleft/M_ctr_q_15" BEL
+        "mat_shifter/button_conditionerleft/M_ctr_q_14" BEL
+        "mat_shifter/button_conditionerleft/M_ctr_q_13" BEL
+        "mat_shifter/button_conditionerleft/M_ctr_q_12" BEL
+        "mat_shifter/button_conditionerleft/M_ctr_q_11" BEL
+        "mat_shifter/button_conditionerleft/M_ctr_q_10" BEL
+        "mat_shifter/button_conditionerleft/M_ctr_q_9" BEL
+        "mat_shifter/button_conditionerleft/M_ctr_q_8" BEL
+        "mat_shifter/button_conditionerleft/M_ctr_q_7" BEL
+        "mat_shifter/button_conditionerleft/M_ctr_q_6" BEL
+        "mat_shifter/button_conditionerleft/M_ctr_q_5" BEL
+        "mat_shifter/button_conditionerleft/M_ctr_q_4" BEL
+        "mat_shifter/button_conditionerleft/M_ctr_q_3" BEL
+        "mat_shifter/button_conditionerleft/M_ctr_q_2" BEL
+        "mat_shifter/button_conditionerleft/M_ctr_q_1" BEL
+        "mat_shifter/button_conditionerleft/M_ctr_q_0" BEL
+        "mat_shifter/button_conditionerleft/sync/M_pipe_q_1" BEL
+        "mat_shifter/button_conditionerleft/sync/Mshreg_M_pipe_q_1" BEL
+        "M_game_state_q_FSM_FFd3_1" BEL "M_game_state_q_FSM_FFd3_2" BEL
+        "M_game_state_q_FSM_FFd3_3" BEL "M_multiplier_dff_q_0" BEL
+        "M_multiplier_dff_q_1" BEL "M_multiplier_dff_q_2" BEL
+        "M_multiplier_dff_q_3" BEL "M_multiplier_dff_q_4" BEL
+        "M_multiplier_dff_q_5" BEL "M_game_state_q_FSM_FFd1" BEL
+        "M_game_state_q_FSM_FFd2" BEL "M_game_state_q_FSM_FFd3" BEL
+        "score/dctr_gen_0[3].dctr/M_val_q_0" BEL
+        "score/dctr_gen_0[3].dctr/M_val_q_1" BEL
+        "score/dctr_gen_0[3].dctr/M_val_q_2" BEL
+        "score/dctr_gen_0[3].dctr/M_val_q_3" BEL
+        "score/edge_detector/M_last_q" BEL
+        "score/dctr_gen_0[2].dctr/M_val_q_0" BEL
+        "score/dctr_gen_0[2].dctr/M_val_q_1" BEL
+        "score/dctr_gen_0[2].dctr/M_val_q_2" BEL
+        "score/dctr_gen_0[2].dctr/M_val_q_3" BEL
+        "score/dctr_gen_0[1].dctr/M_val_q_0" BEL
+        "score/dctr_gen_0[1].dctr/M_val_q_1" BEL
+        "score/dctr_gen_0[1].dctr/M_val_q_2" BEL
+        "score/dctr_gen_0[1].dctr/M_val_q_3" BEL
+        "score/dctr_gen_0[0].dctr/M_val_q_0" BEL
+        "score/dctr_gen_0[0].dctr/M_val_q_1" BEL
+        "score/dctr_gen_0[0].dctr/M_val_q_2" BEL
+        "score/dctr_gen_0[0].dctr/M_val_q_3" BEL "M_powerup_q_0_1" BEL
+        "M_powerup_q_1_1" BEL "M_powerup_q_2_1" BEL
+        "multi_seven_seg/ctr/M_ctr_q_0" BEL "multi_seven_seg/ctr/M_ctr_q_1"
+        BEL "multi_seven_seg/ctr/M_ctr_q_2" BEL
+        "multi_seven_seg/ctr/M_ctr_q_3" BEL "multi_seven_seg/ctr/M_ctr_q_4"
+        BEL "multi_seven_seg/ctr/M_ctr_q_5" BEL
+        "multi_seven_seg/ctr/M_ctr_q_6" BEL "multi_seven_seg/ctr/M_ctr_q_7"
+        BEL "multi_seven_seg/ctr/M_ctr_q_8" BEL
+        "multi_seven_seg/ctr/M_ctr_q_9" BEL "multi_seven_seg/ctr/M_ctr_q_10"
+        BEL "multi_seven_seg/ctr/M_ctr_q_11" BEL
+        "multi_seven_seg/ctr/M_ctr_q_12" BEL "multi_seven_seg/ctr/M_ctr_q_13"
+        BEL "multi_seven_seg/ctr/M_ctr_q_14" BEL
+        "multi_seven_seg/ctr/M_ctr_q_15" BEL "multi_seven_seg/ctr/M_ctr_q_16"
+        BEL "multi_seven_seg/ctr/M_ctr_q_17" BEL "M_matrix_store_q_10" BEL
+        "M_matrix_store_q_11" BEL "M_matrix_store_q_12" BEL
+        "M_matrix_store_q_13" BEL "M_matrix_store_q_14" BEL
+        "M_matrix_store_q_20" BEL "M_matrix_store_q_15" BEL
+        "M_matrix_store_q_21" BEL "M_matrix_store_q_16" BEL
+        "M_matrix_store_q_17" BEL "M_matrix_store_q_22" BEL
+        "M_matrix_store_q_18" BEL "M_matrix_store_q_23" BEL
+        "M_matrix_store_q_19" BEL "M_matrix_store_q_24" BEL
+        "M_matrix_store_q_25" BEL "M_matrix_store_q_30" BEL
+        "M_matrix_store_q_26" BEL "M_matrix_store_q_31" BEL
+        "M_matrix_store_q_27" BEL "M_matrix_store_q_32" BEL
+        "M_matrix_store_q_28" BEL "M_matrix_store_q_33" BEL
+        "M_matrix_store_q_29" BEL "M_matrix_store_q_34" BEL
+        "M_matrix_store_q_35" BEL "matrix_former/M_state_q_FSM_FFd2" BEL
+        "matrix_former/M_state_q_FSM_FFd3" BEL
+        "matrix_former/M_state_q_FSM_FFd1" BEL "matrix_former/M_done_dff_q"
+        BEL "matrix_former/M_change_matrix_dff_q_35" BEL
         "matrix_former/M_change_matrix_dff_q_34" BEL
         "matrix_former/M_change_matrix_dff_q_33" BEL
         "matrix_former/M_change_matrix_dff_q_32" BEL
@@ -242,68 +261,73 @@ TIMEGRP clk = BEL "M_multiplier_dff_q_0" BEL "M_multiplier_dff_q_1" BEL
         "matrix_former/M_change_matrix_dff_q_3" BEL
         "matrix_former/M_change_matrix_dff_q_2" BEL
         "matrix_former/M_change_matrix_dff_q_1" BEL
-        "matrix_former/M_change_matrix_dff_q_0" BEL "matrix_former/M_state_q"
-        BEL "matrix_former/M_valid_dff_q_0" BEL
-        "matrix_former/edge_detector/M_last_q" BEL
-        "multi_seven_seg/ctr/M_ctr_q_0" BEL "multi_seven_seg/ctr/M_ctr_q_1"
-        BEL "multi_seven_seg/ctr/M_ctr_q_2" BEL
-        "multi_seven_seg/ctr/M_ctr_q_3" BEL "multi_seven_seg/ctr/M_ctr_q_4"
-        BEL "multi_seven_seg/ctr/M_ctr_q_5" BEL
-        "multi_seven_seg/ctr/M_ctr_q_6" BEL "multi_seven_seg/ctr/M_ctr_q_7"
-        BEL "multi_seven_seg/ctr/M_ctr_q_8" BEL
-        "multi_seven_seg/ctr/M_ctr_q_9" BEL "multi_seven_seg/ctr/M_ctr_q_10"
-        BEL "multi_seven_seg/ctr/M_ctr_q_11" BEL
-        "multi_seven_seg/ctr/M_ctr_q_12" BEL "multi_seven_seg/ctr/M_ctr_q_13"
-        BEL "multi_seven_seg/ctr/M_ctr_q_14" BEL
-        "multi_seven_seg/ctr/M_ctr_q_15" BEL "multi_seven_seg/ctr/M_ctr_q_16"
-        BEL "multi_seven_seg/ctr/M_ctr_q_17" BEL "shifter/M_state_q_FSM_FFd1"
-        BEL "shifter/M_state_q_FSM_FFd2" BEL "shifter/M_state_q_FSM_FFd3" BEL
-        "shifter/edge_detectorright/M_last_q" BEL
-        "shifter/edge_detectorleft/M_last_q" BEL
-        "shifter/button_conditionerright/M_ctr_q_19" BEL
-        "shifter/button_conditionerright/M_ctr_q_18" BEL
-        "shifter/button_conditionerright/M_ctr_q_17" BEL
-        "shifter/button_conditionerright/M_ctr_q_16" BEL
-        "shifter/button_conditionerright/M_ctr_q_15" BEL
-        "shifter/button_conditionerright/M_ctr_q_14" BEL
-        "shifter/button_conditionerright/M_ctr_q_13" BEL
-        "shifter/button_conditionerright/M_ctr_q_12" BEL
-        "shifter/button_conditionerright/M_ctr_q_11" BEL
-        "shifter/button_conditionerright/M_ctr_q_10" BEL
-        "shifter/button_conditionerright/M_ctr_q_9" BEL
-        "shifter/button_conditionerright/M_ctr_q_8" BEL
-        "shifter/button_conditionerright/M_ctr_q_7" BEL
-        "shifter/button_conditionerright/M_ctr_q_6" BEL
-        "shifter/button_conditionerright/M_ctr_q_5" BEL
-        "shifter/button_conditionerright/M_ctr_q_4" BEL
-        "shifter/button_conditionerright/M_ctr_q_3" BEL
-        "shifter/button_conditionerright/M_ctr_q_2" BEL
-        "shifter/button_conditionerright/M_ctr_q_1" BEL
-        "shifter/button_conditionerright/M_ctr_q_0" BEL
-        "shifter/button_conditionerright/sync/M_pipe_q_1" BEL
-        "shifter/button_conditionerright/sync/Mshreg_M_pipe_q_1" BEL
-        "shifter/button_conditionerleft/M_ctr_q_19" BEL
-        "shifter/button_conditionerleft/M_ctr_q_18" BEL
-        "shifter/button_conditionerleft/M_ctr_q_17" BEL
-        "shifter/button_conditionerleft/M_ctr_q_16" BEL
-        "shifter/button_conditionerleft/M_ctr_q_15" BEL
-        "shifter/button_conditionerleft/M_ctr_q_14" BEL
-        "shifter/button_conditionerleft/M_ctr_q_13" BEL
-        "shifter/button_conditionerleft/M_ctr_q_12" BEL
-        "shifter/button_conditionerleft/M_ctr_q_11" BEL
-        "shifter/button_conditionerleft/M_ctr_q_10" BEL
-        "shifter/button_conditionerleft/M_ctr_q_9" BEL
-        "shifter/button_conditionerleft/M_ctr_q_8" BEL
-        "shifter/button_conditionerleft/M_ctr_q_7" BEL
-        "shifter/button_conditionerleft/M_ctr_q_6" BEL
-        "shifter/button_conditionerleft/M_ctr_q_5" BEL
-        "shifter/button_conditionerleft/M_ctr_q_4" BEL
-        "shifter/button_conditionerleft/M_ctr_q_3" BEL
-        "shifter/button_conditionerleft/M_ctr_q_2" BEL
-        "shifter/button_conditionerleft/M_ctr_q_1" BEL
-        "shifter/button_conditionerleft/M_ctr_q_0" BEL
-        "shifter/button_conditionerleft/sync/M_pipe_q_1" BEL
-        "shifter/button_conditionerleft/sync/Mshreg_M_pipe_q_1";
+        "matrix_former/M_change_matrix_dff_q_0" BEL
+        "matrix_former/M_state_q_FSM_FFd3_1" BEL
+        "matrix_former/M_state_q_FSM_FFd1_1" BEL
+        "matrix_former/M_state_q_FSM_FFd2_1" BEL
+        "matrix_former/M_state_q_FSM_FFd2_2" BEL
+        "matrix_former/M_state_q_FSM_FFd3_2" BEL
+        "matrix_former/M_state_q_FSM_FFd1_2" BEL
+        "matrix_former/M_state_q_FSM_FFd3_3" BEL
+        "matrix_former/M_state_q_FSM_FFd1_3" BEL
+        "matrix_former/edge_detector/M_last_q" BEL "button_checker/M_ac_q_0"
+        BEL "button_checker/M_ac_q_1" BEL "button_checker/M_ac_q_2" BEL
+        "button_checker/M_bc_q_0" BEL "button_checker/M_bc_q_1" BEL
+        "button_checker/M_bc_q_2" BEL "button_checker/M_ar_q_0" BEL
+        "button_checker/M_ar_q_1" BEL "button_checker/M_ar_q_2" BEL
+        "button_checker/M_br_q_0" BEL "button_checker/M_state_q_FSM_FFd1" BEL
+        "button_checker/M_br_q_1" BEL "button_checker/M_state_q_FSM_FFd2" BEL
+        "button_checker/M_br_q_2" BEL "button_checker/M_state_q_FSM_FFd3" BEL
+        "button_checker/M_invalid_q_0" BEL
+        "button_checker/M_change_matrix_q_0" BEL
+        "button_checker/M_change_matrix_q_1" BEL
+        "button_checker/M_change_matrix_q_2" BEL
+        "button_checker/M_change_matrix_q_3" BEL
+        "button_checker/M_change_matrix_q_4" BEL
+        "button_checker/M_change_matrix_q_5" BEL
+        "button_checker/M_change_matrix_q_6" BEL
+        "button_checker/M_change_matrix_q_7" BEL
+        "button_checker/M_change_matrix_q_8" BEL
+        "button_checker/M_change_matrix_q_9" BEL "button_checker/M_mr_q_0" BEL
+        "button_checker/M_mr_q_1" BEL "button_checker/M_mr_q_2" BEL
+        "button_checker/Maddsub_n03601_1" BEL
+        "button_checker/Maddsub_n03601_2" BEL
+        "button_checker/Maddsub_n03601_3" BEL
+        "button_checker/M_change_matrix_q_10" BEL
+        "button_checker/M_change_matrix_q_11" BEL
+        "button_checker/M_change_matrix_q_12" BEL
+        "button_checker/M_change_matrix_q_13" BEL
+        "button_checker/M_change_matrix_q_14" BEL
+        "button_checker/M_change_matrix_q_20" BEL
+        "button_checker/M_change_matrix_q_15" BEL
+        "button_checker/M_change_matrix_q_21" BEL
+        "button_checker/M_change_matrix_q_16" BEL
+        "button_checker/M_change_matrix_q_22" BEL
+        "button_checker/M_change_matrix_q_17" BEL
+        "button_checker/M_change_matrix_q_23" BEL
+        "button_checker/M_change_matrix_q_18" BEL
+        "button_checker/M_change_matrix_q_24" BEL
+        "button_checker/M_change_matrix_q_19" BEL
+        "button_checker/M_change_matrix_q_30" BEL
+        "button_checker/M_change_matrix_q_25" BEL
+        "button_checker/M_change_matrix_q_31" BEL
+        "button_checker/M_change_matrix_q_26" BEL
+        "button_checker/M_change_matrix_q_32" BEL
+        "button_checker/M_change_matrix_q_27" BEL
+        "button_checker/M_change_matrix_q_33" BEL
+        "button_checker/M_change_matrix_q_28" BEL
+        "button_checker/M_change_matrix_q_34" BEL
+        "button_checker/M_change_matrix_q_29" BEL
+        "button_checker/M_change_matrix_q_35" BEL "button_checker/M_valid_q_0"
+        BEL "score_adder/M_add_buffer_q_0" BEL "score_adder/M_add_buffer_q_1"
+        BEL "score_adder/M_add_buffer_q_2" BEL "score_adder/M_add_buffer_q_3"
+        BEL "score_adder/M_add_buffer_q_4" BEL "score_adder/M_add_buffer_q_5"
+        BEL "score_adder/M_add_buffer_q_6" BEL "score_adder/M_add_buffer_q_7"
+        BEL "score_adder/M_state_q" BEL "score_adder/edge_detector/M_last_q"
+        BEL "clk_BUFGP/BUFG" BEL "init_get_hole/M_timer_q_18" BEL
+        "init_get_hole/M_timer_q_19" BEL "init_get_hole/M_timer_q_20" BEL
+        "init_get_hole/M_timer_q_21" BEL "init_get_hole/M_timer_q_22" BEL
+        "init_get_hole/M_timer_q_23";
 TS_clk = PERIOD TIMEGRP "clk" 50 MHz HIGH 50%;
 SCHEMATIC END;
 

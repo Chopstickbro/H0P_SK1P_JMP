@@ -1,0 +1,43 @@
+module alu (
+    input alufn[6],
+    input a[8],
+    input b[8],
+    output z,
+    output n,
+    output v,
+    output out[8]
+  ) {
+  
+
+  
+  .alufn(alufn), .a(a), .b(b) {
+    shifter shifter;
+    boolean boolean;
+    comparator comparator;
+    adder adder;
+    mul multiplier;  
+    div div;
+  }
+    
+  
+  always {
+    z = adder.z;
+    n = adder.n;
+    v = adder.v;
+    case(alufn[5:4]) {
+      b00: case (alufn[1:0]) {
+        //sub cases of OPCODES that share 00xxxx
+        b00: out = adder.out;
+        b01: out = adder.out;
+        b10: out = multiplier.out;
+        b11: out = div.out;
+        default: out = 8b00000000;
+        }
+      b01: out = boolean.out;
+      b10: out = shifter.out;
+      b11: out = comparator.out;
+      default: out = 0;
+      
+    }     
+  }
+}

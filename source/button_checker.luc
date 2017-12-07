@@ -13,7 +13,9 @@ module button_checker (
     output probe1,
     output probe2,
     output a_rowout[3],
-    output a_colout[3]
+    output a_colout[3],
+    output b_rowout[3],
+    output b_colout[3]
   ) {
   
   .clk(clk) {
@@ -33,6 +35,8 @@ module button_checker (
 
   always {
     
+    b_rowout = br.q;
+    b_colout = bc.q;
     probe1 = matrixin[ar.q][ac.q];
     probe2 = matrixin[br.q][bc.q];
     validout = valid.q;
@@ -67,6 +71,7 @@ module button_checker (
             if ((ac.q-bc.q == 2) | (bc.q-ac.q == 2)) {
               state.d = state.CHECKMIDDLE1;
             }
+            else state.d = state.INVALID;
         }
         else {
           state.d = state.CHECKDIST2;
@@ -78,6 +83,7 @@ module button_checker (
           if ((ar.q-br.q == 2) | (br.q-ar.q==2)) {
             state.d = state.CHECKMIDDLE2;
           }
+          else state.d = state.INVALID;
         }
         else {
           state.d = state.INVALID;
@@ -90,6 +96,7 @@ module button_checker (
             mr.d = ar.q;
             state.d = state.VALID;
           }
+          else state.d = state.INVALID;
         }
         else {
           if (matrixin[ar.q][ac.q+1] == 1) {
@@ -110,6 +117,7 @@ module button_checker (
             mr.d = ar.q-1;
             state.d = state.VALID;
           }
+          else state.d = state.INVALID;
         }
         else {
           if (matrixin[ar.q+1][ac.q] == 1) {

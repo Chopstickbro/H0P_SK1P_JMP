@@ -24,7 +24,8 @@ module mojo_top_0 (
     input shiftright,
     input shiftleft,
     output reg [6:0] seg,
-    output reg [3:0] sel
+    output reg [3:0] sel,
+    input powerupbut
   );
   
   
@@ -39,14 +40,15 @@ module mojo_top_0 (
     .out(M_reset_cond_out)
   );
   reg [35:0] M_matrix_store_d, M_matrix_store_q = 1'h0;
-  localparam INIT_game_state = 2'd0;
-  localparam UPDATEMATRIX_game_state = 2'd1;
-  localparam SHIFTMATRIX_game_state = 2'd2;
+  localparam SELECTLVL_game_state = 3'd0;
+  localparam SELECTHOLE_game_state = 3'd1;
+  localparam UPDATEMATRIX_game_state = 3'd2;
+  localparam SHIFTMATRIX_game_state = 3'd3;
+  localparam MULTIPLIER_game_state = 3'd4;
   
-  reg [1:0] M_game_state_d, M_game_state_q = INIT_game_state;
-  reg M_powerup_d, M_powerup_q = 1'h0;
+  reg [2:0] M_game_state_d, M_game_state_q = SELECTLVL_game_state;
+  reg [2:0] M_powerup_d, M_powerup_q = 1'h0;
   reg [7:0] M_multiplier_dff_d, M_multiplier_dff_q = 1'h0;
-  reg [0:0] M_test_d, M_test_q = 1'h0;
   
   wire [6-1:0] M_led_multiplexer_row;
   wire [6-1:0] M_led_multiplexer_column;
@@ -119,6 +121,8 @@ module mojo_top_0 (
   wire [1-1:0] M_button_checker_probe2;
   wire [3-1:0] M_button_checker_a_rowout;
   wire [3-1:0] M_button_checker_a_colout;
+  wire [3-1:0] M_button_checker_b_rowout;
+  wire [3-1:0] M_button_checker_b_colout;
   reg [36-1:0] M_button_checker_matrixin;
   reg [3-1:0] M_button_checker_a_row;
   reg [3-1:0] M_button_checker_b_row;
@@ -140,15 +144,22 @@ module mojo_top_0 (
     .probe1(M_button_checker_probe1),
     .probe2(M_button_checker_probe2),
     .a_rowout(M_button_checker_a_rowout),
-    .a_colout(M_button_checker_a_colout)
+    .a_colout(M_button_checker_a_colout),
+    .b_rowout(M_button_checker_b_rowout),
+    .b_colout(M_button_checker_b_colout)
   );
   
   wire [36-1:0] M_matrix_former_new_matrix;
   wire [1-1:0] M_matrix_former_add_score;
+  wire [6-1:0] M_matrix_former_alufn;
+  wire [8-1:0] M_matrix_former_a;
+  wire [8-1:0] M_matrix_former_b;
+  wire [1-1:0] M_matrix_former_done;
   reg [36-1:0] M_matrix_former_old_matrix;
   reg [36-1:0] M_matrix_former_change_matrix;
   reg [1-1:0] M_matrix_former_valid;
   reg [1-1:0] M_matrix_former_enable;
+  reg [6-1:0] M_matrix_former_alu_result;
   matrix_former_7 matrix_former (
     .clk(clk),
     .rst(rst),
@@ -156,36 +167,59 @@ module mojo_top_0 (
     .change_matrix(M_matrix_former_change_matrix),
     .valid(M_matrix_former_valid),
     .enable(M_matrix_former_enable),
+    .alu_result(M_matrix_former_alu_result),
     .new_matrix(M_matrix_former_new_matrix),
-    .add_score(M_matrix_former_add_score)
+    .add_score(M_matrix_former_add_score),
+    .alufn(M_matrix_former_alufn),
+    .a(M_matrix_former_a),
+    .b(M_matrix_former_b),
+    .done(M_matrix_former_done)
   );
   
-  wire [1-1:0] M_shifter_new_power_counter;
-  wire [36-1:0] M_shifter_new_matrix;
-  reg [1-1:0] M_shifter_shift_left;
-  reg [1-1:0] M_shifter_shift_right;
-  reg [36-1:0] M_shifter_old_matrix;
-  reg [1-1:0] M_shifter_old_powerup_counter;
-  reg [1-1:0] M_shifter_enable;
-  shifter_8 shifter (
+  wire [3-1:0] M_mat_shifter_new_power_counter;
+  wire [36-1:0] M_mat_shifter_new_matrix;
+  wire [6-1:0] M_mat_shifter_alufn;
+  wire [8-1:0] M_mat_shifter_a;
+  wire [8-1:0] M_mat_shifter_b;
+  wire [1-1:0] M_mat_shifter_done;
+  reg [1-1:0] M_mat_shifter_shift_left;
+  reg [1-1:0] M_mat_shifter_shift_right;
+  reg [36-1:0] M_mat_shifter_old_matrix;
+  reg [3-1:0] M_mat_shifter_old_powerup_counter;
+  reg [1-1:0] M_mat_shifter_enable;
+  reg [6-1:0] M_mat_shifter_alu_result;
+  mat_shifter_8 mat_shifter (
     .clk(clk),
     .rst(rst),
-    .shift_left(M_shifter_shift_left),
-    .shift_right(M_shifter_shift_right),
-    .old_matrix(M_shifter_old_matrix),
-    .old_powerup_counter(M_shifter_old_powerup_counter),
-    .enable(M_shifter_enable),
-    .new_power_counter(M_shifter_new_power_counter),
-    .new_matrix(M_shifter_new_matrix)
+    .shift_left(M_mat_shifter_shift_left),
+    .shift_right(M_mat_shifter_shift_right),
+    .old_matrix(M_mat_shifter_old_matrix),
+    .old_powerup_counter(M_mat_shifter_old_powerup_counter),
+    .enable(M_mat_shifter_enable),
+    .alu_result(M_mat_shifter_alu_result),
+    .new_power_counter(M_mat_shifter_new_power_counter),
+    .new_matrix(M_mat_shifter_new_matrix),
+    .alufn(M_mat_shifter_alufn),
+    .a(M_mat_shifter_a),
+    .b(M_mat_shifter_b),
+    .done(M_mat_shifter_done)
   );
   
   wire [8-1:0] M_multiplier_new_multiplier;
+  wire [6-1:0] M_multiplier_alufn;
+  wire [8-1:0] M_multiplier_a;
+  wire [8-1:0] M_multiplier_b;
+  wire [1-1:0] M_multiplier_done;
+  wire [3-1:0] M_multiplier_check_signala;
+  wire [3-1:0] M_multiplier_check_signalb;
   reg [8-1:0] M_multiplier_old_multiplier;
   reg [3-1:0] M_multiplier_ar;
   reg [3-1:0] M_multiplier_ac;
   reg [3-1:0] M_multiplier_br;
   reg [3-1:0] M_multiplier_bc;
   reg [1-1:0] M_multiplier_valid;
+  reg [1-1:0] M_multiplier_enable;
+  reg [6-1:0] M_multiplier_alu_result;
   multiplier_9 multiplier (
     .clk(clk),
     .rst(rst),
@@ -195,7 +229,15 @@ module mojo_top_0 (
     .br(M_multiplier_br),
     .bc(M_multiplier_bc),
     .valid(M_multiplier_valid),
-    .new_multiplier(M_multiplier_new_multiplier)
+    .enable(M_multiplier_enable),
+    .alu_result(M_multiplier_alu_result),
+    .new_multiplier(M_multiplier_new_multiplier),
+    .alufn(M_multiplier_alufn),
+    .a(M_multiplier_a),
+    .b(M_multiplier_b),
+    .done(M_multiplier_done),
+    .check_signala(M_multiplier_check_signala),
+    .check_signalb(M_multiplier_check_signalb)
   );
   
   wire [16-1:0] M_score_digits;
@@ -248,6 +290,40 @@ module mojo_top_0 (
     .test_led(M_init_get_hole_test_led)
   );
   
+  wire [36-1:0] M_level_selector_led_matrix;
+  wire [3-1:0] M_level_selector_powerup_set;
+  wire [1-1:0] M_level_selector_done;
+  reg [3-1:0] M_level_selector_button_row;
+  reg [1-1:0] M_level_selector_enable;
+  reg [1-1:0] M_level_selector_valid;
+  level_selector_14 level_selector (
+    .clk(clk),
+    .rst(rst),
+    .button_row(M_level_selector_button_row),
+    .enable(M_level_selector_enable),
+    .valid(M_level_selector_valid),
+    .led_matrix(M_level_selector_led_matrix),
+    .powerup_set(M_level_selector_powerup_set),
+    .done(M_level_selector_done)
+  );
+  
+  wire [1-1:0] M_alu_z;
+  wire [1-1:0] M_alu_n;
+  wire [1-1:0] M_alu_v;
+  wire [8-1:0] M_alu_out;
+  reg [6-1:0] M_alu_alufn;
+  reg [8-1:0] M_alu_a;
+  reg [8-1:0] M_alu_b;
+  alu_15 alu (
+    .alufn(M_alu_alufn),
+    .a(M_alu_a),
+    .b(M_alu_b),
+    .z(M_alu_z),
+    .n(M_alu_n),
+    .v(M_alu_v),
+    .out(M_alu_out)
+  );
+  
   always @* begin
     M_game_state_d = M_game_state_q;
     M_powerup_d = M_powerup_q;
@@ -260,14 +336,21 @@ module mojo_top_0 (
     spi_miso = 1'bz;
     spi_channel = 4'bzzzz;
     avr_rx = 1'bz;
+    M_alu_a = 1'h0;
+    M_alu_b = 1'h0;
+    M_alu_alufn = 1'h0;
     M_button_multiplex_button_cols = buttoncol;
     buttonrow = M_button_multiplex_button_rows;
-    led[7+0-:1] = M_init_get_hole_test_led;
+    led[5+2-:3] = M_multiplier_check_signala;
+    led[2+2-:3] = M_multiplier_check_signalb;
     M_fake_button_conditioner_bc = M_button_multiplex_bc;
     M_fake_button_conditioner_br = M_button_multiplex_br;
     M_button_sensing2_but_col = M_fake_button_conditioner_bcout;
     M_button_sensing2_but_row = M_fake_button_conditioner_brout;
     M_button_sensing2_valid = M_fake_button_conditioner_valid;
+    M_level_selector_enable = 1'h0;
+    M_level_selector_button_row = 1'h0;
+    M_level_selector_valid = 1'h0;
     M_button_checker_read = M_button_sensing2_read;
     M_button_checker_a_col = M_button_sensing2_a_col;
     M_button_checker_b_col = M_button_sensing2_b_col;
@@ -283,18 +366,22 @@ module mojo_top_0 (
     M_matrix_former_valid = M_button_checker_validout;
     M_matrix_former_change_matrix = M_button_checker_matrixout;
     M_matrix_former_enable = 1'h0;
-    M_shifter_old_matrix = M_matrix_store_q;
-    M_shifter_enable = 1'h0;
-    M_shifter_shift_left = shiftleft;
-    M_shifter_shift_right = shiftright;
-    M_shifter_old_powerup_counter = M_powerup_q;
-    M_multiplier_ar = M_button_sensing2_a_row;
-    M_multiplier_ac = M_button_sensing2_a_col;
-    M_multiplier_br = M_button_sensing2_b_row;
-    M_multiplier_bc = M_button_sensing2_b_col;
+    M_matrix_former_alu_result = 1'h0;
+    M_mat_shifter_old_matrix = M_matrix_store_q;
+    M_mat_shifter_enable = 1'h0;
+    M_mat_shifter_shift_left = shiftleft;
+    M_mat_shifter_shift_right = shiftright;
+    M_mat_shifter_old_powerup_counter = M_powerup_q;
+    M_mat_shifter_alu_result = 1'h0;
+    M_multiplier_ar = M_button_checker_a_rowout;
+    M_multiplier_ac = M_button_checker_a_colout;
+    M_multiplier_br = M_button_checker_b_rowout;
+    M_multiplier_bc = M_button_checker_b_colout;
     M_multiplier_valid = M_button_checker_validout;
     M_multiplier_old_multiplier = M_multiplier_dff_q;
     M_multiplier_dff_d = M_multiplier_new_multiplier;
+    M_multiplier_enable = 1'h0;
+    M_multiplier_alu_result = 1'h0;
     M_score_adder_add = M_matrix_former_add_score;
     M_score_adder_multiplier = M_multiplier_dff_q;
     M_score_inc = M_score_adder_inc_trig;
@@ -304,27 +391,88 @@ module mojo_top_0 (
     M_init_get_hole_br = M_fake_button_conditioner_brout;
     M_init_get_hole_bc = M_fake_button_conditioner_bcout;
     M_init_get_hole_valid = M_fake_button_conditioner_valid;
+    if (powerupbut) begin
+      
+      case (M_powerup_q)
+        1'h1: begin
+          M_led_multiplexer_inp_int = 36'h000000040;
+        end
+        2'h2: begin
+          M_led_multiplexer_inp_int = 36'h000003000;
+        end
+        2'h3: begin
+          M_led_multiplexer_inp_int = 36'h0001c0000;
+        end
+        3'h4: begin
+          M_led_multiplexer_inp_int = 36'h0003c0000;
+        end
+        3'h5: begin
+          M_led_multiplexer_inp_int = 36'h01f000000;
+        end
+        3'h6: begin
+          M_led_multiplexer_inp_int = 36'hfc0000000;
+        end
+        1'h0: begin
+          M_led_multiplexer_inp_int = 36'h000000000;
+        end
+      endcase
+    end
     
     case (M_game_state_q)
-      INIT_game_state: begin
+      SELECTLVL_game_state: begin
+        M_powerup_d = M_level_selector_powerup_set;
+        M_led_multiplexer_inp_int = M_level_selector_led_matrix;
+        M_level_selector_button_row = M_fake_button_conditioner_brout;
+        M_level_selector_valid = M_fake_button_conditioner_valid;
+        M_level_selector_enable = 1'h1;
+        M_multiplier_valid = 1'h0;
+        M_button_sensing2_valid = 1'h0;
+        if (M_level_selector_done) begin
+          M_game_state_d = SELECTHOLE_game_state;
+        end
+      end
+      SELECTHOLE_game_state: begin
         M_matrix_store_d = M_init_get_hole_mat_out;
         M_led_multiplexer_inp_int = M_init_get_hole_led_mat;
-        M_powerup_d = 1'h0;
         M_multiplier_dff_d = 1'h1;
+        M_button_sensing2_valid = 1'h0;
+        M_multiplier_valid = 1'h0;
         if (M_init_get_hole_done) begin
           M_game_state_d = UPDATEMATRIX_game_state;
         end
       end
       UPDATEMATRIX_game_state: begin
         M_matrix_store_d = M_matrix_former_new_matrix;
+        M_alu_a = M_matrix_former_a;
+        M_alu_b = M_matrix_former_b;
+        M_alu_alufn = M_matrix_former_alufn;
+        M_matrix_former_alu_result = M_alu_out;
         M_matrix_former_enable = 1'h1;
-        M_game_state_d = SHIFTMATRIX_game_state;
+        if (M_matrix_former_done) begin
+          M_game_state_d = SHIFTMATRIX_game_state;
+        end
       end
       SHIFTMATRIX_game_state: begin
-        M_matrix_store_d = M_shifter_new_matrix;
-        M_powerup_d = M_shifter_new_power_counter;
-        M_shifter_enable = 1'h1;
-        M_game_state_d = UPDATEMATRIX_game_state;
+        M_matrix_store_d = M_mat_shifter_new_matrix;
+        M_alu_a = M_mat_shifter_a;
+        M_alu_b = M_mat_shifter_b;
+        M_alu_alufn = M_mat_shifter_alufn;
+        M_mat_shifter_alu_result = M_alu_out;
+        M_powerup_d = M_mat_shifter_new_power_counter;
+        M_mat_shifter_enable = 1'h1;
+        if (M_mat_shifter_done) begin
+          M_game_state_d = MULTIPLIER_game_state;
+        end
+      end
+      MULTIPLIER_game_state: begin
+        M_alu_a = M_multiplier_a;
+        M_alu_b = M_multiplier_b;
+        M_alu_alufn = M_multiplier_alufn;
+        M_multiplier_alu_result = M_alu_out;
+        M_multiplier_enable = 1'h1;
+        if (M_multiplier_done) begin
+          M_game_state_d = UPDATEMATRIX_game_state;
+        end
       end
     endcase
   end
@@ -334,13 +482,11 @@ module mojo_top_0 (
       M_matrix_store_q <= 1'h0;
       M_powerup_q <= 1'h0;
       M_multiplier_dff_q <= 1'h0;
-      M_test_q <= 1'h0;
       M_game_state_q <= 1'h0;
     end else begin
       M_matrix_store_q <= M_matrix_store_d;
       M_powerup_q <= M_powerup_d;
       M_multiplier_dff_q <= M_multiplier_dff_d;
-      M_test_q <= M_test_d;
       M_game_state_q <= M_game_state_d;
     end
   end

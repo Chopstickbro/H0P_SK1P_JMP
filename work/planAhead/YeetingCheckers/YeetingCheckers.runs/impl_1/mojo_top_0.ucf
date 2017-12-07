@@ -46,6 +46,9 @@ NET "shiftright" PULLDOWN;
 NET "shiftleft" LOC = P2;
 NET "shiftleft" IOSTANDARD = LVTTL;
 NET "shiftleft" PULLDOWN;
+NET "powerupbut" LOC = P6;
+NET "powerupbut" IOSTANDARD = LVTTL;
+NET "powerupbut" PULLDOWN;
 
 ####################################################################################
 # Constraints from file : 'led.ucf'

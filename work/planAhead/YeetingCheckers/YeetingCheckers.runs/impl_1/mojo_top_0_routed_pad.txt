@@ -1,7 +1,7 @@
 Release 14.7 - par P.20131013 (lin64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-Wed Dec  6 13:22:55 2017
+Fri Dec  8 00:51:02 2017
 
 
 INFO: The IO information is provided in three file formats as part of the Place and Route (PAR) process.  These formats are:
@@ -25,7 +25,7 @@ Pinout by Pin Number:
 |P3        |            |         |GND                       |         |           |              |          |         |           |         |       |          |           |                |
 |P4        |            |         |VCCO_3                    |         |           |3             |          |         |           |         |3.30   |          |           |                |
 |P5        |            |IOBS     |IO_L52N_3                 |UNUSED   |           |3             |          |         |           |         |       |          |           |                |
-|P6        |            |IOBM     |IO_L52P_3                 |UNUSED   |           |3             |          |         |           |         |       |          |           |                |
+|P6        |powerupbut  |IOB      |IO_L52P_3                 |INPUT    |LVTTL      |3             |          |         |PULLDOWN   |NONE     |       |LOCATED   |NO         |NONE            |
 |P7        |            |IOBS     |IO_L51N_3                 |UNUSED   |           |3             |          |         |           |         |       |          |           |                |
 |P8        |            |IOBM     |IO_L51P_3                 |UNUSED   |           |3             |          |         |           |         |       |          |           |                |
 |P9        |            |IOBS     |IO_L50N_3                 |UNUSED   |           |3             |          |         |           |         |       |          |           |                |

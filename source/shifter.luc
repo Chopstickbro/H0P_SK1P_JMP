@@ -1,13 +1,19 @@
-module shifter (
+module mat_shifter (
     input clk,  // clock
     input rst,  // reset
     input shift_left,
     input shift_right,
     input old_matrix[6][6],
-    input old_powerup_counter,
-    output new_power_counter,
+    input old_powerup_counter[3],
+    output new_power_counter[3],
     output new_matrix[6][6],
-    input enable
+    input enable,
+    output alufn[6],
+    output a[8],
+    output b[8],
+    input alu_result[6],
+    output done
+    
   ) {
   
   .clk(clk) {
@@ -16,51 +22,95 @@ module shifter (
     button_conditioner button_conditionerleft;
     button_conditioner button_conditionerright;
     .rst(rst) {
-      fsm state = {IDLE, SHIFT_RIGHT, SHIFT_LEFT};
+      fsm state = {IDLE, SHIFT_RIGHT4, SHIFT_RIGHT5, SHIFT_RIGHT6, SHIFT_LEFT1, SHIFT_LEFT2, SHIFT_LEFT3, MINUS_POWERUP};
     }
   }
       
   
   always {
+    a = 0;
+    b = 0;
+    alufn = 0;
+    done = 0;
     new_matrix = old_matrix;
     new_power_counter = old_powerup_counter;
     button_conditionerleft.in = shift_left;
-    button_conditionerright.in =- shift_right;
+    button_conditionerright.in = shift_right;
     edge_detectorleft.in = button_conditionerleft.out;
     edge_detectorright.in = button_conditionerright.out;
     
     case(state.q){
       state.IDLE:
-        if (edge_detectorleft.out) state.d = state.SHIFT_LEFT;
-        if (edge_detectorright.out) state.d = state.SHIFT_RIGHT;
+        alufn = h35;
+        a = 0;
+        b = old_powerup_counter;
+        if (edge_detectorleft.out && alu_result) state.d = state.SHIFT_LEFT1;
+        if (edge_detectorright.out && alu_result) state.d = state.SHIFT_RIGHT4;
+        else done = 1;
         
-      state.SHIFT_LEFT:
+      state.SHIFT_LEFT1:
         if (enable) {
-          new_matrix = old_matrix <<< 1;
+          alufn = h20;
+          a = old_matrix[0];
+          b = 1;
+          new_matrix[0] = alu_result;
           new_matrix[0][0] = old_matrix[0][5];
+          state.d = state.SHIFT_LEFT2;
+        }
+          
+       state.SHIFT_LEFT2:   
+          alufn = h20;
+          a = old_matrix[1];
+          b = 1;
+          new_matrix[1] = alu_result;
           new_matrix[1][0] = old_matrix[1][5];
-          new_matrix[2][0] = old_matrix[2][5];
-          new_matrix[3][0] = old_matrix[3][5];
-          new_matrix[4][0] = old_matrix[4][5];
-          new_matrix[5][0] = old_matrix[5][5];
-
-          
-          
-          state.d = state.IDLE;
-        }
+          state.d = state.SHIFT_LEFT3;
         
-      state.SHIFT_RIGHT:
-        if (enable) {
-          new_matrix = old_matrix >>> 1;          
-          new_matrix[0][5] = old_matrix[0][0];
-          new_matrix[1][5] = old_matrix[1][0];
-          new_matrix[2][5] = old_matrix[2][0];
+            
+            
+       state.SHIFT_LEFT3:
+          alufn = h20;
+          a = old_matrix[2];
+          b = 1;
+          new_matrix[2] = alu_result;
+          new_matrix[2][0] = old_matrix[2][5];
+          state.d = state.MINUS_POWERUP;      
+
+        
+      state.SHIFT_RIGHT4:
+          alufn = h21;
+          a = old_matrix[3];
+          b = 1;
+          new_matrix[3] = alu_result;
           new_matrix[3][5] = old_matrix[3][0];
-          new_matrix[4][5] = old_matrix[4][0];
-          new_matrix[5][5] = old_matrix[5][0];
+          state.d = state.SHIFT_RIGHT5;   
           
-          state.d = state.IDLE;
-        }
+      state.SHIFT_RIGHT5:
+          alufn = h21;
+          a = old_matrix[4];
+          b = 1;
+          new_matrix[4] = alu_result;
+          new_matrix[4][5] = old_matrix[4][0];
+          state.d = state.SHIFT_RIGHT6;   
+        
+      state.SHIFT_RIGHT6:
+          alufn = h21;
+          a = old_matrix[5];
+          b = 1;
+          new_matrix[5] = alu_result;
+          new_matrix[5][5] = old_matrix[5][0];
+          state.d = state.MINUS_POWERUP; 
+        
+      state.MINUS_POWERUP:
+        alufn = h01;
+        a = old_powerup_counter;
+        b = 1;
+        new_power_counter=alu_result;
+        state.d = state.IDLE;
+
+        
+        
+        
         
     }
   }

@@ -17,9 +17,10 @@ module score_adder (
   
 
   always {
+
     edge_detector.in = add;
     if (edge_detector.out) {   
-      add_buffer.d = add_buffer.q + multiplier * 1;
+      add_buffer.d = multiplier;
     }
     inc_trig = 0;
     
@@ -34,6 +35,7 @@ module score_adder (
         inc_trig = 1;
         add_buffer.d = add_buffer.q - 1;
     }
+    
       
   }
 }
