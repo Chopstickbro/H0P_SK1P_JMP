@@ -1,0 +1,67 @@
+module shifter (
+    input clk,  // clock
+    input rst,  // reset
+    input shift_left,
+    input shift_right,
+    input old_matrix[6][6],
+    input old_powerup_counter,
+    output new_power_counter,
+    output new_matrix[6][6],
+    input enable
+  ) {
+  
+  .clk(clk) {
+    edge_detector edge_detectorleft(#RISE(1), #FALL(0));
+    edge_detector edge_detectorright(#RISE(1), #FALL(0));
+    button_conditioner button_conditionerleft;
+    button_conditioner button_conditionerright;
+    .rst(rst) {
+      fsm state = {IDLE, SHIFT_RIGHT, SHIFT_LEFT};
+    }
+  }
+      
+  
+  always {
+    new_matrix = old_matrix;
+    new_power_counter = old_powerup_counter;
+    button_conditionerleft.in = shift_left;
+    button_conditionerright.in =- shift_right;
+    edge_detectorleft.in = button_conditionerleft.out;
+    edge_detectorright.in = button_conditionerright.out;
+    
+    case(state.q){
+      state.IDLE:
+        if (edge_detectorleft.out) state.d = state.SHIFT_LEFT;
+        if (edge_detectorright.out) state.d = state.SHIFT_RIGHT;
+        
+      state.SHIFT_LEFT:
+        if (enable) {
+          new_matrix = old_matrix <<< 1;
+          new_matrix[0][0] = old_matrix[0][5];
+          new_matrix[1][0] = old_matrix[1][5];
+          new_matrix[2][0] = old_matrix[2][5];
+          new_matrix[3][0] = old_matrix[3][5];
+          new_matrix[4][0] = old_matrix[4][5];
+          new_matrix[5][0] = old_matrix[5][5];
+
+          
+          
+          state.d = state.IDLE;
+        }
+        
+      state.SHIFT_RIGHT:
+        if (enable) {
+          new_matrix = old_matrix >>> 1;          
+          new_matrix[0][5] = old_matrix[0][0];
+          new_matrix[1][5] = old_matrix[1][0];
+          new_matrix[2][5] = old_matrix[2][0];
+          new_matrix[3][5] = old_matrix[3][0];
+          new_matrix[4][5] = old_matrix[4][0];
+          new_matrix[5][5] = old_matrix[5][0];
+          
+          state.d = state.IDLE;
+        }
+        
+    }
+  }
+}

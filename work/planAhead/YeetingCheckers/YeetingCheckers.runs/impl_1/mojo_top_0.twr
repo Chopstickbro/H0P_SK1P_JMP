@@ -28,16 +28,16 @@ INFO:Timing:3339 - The clock-to-out numbers in this timing report are based on
 Timing constraint: TS_clk = PERIOD TIMEGRP "clk" 50 MHz HIGH 50%;
 For more information, see Period Analysis in the Timing Closure User Guide (UG612).
 
- 23832 paths analyzed, 2152 endpoints analyzed, 0 failing endpoints
+ 25576 paths analyzed, 2506 endpoints analyzed, 0 failing endpoints
  0 timing errors detected. (0 setup errors, 0 hold errors, 0 component switching limit errors)
- Minimum period is   9.241ns.
+ Minimum period is   9.901ns.
 --------------------------------------------------------------------------------
-Slack:                  10.759ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               button_checker/M_ac_q_0 (FF)
-  Destination:          button_checker/M_mr_q_0 (FF)
+Slack:                  10.099ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               M_matrix_store_q_18 (FF)
+  Destination:          button_checker/M_mr_q_1 (FF)
   Requirement:          20.000ns
-  Data Path Delay:      9.119ns (Levels of Logic = 5)
-  Clock Path Skew:      -0.087ns (0.628 - 0.715)
+  Data Path Delay:      9.865ns (Levels of Logic = 6)
+  Clock Path Skew:      -0.001ns (0.628 - 0.629)
   Source Clock:         clk_BUFGP rising at 0.000ns
   Destination Clock:    clk_BUFGP rising at 20.000ns
   Clock Uncertainty:    0.035ns
@@ -48,41 +48,44 @@ Slack:                  10.759ns (requirement - (data path - clock path skew + u
     Discrete Jitter (DJ):       0.000ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: button_checker/M_ac_q_0 to button_checker/M_mr_q_0
+  Maximum Data Path at Slow Process Corner: M_matrix_store_q_18 to button_checker/M_mr_q_1
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X11Y13.AQ      Tcko                  0.430   button_checker/M_ac_q[2]
-                                                       button_checker/M_ac_q_0
-    SLICE_X10Y21.C1      net (fanout=57)       2.562   button_checker/M_ac_q[0]
-    SLICE_X10Y21.C       Tilo                  0.235   button_checker/n0263<5>1
-                                                       button_checker/Madd_n0263_Madd_cy<3>11
-    SLICE_X12Y20.A4      net (fanout=7)        0.814   button_checker/Madd_n0263_Madd_cy[3]
-    SLICE_X12Y20.A       Tilo                  0.254   button_checker/Sh8163
-                                                       button_checker/Sh8164
-    SLICE_X12Y20.D5      net (fanout=1)        0.365   button_checker/Sh8164
-    SLICE_X12Y20.CMUX    Topdc                 0.456   button_checker/Sh8163
-                                                       button_checker/Sh8165_F
-                                                       button_checker/Sh8165
-    SLICE_X10Y18.D1      net (fanout=7)        1.673   button_checker/Sh8165
-    SLICE_X10Y18.CMUX    Topdc                 0.402   button_checker/M_mr_q[0]
-                                                       button_checker/M_mr_q_0_dpot_F
-                                                       button_checker/M_mr_q_0_dpot
-    SLICE_X10Y18.A4      net (fanout=1)        1.579   button_checker/M_mr_q_0_dpot
-    SLICE_X10Y18.CLK     Tas                   0.349   button_checker/M_mr_q[0]
-                                                       button_checker/M_mr_q_0_rstpot
-                                                       button_checker/M_mr_q_0
+    SLICE_X22Y34.AQ      Tcko                  0.476   M_matrix_store_q[19]
+                                                       M_matrix_store_q_18
+    SLICE_X13Y24.D3      net (fanout=10)       1.978   M_matrix_store_q[18]
+    SLICE_X13Y24.D       Tilo                  0.259   button_checker/Sh11161
+                                                       button_checker/Sh111611
+    SLICE_X13Y24.C5      net (fanout=1)        0.406   button_checker/Sh11161
+    SLICE_X13Y24.C       Tilo                  0.259   button_checker/Sh11161
+                                                       button_checker/Sh11163
+    SLICE_X5Y24.D1       net (fanout=4)        1.431   button_checker/Sh1116
+    SLICE_X5Y24.D        Tilo                  0.259   button_checker/N136
+                                                       button_checker/M_state_q_FSM_FFd3-In26_SW1_SW3
+    SLICE_X5Y24.A6       net (fanout=1)        1.157   button_checker/N136
+    SLICE_X5Y24.A        Tilo                  0.259   button_checker/N136
+                                                       button_checker/M_state_q_FSM_FFd3-In26_SW1
+    SLICE_X7Y28.A3       net (fanout=1)        0.814   button_checker/N87
+    SLICE_X7Y28.A        Tilo                  0.259   button_checker/M_state_q_FSM_FFd3
+                                                       button_checker/M_state_q_FSM_FFd3-In26
+    SLICE_X9Y34.C2       net (fanout=7)        1.336   button_checker/M_state_q_FSM_FFd3-In26
+    SLICE_X9Y34.C        Tilo                  0.259   button_checker/M_mr_q[1]
+                                                       button_checker/_n0417_inv1_cepot
+    SLICE_X9Y34.CE       net (fanout=1)        0.348   button_checker/_n0417_inv1_cepot
+    SLICE_X9Y34.CLK      Tceck                 0.365   button_checker/M_mr_q[1]
+                                                       button_checker/M_mr_q_1
     -------------------------------------------------  ---------------------------
-    Total                                      9.119ns (2.126ns logic, 6.993ns route)
-                                                       (23.3% logic, 76.7% route)
+    Total                                      9.865ns (2.395ns logic, 7.470ns route)
+                                                       (24.3% logic, 75.7% route)
 
 --------------------------------------------------------------------------------
-Slack:                  10.820ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               button_checker/M_ac_q_0 (FF)
-  Destination:          button_checker/M_mr_q_0 (FF)
+Slack:                  10.112ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               M_matrix_store_q_18 (FF)
+  Destination:          button_checker/Maddsub_n03521_3 (FF)
   Requirement:          20.000ns
-  Data Path Delay:      9.058ns (Levels of Logic = 5)
-  Clock Path Skew:      -0.087ns (0.628 - 0.715)
+  Data Path Delay:      9.852ns (Levels of Logic = 6)
+  Clock Path Skew:      -0.001ns (0.628 - 0.629)
   Source Clock:         clk_BUFGP rising at 0.000ns
   Destination Clock:    clk_BUFGP rising at 20.000ns
   Clock Uncertainty:    0.035ns
@@ -93,41 +96,42 @@ Slack:                  10.820ns (requirement - (data path - clock path skew + u
     Discrete Jitter (DJ):       0.000ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: button_checker/M_ac_q_0 to button_checker/M_mr_q_0
+  Maximum Data Path at Slow Process Corner: M_matrix_store_q_18 to button_checker/Maddsub_n03521_3
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X11Y13.AQ      Tcko                  0.430   button_checker/M_ac_q[2]
-                                                       button_checker/M_ac_q_0
-    SLICE_X10Y21.C1      net (fanout=57)       2.562   button_checker/M_ac_q[0]
-    SLICE_X10Y21.C       Tilo                  0.235   button_checker/n0263<5>1
-                                                       button_checker/Madd_n0263_Madd_cy<3>11
-    SLICE_X12Y20.B4      net (fanout=7)        0.814   button_checker/Madd_n0263_Madd_cy[3]
-    SLICE_X12Y20.B       Tilo                  0.254   button_checker/Sh8163
-                                                       button_checker/Sh8163
-    SLICE_X12Y20.C4      net (fanout=1)        0.330   button_checker/Sh8163
-    SLICE_X12Y20.CMUX    Tilo                  0.430   button_checker/Sh8163
-                                                       button_checker/Sh8165_G
-                                                       button_checker/Sh8165
-    SLICE_X10Y18.D1      net (fanout=7)        1.673   button_checker/Sh8165
-    SLICE_X10Y18.CMUX    Topdc                 0.402   button_checker/M_mr_q[0]
-                                                       button_checker/M_mr_q_0_dpot_F
-                                                       button_checker/M_mr_q_0_dpot
-    SLICE_X10Y18.A4      net (fanout=1)        1.579   button_checker/M_mr_q_0_dpot
-    SLICE_X10Y18.CLK     Tas                   0.349   button_checker/M_mr_q[0]
-                                                       button_checker/M_mr_q_0_rstpot
-                                                       button_checker/M_mr_q_0
+    SLICE_X22Y34.AQ      Tcko                  0.476   M_matrix_store_q[19]
+                                                       M_matrix_store_q_18
+    SLICE_X13Y24.D3      net (fanout=10)       1.978   M_matrix_store_q[18]
+    SLICE_X13Y24.D       Tilo                  0.259   button_checker/Sh11161
+                                                       button_checker/Sh111611
+    SLICE_X13Y24.C5      net (fanout=1)        0.406   button_checker/Sh11161
+    SLICE_X13Y24.C       Tilo                  0.259   button_checker/Sh11161
+                                                       button_checker/Sh11163
+    SLICE_X5Y24.D1       net (fanout=4)        1.431   button_checker/Sh1116
+    SLICE_X5Y24.D        Tilo                  0.259   button_checker/N136
+                                                       button_checker/M_state_q_FSM_FFd3-In26_SW1_SW3
+    SLICE_X5Y24.A6       net (fanout=1)        1.157   button_checker/N136
+    SLICE_X5Y24.A        Tilo                  0.259   button_checker/N136
+                                                       button_checker/M_state_q_FSM_FFd3-In26_SW1
+    SLICE_X7Y28.A3       net (fanout=1)        0.814   button_checker/N87
+    SLICE_X7Y28.A        Tilo                  0.259   button_checker/M_state_q_FSM_FFd3
+                                                       button_checker/M_state_q_FSM_FFd3-In26
+    SLICE_X11Y34.D2      net (fanout=7)        1.922   button_checker/M_state_q_FSM_FFd3-In26
+    SLICE_X11Y34.CLK     Tas                   0.373   button_checker/Maddsub_n03521_3
+                                                       button_checker/Maddsub_n03521_3_rstpot
+                                                       button_checker/Maddsub_n03521_3
     -------------------------------------------------  ---------------------------
-    Total                                      9.058ns (2.100ns logic, 6.958ns route)
-                                                       (23.2% logic, 76.8% route)
+    Total                                      9.852ns (2.144ns logic, 7.708ns route)
+                                                       (21.8% logic, 78.2% route)
 
 --------------------------------------------------------------------------------
-Slack:                  10.918ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               button_checker/M_ac_q_1_1 (FF)
-  Destination:          button_checker/M_mr_q_0 (FF)
+Slack:                  10.268ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               M_matrix_store_q_18 (FF)
+  Destination:          button_checker/Maddsub_n03521_2 (FF)
   Requirement:          20.000ns
-  Data Path Delay:      8.959ns (Levels of Logic = 6)
-  Clock Path Skew:      -0.088ns (0.628 - 0.716)
+  Data Path Delay:      9.696ns (Levels of Logic = 6)
+  Clock Path Skew:      -0.001ns (0.628 - 0.629)
   Source Clock:         clk_BUFGP rising at 0.000ns
   Destination Clock:    clk_BUFGP rising at 20.000ns
   Clock Uncertainty:    0.035ns
@@ -138,44 +142,42 @@ Slack:                  10.918ns (requirement - (data path - clock path skew + u
     Discrete Jitter (DJ):       0.000ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: button_checker/M_ac_q_1_1 to button_checker/M_mr_q_0
+  Maximum Data Path at Slow Process Corner: M_matrix_store_q_18 to button_checker/Maddsub_n03521_2
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X11Y14.AQ      Tcko                  0.430   button_checker/M_ac_q_1_3
-                                                       button_checker/M_ac_q_1_1
-    SLICE_X12Y16.A3      net (fanout=2)        1.155   button_checker/M_ac_q_1_1
-    SLICE_X12Y16.A       Tilo                  0.254   button_checker/N192
-                                                       button_checker/Madd_n0263_Madd_xor<3>11
-    SLICE_X13Y20.D1      net (fanout=11)       1.425   button_checker/n0263<3>1
-    SLICE_X13Y20.D       Tilo                  0.259   button_checker/N193
-                                                       button_checker/Sh8163_SW1
-    SLICE_X12Y20.B3      net (fanout=1)        0.419   button_checker/N193
-    SLICE_X12Y20.B       Tilo                  0.254   button_checker/Sh8163
-                                                       button_checker/Sh8163
-    SLICE_X12Y20.C4      net (fanout=1)        0.330   button_checker/Sh8163
-    SLICE_X12Y20.CMUX    Tilo                  0.430   button_checker/Sh8163
-                                                       button_checker/Sh8165_G
-                                                       button_checker/Sh8165
-    SLICE_X10Y18.D1      net (fanout=7)        1.673   button_checker/Sh8165
-    SLICE_X10Y18.CMUX    Topdc                 0.402   button_checker/M_mr_q[0]
-                                                       button_checker/M_mr_q_0_dpot_F
-                                                       button_checker/M_mr_q_0_dpot
-    SLICE_X10Y18.A4      net (fanout=1)        1.579   button_checker/M_mr_q_0_dpot
-    SLICE_X10Y18.CLK     Tas                   0.349   button_checker/M_mr_q[0]
-                                                       button_checker/M_mr_q_0_rstpot
-                                                       button_checker/M_mr_q_0
+    SLICE_X22Y34.AQ      Tcko                  0.476   M_matrix_store_q[19]
+                                                       M_matrix_store_q_18
+    SLICE_X13Y24.D3      net (fanout=10)       1.978   M_matrix_store_q[18]
+    SLICE_X13Y24.D       Tilo                  0.259   button_checker/Sh11161
+                                                       button_checker/Sh111611
+    SLICE_X13Y24.C5      net (fanout=1)        0.406   button_checker/Sh11161
+    SLICE_X13Y24.C       Tilo                  0.259   button_checker/Sh11161
+                                                       button_checker/Sh11163
+    SLICE_X5Y24.D1       net (fanout=4)        1.431   button_checker/Sh1116
+    SLICE_X5Y24.D        Tilo                  0.259   button_checker/N136
+                                                       button_checker/M_state_q_FSM_FFd3-In26_SW1_SW3
+    SLICE_X5Y24.A6       net (fanout=1)        1.157   button_checker/N136
+    SLICE_X5Y24.A        Tilo                  0.259   button_checker/N136
+                                                       button_checker/M_state_q_FSM_FFd3-In26_SW1
+    SLICE_X7Y28.A3       net (fanout=1)        0.814   button_checker/N87
+    SLICE_X7Y28.A        Tilo                  0.259   button_checker/M_state_q_FSM_FFd3
+                                                       button_checker/M_state_q_FSM_FFd3-In26
+    SLICE_X11Y34.C1      net (fanout=7)        1.766   button_checker/M_state_q_FSM_FFd3-In26
+    SLICE_X11Y34.CLK     Tas                   0.373   button_checker/Maddsub_n03521_3
+                                                       button_checker/Maddsub_n03521_2_rstpot
+                                                       button_checker/Maddsub_n03521_2
     -------------------------------------------------  ---------------------------
-    Total                                      8.959ns (2.378ns logic, 6.581ns route)
-                                                       (26.5% logic, 73.5% route)
+    Total                                      9.696ns (2.144ns logic, 7.552ns route)
+                                                       (22.1% logic, 77.9% route)
 
 --------------------------------------------------------------------------------
-Slack:                  11.040ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               button_checker/M_ac_q_0_2 (FF)
-  Destination:          button_checker/M_mr_q_0 (FF)
+Slack:                  10.385ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               M_matrix_store_q_23 (FF)
+  Destination:          button_checker/M_mr_q_1 (FF)
   Requirement:          20.000ns
-  Data Path Delay:      8.836ns (Levels of Logic = 6)
-  Clock Path Skew:      -0.089ns (0.628 - 0.717)
+  Data Path Delay:      9.577ns (Levels of Logic = 6)
+  Clock Path Skew:      -0.003ns (0.628 - 0.631)
   Source Clock:         clk_BUFGP rising at 0.000ns
   Destination Clock:    clk_BUFGP rising at 20.000ns
   Clock Uncertainty:    0.035ns
@@ -186,44 +188,44 @@ Slack:                  11.040ns (requirement - (data path - clock path skew + u
     Discrete Jitter (DJ):       0.000ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: button_checker/M_ac_q_0_2 to button_checker/M_mr_q_0
+  Maximum Data Path at Slow Process Corner: M_matrix_store_q_23 to button_checker/M_mr_q_1
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X11Y15.BQ      Tcko                  0.430   button_checker/M_ac_q_0_3
-                                                       button_checker/M_ac_q_0_2
-    SLICE_X12Y16.A2      net (fanout=15)       1.032   button_checker/M_ac_q_0_2
-    SLICE_X12Y16.A       Tilo                  0.254   button_checker/N192
-                                                       button_checker/Madd_n0263_Madd_xor<3>11
-    SLICE_X13Y20.D1      net (fanout=11)       1.425   button_checker/n0263<3>1
-    SLICE_X13Y20.D       Tilo                  0.259   button_checker/N193
-                                                       button_checker/Sh8163_SW1
-    SLICE_X12Y20.B3      net (fanout=1)        0.419   button_checker/N193
-    SLICE_X12Y20.B       Tilo                  0.254   button_checker/Sh8163
-                                                       button_checker/Sh8163
-    SLICE_X12Y20.C4      net (fanout=1)        0.330   button_checker/Sh8163
-    SLICE_X12Y20.CMUX    Tilo                  0.430   button_checker/Sh8163
-                                                       button_checker/Sh8165_G
-                                                       button_checker/Sh8165
-    SLICE_X10Y18.D1      net (fanout=7)        1.673   button_checker/Sh8165
-    SLICE_X10Y18.CMUX    Topdc                 0.402   button_checker/M_mr_q[0]
-                                                       button_checker/M_mr_q_0_dpot_F
-                                                       button_checker/M_mr_q_0_dpot
-    SLICE_X10Y18.A4      net (fanout=1)        1.579   button_checker/M_mr_q_0_dpot
-    SLICE_X10Y18.CLK     Tas                   0.349   button_checker/M_mr_q[0]
-                                                       button_checker/M_mr_q_0_rstpot
-                                                       button_checker/M_mr_q_0
+    SLICE_X21Y32.CQ      Tcko                  0.430   M_matrix_store_q[23]
+                                                       M_matrix_store_q_23
+    SLICE_X10Y25.B1      net (fanout=11)       2.265   M_matrix_store_q[23]
+    SLICE_X10Y25.B       Tilo                  0.235   button_checker/N134
+                                                       button_checker/Sh112011
+    SLICE_X10Y25.A3      net (fanout=1)        0.468   button_checker/Sh11201
+    SLICE_X10Y25.A       Tilo                  0.235   button_checker/N134
+                                                       button_checker/Sh11203
+    SLICE_X5Y24.D5       net (fanout=4)        0.888   button_checker/Sh1120
+    SLICE_X5Y24.D        Tilo                  0.259   button_checker/N136
+                                                       button_checker/M_state_q_FSM_FFd3-In26_SW1_SW3
+    SLICE_X5Y24.A6       net (fanout=1)        1.157   button_checker/N136
+    SLICE_X5Y24.A        Tilo                  0.259   button_checker/N136
+                                                       button_checker/M_state_q_FSM_FFd3-In26_SW1
+    SLICE_X7Y28.A3       net (fanout=1)        0.814   button_checker/N87
+    SLICE_X7Y28.A        Tilo                  0.259   button_checker/M_state_q_FSM_FFd3
+                                                       button_checker/M_state_q_FSM_FFd3-In26
+    SLICE_X9Y34.C2       net (fanout=7)        1.336   button_checker/M_state_q_FSM_FFd3-In26
+    SLICE_X9Y34.C        Tilo                  0.259   button_checker/M_mr_q[1]
+                                                       button_checker/_n0417_inv1_cepot
+    SLICE_X9Y34.CE       net (fanout=1)        0.348   button_checker/_n0417_inv1_cepot
+    SLICE_X9Y34.CLK      Tceck                 0.365   button_checker/M_mr_q[1]
+                                                       button_checker/M_mr_q_1
     -------------------------------------------------  ---------------------------
-    Total                                      8.836ns (2.378ns logic, 6.458ns route)
-                                                       (26.9% logic, 73.1% route)
+    Total                                      9.577ns (2.301ns logic, 7.276ns route)
+                                                       (24.0% logic, 76.0% route)
 
 --------------------------------------------------------------------------------
-Slack:                  11.057ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               button_checker/M_ac_q_1_1 (FF)
-  Destination:          button_checker/M_mr_q_0 (FF)
+Slack:                  10.398ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               M_matrix_store_q_23 (FF)
+  Destination:          button_checker/Maddsub_n03521_3 (FF)
   Requirement:          20.000ns
-  Data Path Delay:      8.820ns (Levels of Logic = 6)
-  Clock Path Skew:      -0.088ns (0.628 - 0.716)
+  Data Path Delay:      9.564ns (Levels of Logic = 6)
+  Clock Path Skew:      -0.003ns (0.628 - 0.631)
   Source Clock:         clk_BUFGP rising at 0.000ns
   Destination Clock:    clk_BUFGP rising at 20.000ns
   Clock Uncertainty:    0.035ns
@@ -234,230 +236,42 @@ Slack:                  11.057ns (requirement - (data path - clock path skew + u
     Discrete Jitter (DJ):       0.000ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: button_checker/M_ac_q_1_1 to button_checker/M_mr_q_0
+  Maximum Data Path at Slow Process Corner: M_matrix_store_q_23 to button_checker/Maddsub_n03521_3
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X11Y14.AQ      Tcko                  0.430   button_checker/M_ac_q_1_3
-                                                       button_checker/M_ac_q_1_1
-    SLICE_X12Y16.A3      net (fanout=2)        1.155   button_checker/M_ac_q_1_1
-    SLICE_X12Y16.A       Tilo                  0.254   button_checker/N192
-                                                       button_checker/Madd_n0263_Madd_xor<3>11
-    SLICE_X13Y20.A4      net (fanout=11)       1.192   button_checker/n0263<3>1
-    SLICE_X13Y20.A       Tilo                  0.259   button_checker/N193
-                                                       button_checker/Sh8164_SW0
-    SLICE_X12Y20.A5      net (fanout=1)        0.452   button_checker/N195
-    SLICE_X12Y20.A       Tilo                  0.254   button_checker/Sh8163
-                                                       button_checker/Sh8164
-    SLICE_X12Y20.D5      net (fanout=1)        0.365   button_checker/Sh8164
-    SLICE_X12Y20.CMUX    Topdc                 0.456   button_checker/Sh8163
-                                                       button_checker/Sh8165_F
-                                                       button_checker/Sh8165
-    SLICE_X10Y18.D1      net (fanout=7)        1.673   button_checker/Sh8165
-    SLICE_X10Y18.CMUX    Topdc                 0.402   button_checker/M_mr_q[0]
-                                                       button_checker/M_mr_q_0_dpot_F
-                                                       button_checker/M_mr_q_0_dpot
-    SLICE_X10Y18.A4      net (fanout=1)        1.579   button_checker/M_mr_q_0_dpot
-    SLICE_X10Y18.CLK     Tas                   0.349   button_checker/M_mr_q[0]
-                                                       button_checker/M_mr_q_0_rstpot
-                                                       button_checker/M_mr_q_0
+    SLICE_X21Y32.CQ      Tcko                  0.430   M_matrix_store_q[23]
+                                                       M_matrix_store_q_23
+    SLICE_X10Y25.B1      net (fanout=11)       2.265   M_matrix_store_q[23]
+    SLICE_X10Y25.B       Tilo                  0.235   button_checker/N134
+                                                       button_checker/Sh112011
+    SLICE_X10Y25.A3      net (fanout=1)        0.468   button_checker/Sh11201
+    SLICE_X10Y25.A       Tilo                  0.235   button_checker/N134
+                                                       button_checker/Sh11203
+    SLICE_X5Y24.D5       net (fanout=4)        0.888   button_checker/Sh1120
+    SLICE_X5Y24.D        Tilo                  0.259   button_checker/N136
+                                                       button_checker/M_state_q_FSM_FFd3-In26_SW1_SW3
+    SLICE_X5Y24.A6       net (fanout=1)        1.157   button_checker/N136
+    SLICE_X5Y24.A        Tilo                  0.259   button_checker/N136
+                                                       button_checker/M_state_q_FSM_FFd3-In26_SW1
+    SLICE_X7Y28.A3       net (fanout=1)        0.814   button_checker/N87
+    SLICE_X7Y28.A        Tilo                  0.259   button_checker/M_state_q_FSM_FFd3
+                                                       button_checker/M_state_q_FSM_FFd3-In26
+    SLICE_X11Y34.D2      net (fanout=7)        1.922   button_checker/M_state_q_FSM_FFd3-In26
+    SLICE_X11Y34.CLK     Tas                   0.373   button_checker/Maddsub_n03521_3
+                                                       button_checker/Maddsub_n03521_3_rstpot
+                                                       button_checker/Maddsub_n03521_3
     -------------------------------------------------  ---------------------------
-    Total                                      8.820ns (2.404ns logic, 6.416ns route)
-                                                       (27.3% logic, 72.7% route)
-
---------------------------------------------------------------------------------
-Slack:                  11.058ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               button_checker/M_ac_q_2_1 (FF)
-  Destination:          button_checker/M_mr_q_0 (FF)
-  Requirement:          20.000ns
-  Data Path Delay:      8.819ns (Levels of Logic = 6)
-  Clock Path Skew:      -0.088ns (0.628 - 0.716)
-  Source Clock:         clk_BUFGP rising at 0.000ns
-  Destination Clock:    clk_BUFGP rising at 20.000ns
-  Clock Uncertainty:    0.035ns
-
-  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter (TSJ):  0.070ns
-    Total Input Jitter (TIJ):   0.000ns
-    Discrete Jitter (DJ):       0.000ns
-    Phase Error (PE):           0.000ns
-
-  Maximum Data Path at Slow Process Corner: button_checker/M_ac_q_2_1 to button_checker/M_mr_q_0
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X10Y14.AQ      Tcko                  0.476   button_checker/M_ac_q_2_1
-                                                       button_checker/M_ac_q_2_1
-    SLICE_X12Y16.A4      net (fanout=4)        0.969   button_checker/M_ac_q_2_1
-    SLICE_X12Y16.A       Tilo                  0.254   button_checker/N192
-                                                       button_checker/Madd_n0263_Madd_xor<3>11
-    SLICE_X13Y20.D1      net (fanout=11)       1.425   button_checker/n0263<3>1
-    SLICE_X13Y20.D       Tilo                  0.259   button_checker/N193
-                                                       button_checker/Sh8163_SW1
-    SLICE_X12Y20.B3      net (fanout=1)        0.419   button_checker/N193
-    SLICE_X12Y20.B       Tilo                  0.254   button_checker/Sh8163
-                                                       button_checker/Sh8163
-    SLICE_X12Y20.C4      net (fanout=1)        0.330   button_checker/Sh8163
-    SLICE_X12Y20.CMUX    Tilo                  0.430   button_checker/Sh8163
-                                                       button_checker/Sh8165_G
-                                                       button_checker/Sh8165
-    SLICE_X10Y18.D1      net (fanout=7)        1.673   button_checker/Sh8165
-    SLICE_X10Y18.CMUX    Topdc                 0.402   button_checker/M_mr_q[0]
-                                                       button_checker/M_mr_q_0_dpot_F
-                                                       button_checker/M_mr_q_0_dpot
-    SLICE_X10Y18.A4      net (fanout=1)        1.579   button_checker/M_mr_q_0_dpot
-    SLICE_X10Y18.CLK     Tas                   0.349   button_checker/M_mr_q[0]
-                                                       button_checker/M_mr_q_0_rstpot
-                                                       button_checker/M_mr_q_0
-    -------------------------------------------------  ---------------------------
-    Total                                      8.819ns (2.424ns logic, 6.395ns route)
-                                                       (27.5% logic, 72.5% route)
-
---------------------------------------------------------------------------------
-Slack:                  11.068ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               button_checker/M_ac_q_1_1 (FF)
-  Destination:          button_checker/M_mr_q_0 (FF)
-  Requirement:          20.000ns
-  Data Path Delay:      8.809ns (Levels of Logic = 6)
-  Clock Path Skew:      -0.088ns (0.628 - 0.716)
-  Source Clock:         clk_BUFGP rising at 0.000ns
-  Destination Clock:    clk_BUFGP rising at 20.000ns
-  Clock Uncertainty:    0.035ns
-
-  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter (TSJ):  0.070ns
-    Total Input Jitter (TIJ):   0.000ns
-    Discrete Jitter (DJ):       0.000ns
-    Phase Error (PE):           0.000ns
-
-  Maximum Data Path at Slow Process Corner: button_checker/M_ac_q_1_1 to button_checker/M_mr_q_0
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X11Y14.AQ      Tcko                  0.430   button_checker/M_ac_q_1_3
-                                                       button_checker/M_ac_q_1_1
-    SLICE_X12Y16.A3      net (fanout=2)        1.155   button_checker/M_ac_q_1_1
-    SLICE_X12Y16.A       Tilo                  0.254   button_checker/N192
-                                                       button_checker/Madd_n0263_Madd_xor<3>11
-    SLICE_X14Y20.B3      net (fanout=11)       0.887   button_checker/n0263<3>1
-    SLICE_X14Y20.B       Tilo                  0.235   button_checker/N196
-                                                       button_checker/Sh8164_SW1
-    SLICE_X12Y20.A1      net (fanout=1)        0.770   button_checker/N196
-    SLICE_X12Y20.A       Tilo                  0.254   button_checker/Sh8163
-                                                       button_checker/Sh8164
-    SLICE_X12Y20.D5      net (fanout=1)        0.365   button_checker/Sh8164
-    SLICE_X12Y20.CMUX    Topdc                 0.456   button_checker/Sh8163
-                                                       button_checker/Sh8165_F
-                                                       button_checker/Sh8165
-    SLICE_X10Y18.D1      net (fanout=7)        1.673   button_checker/Sh8165
-    SLICE_X10Y18.CMUX    Topdc                 0.402   button_checker/M_mr_q[0]
-                                                       button_checker/M_mr_q_0_dpot_F
-                                                       button_checker/M_mr_q_0_dpot
-    SLICE_X10Y18.A4      net (fanout=1)        1.579   button_checker/M_mr_q_0_dpot
-    SLICE_X10Y18.CLK     Tas                   0.349   button_checker/M_mr_q[0]
-                                                       button_checker/M_mr_q_0_rstpot
-                                                       button_checker/M_mr_q_0
-    -------------------------------------------------  ---------------------------
-    Total                                      8.809ns (2.380ns logic, 6.429ns route)
-                                                       (27.0% logic, 73.0% route)
-
---------------------------------------------------------------------------------
-Slack:                  11.104ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               button_checker/M_ar_q_0_1 (FF)
-  Destination:          button_checker/M_mr_q_0 (FF)
-  Requirement:          20.000ns
-  Data Path Delay:      8.848ns (Levels of Logic = 6)
-  Clock Path Skew:      -0.013ns (0.195 - 0.208)
-  Source Clock:         clk_BUFGP rising at 0.000ns
-  Destination Clock:    clk_BUFGP rising at 20.000ns
-  Clock Uncertainty:    0.035ns
-
-  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter (TSJ):  0.070ns
-    Total Input Jitter (TIJ):   0.000ns
-    Discrete Jitter (DJ):       0.000ns
-    Phase Error (PE):           0.000ns
-
-  Maximum Data Path at Slow Process Corner: button_checker/M_ar_q_0_1 to button_checker/M_mr_q_0
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X10Y16.AQ      Tcko                  0.476   button_checker/M_ar_q_0_3
-                                                       button_checker/M_ar_q_0_1
-    SLICE_X12Y16.A1      net (fanout=2)        0.998   button_checker/M_ar_q_0_1
-    SLICE_X12Y16.A       Tilo                  0.254   button_checker/N192
-                                                       button_checker/Madd_n0263_Madd_xor<3>11
-    SLICE_X13Y20.D1      net (fanout=11)       1.425   button_checker/n0263<3>1
-    SLICE_X13Y20.D       Tilo                  0.259   button_checker/N193
-                                                       button_checker/Sh8163_SW1
-    SLICE_X12Y20.B3      net (fanout=1)        0.419   button_checker/N193
-    SLICE_X12Y20.B       Tilo                  0.254   button_checker/Sh8163
-                                                       button_checker/Sh8163
-    SLICE_X12Y20.C4      net (fanout=1)        0.330   button_checker/Sh8163
-    SLICE_X12Y20.CMUX    Tilo                  0.430   button_checker/Sh8163
-                                                       button_checker/Sh8165_G
-                                                       button_checker/Sh8165
-    SLICE_X10Y18.D1      net (fanout=7)        1.673   button_checker/Sh8165
-    SLICE_X10Y18.CMUX    Topdc                 0.402   button_checker/M_mr_q[0]
-                                                       button_checker/M_mr_q_0_dpot_F
-                                                       button_checker/M_mr_q_0_dpot
-    SLICE_X10Y18.A4      net (fanout=1)        1.579   button_checker/M_mr_q_0_dpot
-    SLICE_X10Y18.CLK     Tas                   0.349   button_checker/M_mr_q[0]
-                                                       button_checker/M_mr_q_0_rstpot
-                                                       button_checker/M_mr_q_0
-    -------------------------------------------------  ---------------------------
-    Total                                      8.848ns (2.424ns logic, 6.424ns route)
-                                                       (27.4% logic, 72.6% route)
-
---------------------------------------------------------------------------------
-Slack:                  11.114ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               button_checker/M_ac_q_0 (FF)
-  Destination:          button_checker/M_mr_q_0 (FF)
-  Requirement:          20.000ns
-  Data Path Delay:      8.764ns (Levels of Logic = 4)
-  Clock Path Skew:      -0.087ns (0.628 - 0.715)
-  Source Clock:         clk_BUFGP rising at 0.000ns
-  Destination Clock:    clk_BUFGP rising at 20.000ns
-  Clock Uncertainty:    0.035ns
-
-  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter (TSJ):  0.070ns
-    Total Input Jitter (TIJ):   0.000ns
-    Discrete Jitter (DJ):       0.000ns
-    Phase Error (PE):           0.000ns
-
-  Maximum Data Path at Slow Process Corner: button_checker/M_ac_q_0 to button_checker/M_mr_q_0
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X11Y13.AQ      Tcko                  0.430   button_checker/M_ac_q[2]
-                                                       button_checker/M_ac_q_0
-    SLICE_X10Y21.C1      net (fanout=57)       2.562   button_checker/M_ac_q[0]
-    SLICE_X10Y21.C       Tilo                  0.235   button_checker/n0263<5>1
-                                                       button_checker/Madd_n0263_Madd_cy<3>11
-    SLICE_X12Y20.D2      net (fanout=7)        1.078   button_checker/Madd_n0263_Madd_cy[3]
-    SLICE_X12Y20.CMUX    Topdc                 0.456   button_checker/Sh8163
-                                                       button_checker/Sh8165_F
-                                                       button_checker/Sh8165
-    SLICE_X10Y18.D1      net (fanout=7)        1.673   button_checker/Sh8165
-    SLICE_X10Y18.CMUX    Topdc                 0.402   button_checker/M_mr_q[0]
-                                                       button_checker/M_mr_q_0_dpot_F
-                                                       button_checker/M_mr_q_0_dpot
-    SLICE_X10Y18.A4      net (fanout=1)        1.579   button_checker/M_mr_q_0_dpot
-    SLICE_X10Y18.CLK     Tas                   0.349   button_checker/M_mr_q[0]
-                                                       button_checker/M_mr_q_0_rstpot
-                                                       button_checker/M_mr_q_0
-    -------------------------------------------------  ---------------------------
-    Total                                      8.764ns (1.872ns logic, 6.892ns route)
+    Total                                      9.564ns (2.050ns logic, 7.514ns route)
                                                        (21.4% logic, 78.6% route)
 
 --------------------------------------------------------------------------------
-Slack:                  11.179ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               button_checker/M_ac_q_0_2 (FF)
-  Destination:          button_checker/M_mr_q_0 (FF)
+Slack:                  10.417ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               M_matrix_store_q_19 (FF)
+  Destination:          button_checker/M_mr_q_1 (FF)
   Requirement:          20.000ns
-  Data Path Delay:      8.697ns (Levels of Logic = 6)
-  Clock Path Skew:      -0.089ns (0.628 - 0.717)
+  Data Path Delay:      9.547ns (Levels of Logic = 6)
+  Clock Path Skew:      -0.001ns (0.628 - 0.629)
   Source Clock:         clk_BUFGP rising at 0.000ns
   Destination Clock:    clk_BUFGP rising at 20.000ns
   Clock Uncertainty:    0.035ns
@@ -468,44 +282,44 @@ Slack:                  11.179ns (requirement - (data path - clock path skew + u
     Discrete Jitter (DJ):       0.000ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: button_checker/M_ac_q_0_2 to button_checker/M_mr_q_0
+  Maximum Data Path at Slow Process Corner: M_matrix_store_q_19 to button_checker/M_mr_q_1
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X11Y15.BQ      Tcko                  0.430   button_checker/M_ac_q_0_3
-                                                       button_checker/M_ac_q_0_2
-    SLICE_X12Y16.A2      net (fanout=15)       1.032   button_checker/M_ac_q_0_2
-    SLICE_X12Y16.A       Tilo                  0.254   button_checker/N192
-                                                       button_checker/Madd_n0263_Madd_xor<3>11
-    SLICE_X13Y20.A4      net (fanout=11)       1.192   button_checker/n0263<3>1
-    SLICE_X13Y20.A       Tilo                  0.259   button_checker/N193
-                                                       button_checker/Sh8164_SW0
-    SLICE_X12Y20.A5      net (fanout=1)        0.452   button_checker/N195
-    SLICE_X12Y20.A       Tilo                  0.254   button_checker/Sh8163
-                                                       button_checker/Sh8164
-    SLICE_X12Y20.D5      net (fanout=1)        0.365   button_checker/Sh8164
-    SLICE_X12Y20.CMUX    Topdc                 0.456   button_checker/Sh8163
-                                                       button_checker/Sh8165_F
-                                                       button_checker/Sh8165
-    SLICE_X10Y18.D1      net (fanout=7)        1.673   button_checker/Sh8165
-    SLICE_X10Y18.CMUX    Topdc                 0.402   button_checker/M_mr_q[0]
-                                                       button_checker/M_mr_q_0_dpot_F
-                                                       button_checker/M_mr_q_0_dpot
-    SLICE_X10Y18.A4      net (fanout=1)        1.579   button_checker/M_mr_q_0_dpot
-    SLICE_X10Y18.CLK     Tas                   0.349   button_checker/M_mr_q[0]
-                                                       button_checker/M_mr_q_0_rstpot
-                                                       button_checker/M_mr_q_0
+    SLICE_X22Y34.CQ      Tcko                  0.476   M_matrix_store_q[19]
+                                                       M_matrix_store_q_19
+    SLICE_X13Y24.D5      net (fanout=10)       1.660   M_matrix_store_q[19]
+    SLICE_X13Y24.D       Tilo                  0.259   button_checker/Sh11161
+                                                       button_checker/Sh111611
+    SLICE_X13Y24.C5      net (fanout=1)        0.406   button_checker/Sh11161
+    SLICE_X13Y24.C       Tilo                  0.259   button_checker/Sh11161
+                                                       button_checker/Sh11163
+    SLICE_X5Y24.D1       net (fanout=4)        1.431   button_checker/Sh1116
+    SLICE_X5Y24.D        Tilo                  0.259   button_checker/N136
+                                                       button_checker/M_state_q_FSM_FFd3-In26_SW1_SW3
+    SLICE_X5Y24.A6       net (fanout=1)        1.157   button_checker/N136
+    SLICE_X5Y24.A        Tilo                  0.259   button_checker/N136
+                                                       button_checker/M_state_q_FSM_FFd3-In26_SW1
+    SLICE_X7Y28.A3       net (fanout=1)        0.814   button_checker/N87
+    SLICE_X7Y28.A        Tilo                  0.259   button_checker/M_state_q_FSM_FFd3
+                                                       button_checker/M_state_q_FSM_FFd3-In26
+    SLICE_X9Y34.C2       net (fanout=7)        1.336   button_checker/M_state_q_FSM_FFd3-In26
+    SLICE_X9Y34.C        Tilo                  0.259   button_checker/M_mr_q[1]
+                                                       button_checker/_n0417_inv1_cepot
+    SLICE_X9Y34.CE       net (fanout=1)        0.348   button_checker/_n0417_inv1_cepot
+    SLICE_X9Y34.CLK      Tceck                 0.365   button_checker/M_mr_q[1]
+                                                       button_checker/M_mr_q_1
     -------------------------------------------------  ---------------------------
-    Total                                      8.697ns (2.404ns logic, 6.293ns route)
-                                                       (27.6% logic, 72.4% route)
+    Total                                      9.547ns (2.395ns logic, 7.152ns route)
+                                                       (25.1% logic, 74.9% route)
 
 --------------------------------------------------------------------------------
-Slack:                  11.190ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               button_checker/M_ac_q_0_2 (FF)
-  Destination:          button_checker/M_mr_q_0 (FF)
+Slack:                  10.418ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               M_matrix_store_q_18 (FF)
+  Destination:          button_checker/Maddsub_n03521_1 (FF)
   Requirement:          20.000ns
-  Data Path Delay:      8.686ns (Levels of Logic = 6)
-  Clock Path Skew:      -0.089ns (0.628 - 0.717)
+  Data Path Delay:      9.546ns (Levels of Logic = 6)
+  Clock Path Skew:      -0.001ns (0.628 - 0.629)
   Source Clock:         clk_BUFGP rising at 0.000ns
   Destination Clock:    clk_BUFGP rising at 20.000ns
   Clock Uncertainty:    0.035ns
@@ -516,44 +330,42 @@ Slack:                  11.190ns (requirement - (data path - clock path skew + u
     Discrete Jitter (DJ):       0.000ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: button_checker/M_ac_q_0_2 to button_checker/M_mr_q_0
+  Maximum Data Path at Slow Process Corner: M_matrix_store_q_18 to button_checker/Maddsub_n03521_1
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X11Y15.BQ      Tcko                  0.430   button_checker/M_ac_q_0_3
-                                                       button_checker/M_ac_q_0_2
-    SLICE_X12Y16.A2      net (fanout=15)       1.032   button_checker/M_ac_q_0_2
-    SLICE_X12Y16.A       Tilo                  0.254   button_checker/N192
-                                                       button_checker/Madd_n0263_Madd_xor<3>11
-    SLICE_X14Y20.B3      net (fanout=11)       0.887   button_checker/n0263<3>1
-    SLICE_X14Y20.B       Tilo                  0.235   button_checker/N196
-                                                       button_checker/Sh8164_SW1
-    SLICE_X12Y20.A1      net (fanout=1)        0.770   button_checker/N196
-    SLICE_X12Y20.A       Tilo                  0.254   button_checker/Sh8163
-                                                       button_checker/Sh8164
-    SLICE_X12Y20.D5      net (fanout=1)        0.365   button_checker/Sh8164
-    SLICE_X12Y20.CMUX    Topdc                 0.456   button_checker/Sh8163
-                                                       button_checker/Sh8165_F
-                                                       button_checker/Sh8165
-    SLICE_X10Y18.D1      net (fanout=7)        1.673   button_checker/Sh8165
-    SLICE_X10Y18.CMUX    Topdc                 0.402   button_checker/M_mr_q[0]
-                                                       button_checker/M_mr_q_0_dpot_F
-                                                       button_checker/M_mr_q_0_dpot
-    SLICE_X10Y18.A4      net (fanout=1)        1.579   button_checker/M_mr_q_0_dpot
-    SLICE_X10Y18.CLK     Tas                   0.349   button_checker/M_mr_q[0]
-                                                       button_checker/M_mr_q_0_rstpot
-                                                       button_checker/M_mr_q_0
+    SLICE_X22Y34.AQ      Tcko                  0.476   M_matrix_store_q[19]
+                                                       M_matrix_store_q_18
+    SLICE_X13Y24.D3      net (fanout=10)       1.978   M_matrix_store_q[18]
+    SLICE_X13Y24.D       Tilo                  0.259   button_checker/Sh11161
+                                                       button_checker/Sh111611
+    SLICE_X13Y24.C5      net (fanout=1)        0.406   button_checker/Sh11161
+    SLICE_X13Y24.C       Tilo                  0.259   button_checker/Sh11161
+                                                       button_checker/Sh11163
+    SLICE_X5Y24.D1       net (fanout=4)        1.431   button_checker/Sh1116
+    SLICE_X5Y24.D        Tilo                  0.259   button_checker/N136
+                                                       button_checker/M_state_q_FSM_FFd3-In26_SW1_SW3
+    SLICE_X5Y24.A6       net (fanout=1)        1.157   button_checker/N136
+    SLICE_X5Y24.A        Tilo                  0.259   button_checker/N136
+                                                       button_checker/M_state_q_FSM_FFd3-In26_SW1
+    SLICE_X7Y28.A3       net (fanout=1)        0.814   button_checker/N87
+    SLICE_X7Y28.A        Tilo                  0.259   button_checker/M_state_q_FSM_FFd3
+                                                       button_checker/M_state_q_FSM_FFd3-In26
+    SLICE_X11Y34.B3      net (fanout=7)        1.616   button_checker/M_state_q_FSM_FFd3-In26
+    SLICE_X11Y34.CLK     Tas                   0.373   button_checker/Maddsub_n03521_3
+                                                       button_checker/Maddsub_n03521_1_rstpot
+                                                       button_checker/Maddsub_n03521_1
     -------------------------------------------------  ---------------------------
-    Total                                      8.686ns (2.380ns logic, 6.306ns route)
-                                                       (27.4% logic, 72.6% route)
+    Total                                      9.546ns (2.144ns logic, 7.402ns route)
+                                                       (22.5% logic, 77.5% route)
 
 --------------------------------------------------------------------------------
-Slack:                  11.197ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               button_checker/M_ac_q_2_1 (FF)
-  Destination:          button_checker/M_mr_q_0 (FF)
+Slack:                  10.430ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               M_matrix_store_q_19 (FF)
+  Destination:          button_checker/Maddsub_n03521_3 (FF)
   Requirement:          20.000ns
-  Data Path Delay:      8.680ns (Levels of Logic = 6)
-  Clock Path Skew:      -0.088ns (0.628 - 0.716)
+  Data Path Delay:      9.534ns (Levels of Logic = 6)
+  Clock Path Skew:      -0.001ns (0.628 - 0.629)
   Source Clock:         clk_BUFGP rising at 0.000ns
   Destination Clock:    clk_BUFGP rising at 20.000ns
   Clock Uncertainty:    0.035ns
@@ -564,44 +376,42 @@ Slack:                  11.197ns (requirement - (data path - clock path skew + u
     Discrete Jitter (DJ):       0.000ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: button_checker/M_ac_q_2_1 to button_checker/M_mr_q_0
+  Maximum Data Path at Slow Process Corner: M_matrix_store_q_19 to button_checker/Maddsub_n03521_3
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X10Y14.AQ      Tcko                  0.476   button_checker/M_ac_q_2_1
-                                                       button_checker/M_ac_q_2_1
-    SLICE_X12Y16.A4      net (fanout=4)        0.969   button_checker/M_ac_q_2_1
-    SLICE_X12Y16.A       Tilo                  0.254   button_checker/N192
-                                                       button_checker/Madd_n0263_Madd_xor<3>11
-    SLICE_X13Y20.A4      net (fanout=11)       1.192   button_checker/n0263<3>1
-    SLICE_X13Y20.A       Tilo                  0.259   button_checker/N193
-                                                       button_checker/Sh8164_SW0
-    SLICE_X12Y20.A5      net (fanout=1)        0.452   button_checker/N195
-    SLICE_X12Y20.A       Tilo                  0.254   button_checker/Sh8163
-                                                       button_checker/Sh8164
-    SLICE_X12Y20.D5      net (fanout=1)        0.365   button_checker/Sh8164
-    SLICE_X12Y20.CMUX    Topdc                 0.456   button_checker/Sh8163
-                                                       button_checker/Sh8165_F
-                                                       button_checker/Sh8165
-    SLICE_X10Y18.D1      net (fanout=7)        1.673   button_checker/Sh8165
-    SLICE_X10Y18.CMUX    Topdc                 0.402   button_checker/M_mr_q[0]
-                                                       button_checker/M_mr_q_0_dpot_F
-                                                       button_checker/M_mr_q_0_dpot
-    SLICE_X10Y18.A4      net (fanout=1)        1.579   button_checker/M_mr_q_0_dpot
-    SLICE_X10Y18.CLK     Tas                   0.349   button_checker/M_mr_q[0]
-                                                       button_checker/M_mr_q_0_rstpot
-                                                       button_checker/M_mr_q_0
+    SLICE_X22Y34.CQ      Tcko                  0.476   M_matrix_store_q[19]
+                                                       M_matrix_store_q_19
+    SLICE_X13Y24.D5      net (fanout=10)       1.660   M_matrix_store_q[19]
+    SLICE_X13Y24.D       Tilo                  0.259   button_checker/Sh11161
+                                                       button_checker/Sh111611
+    SLICE_X13Y24.C5      net (fanout=1)        0.406   button_checker/Sh11161
+    SLICE_X13Y24.C       Tilo                  0.259   button_checker/Sh11161
+                                                       button_checker/Sh11163
+    SLICE_X5Y24.D1       net (fanout=4)        1.431   button_checker/Sh1116
+    SLICE_X5Y24.D        Tilo                  0.259   button_checker/N136
+                                                       button_checker/M_state_q_FSM_FFd3-In26_SW1_SW3
+    SLICE_X5Y24.A6       net (fanout=1)        1.157   button_checker/N136
+    SLICE_X5Y24.A        Tilo                  0.259   button_checker/N136
+                                                       button_checker/M_state_q_FSM_FFd3-In26_SW1
+    SLICE_X7Y28.A3       net (fanout=1)        0.814   button_checker/N87
+    SLICE_X7Y28.A        Tilo                  0.259   button_checker/M_state_q_FSM_FFd3
+                                                       button_checker/M_state_q_FSM_FFd3-In26
+    SLICE_X11Y34.D2      net (fanout=7)        1.922   button_checker/M_state_q_FSM_FFd3-In26
+    SLICE_X11Y34.CLK     Tas                   0.373   button_checker/Maddsub_n03521_3
+                                                       button_checker/Maddsub_n03521_3_rstpot
+                                                       button_checker/Maddsub_n03521_3
     -------------------------------------------------  ---------------------------
-    Total                                      8.680ns (2.450ns logic, 6.230ns route)
-                                                       (28.2% logic, 71.8% route)
+    Total                                      9.534ns (2.144ns logic, 7.390ns route)
+                                                       (22.5% logic, 77.5% route)
 
 --------------------------------------------------------------------------------
-Slack:                  11.208ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               button_checker/M_ac_q_2_1 (FF)
-  Destination:          button_checker/M_mr_q_0 (FF)
+Slack:                  10.554ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               M_matrix_store_q_23 (FF)
+  Destination:          button_checker/Maddsub_n03521_2 (FF)
   Requirement:          20.000ns
-  Data Path Delay:      8.669ns (Levels of Logic = 6)
-  Clock Path Skew:      -0.088ns (0.628 - 0.716)
+  Data Path Delay:      9.408ns (Levels of Logic = 6)
+  Clock Path Skew:      -0.003ns (0.628 - 0.631)
   Source Clock:         clk_BUFGP rising at 0.000ns
   Destination Clock:    clk_BUFGP rising at 20.000ns
   Clock Uncertainty:    0.035ns
@@ -612,44 +422,42 @@ Slack:                  11.208ns (requirement - (data path - clock path skew + u
     Discrete Jitter (DJ):       0.000ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: button_checker/M_ac_q_2_1 to button_checker/M_mr_q_0
+  Maximum Data Path at Slow Process Corner: M_matrix_store_q_23 to button_checker/Maddsub_n03521_2
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X10Y14.AQ      Tcko                  0.476   button_checker/M_ac_q_2_1
-                                                       button_checker/M_ac_q_2_1
-    SLICE_X12Y16.A4      net (fanout=4)        0.969   button_checker/M_ac_q_2_1
-    SLICE_X12Y16.A       Tilo                  0.254   button_checker/N192
-                                                       button_checker/Madd_n0263_Madd_xor<3>11
-    SLICE_X14Y20.B3      net (fanout=11)       0.887   button_checker/n0263<3>1
-    SLICE_X14Y20.B       Tilo                  0.235   button_checker/N196
-                                                       button_checker/Sh8164_SW1
-    SLICE_X12Y20.A1      net (fanout=1)        0.770   button_checker/N196
-    SLICE_X12Y20.A       Tilo                  0.254   button_checker/Sh8163
-                                                       button_checker/Sh8164
-    SLICE_X12Y20.D5      net (fanout=1)        0.365   button_checker/Sh8164
-    SLICE_X12Y20.CMUX    Topdc                 0.456   button_checker/Sh8163
-                                                       button_checker/Sh8165_F
-                                                       button_checker/Sh8165
-    SLICE_X10Y18.D1      net (fanout=7)        1.673   button_checker/Sh8165
-    SLICE_X10Y18.CMUX    Topdc                 0.402   button_checker/M_mr_q[0]
-                                                       button_checker/M_mr_q_0_dpot_F
-                                                       button_checker/M_mr_q_0_dpot
-    SLICE_X10Y18.A4      net (fanout=1)        1.579   button_checker/M_mr_q_0_dpot
-    SLICE_X10Y18.CLK     Tas                   0.349   button_checker/M_mr_q[0]
-                                                       button_checker/M_mr_q_0_rstpot
-                                                       button_checker/M_mr_q_0
+    SLICE_X21Y32.CQ      Tcko                  0.430   M_matrix_store_q[23]
+                                                       M_matrix_store_q_23
+    SLICE_X10Y25.B1      net (fanout=11)       2.265   M_matrix_store_q[23]
+    SLICE_X10Y25.B       Tilo                  0.235   button_checker/N134
+                                                       button_checker/Sh112011
+    SLICE_X10Y25.A3      net (fanout=1)        0.468   button_checker/Sh11201
+    SLICE_X10Y25.A       Tilo                  0.235   button_checker/N134
+                                                       button_checker/Sh11203
+    SLICE_X5Y24.D5       net (fanout=4)        0.888   button_checker/Sh1120
+    SLICE_X5Y24.D        Tilo                  0.259   button_checker/N136
+                                                       button_checker/M_state_q_FSM_FFd3-In26_SW1_SW3
+    SLICE_X5Y24.A6       net (fanout=1)        1.157   button_checker/N136
+    SLICE_X5Y24.A        Tilo                  0.259   button_checker/N136
+                                                       button_checker/M_state_q_FSM_FFd3-In26_SW1
+    SLICE_X7Y28.A3       net (fanout=1)        0.814   button_checker/N87
+    SLICE_X7Y28.A        Tilo                  0.259   button_checker/M_state_q_FSM_FFd3
+                                                       button_checker/M_state_q_FSM_FFd3-In26
+    SLICE_X11Y34.C1      net (fanout=7)        1.766   button_checker/M_state_q_FSM_FFd3-In26
+    SLICE_X11Y34.CLK     Tas                   0.373   button_checker/Maddsub_n03521_3
+                                                       button_checker/Maddsub_n03521_2_rstpot
+                                                       button_checker/Maddsub_n03521_2
     -------------------------------------------------  ---------------------------
-    Total                                      8.669ns (2.426ns logic, 6.243ns route)
-                                                       (28.0% logic, 72.0% route)
+    Total                                      9.408ns (2.050ns logic, 7.358ns route)
+                                                       (21.8% logic, 78.2% route)
 
 --------------------------------------------------------------------------------
-Slack:                  11.222ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               button_checker/M_ar_q_2_1 (FF)
-  Destination:          button_checker/M_mr_q_0 (FF)
+Slack:                  10.586ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               M_matrix_store_q_19 (FF)
+  Destination:          button_checker/Maddsub_n03521_2 (FF)
   Requirement:          20.000ns
-  Data Path Delay:      8.732ns (Levels of Logic = 6)
-  Clock Path Skew:      -0.011ns (0.195 - 0.206)
+  Data Path Delay:      9.378ns (Levels of Logic = 6)
+  Clock Path Skew:      -0.001ns (0.628 - 0.629)
   Source Clock:         clk_BUFGP rising at 0.000ns
   Destination Clock:    clk_BUFGP rising at 20.000ns
   Clock Uncertainty:    0.035ns
@@ -660,44 +468,42 @@ Slack:                  11.222ns (requirement - (data path - clock path skew + u
     Discrete Jitter (DJ):       0.000ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: button_checker/M_ar_q_2_1 to button_checker/M_mr_q_0
+  Maximum Data Path at Slow Process Corner: M_matrix_store_q_19 to button_checker/Maddsub_n03521_2
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X11Y18.AQ      Tcko                  0.430   button_checker/M_ar_q_2_1
-                                                       button_checker/M_ar_q_2_1
-    SLICE_X12Y16.A5      net (fanout=3)        0.928   button_checker/M_ar_q_2_1
-    SLICE_X12Y16.A       Tilo                  0.254   button_checker/N192
-                                                       button_checker/Madd_n0263_Madd_xor<3>11
-    SLICE_X13Y20.D1      net (fanout=11)       1.425   button_checker/n0263<3>1
-    SLICE_X13Y20.D       Tilo                  0.259   button_checker/N193
-                                                       button_checker/Sh8163_SW1
-    SLICE_X12Y20.B3      net (fanout=1)        0.419   button_checker/N193
-    SLICE_X12Y20.B       Tilo                  0.254   button_checker/Sh8163
-                                                       button_checker/Sh8163
-    SLICE_X12Y20.C4      net (fanout=1)        0.330   button_checker/Sh8163
-    SLICE_X12Y20.CMUX    Tilo                  0.430   button_checker/Sh8163
-                                                       button_checker/Sh8165_G
-                                                       button_checker/Sh8165
-    SLICE_X10Y18.D1      net (fanout=7)        1.673   button_checker/Sh8165
-    SLICE_X10Y18.CMUX    Topdc                 0.402   button_checker/M_mr_q[0]
-                                                       button_checker/M_mr_q_0_dpot_F
-                                                       button_checker/M_mr_q_0_dpot
-    SLICE_X10Y18.A4      net (fanout=1)        1.579   button_checker/M_mr_q_0_dpot
-    SLICE_X10Y18.CLK     Tas                   0.349   button_checker/M_mr_q[0]
-                                                       button_checker/M_mr_q_0_rstpot
-                                                       button_checker/M_mr_q_0
+    SLICE_X22Y34.CQ      Tcko                  0.476   M_matrix_store_q[19]
+                                                       M_matrix_store_q_19
+    SLICE_X13Y24.D5      net (fanout=10)       1.660   M_matrix_store_q[19]
+    SLICE_X13Y24.D       Tilo                  0.259   button_checker/Sh11161
+                                                       button_checker/Sh111611
+    SLICE_X13Y24.C5      net (fanout=1)        0.406   button_checker/Sh11161
+    SLICE_X13Y24.C       Tilo                  0.259   button_checker/Sh11161
+                                                       button_checker/Sh11163
+    SLICE_X5Y24.D1       net (fanout=4)        1.431   button_checker/Sh1116
+    SLICE_X5Y24.D        Tilo                  0.259   button_checker/N136
+                                                       button_checker/M_state_q_FSM_FFd3-In26_SW1_SW3
+    SLICE_X5Y24.A6       net (fanout=1)        1.157   button_checker/N136
+    SLICE_X5Y24.A        Tilo                  0.259   button_checker/N136
+                                                       button_checker/M_state_q_FSM_FFd3-In26_SW1
+    SLICE_X7Y28.A3       net (fanout=1)        0.814   button_checker/N87
+    SLICE_X7Y28.A        Tilo                  0.259   button_checker/M_state_q_FSM_FFd3
+                                                       button_checker/M_state_q_FSM_FFd3-In26
+    SLICE_X11Y34.C1      net (fanout=7)        1.766   button_checker/M_state_q_FSM_FFd3-In26
+    SLICE_X11Y34.CLK     Tas                   0.373   button_checker/Maddsub_n03521_3
+                                                       button_checker/Maddsub_n03521_2_rstpot
+                                                       button_checker/Maddsub_n03521_2
     -------------------------------------------------  ---------------------------
-    Total                                      8.732ns (2.378ns logic, 6.354ns route)
-                                                       (27.2% logic, 72.8% route)
+    Total                                      9.378ns (2.144ns logic, 7.234ns route)
+                                                       (22.9% logic, 77.1% route)
 
 --------------------------------------------------------------------------------
-Slack:                  11.243ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               button_checker/M_ar_q_0_1 (FF)
-  Destination:          button_checker/M_mr_q_0 (FF)
+Slack:                  10.601ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               M_matrix_store_q_23 (FF)
+  Destination:          button_checker/M_mr_q_1 (FF)
   Requirement:          20.000ns
-  Data Path Delay:      8.709ns (Levels of Logic = 6)
-  Clock Path Skew:      -0.013ns (0.195 - 0.208)
+  Data Path Delay:      9.361ns (Levels of Logic = 6)
+  Clock Path Skew:      -0.003ns (0.628 - 0.631)
   Source Clock:         clk_BUFGP rising at 0.000ns
   Destination Clock:    clk_BUFGP rising at 20.000ns
   Clock Uncertainty:    0.035ns
@@ -708,44 +514,44 @@ Slack:                  11.243ns (requirement - (data path - clock path skew + u
     Discrete Jitter (DJ):       0.000ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: button_checker/M_ar_q_0_1 to button_checker/M_mr_q_0
+  Maximum Data Path at Slow Process Corner: M_matrix_store_q_23 to button_checker/M_mr_q_1
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X10Y16.AQ      Tcko                  0.476   button_checker/M_ar_q_0_3
-                                                       button_checker/M_ar_q_0_1
-    SLICE_X12Y16.A1      net (fanout=2)        0.998   button_checker/M_ar_q_0_1
-    SLICE_X12Y16.A       Tilo                  0.254   button_checker/N192
-                                                       button_checker/Madd_n0263_Madd_xor<3>11
-    SLICE_X13Y20.A4      net (fanout=11)       1.192   button_checker/n0263<3>1
-    SLICE_X13Y20.A       Tilo                  0.259   button_checker/N193
-                                                       button_checker/Sh8164_SW0
-    SLICE_X12Y20.A5      net (fanout=1)        0.452   button_checker/N195
-    SLICE_X12Y20.A       Tilo                  0.254   button_checker/Sh8163
-                                                       button_checker/Sh8164
-    SLICE_X12Y20.D5      net (fanout=1)        0.365   button_checker/Sh8164
-    SLICE_X12Y20.CMUX    Topdc                 0.456   button_checker/Sh8163
-                                                       button_checker/Sh8165_F
-                                                       button_checker/Sh8165
-    SLICE_X10Y18.D1      net (fanout=7)        1.673   button_checker/Sh8165
-    SLICE_X10Y18.CMUX    Topdc                 0.402   button_checker/M_mr_q[0]
-                                                       button_checker/M_mr_q_0_dpot_F
-                                                       button_checker/M_mr_q_0_dpot
-    SLICE_X10Y18.A4      net (fanout=1)        1.579   button_checker/M_mr_q_0_dpot
-    SLICE_X10Y18.CLK     Tas                   0.349   button_checker/M_mr_q[0]
-                                                       button_checker/M_mr_q_0_rstpot
-                                                       button_checker/M_mr_q_0
+    SLICE_X21Y32.CQ      Tcko                  0.430   M_matrix_store_q[23]
+                                                       M_matrix_store_q_23
+    SLICE_X10Y25.B1      net (fanout=11)       2.265   M_matrix_store_q[23]
+    SLICE_X10Y25.B       Tilo                  0.235   button_checker/N134
+                                                       button_checker/Sh112011
+    SLICE_X10Y25.A3      net (fanout=1)        0.468   button_checker/Sh11201
+    SLICE_X10Y25.A       Tilo                  0.235   button_checker/N134
+                                                       button_checker/Sh11203
+    SLICE_X10Y25.C1      net (fanout=4)        0.546   button_checker/Sh1120
+    SLICE_X10Y25.C       Tilo                  0.235   button_checker/N134
+                                                       button_checker/M_state_q_FSM_FFd3-In26_SW1_SW1
+    SLICE_X5Y24.A1       net (fanout=1)        1.307   button_checker/N134
+    SLICE_X5Y24.A        Tilo                  0.259   button_checker/N136
+                                                       button_checker/M_state_q_FSM_FFd3-In26_SW1
+    SLICE_X7Y28.A3       net (fanout=1)        0.814   button_checker/N87
+    SLICE_X7Y28.A        Tilo                  0.259   button_checker/M_state_q_FSM_FFd3
+                                                       button_checker/M_state_q_FSM_FFd3-In26
+    SLICE_X9Y34.C2       net (fanout=7)        1.336   button_checker/M_state_q_FSM_FFd3-In26
+    SLICE_X9Y34.C        Tilo                  0.259   button_checker/M_mr_q[1]
+                                                       button_checker/_n0417_inv1_cepot
+    SLICE_X9Y34.CE       net (fanout=1)        0.348   button_checker/_n0417_inv1_cepot
+    SLICE_X9Y34.CLK      Tceck                 0.365   button_checker/M_mr_q[1]
+                                                       button_checker/M_mr_q_1
     -------------------------------------------------  ---------------------------
-    Total                                      8.709ns (2.450ns logic, 6.259ns route)
-                                                       (28.1% logic, 71.9% route)
+    Total                                      9.361ns (2.277ns logic, 7.084ns route)
+                                                       (24.3% logic, 75.7% route)
 
 --------------------------------------------------------------------------------
-Slack:                  11.254ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               button_checker/M_ar_q_0_1 (FF)
-  Destination:          button_checker/M_mr_q_0 (FF)
+Slack:                  10.614ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               M_matrix_store_q_23 (FF)
+  Destination:          button_checker/Maddsub_n03521_3 (FF)
   Requirement:          20.000ns
-  Data Path Delay:      8.698ns (Levels of Logic = 6)
-  Clock Path Skew:      -0.013ns (0.195 - 0.208)
+  Data Path Delay:      9.348ns (Levels of Logic = 6)
+  Clock Path Skew:      -0.003ns (0.628 - 0.631)
   Source Clock:         clk_BUFGP rising at 0.000ns
   Destination Clock:    clk_BUFGP rising at 20.000ns
   Clock Uncertainty:    0.035ns
@@ -756,44 +562,42 @@ Slack:                  11.254ns (requirement - (data path - clock path skew + u
     Discrete Jitter (DJ):       0.000ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: button_checker/M_ar_q_0_1 to button_checker/M_mr_q_0
+  Maximum Data Path at Slow Process Corner: M_matrix_store_q_23 to button_checker/Maddsub_n03521_3
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X10Y16.AQ      Tcko                  0.476   button_checker/M_ar_q_0_3
-                                                       button_checker/M_ar_q_0_1
-    SLICE_X12Y16.A1      net (fanout=2)        0.998   button_checker/M_ar_q_0_1
-    SLICE_X12Y16.A       Tilo                  0.254   button_checker/N192
-                                                       button_checker/Madd_n0263_Madd_xor<3>11
-    SLICE_X14Y20.B3      net (fanout=11)       0.887   button_checker/n0263<3>1
-    SLICE_X14Y20.B       Tilo                  0.235   button_checker/N196
-                                                       button_checker/Sh8164_SW1
-    SLICE_X12Y20.A1      net (fanout=1)        0.770   button_checker/N196
-    SLICE_X12Y20.A       Tilo                  0.254   button_checker/Sh8163
-                                                       button_checker/Sh8164
-    SLICE_X12Y20.D5      net (fanout=1)        0.365   button_checker/Sh8164
-    SLICE_X12Y20.CMUX    Topdc                 0.456   button_checker/Sh8163
-                                                       button_checker/Sh8165_F
-                                                       button_checker/Sh8165
-    SLICE_X10Y18.D1      net (fanout=7)        1.673   button_checker/Sh8165
-    SLICE_X10Y18.CMUX    Topdc                 0.402   button_checker/M_mr_q[0]
-                                                       button_checker/M_mr_q_0_dpot_F
-                                                       button_checker/M_mr_q_0_dpot
-    SLICE_X10Y18.A4      net (fanout=1)        1.579   button_checker/M_mr_q_0_dpot
-    SLICE_X10Y18.CLK     Tas                   0.349   button_checker/M_mr_q[0]
-                                                       button_checker/M_mr_q_0_rstpot
-                                                       button_checker/M_mr_q_0
+    SLICE_X21Y32.CQ      Tcko                  0.430   M_matrix_store_q[23]
+                                                       M_matrix_store_q_23
+    SLICE_X10Y25.B1      net (fanout=11)       2.265   M_matrix_store_q[23]
+    SLICE_X10Y25.B       Tilo                  0.235   button_checker/N134
+                                                       button_checker/Sh112011
+    SLICE_X10Y25.A3      net (fanout=1)        0.468   button_checker/Sh11201
+    SLICE_X10Y25.A       Tilo                  0.235   button_checker/N134
+                                                       button_checker/Sh11203
+    SLICE_X10Y25.C1      net (fanout=4)        0.546   button_checker/Sh1120
+    SLICE_X10Y25.C       Tilo                  0.235   button_checker/N134
+                                                       button_checker/M_state_q_FSM_FFd3-In26_SW1_SW1
+    SLICE_X5Y24.A1       net (fanout=1)        1.307   button_checker/N134
+    SLICE_X5Y24.A        Tilo                  0.259   button_checker/N136
+                                                       button_checker/M_state_q_FSM_FFd3-In26_SW1
+    SLICE_X7Y28.A3       net (fanout=1)        0.814   button_checker/N87
+    SLICE_X7Y28.A        Tilo                  0.259   button_checker/M_state_q_FSM_FFd3
+                                                       button_checker/M_state_q_FSM_FFd3-In26
+    SLICE_X11Y34.D2      net (fanout=7)        1.922   button_checker/M_state_q_FSM_FFd3-In26
+    SLICE_X11Y34.CLK     Tas                   0.373   button_checker/Maddsub_n03521_3
+                                                       button_checker/Maddsub_n03521_3_rstpot
+                                                       button_checker/Maddsub_n03521_3
     -------------------------------------------------  ---------------------------
-    Total                                      8.698ns (2.426ns logic, 6.272ns route)
-                                                       (27.9% logic, 72.1% route)
+    Total                                      9.348ns (2.026ns logic, 7.322ns route)
+                                                       (21.7% logic, 78.3% route)
 
 --------------------------------------------------------------------------------
-Slack:                  11.355ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               button_checker/M_ac_q_0 (FF)
-  Destination:          button_checker/M_mr_q_0 (FF)
+Slack:                  10.619ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               M_matrix_store_q_22 (FF)
+  Destination:          button_checker/M_mr_q_1 (FF)
   Requirement:          20.000ns
-  Data Path Delay:      8.523ns (Levels of Logic = 4)
-  Clock Path Skew:      -0.087ns (0.628 - 0.715)
+  Data Path Delay:      9.343ns (Levels of Logic = 6)
+  Clock Path Skew:      -0.003ns (0.628 - 0.631)
   Source Clock:         clk_BUFGP rising at 0.000ns
   Destination Clock:    clk_BUFGP rising at 20.000ns
   Clock Uncertainty:    0.035ns
@@ -804,38 +608,44 @@ Slack:                  11.355ns (requirement - (data path - clock path skew + u
     Discrete Jitter (DJ):       0.000ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: button_checker/M_ac_q_0 to button_checker/M_mr_q_0
+  Maximum Data Path at Slow Process Corner: M_matrix_store_q_22 to button_checker/M_mr_q_1
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X11Y13.AQ      Tcko                  0.430   button_checker/M_ac_q[2]
-                                                       button_checker/M_ac_q_0
-    SLICE_X12Y24.A4      net (fanout=57)       2.154   button_checker/M_ac_q[0]
-    SLICE_X12Y24.A       Tilo                  0.254   button_checker/Madd_n0263_Madd_lut[1]
-                                                       button_checker/Madd_n0263_Madd_lut<1>1
-    SLICE_X12Y20.C2      net (fanout=2)        1.252   button_checker/Madd_n0263_Madd_lut[1]
-    SLICE_X12Y20.CMUX    Tilo                  0.430   button_checker/Sh8163
-                                                       button_checker/Sh8165_G
-                                                       button_checker/Sh8165
-    SLICE_X10Y18.D1      net (fanout=7)        1.673   button_checker/Sh8165
-    SLICE_X10Y18.CMUX    Topdc                 0.402   button_checker/M_mr_q[0]
-                                                       button_checker/M_mr_q_0_dpot_F
-                                                       button_checker/M_mr_q_0_dpot
-    SLICE_X10Y18.A4      net (fanout=1)        1.579   button_checker/M_mr_q_0_dpot
-    SLICE_X10Y18.CLK     Tas                   0.349   button_checker/M_mr_q[0]
-                                                       button_checker/M_mr_q_0_rstpot
-                                                       button_checker/M_mr_q_0
+    SLICE_X21Y32.AQ      Tcko                  0.430   M_matrix_store_q[23]
+                                                       M_matrix_store_q_22
+    SLICE_X10Y25.B4      net (fanout=11)       2.031   M_matrix_store_q[22]
+    SLICE_X10Y25.B       Tilo                  0.235   button_checker/N134
+                                                       button_checker/Sh112011
+    SLICE_X10Y25.A3      net (fanout=1)        0.468   button_checker/Sh11201
+    SLICE_X10Y25.A       Tilo                  0.235   button_checker/N134
+                                                       button_checker/Sh11203
+    SLICE_X5Y24.D5       net (fanout=4)        0.888   button_checker/Sh1120
+    SLICE_X5Y24.D        Tilo                  0.259   button_checker/N136
+                                                       button_checker/M_state_q_FSM_FFd3-In26_SW1_SW3
+    SLICE_X5Y24.A6       net (fanout=1)        1.157   button_checker/N136
+    SLICE_X5Y24.A        Tilo                  0.259   button_checker/N136
+                                                       button_checker/M_state_q_FSM_FFd3-In26_SW1
+    SLICE_X7Y28.A3       net (fanout=1)        0.814   button_checker/N87
+    SLICE_X7Y28.A        Tilo                  0.259   button_checker/M_state_q_FSM_FFd3
+                                                       button_checker/M_state_q_FSM_FFd3-In26
+    SLICE_X9Y34.C2       net (fanout=7)        1.336   button_checker/M_state_q_FSM_FFd3-In26
+    SLICE_X9Y34.C        Tilo                  0.259   button_checker/M_mr_q[1]
+                                                       button_checker/_n0417_inv1_cepot
+    SLICE_X9Y34.CE       net (fanout=1)        0.348   button_checker/_n0417_inv1_cepot
+    SLICE_X9Y34.CLK      Tceck                 0.365   button_checker/M_mr_q[1]
+                                                       button_checker/M_mr_q_1
     -------------------------------------------------  ---------------------------
-    Total                                      8.523ns (1.865ns logic, 6.658ns route)
-                                                       (21.9% logic, 78.1% route)
+    Total                                      9.343ns (2.301ns logic, 7.042ns route)
+                                                       (24.6% logic, 75.4% route)
 
 --------------------------------------------------------------------------------
-Slack:                  11.361ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               button_checker/M_ar_q_2_1 (FF)
-  Destination:          button_checker/M_mr_q_0 (FF)
+Slack:                  10.632ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               M_matrix_store_q_22 (FF)
+  Destination:          button_checker/Maddsub_n03521_3 (FF)
   Requirement:          20.000ns
-  Data Path Delay:      8.593ns (Levels of Logic = 6)
-  Clock Path Skew:      -0.011ns (0.195 - 0.206)
+  Data Path Delay:      9.330ns (Levels of Logic = 6)
+  Clock Path Skew:      -0.003ns (0.628 - 0.631)
   Source Clock:         clk_BUFGP rising at 0.000ns
   Destination Clock:    clk_BUFGP rising at 20.000ns
   Clock Uncertainty:    0.035ns
@@ -846,182 +656,42 @@ Slack:                  11.361ns (requirement - (data path - clock path skew + u
     Discrete Jitter (DJ):       0.000ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: button_checker/M_ar_q_2_1 to button_checker/M_mr_q_0
+  Maximum Data Path at Slow Process Corner: M_matrix_store_q_22 to button_checker/Maddsub_n03521_3
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X11Y18.AQ      Tcko                  0.430   button_checker/M_ar_q_2_1
-                                                       button_checker/M_ar_q_2_1
-    SLICE_X12Y16.A5      net (fanout=3)        0.928   button_checker/M_ar_q_2_1
-    SLICE_X12Y16.A       Tilo                  0.254   button_checker/N192
-                                                       button_checker/Madd_n0263_Madd_xor<3>11
-    SLICE_X13Y20.A4      net (fanout=11)       1.192   button_checker/n0263<3>1
-    SLICE_X13Y20.A       Tilo                  0.259   button_checker/N193
-                                                       button_checker/Sh8164_SW0
-    SLICE_X12Y20.A5      net (fanout=1)        0.452   button_checker/N195
-    SLICE_X12Y20.A       Tilo                  0.254   button_checker/Sh8163
-                                                       button_checker/Sh8164
-    SLICE_X12Y20.D5      net (fanout=1)        0.365   button_checker/Sh8164
-    SLICE_X12Y20.CMUX    Topdc                 0.456   button_checker/Sh8163
-                                                       button_checker/Sh8165_F
-                                                       button_checker/Sh8165
-    SLICE_X10Y18.D1      net (fanout=7)        1.673   button_checker/Sh8165
-    SLICE_X10Y18.CMUX    Topdc                 0.402   button_checker/M_mr_q[0]
-                                                       button_checker/M_mr_q_0_dpot_F
-                                                       button_checker/M_mr_q_0_dpot
-    SLICE_X10Y18.A4      net (fanout=1)        1.579   button_checker/M_mr_q_0_dpot
-    SLICE_X10Y18.CLK     Tas                   0.349   button_checker/M_mr_q[0]
-                                                       button_checker/M_mr_q_0_rstpot
-                                                       button_checker/M_mr_q_0
+    SLICE_X21Y32.AQ      Tcko                  0.430   M_matrix_store_q[23]
+                                                       M_matrix_store_q_22
+    SLICE_X10Y25.B4      net (fanout=11)       2.031   M_matrix_store_q[22]
+    SLICE_X10Y25.B       Tilo                  0.235   button_checker/N134
+                                                       button_checker/Sh112011
+    SLICE_X10Y25.A3      net (fanout=1)        0.468   button_checker/Sh11201
+    SLICE_X10Y25.A       Tilo                  0.235   button_checker/N134
+                                                       button_checker/Sh11203
+    SLICE_X5Y24.D5       net (fanout=4)        0.888   button_checker/Sh1120
+    SLICE_X5Y24.D        Tilo                  0.259   button_checker/N136
+                                                       button_checker/M_state_q_FSM_FFd3-In26_SW1_SW3
+    SLICE_X5Y24.A6       net (fanout=1)        1.157   button_checker/N136
+    SLICE_X5Y24.A        Tilo                  0.259   button_checker/N136
+                                                       button_checker/M_state_q_FSM_FFd3-In26_SW1
+    SLICE_X7Y28.A3       net (fanout=1)        0.814   button_checker/N87
+    SLICE_X7Y28.A        Tilo                  0.259   button_checker/M_state_q_FSM_FFd3
+                                                       button_checker/M_state_q_FSM_FFd3-In26
+    SLICE_X11Y34.D2      net (fanout=7)        1.922   button_checker/M_state_q_FSM_FFd3-In26
+    SLICE_X11Y34.CLK     Tas                   0.373   button_checker/Maddsub_n03521_3
+                                                       button_checker/Maddsub_n03521_3_rstpot
+                                                       button_checker/Maddsub_n03521_3
     -------------------------------------------------  ---------------------------
-    Total                                      8.593ns (2.404ns logic, 6.189ns route)
-                                                       (28.0% logic, 72.0% route)
-
---------------------------------------------------------------------------------
-Slack:                  11.372ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               button_checker/M_ar_q_2_1 (FF)
-  Destination:          button_checker/M_mr_q_0 (FF)
-  Requirement:          20.000ns
-  Data Path Delay:      8.582ns (Levels of Logic = 6)
-  Clock Path Skew:      -0.011ns (0.195 - 0.206)
-  Source Clock:         clk_BUFGP rising at 0.000ns
-  Destination Clock:    clk_BUFGP rising at 20.000ns
-  Clock Uncertainty:    0.035ns
-
-  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter (TSJ):  0.070ns
-    Total Input Jitter (TIJ):   0.000ns
-    Discrete Jitter (DJ):       0.000ns
-    Phase Error (PE):           0.000ns
-
-  Maximum Data Path at Slow Process Corner: button_checker/M_ar_q_2_1 to button_checker/M_mr_q_0
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X11Y18.AQ      Tcko                  0.430   button_checker/M_ar_q_2_1
-                                                       button_checker/M_ar_q_2_1
-    SLICE_X12Y16.A5      net (fanout=3)        0.928   button_checker/M_ar_q_2_1
-    SLICE_X12Y16.A       Tilo                  0.254   button_checker/N192
-                                                       button_checker/Madd_n0263_Madd_xor<3>11
-    SLICE_X14Y20.B3      net (fanout=11)       0.887   button_checker/n0263<3>1
-    SLICE_X14Y20.B       Tilo                  0.235   button_checker/N196
-                                                       button_checker/Sh8164_SW1
-    SLICE_X12Y20.A1      net (fanout=1)        0.770   button_checker/N196
-    SLICE_X12Y20.A       Tilo                  0.254   button_checker/Sh8163
-                                                       button_checker/Sh8164
-    SLICE_X12Y20.D5      net (fanout=1)        0.365   button_checker/Sh8164
-    SLICE_X12Y20.CMUX    Topdc                 0.456   button_checker/Sh8163
-                                                       button_checker/Sh8165_F
-                                                       button_checker/Sh8165
-    SLICE_X10Y18.D1      net (fanout=7)        1.673   button_checker/Sh8165
-    SLICE_X10Y18.CMUX    Topdc                 0.402   button_checker/M_mr_q[0]
-                                                       button_checker/M_mr_q_0_dpot_F
-                                                       button_checker/M_mr_q_0_dpot
-    SLICE_X10Y18.A4      net (fanout=1)        1.579   button_checker/M_mr_q_0_dpot
-    SLICE_X10Y18.CLK     Tas                   0.349   button_checker/M_mr_q[0]
-                                                       button_checker/M_mr_q_0_rstpot
-                                                       button_checker/M_mr_q_0
-    -------------------------------------------------  ---------------------------
-    Total                                      8.582ns (2.380ns logic, 6.202ns route)
-                                                       (27.7% logic, 72.3% route)
-
---------------------------------------------------------------------------------
-Slack:                  11.464ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               button_checker/M_ar_q_1_1 (FF)
-  Destination:          button_checker/M_mr_q_0 (FF)
-  Requirement:          20.000ns
-  Data Path Delay:      8.489ns (Levels of Logic = 6)
-  Clock Path Skew:      -0.012ns (0.195 - 0.207)
-  Source Clock:         clk_BUFGP rising at 0.000ns
-  Destination Clock:    clk_BUFGP rising at 20.000ns
-  Clock Uncertainty:    0.035ns
-
-  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter (TSJ):  0.070ns
-    Total Input Jitter (TIJ):   0.000ns
-    Discrete Jitter (DJ):       0.000ns
-    Phase Error (PE):           0.000ns
-
-  Maximum Data Path at Slow Process Corner: button_checker/M_ar_q_1_1 to button_checker/M_mr_q_0
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X10Y17.AQ      Tcko                  0.476   button_checker/M_ar_q_1_2
-                                                       button_checker/M_ar_q_1_1
-    SLICE_X12Y16.A6      net (fanout=3)        0.639   button_checker/M_ar_q_1_1
-    SLICE_X12Y16.A       Tilo                  0.254   button_checker/N192
-                                                       button_checker/Madd_n0263_Madd_xor<3>11
-    SLICE_X13Y20.D1      net (fanout=11)       1.425   button_checker/n0263<3>1
-    SLICE_X13Y20.D       Tilo                  0.259   button_checker/N193
-                                                       button_checker/Sh8163_SW1
-    SLICE_X12Y20.B3      net (fanout=1)        0.419   button_checker/N193
-    SLICE_X12Y20.B       Tilo                  0.254   button_checker/Sh8163
-                                                       button_checker/Sh8163
-    SLICE_X12Y20.C4      net (fanout=1)        0.330   button_checker/Sh8163
-    SLICE_X12Y20.CMUX    Tilo                  0.430   button_checker/Sh8163
-                                                       button_checker/Sh8165_G
-                                                       button_checker/Sh8165
-    SLICE_X10Y18.D1      net (fanout=7)        1.673   button_checker/Sh8165
-    SLICE_X10Y18.CMUX    Topdc                 0.402   button_checker/M_mr_q[0]
-                                                       button_checker/M_mr_q_0_dpot_F
-                                                       button_checker/M_mr_q_0_dpot
-    SLICE_X10Y18.A4      net (fanout=1)        1.579   button_checker/M_mr_q_0_dpot
-    SLICE_X10Y18.CLK     Tas                   0.349   button_checker/M_mr_q[0]
-                                                       button_checker/M_mr_q_0_rstpot
-                                                       button_checker/M_mr_q_0
-    -------------------------------------------------  ---------------------------
-    Total                                      8.489ns (2.424ns logic, 6.065ns route)
-                                                       (28.6% logic, 71.4% route)
-
---------------------------------------------------------------------------------
-Slack:                  11.500ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               button_checker/M_ac_q_0 (FF)
-  Destination:          button_checker/M_mr_q_0 (FF)
-  Requirement:          20.000ns
-  Data Path Delay:      8.378ns (Levels of Logic = 4)
-  Clock Path Skew:      -0.087ns (0.628 - 0.715)
-  Source Clock:         clk_BUFGP rising at 0.000ns
-  Destination Clock:    clk_BUFGP rising at 20.000ns
-  Clock Uncertainty:    0.035ns
-
-  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter (TSJ):  0.070ns
-    Total Input Jitter (TIJ):   0.000ns
-    Discrete Jitter (DJ):       0.000ns
-    Phase Error (PE):           0.000ns
-
-  Maximum Data Path at Slow Process Corner: button_checker/M_ac_q_0 to button_checker/M_mr_q_0
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X11Y13.AQ      Tcko                  0.430   button_checker/M_ac_q[2]
-                                                       button_checker/M_ac_q_0
-    SLICE_X10Y21.C1      net (fanout=57)       2.562   button_checker/M_ac_q[0]
-    SLICE_X10Y21.C       Tilo                  0.235   button_checker/n0263<5>1
-                                                       button_checker/Madd_n0263_Madd_cy<3>11
-    SLICE_X12Y20.C5      net (fanout=7)        0.718   button_checker/Madd_n0263_Madd_cy[3]
-    SLICE_X12Y20.CMUX    Tilo                  0.430   button_checker/Sh8163
-                                                       button_checker/Sh8165_G
-                                                       button_checker/Sh8165
-    SLICE_X10Y18.D1      net (fanout=7)        1.673   button_checker/Sh8165
-    SLICE_X10Y18.CMUX    Topdc                 0.402   button_checker/M_mr_q[0]
-                                                       button_checker/M_mr_q_0_dpot_F
-                                                       button_checker/M_mr_q_0_dpot
-    SLICE_X10Y18.A4      net (fanout=1)        1.579   button_checker/M_mr_q_0_dpot
-    SLICE_X10Y18.CLK     Tas                   0.349   button_checker/M_mr_q[0]
-                                                       button_checker/M_mr_q_0_rstpot
-                                                       button_checker/M_mr_q_0
-    -------------------------------------------------  ---------------------------
-    Total                                      8.378ns (1.846ns logic, 6.532ns route)
+    Total                                      9.330ns (2.050ns logic, 7.280ns route)
                                                        (22.0% logic, 78.0% route)
 
 --------------------------------------------------------------------------------
-Slack:                  11.579ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               button_checker/M_ac_q_0 (FF)
-  Destination:          button_checker/M_mr_q_0 (FF)
+Slack:                  10.704ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               M_matrix_store_q_23 (FF)
+  Destination:          button_checker/Maddsub_n03521_1 (FF)
   Requirement:          20.000ns
-  Data Path Delay:      8.299ns (Levels of Logic = 5)
-  Clock Path Skew:      -0.087ns (0.628 - 0.715)
+  Data Path Delay:      9.258ns (Levels of Logic = 6)
+  Clock Path Skew:      -0.003ns (0.628 - 0.631)
   Source Clock:         clk_BUFGP rising at 0.000ns
   Destination Clock:    clk_BUFGP rising at 20.000ns
   Clock Uncertainty:    0.035ns
@@ -1032,41 +702,322 @@ Slack:                  11.579ns (requirement - (data path - clock path skew + u
     Discrete Jitter (DJ):       0.000ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: button_checker/M_ac_q_0 to button_checker/M_mr_q_0
+  Maximum Data Path at Slow Process Corner: M_matrix_store_q_23 to button_checker/Maddsub_n03521_1
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X11Y13.AQ      Tcko                  0.430   button_checker/M_ac_q[2]
-                                                       button_checker/M_ac_q_0
-    SLICE_X14Y20.B5      net (fanout=57)       1.786   button_checker/M_ac_q[0]
-    SLICE_X14Y20.B       Tilo                  0.235   button_checker/N196
-                                                       button_checker/Sh8164_SW1
-    SLICE_X12Y20.A1      net (fanout=1)        0.770   button_checker/N196
-    SLICE_X12Y20.A       Tilo                  0.254   button_checker/Sh8163
-                                                       button_checker/Sh8164
-    SLICE_X12Y20.D5      net (fanout=1)        0.365   button_checker/Sh8164
-    SLICE_X12Y20.CMUX    Topdc                 0.456   button_checker/Sh8163
-                                                       button_checker/Sh8165_F
-                                                       button_checker/Sh8165
-    SLICE_X10Y18.D1      net (fanout=7)        1.673   button_checker/Sh8165
-    SLICE_X10Y18.CMUX    Topdc                 0.402   button_checker/M_mr_q[0]
-                                                       button_checker/M_mr_q_0_dpot_F
-                                                       button_checker/M_mr_q_0_dpot
-    SLICE_X10Y18.A4      net (fanout=1)        1.579   button_checker/M_mr_q_0_dpot
-    SLICE_X10Y18.CLK     Tas                   0.349   button_checker/M_mr_q[0]
+    SLICE_X21Y32.CQ      Tcko                  0.430   M_matrix_store_q[23]
+                                                       M_matrix_store_q_23
+    SLICE_X10Y25.B1      net (fanout=11)       2.265   M_matrix_store_q[23]
+    SLICE_X10Y25.B       Tilo                  0.235   button_checker/N134
+                                                       button_checker/Sh112011
+    SLICE_X10Y25.A3      net (fanout=1)        0.468   button_checker/Sh11201
+    SLICE_X10Y25.A       Tilo                  0.235   button_checker/N134
+                                                       button_checker/Sh11203
+    SLICE_X5Y24.D5       net (fanout=4)        0.888   button_checker/Sh1120
+    SLICE_X5Y24.D        Tilo                  0.259   button_checker/N136
+                                                       button_checker/M_state_q_FSM_FFd3-In26_SW1_SW3
+    SLICE_X5Y24.A6       net (fanout=1)        1.157   button_checker/N136
+    SLICE_X5Y24.A        Tilo                  0.259   button_checker/N136
+                                                       button_checker/M_state_q_FSM_FFd3-In26_SW1
+    SLICE_X7Y28.A3       net (fanout=1)        0.814   button_checker/N87
+    SLICE_X7Y28.A        Tilo                  0.259   button_checker/M_state_q_FSM_FFd3
+                                                       button_checker/M_state_q_FSM_FFd3-In26
+    SLICE_X11Y34.B3      net (fanout=7)        1.616   button_checker/M_state_q_FSM_FFd3-In26
+    SLICE_X11Y34.CLK     Tas                   0.373   button_checker/Maddsub_n03521_3
+                                                       button_checker/Maddsub_n03521_1_rstpot
+                                                       button_checker/Maddsub_n03521_1
+    -------------------------------------------------  ---------------------------
+    Total                                      9.258ns (2.050ns logic, 7.208ns route)
+                                                       (22.1% logic, 77.9% route)
+
+--------------------------------------------------------------------------------
+Slack:                  10.736ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               M_matrix_store_q_19 (FF)
+  Destination:          button_checker/Maddsub_n03521_1 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      9.228ns (Levels of Logic = 6)
+  Clock Path Skew:      -0.001ns (0.628 - 0.629)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: M_matrix_store_q_19 to button_checker/Maddsub_n03521_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X22Y34.CQ      Tcko                  0.476   M_matrix_store_q[19]
+                                                       M_matrix_store_q_19
+    SLICE_X13Y24.D5      net (fanout=10)       1.660   M_matrix_store_q[19]
+    SLICE_X13Y24.D       Tilo                  0.259   button_checker/Sh11161
+                                                       button_checker/Sh111611
+    SLICE_X13Y24.C5      net (fanout=1)        0.406   button_checker/Sh11161
+    SLICE_X13Y24.C       Tilo                  0.259   button_checker/Sh11161
+                                                       button_checker/Sh11163
+    SLICE_X5Y24.D1       net (fanout=4)        1.431   button_checker/Sh1116
+    SLICE_X5Y24.D        Tilo                  0.259   button_checker/N136
+                                                       button_checker/M_state_q_FSM_FFd3-In26_SW1_SW3
+    SLICE_X5Y24.A6       net (fanout=1)        1.157   button_checker/N136
+    SLICE_X5Y24.A        Tilo                  0.259   button_checker/N136
+                                                       button_checker/M_state_q_FSM_FFd3-In26_SW1
+    SLICE_X7Y28.A3       net (fanout=1)        0.814   button_checker/N87
+    SLICE_X7Y28.A        Tilo                  0.259   button_checker/M_state_q_FSM_FFd3
+                                                       button_checker/M_state_q_FSM_FFd3-In26
+    SLICE_X11Y34.B3      net (fanout=7)        1.616   button_checker/M_state_q_FSM_FFd3-In26
+    SLICE_X11Y34.CLK     Tas                   0.373   button_checker/Maddsub_n03521_3
+                                                       button_checker/Maddsub_n03521_1_rstpot
+                                                       button_checker/Maddsub_n03521_1
+    -------------------------------------------------  ---------------------------
+    Total                                      9.228ns (2.144ns logic, 7.084ns route)
+                                                       (23.2% logic, 76.8% route)
+
+--------------------------------------------------------------------------------
+Slack:                  10.740ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               M_matrix_store_q_18 (FF)
+  Destination:          button_checker/M_mr_q_0 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      9.220ns (Levels of Logic = 6)
+  Clock Path Skew:      -0.005ns (0.624 - 0.629)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: M_matrix_store_q_18 to button_checker/M_mr_q_0
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X22Y34.AQ      Tcko                  0.476   M_matrix_store_q[19]
+                                                       M_matrix_store_q_18
+    SLICE_X13Y24.D3      net (fanout=10)       1.978   M_matrix_store_q[18]
+    SLICE_X13Y24.D       Tilo                  0.259   button_checker/Sh11161
+                                                       button_checker/Sh111611
+    SLICE_X13Y24.C5      net (fanout=1)        0.406   button_checker/Sh11161
+    SLICE_X13Y24.C       Tilo                  0.259   button_checker/Sh11161
+                                                       button_checker/Sh11163
+    SLICE_X5Y24.D1       net (fanout=4)        1.431   button_checker/Sh1116
+    SLICE_X5Y24.D        Tilo                  0.259   button_checker/N136
+                                                       button_checker/M_state_q_FSM_FFd3-In26_SW1_SW3
+    SLICE_X5Y24.A6       net (fanout=1)        1.157   button_checker/N136
+    SLICE_X5Y24.A        Tilo                  0.259   button_checker/N136
+                                                       button_checker/M_state_q_FSM_FFd3-In26_SW1
+    SLICE_X7Y28.A3       net (fanout=1)        0.814   button_checker/N87
+    SLICE_X7Y28.A        Tilo                  0.259   button_checker/M_state_q_FSM_FFd3
+                                                       button_checker/M_state_q_FSM_FFd3-In26
+    SLICE_X10Y36.A4      net (fanout=7)        1.314   button_checker/M_state_q_FSM_FFd3-In26
+    SLICE_X10Y36.CLK     Tas                   0.349   button_checker/M_mr_q[0]
                                                        button_checker/M_mr_q_0_rstpot
                                                        button_checker/M_mr_q_0
     -------------------------------------------------  ---------------------------
-    Total                                      8.299ns (2.126ns logic, 6.173ns route)
+    Total                                      9.220ns (2.120ns logic, 7.100ns route)
+                                                       (23.0% logic, 77.0% route)
+
+--------------------------------------------------------------------------------
+Slack:                  10.770ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               M_matrix_store_q_23 (FF)
+  Destination:          button_checker/Maddsub_n03521_2 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      9.192ns (Levels of Logic = 6)
+  Clock Path Skew:      -0.003ns (0.628 - 0.631)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: M_matrix_store_q_23 to button_checker/Maddsub_n03521_2
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X21Y32.CQ      Tcko                  0.430   M_matrix_store_q[23]
+                                                       M_matrix_store_q_23
+    SLICE_X10Y25.B1      net (fanout=11)       2.265   M_matrix_store_q[23]
+    SLICE_X10Y25.B       Tilo                  0.235   button_checker/N134
+                                                       button_checker/Sh112011
+    SLICE_X10Y25.A3      net (fanout=1)        0.468   button_checker/Sh11201
+    SLICE_X10Y25.A       Tilo                  0.235   button_checker/N134
+                                                       button_checker/Sh11203
+    SLICE_X10Y25.C1      net (fanout=4)        0.546   button_checker/Sh1120
+    SLICE_X10Y25.C       Tilo                  0.235   button_checker/N134
+                                                       button_checker/M_state_q_FSM_FFd3-In26_SW1_SW1
+    SLICE_X5Y24.A1       net (fanout=1)        1.307   button_checker/N134
+    SLICE_X5Y24.A        Tilo                  0.259   button_checker/N136
+                                                       button_checker/M_state_q_FSM_FFd3-In26_SW1
+    SLICE_X7Y28.A3       net (fanout=1)        0.814   button_checker/N87
+    SLICE_X7Y28.A        Tilo                  0.259   button_checker/M_state_q_FSM_FFd3
+                                                       button_checker/M_state_q_FSM_FFd3-In26
+    SLICE_X11Y34.C1      net (fanout=7)        1.766   button_checker/M_state_q_FSM_FFd3-In26
+    SLICE_X11Y34.CLK     Tas                   0.373   button_checker/Maddsub_n03521_3
+                                                       button_checker/Maddsub_n03521_2_rstpot
+                                                       button_checker/Maddsub_n03521_2
+    -------------------------------------------------  ---------------------------
+    Total                                      9.192ns (2.026ns logic, 7.166ns route)
+                                                       (22.0% logic, 78.0% route)
+
+--------------------------------------------------------------------------------
+Slack:                  10.788ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               M_matrix_store_q_22 (FF)
+  Destination:          button_checker/Maddsub_n03521_2 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      9.174ns (Levels of Logic = 6)
+  Clock Path Skew:      -0.003ns (0.628 - 0.631)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: M_matrix_store_q_22 to button_checker/Maddsub_n03521_2
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X21Y32.AQ      Tcko                  0.430   M_matrix_store_q[23]
+                                                       M_matrix_store_q_22
+    SLICE_X10Y25.B4      net (fanout=11)       2.031   M_matrix_store_q[22]
+    SLICE_X10Y25.B       Tilo                  0.235   button_checker/N134
+                                                       button_checker/Sh112011
+    SLICE_X10Y25.A3      net (fanout=1)        0.468   button_checker/Sh11201
+    SLICE_X10Y25.A       Tilo                  0.235   button_checker/N134
+                                                       button_checker/Sh11203
+    SLICE_X5Y24.D5       net (fanout=4)        0.888   button_checker/Sh1120
+    SLICE_X5Y24.D        Tilo                  0.259   button_checker/N136
+                                                       button_checker/M_state_q_FSM_FFd3-In26_SW1_SW3
+    SLICE_X5Y24.A6       net (fanout=1)        1.157   button_checker/N136
+    SLICE_X5Y24.A        Tilo                  0.259   button_checker/N136
+                                                       button_checker/M_state_q_FSM_FFd3-In26_SW1
+    SLICE_X7Y28.A3       net (fanout=1)        0.814   button_checker/N87
+    SLICE_X7Y28.A        Tilo                  0.259   button_checker/M_state_q_FSM_FFd3
+                                                       button_checker/M_state_q_FSM_FFd3-In26
+    SLICE_X11Y34.C1      net (fanout=7)        1.766   button_checker/M_state_q_FSM_FFd3-In26
+    SLICE_X11Y34.CLK     Tas                   0.373   button_checker/Maddsub_n03521_3
+                                                       button_checker/Maddsub_n03521_2_rstpot
+                                                       button_checker/Maddsub_n03521_2
+    -------------------------------------------------  ---------------------------
+    Total                                      9.174ns (2.050ns logic, 7.124ns route)
+                                                       (22.3% logic, 77.7% route)
+
+--------------------------------------------------------------------------------
+Slack:                  10.835ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               M_matrix_store_q_22 (FF)
+  Destination:          button_checker/M_mr_q_1 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      9.127ns (Levels of Logic = 6)
+  Clock Path Skew:      -0.003ns (0.628 - 0.631)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: M_matrix_store_q_22 to button_checker/M_mr_q_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X21Y32.AQ      Tcko                  0.430   M_matrix_store_q[23]
+                                                       M_matrix_store_q_22
+    SLICE_X10Y25.B4      net (fanout=11)       2.031   M_matrix_store_q[22]
+    SLICE_X10Y25.B       Tilo                  0.235   button_checker/N134
+                                                       button_checker/Sh112011
+    SLICE_X10Y25.A3      net (fanout=1)        0.468   button_checker/Sh11201
+    SLICE_X10Y25.A       Tilo                  0.235   button_checker/N134
+                                                       button_checker/Sh11203
+    SLICE_X10Y25.C1      net (fanout=4)        0.546   button_checker/Sh1120
+    SLICE_X10Y25.C       Tilo                  0.235   button_checker/N134
+                                                       button_checker/M_state_q_FSM_FFd3-In26_SW1_SW1
+    SLICE_X5Y24.A1       net (fanout=1)        1.307   button_checker/N134
+    SLICE_X5Y24.A        Tilo                  0.259   button_checker/N136
+                                                       button_checker/M_state_q_FSM_FFd3-In26_SW1
+    SLICE_X7Y28.A3       net (fanout=1)        0.814   button_checker/N87
+    SLICE_X7Y28.A        Tilo                  0.259   button_checker/M_state_q_FSM_FFd3
+                                                       button_checker/M_state_q_FSM_FFd3-In26
+    SLICE_X9Y34.C2       net (fanout=7)        1.336   button_checker/M_state_q_FSM_FFd3-In26
+    SLICE_X9Y34.C        Tilo                  0.259   button_checker/M_mr_q[1]
+                                                       button_checker/_n0417_inv1_cepot
+    SLICE_X9Y34.CE       net (fanout=1)        0.348   button_checker/_n0417_inv1_cepot
+    SLICE_X9Y34.CLK      Tceck                 0.365   button_checker/M_mr_q[1]
+                                                       button_checker/M_mr_q_1
+    -------------------------------------------------  ---------------------------
+    Total                                      9.127ns (2.277ns logic, 6.850ns route)
+                                                       (24.9% logic, 75.1% route)
+
+--------------------------------------------------------------------------------
+Slack:                  10.846ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               M_matrix_store_q_10 (FF)
+  Destination:          button_checker/M_mr_q_1 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      9.124ns (Levels of Logic = 6)
+  Clock Path Skew:      0.005ns (0.628 - 0.623)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: M_matrix_store_q_10 to button_checker/M_mr_q_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X14Y34.AQ      Tcko                  0.476   M_matrix_store_q[11]
+                                                       M_matrix_store_q_10
+    SLICE_X8Y24.C2       net (fanout=11)       2.194   M_matrix_store_q[10]
+    SLICE_X8Y24.C        Tilo                  0.255   button_checker/n0280<3>1
+                                                       button_checker/Sh110811
+    SLICE_X8Y24.A3       net (fanout=1)        1.137   button_checker/Sh11081
+    SLICE_X8Y24.A        Tilo                  0.254   button_checker/n0280<3>1
+                                                       button_checker/Sh11083
+    SLICE_X6Y24.C6       net (fanout=4)        0.667   button_checker/Sh1108
+    SLICE_X6Y24.C        Tilo                  0.235   button_checker/N128
+                                                       button_checker/M_state_q_FSM_FFd3-In26_SW0_SW0
+    SLICE_X6Y24.A1       net (fanout=1)        0.532   button_checker/N128
+    SLICE_X6Y24.A        Tilo                  0.235   button_checker/N128
+                                                       button_checker/M_state_q_FSM_FFd3-In26_SW0
+    SLICE_X7Y28.A6       net (fanout=1)        0.572   button_checker/N86
+    SLICE_X7Y28.A        Tilo                  0.259   button_checker/M_state_q_FSM_FFd3
+                                                       button_checker/M_state_q_FSM_FFd3-In26
+    SLICE_X9Y34.C2       net (fanout=7)        1.336   button_checker/M_state_q_FSM_FFd3-In26
+    SLICE_X9Y34.C        Tilo                  0.259   button_checker/M_mr_q[1]
+                                                       button_checker/_n0417_inv1_cepot
+    SLICE_X9Y34.CE       net (fanout=1)        0.348   button_checker/_n0417_inv1_cepot
+    SLICE_X9Y34.CLK      Tceck                 0.365   button_checker/M_mr_q[1]
+                                                       button_checker/M_mr_q_1
+    -------------------------------------------------  ---------------------------
+    Total                                      9.124ns (2.338ns logic, 6.786ns route)
                                                        (25.6% logic, 74.4% route)
 
 --------------------------------------------------------------------------------
-Slack:                  11.603ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               button_checker/M_ar_q_1_1 (FF)
-  Destination:          button_checker/M_mr_q_0 (FF)
+Slack:                  10.848ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               M_matrix_store_q_22 (FF)
+  Destination:          button_checker/Maddsub_n03521_3 (FF)
   Requirement:          20.000ns
-  Data Path Delay:      8.350ns (Levels of Logic = 6)
-  Clock Path Skew:      -0.012ns (0.195 - 0.207)
+  Data Path Delay:      9.114ns (Levels of Logic = 6)
+  Clock Path Skew:      -0.003ns (0.628 - 0.631)
   Source Clock:         clk_BUFGP rising at 0.000ns
   Destination Clock:    clk_BUFGP rising at 20.000ns
   Clock Uncertainty:    0.035ns
@@ -1077,44 +1028,42 @@ Slack:                  11.603ns (requirement - (data path - clock path skew + u
     Discrete Jitter (DJ):       0.000ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: button_checker/M_ar_q_1_1 to button_checker/M_mr_q_0
+  Maximum Data Path at Slow Process Corner: M_matrix_store_q_22 to button_checker/Maddsub_n03521_3
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X10Y17.AQ      Tcko                  0.476   button_checker/M_ar_q_1_2
-                                                       button_checker/M_ar_q_1_1
-    SLICE_X12Y16.A6      net (fanout=3)        0.639   button_checker/M_ar_q_1_1
-    SLICE_X12Y16.A       Tilo                  0.254   button_checker/N192
-                                                       button_checker/Madd_n0263_Madd_xor<3>11
-    SLICE_X13Y20.A4      net (fanout=11)       1.192   button_checker/n0263<3>1
-    SLICE_X13Y20.A       Tilo                  0.259   button_checker/N193
-                                                       button_checker/Sh8164_SW0
-    SLICE_X12Y20.A5      net (fanout=1)        0.452   button_checker/N195
-    SLICE_X12Y20.A       Tilo                  0.254   button_checker/Sh8163
-                                                       button_checker/Sh8164
-    SLICE_X12Y20.D5      net (fanout=1)        0.365   button_checker/Sh8164
-    SLICE_X12Y20.CMUX    Topdc                 0.456   button_checker/Sh8163
-                                                       button_checker/Sh8165_F
-                                                       button_checker/Sh8165
-    SLICE_X10Y18.D1      net (fanout=7)        1.673   button_checker/Sh8165
-    SLICE_X10Y18.CMUX    Topdc                 0.402   button_checker/M_mr_q[0]
-                                                       button_checker/M_mr_q_0_dpot_F
-                                                       button_checker/M_mr_q_0_dpot
-    SLICE_X10Y18.A4      net (fanout=1)        1.579   button_checker/M_mr_q_0_dpot
-    SLICE_X10Y18.CLK     Tas                   0.349   button_checker/M_mr_q[0]
-                                                       button_checker/M_mr_q_0_rstpot
-                                                       button_checker/M_mr_q_0
+    SLICE_X21Y32.AQ      Tcko                  0.430   M_matrix_store_q[23]
+                                                       M_matrix_store_q_22
+    SLICE_X10Y25.B4      net (fanout=11)       2.031   M_matrix_store_q[22]
+    SLICE_X10Y25.B       Tilo                  0.235   button_checker/N134
+                                                       button_checker/Sh112011
+    SLICE_X10Y25.A3      net (fanout=1)        0.468   button_checker/Sh11201
+    SLICE_X10Y25.A       Tilo                  0.235   button_checker/N134
+                                                       button_checker/Sh11203
+    SLICE_X10Y25.C1      net (fanout=4)        0.546   button_checker/Sh1120
+    SLICE_X10Y25.C       Tilo                  0.235   button_checker/N134
+                                                       button_checker/M_state_q_FSM_FFd3-In26_SW1_SW1
+    SLICE_X5Y24.A1       net (fanout=1)        1.307   button_checker/N134
+    SLICE_X5Y24.A        Tilo                  0.259   button_checker/N136
+                                                       button_checker/M_state_q_FSM_FFd3-In26_SW1
+    SLICE_X7Y28.A3       net (fanout=1)        0.814   button_checker/N87
+    SLICE_X7Y28.A        Tilo                  0.259   button_checker/M_state_q_FSM_FFd3
+                                                       button_checker/M_state_q_FSM_FFd3-In26
+    SLICE_X11Y34.D2      net (fanout=7)        1.922   button_checker/M_state_q_FSM_FFd3-In26
+    SLICE_X11Y34.CLK     Tas                   0.373   button_checker/Maddsub_n03521_3
+                                                       button_checker/Maddsub_n03521_3_rstpot
+                                                       button_checker/Maddsub_n03521_3
     -------------------------------------------------  ---------------------------
-    Total                                      8.350ns (2.450ns logic, 5.900ns route)
-                                                       (29.3% logic, 70.7% route)
+    Total                                      9.114ns (2.026ns logic, 7.088ns route)
+                                                       (22.2% logic, 77.8% route)
 
 --------------------------------------------------------------------------------
-Slack:                  11.614ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               button_checker/M_ar_q_1_1 (FF)
-  Destination:          button_checker/M_mr_q_0 (FF)
+Slack:                  10.859ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               M_matrix_store_q_10 (FF)
+  Destination:          button_checker/Maddsub_n03521_3 (FF)
   Requirement:          20.000ns
-  Data Path Delay:      8.339ns (Levels of Logic = 6)
-  Clock Path Skew:      -0.012ns (0.195 - 0.207)
+  Data Path Delay:      9.111ns (Levels of Logic = 6)
+  Clock Path Skew:      0.005ns (0.628 - 0.623)
   Source Clock:         clk_BUFGP rising at 0.000ns
   Destination Clock:    clk_BUFGP rising at 20.000ns
   Clock Uncertainty:    0.035ns
@@ -1125,44 +1074,42 @@ Slack:                  11.614ns (requirement - (data path - clock path skew + u
     Discrete Jitter (DJ):       0.000ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: button_checker/M_ar_q_1_1 to button_checker/M_mr_q_0
+  Maximum Data Path at Slow Process Corner: M_matrix_store_q_10 to button_checker/Maddsub_n03521_3
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X10Y17.AQ      Tcko                  0.476   button_checker/M_ar_q_1_2
-                                                       button_checker/M_ar_q_1_1
-    SLICE_X12Y16.A6      net (fanout=3)        0.639   button_checker/M_ar_q_1_1
-    SLICE_X12Y16.A       Tilo                  0.254   button_checker/N192
-                                                       button_checker/Madd_n0263_Madd_xor<3>11
-    SLICE_X14Y20.B3      net (fanout=11)       0.887   button_checker/n0263<3>1
-    SLICE_X14Y20.B       Tilo                  0.235   button_checker/N196
-                                                       button_checker/Sh8164_SW1
-    SLICE_X12Y20.A1      net (fanout=1)        0.770   button_checker/N196
-    SLICE_X12Y20.A       Tilo                  0.254   button_checker/Sh8163
-                                                       button_checker/Sh8164
-    SLICE_X12Y20.D5      net (fanout=1)        0.365   button_checker/Sh8164
-    SLICE_X12Y20.CMUX    Topdc                 0.456   button_checker/Sh8163
-                                                       button_checker/Sh8165_F
-                                                       button_checker/Sh8165
-    SLICE_X10Y18.D1      net (fanout=7)        1.673   button_checker/Sh8165
-    SLICE_X10Y18.CMUX    Topdc                 0.402   button_checker/M_mr_q[0]
-                                                       button_checker/M_mr_q_0_dpot_F
-                                                       button_checker/M_mr_q_0_dpot
-    SLICE_X10Y18.A4      net (fanout=1)        1.579   button_checker/M_mr_q_0_dpot
-    SLICE_X10Y18.CLK     Tas                   0.349   button_checker/M_mr_q[0]
-                                                       button_checker/M_mr_q_0_rstpot
-                                                       button_checker/M_mr_q_0
+    SLICE_X14Y34.AQ      Tcko                  0.476   M_matrix_store_q[11]
+                                                       M_matrix_store_q_10
+    SLICE_X8Y24.C2       net (fanout=11)       2.194   M_matrix_store_q[10]
+    SLICE_X8Y24.C        Tilo                  0.255   button_checker/n0280<3>1
+                                                       button_checker/Sh110811
+    SLICE_X8Y24.A3       net (fanout=1)        1.137   button_checker/Sh11081
+    SLICE_X8Y24.A        Tilo                  0.254   button_checker/n0280<3>1
+                                                       button_checker/Sh11083
+    SLICE_X6Y24.C6       net (fanout=4)        0.667   button_checker/Sh1108
+    SLICE_X6Y24.C        Tilo                  0.235   button_checker/N128
+                                                       button_checker/M_state_q_FSM_FFd3-In26_SW0_SW0
+    SLICE_X6Y24.A1       net (fanout=1)        0.532   button_checker/N128
+    SLICE_X6Y24.A        Tilo                  0.235   button_checker/N128
+                                                       button_checker/M_state_q_FSM_FFd3-In26_SW0
+    SLICE_X7Y28.A6       net (fanout=1)        0.572   button_checker/N86
+    SLICE_X7Y28.A        Tilo                  0.259   button_checker/M_state_q_FSM_FFd3
+                                                       button_checker/M_state_q_FSM_FFd3-In26
+    SLICE_X11Y34.D2      net (fanout=7)        1.922   button_checker/M_state_q_FSM_FFd3-In26
+    SLICE_X11Y34.CLK     Tas                   0.373   button_checker/Maddsub_n03521_3
+                                                       button_checker/Maddsub_n03521_3_rstpot
+                                                       button_checker/Maddsub_n03521_3
     -------------------------------------------------  ---------------------------
-    Total                                      8.339ns (2.426ns logic, 5.913ns route)
-                                                       (29.1% logic, 70.9% route)
+    Total                                      9.111ns (2.087ns logic, 7.024ns route)
+                                                       (22.9% logic, 77.1% route)
 
 --------------------------------------------------------------------------------
-Slack:                  11.685ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               button_checker/M_ac_q_0 (FF)
-  Destination:          button_checker/M_mr_q_0 (FF)
+Slack:                  10.901ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               button_checker/M_br_q_0_1 (FF)
+  Destination:          button_checker/M_state_q_FSM_FFd1 (FF)
   Requirement:          20.000ns
-  Data Path Delay:      8.193ns (Levels of Logic = 4)
-  Clock Path Skew:      -0.087ns (0.628 - 0.715)
+  Data Path Delay:      9.039ns (Levels of Logic = 6)
+  Clock Path Skew:      -0.025ns (0.319 - 0.344)
   Source Clock:         clk_BUFGP rising at 0.000ns
   Destination Clock:    clk_BUFGP rising at 20.000ns
   Clock Uncertainty:    0.035ns
@@ -1173,38 +1120,43 @@ Slack:                  11.685ns (requirement - (data path - clock path skew + u
     Discrete Jitter (DJ):       0.000ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: button_checker/M_ac_q_0 to button_checker/M_mr_q_0
+  Maximum Data Path at Slow Process Corner: button_checker/M_br_q_0_1 to button_checker/M_state_q_FSM_FFd1
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X11Y13.AQ      Tcko                  0.430   button_checker/M_ac_q[2]
-                                                       button_checker/M_ac_q_0
-    SLICE_X13Y22.A4      net (fanout=57)       2.080   button_checker/M_ac_q[0]
-    SLICE_X13Y22.A       Tilo                  0.259   button_checker/N189
-                                                       button_checker/Sh8162_SW0
-    SLICE_X12Y20.D1      net (fanout=1)        0.965   button_checker/N189
-    SLICE_X12Y20.CMUX    Topdc                 0.456   button_checker/Sh8163
-                                                       button_checker/Sh8165_F
-                                                       button_checker/Sh8165
-    SLICE_X10Y18.D1      net (fanout=7)        1.673   button_checker/Sh8165
-    SLICE_X10Y18.CMUX    Topdc                 0.402   button_checker/M_mr_q[0]
-                                                       button_checker/M_mr_q_0_dpot_F
-                                                       button_checker/M_mr_q_0_dpot
-    SLICE_X10Y18.A4      net (fanout=1)        1.579   button_checker/M_mr_q_0_dpot
-    SLICE_X10Y18.CLK     Tas                   0.349   button_checker/M_mr_q[0]
-                                                       button_checker/M_mr_q_0_rstpot
-                                                       button_checker/M_mr_q_0
+    SLICE_X6Y36.AQ       Tcko                  0.476   button_checker/M_br_q[0]
+                                                       button_checker/M_br_q_0_1
+    SLICE_X6Y36.A5       net (fanout=1)        0.822   button_checker/M_br_q_0_1
+    SLICE_X6Y36.AMUX     Topaa                 0.449   button_checker/M_br_q[0]
+                                                       button_checker/Maddsub_n0333_Madd1_lut<2>
+                                                       button_checker/Maddsub_n0333_Madd1_cy<4>
+    SLICE_X17Y31.D1      net (fanout=42)       1.871   button_checker/Maddsub_n0333_2
+    SLICE_X17Y31.D       Tilo                  0.259   button_checker/N150
+                                                       button_checker/M_state_q_FSM_FFd1-In1112_SW1
+    SLICE_X18Y31.B5      net (fanout=1)        0.642   button_checker/N150
+    SLICE_X18Y31.B       Tilo                  0.235   button_checker/N152
+                                                       button_checker/M_state_q_FSM_FFd1-In1112
+    SLICE_X19Y36.C5      net (fanout=1)        1.395   button_checker/M_state_q_FSM_FFd1-In1112
+    SLICE_X19Y36.C       Tilo                  0.259   button_checker/M_state_q_FSM_FFd1-In1115
+                                                       button_checker/M_state_q_FSM_FFd1-In1116
+    SLICE_X11Y36.C2      net (fanout=1)        1.450   button_checker/M_state_q_FSM_FFd1-In1116
+    SLICE_X11Y36.C       Tilo                  0.259   button_checker/M_state_q_FSM_FFd2
+                                                       button_checker/M_state_q_FSM_FFd1-In1122
+    SLICE_X11Y36.A2      net (fanout=2)        0.549   button_checker/M_state_q_FSM_FFd1-In1122
+    SLICE_X11Y36.CLK     Tas                   0.373   button_checker/M_state_q_FSM_FFd2
+                                                       button_checker/M_state_q_FSM_FFd1-In
+                                                       button_checker/M_state_q_FSM_FFd1
     -------------------------------------------------  ---------------------------
-    Total                                      8.193ns (1.896ns logic, 6.297ns route)
-                                                       (23.1% logic, 76.9% route)
+    Total                                      9.039ns (2.310ns logic, 6.729ns route)
+                                                       (25.6% logic, 74.4% route)
 
 --------------------------------------------------------------------------------
-Slack:                  11.687ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               button_checker/M_ac_q_2 (FF)
-  Destination:          button_checker/M_mr_q_0 (FF)
+Slack:                  10.920ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               M_matrix_store_q_23 (FF)
+  Destination:          button_checker/Maddsub_n03521_1 (FF)
   Requirement:          20.000ns
-  Data Path Delay:      8.191ns (Levels of Logic = 5)
-  Clock Path Skew:      -0.087ns (0.628 - 0.715)
+  Data Path Delay:      9.042ns (Levels of Logic = 6)
+  Clock Path Skew:      -0.003ns (0.628 - 0.631)
   Source Clock:         clk_BUFGP rising at 0.000ns
   Destination Clock:    clk_BUFGP rising at 20.000ns
   Clock Uncertainty:    0.035ns
@@ -1215,41 +1167,42 @@ Slack:                  11.687ns (requirement - (data path - clock path skew + u
     Discrete Jitter (DJ):       0.000ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: button_checker/M_ac_q_2 to button_checker/M_mr_q_0
+  Maximum Data Path at Slow Process Corner: M_matrix_store_q_23 to button_checker/Maddsub_n03521_1
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X11Y13.CQ      Tcko                  0.430   button_checker/M_ac_q[2]
-                                                       button_checker/M_ac_q_2
-    SLICE_X10Y21.A1      net (fanout=48)       1.800   button_checker/M_ac_q[2]
-    SLICE_X10Y21.A       Tilo                  0.235   button_checker/n0263<5>1
-                                                       button_checker/Madd_n0263_Madd_lut<4>1
-    SLICE_X12Y20.A6      net (fanout=7)        0.648   button_checker/Madd_n0263_Madd_lut[4]
-    SLICE_X12Y20.A       Tilo                  0.254   button_checker/Sh8163
-                                                       button_checker/Sh8164
-    SLICE_X12Y20.D5      net (fanout=1)        0.365   button_checker/Sh8164
-    SLICE_X12Y20.CMUX    Topdc                 0.456   button_checker/Sh8163
-                                                       button_checker/Sh8165_F
-                                                       button_checker/Sh8165
-    SLICE_X10Y18.D1      net (fanout=7)        1.673   button_checker/Sh8165
-    SLICE_X10Y18.CMUX    Topdc                 0.402   button_checker/M_mr_q[0]
-                                                       button_checker/M_mr_q_0_dpot_F
-                                                       button_checker/M_mr_q_0_dpot
-    SLICE_X10Y18.A4      net (fanout=1)        1.579   button_checker/M_mr_q_0_dpot
-    SLICE_X10Y18.CLK     Tas                   0.349   button_checker/M_mr_q[0]
-                                                       button_checker/M_mr_q_0_rstpot
-                                                       button_checker/M_mr_q_0
+    SLICE_X21Y32.CQ      Tcko                  0.430   M_matrix_store_q[23]
+                                                       M_matrix_store_q_23
+    SLICE_X10Y25.B1      net (fanout=11)       2.265   M_matrix_store_q[23]
+    SLICE_X10Y25.B       Tilo                  0.235   button_checker/N134
+                                                       button_checker/Sh112011
+    SLICE_X10Y25.A3      net (fanout=1)        0.468   button_checker/Sh11201
+    SLICE_X10Y25.A       Tilo                  0.235   button_checker/N134
+                                                       button_checker/Sh11203
+    SLICE_X10Y25.C1      net (fanout=4)        0.546   button_checker/Sh1120
+    SLICE_X10Y25.C       Tilo                  0.235   button_checker/N134
+                                                       button_checker/M_state_q_FSM_FFd3-In26_SW1_SW1
+    SLICE_X5Y24.A1       net (fanout=1)        1.307   button_checker/N134
+    SLICE_X5Y24.A        Tilo                  0.259   button_checker/N136
+                                                       button_checker/M_state_q_FSM_FFd3-In26_SW1
+    SLICE_X7Y28.A3       net (fanout=1)        0.814   button_checker/N87
+    SLICE_X7Y28.A        Tilo                  0.259   button_checker/M_state_q_FSM_FFd3
+                                                       button_checker/M_state_q_FSM_FFd3-In26
+    SLICE_X11Y34.B3      net (fanout=7)        1.616   button_checker/M_state_q_FSM_FFd3-In26
+    SLICE_X11Y34.CLK     Tas                   0.373   button_checker/Maddsub_n03521_3
+                                                       button_checker/Maddsub_n03521_1_rstpot
+                                                       button_checker/Maddsub_n03521_1
     -------------------------------------------------  ---------------------------
-    Total                                      8.191ns (2.126ns logic, 6.065ns route)
-                                                       (26.0% logic, 74.0% route)
+    Total                                      9.042ns (2.026ns logic, 7.016ns route)
+                                                       (22.4% logic, 77.6% route)
 
 --------------------------------------------------------------------------------
-Slack:                  11.696ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               button_checker/M_ac_q_1_1 (FF)
-  Destination:          button_checker/M_mr_q_0 (FF)
+Slack:                  10.938ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               M_matrix_store_q_22 (FF)
+  Destination:          button_checker/Maddsub_n03521_1 (FF)
   Requirement:          20.000ns
-  Data Path Delay:      8.181ns (Levels of Logic = 6)
-  Clock Path Skew:      -0.088ns (0.628 - 0.716)
+  Data Path Delay:      9.024ns (Levels of Logic = 6)
+  Clock Path Skew:      -0.003ns (0.628 - 0.631)
   Source Clock:         clk_BUFGP rising at 0.000ns
   Destination Clock:    clk_BUFGP rising at 20.000ns
   Clock Uncertainty:    0.035ns
@@ -1260,44 +1213,42 @@ Slack:                  11.696ns (requirement - (data path - clock path skew + u
     Discrete Jitter (DJ):       0.000ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: button_checker/M_ac_q_1_1 to button_checker/M_mr_q_0
+  Maximum Data Path at Slow Process Corner: M_matrix_store_q_22 to button_checker/Maddsub_n03521_1
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X11Y14.AQ      Tcko                  0.430   button_checker/M_ac_q_1_3
-                                                       button_checker/M_ac_q_1_1
-    SLICE_X12Y16.A3      net (fanout=2)        1.155   button_checker/M_ac_q_1_1
-    SLICE_X12Y16.A       Tilo                  0.254   button_checker/N192
-                                                       button_checker/Madd_n0263_Madd_xor<3>11
-    SLICE_X12Y16.B6      net (fanout=11)       0.152   button_checker/n0263<3>1
-    SLICE_X12Y16.B       Tilo                  0.254   button_checker/N192
-                                                       button_checker/Sh8163_SW0
-    SLICE_X12Y20.B5      net (fanout=1)        0.919   button_checker/N192
-    SLICE_X12Y20.B       Tilo                  0.254   button_checker/Sh8163
-                                                       button_checker/Sh8163
-    SLICE_X12Y20.C4      net (fanout=1)        0.330   button_checker/Sh8163
-    SLICE_X12Y20.CMUX    Tilo                  0.430   button_checker/Sh8163
-                                                       button_checker/Sh8165_G
-                                                       button_checker/Sh8165
-    SLICE_X10Y18.D1      net (fanout=7)        1.673   button_checker/Sh8165
-    SLICE_X10Y18.CMUX    Topdc                 0.402   button_checker/M_mr_q[0]
-                                                       button_checker/M_mr_q_0_dpot_F
-                                                       button_checker/M_mr_q_0_dpot
-    SLICE_X10Y18.A4      net (fanout=1)        1.579   button_checker/M_mr_q_0_dpot
-    SLICE_X10Y18.CLK     Tas                   0.349   button_checker/M_mr_q[0]
-                                                       button_checker/M_mr_q_0_rstpot
-                                                       button_checker/M_mr_q_0
+    SLICE_X21Y32.AQ      Tcko                  0.430   M_matrix_store_q[23]
+                                                       M_matrix_store_q_22
+    SLICE_X10Y25.B4      net (fanout=11)       2.031   M_matrix_store_q[22]
+    SLICE_X10Y25.B       Tilo                  0.235   button_checker/N134
+                                                       button_checker/Sh112011
+    SLICE_X10Y25.A3      net (fanout=1)        0.468   button_checker/Sh11201
+    SLICE_X10Y25.A       Tilo                  0.235   button_checker/N134
+                                                       button_checker/Sh11203
+    SLICE_X5Y24.D5       net (fanout=4)        0.888   button_checker/Sh1120
+    SLICE_X5Y24.D        Tilo                  0.259   button_checker/N136
+                                                       button_checker/M_state_q_FSM_FFd3-In26_SW1_SW3
+    SLICE_X5Y24.A6       net (fanout=1)        1.157   button_checker/N136
+    SLICE_X5Y24.A        Tilo                  0.259   button_checker/N136
+                                                       button_checker/M_state_q_FSM_FFd3-In26_SW1
+    SLICE_X7Y28.A3       net (fanout=1)        0.814   button_checker/N87
+    SLICE_X7Y28.A        Tilo                  0.259   button_checker/M_state_q_FSM_FFd3
+                                                       button_checker/M_state_q_FSM_FFd3-In26
+    SLICE_X11Y34.B3      net (fanout=7)        1.616   button_checker/M_state_q_FSM_FFd3-In26
+    SLICE_X11Y34.CLK     Tas                   0.373   button_checker/Maddsub_n03521_3
+                                                       button_checker/Maddsub_n03521_1_rstpot
+                                                       button_checker/Maddsub_n03521_1
     -------------------------------------------------  ---------------------------
-    Total                                      8.181ns (2.373ns logic, 5.808ns route)
-                                                       (29.0% logic, 71.0% route)
+    Total                                      9.024ns (2.050ns logic, 6.974ns route)
+                                                       (22.7% logic, 77.3% route)
 
 --------------------------------------------------------------------------------
-Slack:                  11.736ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               M_matrix_store_q_11 (FF)
+Slack:                  10.956ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               M_matrix_store_q_28 (FF)
   Destination:          button_checker/M_mr_q_1 (FF)
   Requirement:          20.000ns
-  Data Path Delay:      8.247ns (Levels of Logic = 6)
-  Clock Path Skew:      0.018ns (0.636 - 0.618)
+  Data Path Delay:      9.006ns (Levels of Logic = 5)
+  Clock Path Skew:      -0.003ns (0.628 - 0.631)
   Source Clock:         clk_BUFGP rising at 0.000ns
   Destination Clock:    clk_BUFGP rising at 20.000ns
   Clock Uncertainty:    0.035ns
@@ -1308,44 +1259,41 @@ Slack:                  11.736ns (requirement - (data path - clock path skew + u
     Discrete Jitter (DJ):       0.000ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: M_matrix_store_q_11 to button_checker/M_mr_q_1
+  Maximum Data Path at Slow Process Corner: M_matrix_store_q_28 to button_checker/M_mr_q_1
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X18Y21.DQ      Tcko                  0.476   M_matrix_store_q[11]
-                                                       M_matrix_store_q_11
-    SLICE_X8Y15.C2       net (fanout=8)        1.763   M_matrix_store_q[11]
-    SLICE_X8Y15.C        Tilo                  0.255   button_checker/n0280<4>1
-                                                       button_checker/Sh110811
-    SLICE_X8Y15.A1       net (fanout=1)        0.566   button_checker/Sh11081
-    SLICE_X8Y15.A        Tilo                  0.254   button_checker/n0280<4>1
-                                                       button_checker/Sh11083
-    SLICE_X10Y14.D6      net (fanout=4)        0.550   button_checker/Sh1108
-    SLICE_X10Y14.D       Tilo                  0.235   button_checker/M_ac_q_2_1
-                                                       button_checker/M_state_q_FSM_FFd3-In26_SW0_SW2
-    SLICE_X8Y14.C1       net (fanout=1)        0.744   button_checker/N120
-    SLICE_X8Y14.C        Tilo                  0.255   button_checker/N119
-                                                       button_checker/M_state_q_FSM_FFd3-In26_SW0
-    SLICE_X6Y17.A1       net (fanout=1)        1.229   button_checker/N76
-    SLICE_X6Y17.A        Tilo                  0.235   button_checker/M_state_q_FSM_FFd3
+    SLICE_X22Y32.AQ      Tcko                  0.476   M_matrix_store_q[29]
+                                                       M_matrix_store_q_28
+    SLICE_X13Y26.C2      net (fanout=10)       2.057   M_matrix_store_q[28]
+    SLICE_X13Y26.C       Tilo                  0.259   button_checker/Sh11281
+                                                       button_checker/Sh11283
+    SLICE_X5Y24.D6       net (fanout=4)        1.158   button_checker/Sh1128
+    SLICE_X5Y24.D        Tilo                  0.259   button_checker/N136
+                                                       button_checker/M_state_q_FSM_FFd3-In26_SW1_SW3
+    SLICE_X5Y24.A6       net (fanout=1)        1.157   button_checker/N136
+    SLICE_X5Y24.A        Tilo                  0.259   button_checker/N136
+                                                       button_checker/M_state_q_FSM_FFd3-In26_SW1
+    SLICE_X7Y28.A3       net (fanout=1)        0.814   button_checker/N87
+    SLICE_X7Y28.A        Tilo                  0.259   button_checker/M_state_q_FSM_FFd3
                                                        button_checker/M_state_q_FSM_FFd3-In26
-    SLICE_X6Y17.C1       net (fanout=7)        0.553   button_checker/M_state_q_FSM_FFd3-In26
-    SLICE_X6Y17.C        Tilo                  0.235   button_checker/M_state_q_FSM_FFd3
+    SLICE_X9Y34.C2       net (fanout=7)        1.336   button_checker/M_state_q_FSM_FFd3-In26
+    SLICE_X9Y34.C        Tilo                  0.259   button_checker/M_mr_q[1]
                                                        button_checker/_n0417_inv1_cepot
-    SLICE_X7Y18.CE       net (fanout=1)        0.532   button_checker/_n0417_inv1_cepot
-    SLICE_X7Y18.CLK      Tceck                 0.365   button_checker/M_mr_q[1]
+    SLICE_X9Y34.CE       net (fanout=1)        0.348   button_checker/_n0417_inv1_cepot
+    SLICE_X9Y34.CLK      Tceck                 0.365   button_checker/M_mr_q[1]
                                                        button_checker/M_mr_q_1
     -------------------------------------------------  ---------------------------
-    Total                                      8.247ns (2.310ns logic, 5.937ns route)
-                                                       (28.0% logic, 72.0% route)
+    Total                                      9.006ns (2.136ns logic, 6.870ns route)
+                                                       (23.7% logic, 76.3% route)
 
 --------------------------------------------------------------------------------
-Slack:                  11.742ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               button_checker/M_ac_q_1_1 (FF)
-  Destination:          button_checker/M_mr_q_0 (FF)
+Slack:                  10.969ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               M_matrix_store_q_28 (FF)
+  Destination:          button_checker/Maddsub_n03521_3 (FF)
   Requirement:          20.000ns
-  Data Path Delay:      8.135ns (Levels of Logic = 5)
-  Clock Path Skew:      -0.088ns (0.628 - 0.716)
+  Data Path Delay:      8.993ns (Levels of Logic = 5)
+  Clock Path Skew:      -0.003ns (0.628 - 0.631)
   Source Clock:         clk_BUFGP rising at 0.000ns
   Destination Clock:    clk_BUFGP rising at 20.000ns
   Clock Uncertainty:    0.035ns
@@ -1356,41 +1304,39 @@ Slack:                  11.742ns (requirement - (data path - clock path skew + u
     Discrete Jitter (DJ):       0.000ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: button_checker/M_ac_q_1_1 to button_checker/M_mr_q_0
+  Maximum Data Path at Slow Process Corner: M_matrix_store_q_28 to button_checker/Maddsub_n03521_3
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X11Y14.AQ      Tcko                  0.430   button_checker/M_ac_q_1_3
-                                                       button_checker/M_ac_q_1_1
-    SLICE_X12Y16.A3      net (fanout=2)        1.155   button_checker/M_ac_q_1_1
-    SLICE_X12Y16.A       Tilo                  0.254   button_checker/N192
-                                                       button_checker/Madd_n0263_Madd_xor<3>11
-    SLICE_X13Y22.A6      net (fanout=11)       0.613   button_checker/n0263<3>1
-    SLICE_X13Y22.A       Tilo                  0.259   button_checker/N189
-                                                       button_checker/Sh8162_SW0
-    SLICE_X12Y20.D1      net (fanout=1)        0.965   button_checker/N189
-    SLICE_X12Y20.CMUX    Topdc                 0.456   button_checker/Sh8163
-                                                       button_checker/Sh8165_F
-                                                       button_checker/Sh8165
-    SLICE_X10Y18.D1      net (fanout=7)        1.673   button_checker/Sh8165
-    SLICE_X10Y18.CMUX    Topdc                 0.402   button_checker/M_mr_q[0]
-                                                       button_checker/M_mr_q_0_dpot_F
-                                                       button_checker/M_mr_q_0_dpot
-    SLICE_X10Y18.A4      net (fanout=1)        1.579   button_checker/M_mr_q_0_dpot
-    SLICE_X10Y18.CLK     Tas                   0.349   button_checker/M_mr_q[0]
-                                                       button_checker/M_mr_q_0_rstpot
-                                                       button_checker/M_mr_q_0
+    SLICE_X22Y32.AQ      Tcko                  0.476   M_matrix_store_q[29]
+                                                       M_matrix_store_q_28
+    SLICE_X13Y26.C2      net (fanout=10)       2.057   M_matrix_store_q[28]
+    SLICE_X13Y26.C       Tilo                  0.259   button_checker/Sh11281
+                                                       button_checker/Sh11283
+    SLICE_X5Y24.D6       net (fanout=4)        1.158   button_checker/Sh1128
+    SLICE_X5Y24.D        Tilo                  0.259   button_checker/N136
+                                                       button_checker/M_state_q_FSM_FFd3-In26_SW1_SW3
+    SLICE_X5Y24.A6       net (fanout=1)        1.157   button_checker/N136
+    SLICE_X5Y24.A        Tilo                  0.259   button_checker/N136
+                                                       button_checker/M_state_q_FSM_FFd3-In26_SW1
+    SLICE_X7Y28.A3       net (fanout=1)        0.814   button_checker/N87
+    SLICE_X7Y28.A        Tilo                  0.259   button_checker/M_state_q_FSM_FFd3
+                                                       button_checker/M_state_q_FSM_FFd3-In26
+    SLICE_X11Y34.D2      net (fanout=7)        1.922   button_checker/M_state_q_FSM_FFd3-In26
+    SLICE_X11Y34.CLK     Tas                   0.373   button_checker/Maddsub_n03521_3
+                                                       button_checker/Maddsub_n03521_3_rstpot
+                                                       button_checker/Maddsub_n03521_3
     -------------------------------------------------  ---------------------------
-    Total                                      8.135ns (2.150ns logic, 5.985ns route)
-                                                       (26.4% logic, 73.6% route)
+    Total                                      8.993ns (1.885ns logic, 7.108ns route)
+                                                       (21.0% logic, 79.0% route)
 
 --------------------------------------------------------------------------------
-Slack:                  11.748ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               button_checker/M_ac_q_2 (FF)
-  Destination:          button_checker/M_mr_q_0 (FF)
+Slack:                  11.003ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               M_matrix_store_q_23 (FF)
+  Destination:          button_checker/M_mr_q_1 (FF)
   Requirement:          20.000ns
-  Data Path Delay:      8.130ns (Levels of Logic = 5)
-  Clock Path Skew:      -0.087ns (0.628 - 0.715)
+  Data Path Delay:      8.959ns (Levels of Logic = 6)
+  Clock Path Skew:      -0.003ns (0.628 - 0.631)
   Source Clock:         clk_BUFGP rising at 0.000ns
   Destination Clock:    clk_BUFGP rising at 20.000ns
   Clock Uncertainty:    0.035ns
@@ -1401,33 +1347,82 @@ Slack:                  11.748ns (requirement - (data path - clock path skew + u
     Discrete Jitter (DJ):       0.000ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: button_checker/M_ac_q_2 to button_checker/M_mr_q_0
+  Maximum Data Path at Slow Process Corner: M_matrix_store_q_23 to button_checker/M_mr_q_1
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X11Y13.CQ      Tcko                  0.430   button_checker/M_ac_q[2]
-                                                       button_checker/M_ac_q_2
-    SLICE_X10Y21.A1      net (fanout=48)       1.800   button_checker/M_ac_q[2]
-    SLICE_X10Y21.A       Tilo                  0.235   button_checker/n0263<5>1
-                                                       button_checker/Madd_n0263_Madd_lut<4>1
-    SLICE_X12Y20.B6      net (fanout=7)        0.648   button_checker/Madd_n0263_Madd_lut[4]
-    SLICE_X12Y20.B       Tilo                  0.254   button_checker/Sh8163
-                                                       button_checker/Sh8163
-    SLICE_X12Y20.C4      net (fanout=1)        0.330   button_checker/Sh8163
-    SLICE_X12Y20.CMUX    Tilo                  0.430   button_checker/Sh8163
-                                                       button_checker/Sh8165_G
-                                                       button_checker/Sh8165
-    SLICE_X10Y18.D1      net (fanout=7)        1.673   button_checker/Sh8165
-    SLICE_X10Y18.CMUX    Topdc                 0.402   button_checker/M_mr_q[0]
-                                                       button_checker/M_mr_q_0_dpot_F
-                                                       button_checker/M_mr_q_0_dpot
-    SLICE_X10Y18.A4      net (fanout=1)        1.579   button_checker/M_mr_q_0_dpot
-    SLICE_X10Y18.CLK     Tas                   0.349   button_checker/M_mr_q[0]
-                                                       button_checker/M_mr_q_0_rstpot
-                                                       button_checker/M_mr_q_0
+    SLICE_X21Y32.CQ      Tcko                  0.430   M_matrix_store_q[23]
+                                                       M_matrix_store_q_23
+    SLICE_X10Y25.B1      net (fanout=11)       2.265   M_matrix_store_q[23]
+    SLICE_X10Y25.B       Tilo                  0.235   button_checker/N134
+                                                       button_checker/Sh112011
+    SLICE_X10Y25.A3      net (fanout=1)        0.468   button_checker/Sh11201
+    SLICE_X10Y25.A       Tilo                  0.235   button_checker/N134
+                                                       button_checker/Sh11203
+    SLICE_X5Y24.B2       net (fanout=4)        1.197   button_checker/Sh1120
+    SLICE_X5Y24.B        Tilo                  0.259   button_checker/N136
+                                                       button_checker/M_state_q_FSM_FFd3-In26_SW1_SW0
+    SLICE_X5Y24.A5       net (fanout=1)        0.230   button_checker/N133
+    SLICE_X5Y24.A        Tilo                  0.259   button_checker/N136
+                                                       button_checker/M_state_q_FSM_FFd3-In26_SW1
+    SLICE_X7Y28.A3       net (fanout=1)        0.814   button_checker/N87
+    SLICE_X7Y28.A        Tilo                  0.259   button_checker/M_state_q_FSM_FFd3
+                                                       button_checker/M_state_q_FSM_FFd3-In26
+    SLICE_X9Y34.C2       net (fanout=7)        1.336   button_checker/M_state_q_FSM_FFd3-In26
+    SLICE_X9Y34.C        Tilo                  0.259   button_checker/M_mr_q[1]
+                                                       button_checker/_n0417_inv1_cepot
+    SLICE_X9Y34.CE       net (fanout=1)        0.348   button_checker/_n0417_inv1_cepot
+    SLICE_X9Y34.CLK      Tceck                 0.365   button_checker/M_mr_q[1]
+                                                       button_checker/M_mr_q_1
     -------------------------------------------------  ---------------------------
-    Total                                      8.130ns (2.100ns logic, 6.030ns route)
-                                                       (25.8% logic, 74.2% route)
+    Total                                      8.959ns (2.301ns logic, 6.658ns route)
+                                                       (25.7% logic, 74.3% route)
+
+--------------------------------------------------------------------------------
+Slack:                  11.004ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               M_matrix_store_q_22 (FF)
+  Destination:          button_checker/Maddsub_n03521_2 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      8.958ns (Levels of Logic = 6)
+  Clock Path Skew:      -0.003ns (0.628 - 0.631)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: M_matrix_store_q_22 to button_checker/Maddsub_n03521_2
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X21Y32.AQ      Tcko                  0.430   M_matrix_store_q[23]
+                                                       M_matrix_store_q_22
+    SLICE_X10Y25.B4      net (fanout=11)       2.031   M_matrix_store_q[22]
+    SLICE_X10Y25.B       Tilo                  0.235   button_checker/N134
+                                                       button_checker/Sh112011
+    SLICE_X10Y25.A3      net (fanout=1)        0.468   button_checker/Sh11201
+    SLICE_X10Y25.A       Tilo                  0.235   button_checker/N134
+                                                       button_checker/Sh11203
+    SLICE_X10Y25.C1      net (fanout=4)        0.546   button_checker/Sh1120
+    SLICE_X10Y25.C       Tilo                  0.235   button_checker/N134
+                                                       button_checker/M_state_q_FSM_FFd3-In26_SW1_SW1
+    SLICE_X5Y24.A1       net (fanout=1)        1.307   button_checker/N134
+    SLICE_X5Y24.A        Tilo                  0.259   button_checker/N136
+                                                       button_checker/M_state_q_FSM_FFd3-In26_SW1
+    SLICE_X7Y28.A3       net (fanout=1)        0.814   button_checker/N87
+    SLICE_X7Y28.A        Tilo                  0.259   button_checker/M_state_q_FSM_FFd3
+                                                       button_checker/M_state_q_FSM_FFd3-In26
+    SLICE_X11Y34.C1      net (fanout=7)        1.766   button_checker/M_state_q_FSM_FFd3-In26
+    SLICE_X11Y34.CLK     Tas                   0.373   button_checker/Maddsub_n03521_3
+                                                       button_checker/Maddsub_n03521_2_rstpot
+                                                       button_checker/Maddsub_n03521_2
+    -------------------------------------------------  ---------------------------
+    Total                                      8.958ns (2.026ns logic, 6.932ns route)
+                                                       (22.6% logic, 77.4% route)
 
 --------------------------------------------------------------------------------
 
@@ -1452,65 +1447,9 @@ Slack: 17.751ns (period - min period limit)
 Slack: 18.601ns (period - min period limit)
   Period: 20.000ns
   Min period limit: 1.399ns (714.796MHz) (Tcp)
-  Physical resource: button_sensing/button_condc3/M_sync_out/CLK
-  Logical resource: button_sensing/button_condc4/sync/Mshreg_M_pipe_q_1/CLK
-  Location pin: SLICE_X0Y3.CLK
-  Clock network: clk_BUFGP
---------------------------------------------------------------------------------
-Slack: 18.601ns (period - min period limit)
-  Period: 20.000ns
-  Min period limit: 1.399ns (714.796MHz) (Tcp)
-  Physical resource: button_sensing/button_condc3/M_sync_out/CLK
-  Logical resource: button_sensing/button_condc0/sync/Mshreg_M_pipe_q_1/CLK
-  Location pin: SLICE_X0Y3.CLK
-  Clock network: clk_BUFGP
---------------------------------------------------------------------------------
-Slack: 18.601ns (period - min period limit)
-  Period: 20.000ns
-  Min period limit: 1.399ns (714.796MHz) (Tcp)
-  Physical resource: button_sensing/button_condc3/M_sync_out/CLK
-  Logical resource: button_sensing/button_condc5/sync/Mshreg_M_pipe_q_1/CLK
-  Location pin: SLICE_X0Y3.CLK
-  Clock network: clk_BUFGP
---------------------------------------------------------------------------------
-Slack: 18.601ns (period - min period limit)
-  Period: 20.000ns
-  Min period limit: 1.399ns (714.796MHz) (Tcp)
-  Physical resource: button_sensing/button_condc3/M_sync_out/CLK
-  Logical resource: button_sensing/button_condc1/sync/Mshreg_M_pipe_q_1/CLK
-  Location pin: SLICE_X0Y3.CLK
-  Clock network: clk_BUFGP
---------------------------------------------------------------------------------
-Slack: 18.601ns (period - min period limit)
-  Period: 20.000ns
-  Min period limit: 1.399ns (714.796MHz) (Tcp)
-  Physical resource: button_sensing/button_condc3/M_sync_out/CLK
-  Logical resource: button_sensing/button_condr0/sync/Mshreg_M_pipe_q_1/CLK
-  Location pin: SLICE_X0Y3.CLK
-  Clock network: clk_BUFGP
---------------------------------------------------------------------------------
-Slack: 18.601ns (period - min period limit)
-  Period: 20.000ns
-  Min period limit: 1.399ns (714.796MHz) (Tcp)
-  Physical resource: button_sensing/button_condc3/M_sync_out/CLK
-  Logical resource: button_sensing/button_condc2/sync/Mshreg_M_pipe_q_1/CLK
-  Location pin: SLICE_X0Y3.CLK
-  Clock network: clk_BUFGP
---------------------------------------------------------------------------------
-Slack: 18.601ns (period - min period limit)
-  Period: 20.000ns
-  Min period limit: 1.399ns (714.796MHz) (Tcp)
-  Physical resource: button_sensing/button_condc3/M_sync_out/CLK
-  Logical resource: button_sensing/button_condr1/sync/Mshreg_M_pipe_q_1/CLK
-  Location pin: SLICE_X0Y3.CLK
-  Clock network: clk_BUFGP
---------------------------------------------------------------------------------
-Slack: 18.601ns (period - min period limit)
-  Period: 20.000ns
-  Min period limit: 1.399ns (714.796MHz) (Tcp)
-  Physical resource: button_sensing/button_condc3/M_sync_out/CLK
-  Logical resource: button_sensing/button_condc3/sync/Mshreg_M_pipe_q_1/CLK
-  Location pin: SLICE_X0Y3.CLK
+  Physical resource: button_sensing/button_condr5/M_sync_out/CLK
+  Logical resource: shifter/button_conditionerright/sync/Mshreg_M_pipe_q_1/CLK
+  Location pin: SLICE_X0Y31.CLK
   Clock network: clk_BUFGP
 --------------------------------------------------------------------------------
 Slack: 18.601ns (period - min period limit)
@@ -1518,7 +1457,15 @@ Slack: 18.601ns (period - min period limit)
   Min period limit: 1.399ns (714.796MHz) (Tcp)
   Physical resource: button_sensing/button_condr5/M_sync_out/CLK
   Logical resource: button_sensing/button_condr2/sync/Mshreg_M_pipe_q_1/CLK
-  Location pin: SLICE_X0Y17.CLK
+  Location pin: SLICE_X0Y31.CLK
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 18.601ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 1.399ns (714.796MHz) (Tcp)
+  Physical resource: button_sensing/button_condr5/M_sync_out/CLK
+  Logical resource: shifter/button_conditionerleft/sync/Mshreg_M_pipe_q_1/CLK
+  Location pin: SLICE_X0Y31.CLK
   Clock network: clk_BUFGP
 --------------------------------------------------------------------------------
 Slack: 18.601ns (period - min period limit)
@@ -1526,7 +1473,7 @@ Slack: 18.601ns (period - min period limit)
   Min period limit: 1.399ns (714.796MHz) (Tcp)
   Physical resource: button_sensing/button_condr5/M_sync_out/CLK
   Logical resource: button_sensing/button_condr3/sync/Mshreg_M_pipe_q_1/CLK
-  Location pin: SLICE_X0Y17.CLK
+  Location pin: SLICE_X0Y31.CLK
   Clock network: clk_BUFGP
 --------------------------------------------------------------------------------
 Slack: 18.601ns (period - min period limit)
@@ -1534,7 +1481,7 @@ Slack: 18.601ns (period - min period limit)
   Min period limit: 1.399ns (714.796MHz) (Tcp)
   Physical resource: button_sensing/button_condr5/M_sync_out/CLK
   Logical resource: button_sensing/button_condr4/sync/Mshreg_M_pipe_q_1/CLK
-  Location pin: SLICE_X0Y17.CLK
+  Location pin: SLICE_X0Y31.CLK
   Clock network: clk_BUFGP
 --------------------------------------------------------------------------------
 Slack: 18.601ns (period - min period limit)
@@ -1542,7 +1489,71 @@ Slack: 18.601ns (period - min period limit)
   Min period limit: 1.399ns (714.796MHz) (Tcp)
   Physical resource: button_sensing/button_condr5/M_sync_out/CLK
   Logical resource: button_sensing/button_condr5/sync/Mshreg_M_pipe_q_1/CLK
-  Location pin: SLICE_X0Y17.CLK
+  Location pin: SLICE_X0Y31.CLK
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 18.601ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 1.399ns (714.796MHz) (Tcp)
+  Physical resource: button_sensing/button_condc3/M_sync_out/CLK
+  Logical resource: button_sensing/button_condc4/sync/Mshreg_M_pipe_q_1/CLK
+  Location pin: SLICE_X4Y6.CLK
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 18.601ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 1.399ns (714.796MHz) (Tcp)
+  Physical resource: button_sensing/button_condc3/M_sync_out/CLK
+  Logical resource: button_sensing/button_condc0/sync/Mshreg_M_pipe_q_1/CLK
+  Location pin: SLICE_X4Y6.CLK
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 18.601ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 1.399ns (714.796MHz) (Tcp)
+  Physical resource: button_sensing/button_condc3/M_sync_out/CLK
+  Logical resource: button_sensing/button_condc5/sync/Mshreg_M_pipe_q_1/CLK
+  Location pin: SLICE_X4Y6.CLK
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 18.601ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 1.399ns (714.796MHz) (Tcp)
+  Physical resource: button_sensing/button_condc3/M_sync_out/CLK
+  Logical resource: button_sensing/button_condc1/sync/Mshreg_M_pipe_q_1/CLK
+  Location pin: SLICE_X4Y6.CLK
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 18.601ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 1.399ns (714.796MHz) (Tcp)
+  Physical resource: button_sensing/button_condc3/M_sync_out/CLK
+  Logical resource: button_sensing/button_condr0/sync/Mshreg_M_pipe_q_1/CLK
+  Location pin: SLICE_X4Y6.CLK
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 18.601ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 1.399ns (714.796MHz) (Tcp)
+  Physical resource: button_sensing/button_condc3/M_sync_out/CLK
+  Logical resource: button_sensing/button_condc2/sync/Mshreg_M_pipe_q_1/CLK
+  Location pin: SLICE_X4Y6.CLK
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 18.601ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 1.399ns (714.796MHz) (Tcp)
+  Physical resource: button_sensing/button_condc3/M_sync_out/CLK
+  Logical resource: button_sensing/button_condr1/sync/Mshreg_M_pipe_q_1/CLK
+  Location pin: SLICE_X4Y6.CLK
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 18.601ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 1.399ns (714.796MHz) (Tcp)
+  Physical resource: button_sensing/button_condc3/M_sync_out/CLK
+  Logical resource: button_sensing/button_condc3/sync/Mshreg_M_pipe_q_1/CLK
+  Location pin: SLICE_X4Y6.CLK
   Clock network: clk_BUFGP
 --------------------------------------------------------------------------------
 Slack: 19.520ns (period - min period limit)
@@ -1550,7 +1561,7 @@ Slack: 19.520ns (period - min period limit)
   Min period limit: 0.480ns (2083.333MHz) (Tcp)
   Physical resource: button_sensing/button_condr5/M_ctr_q[3]/CLK
   Logical resource: button_sensing/button_condr5/M_ctr_q_0/CK
-  Location pin: SLICE_X4Y30.CLK
+  Location pin: SLICE_X0Y37.CLK
   Clock network: clk_BUFGP
 --------------------------------------------------------------------------------
 Slack: 19.520ns (period - min period limit)
@@ -1558,7 +1569,7 @@ Slack: 19.520ns (period - min period limit)
   Min period limit: 0.480ns (2083.333MHz) (Tcp)
   Physical resource: button_sensing/button_condr5/M_ctr_q[3]/CLK
   Logical resource: button_sensing/button_condr5/M_ctr_q_1/CK
-  Location pin: SLICE_X4Y30.CLK
+  Location pin: SLICE_X0Y37.CLK
   Clock network: clk_BUFGP
 --------------------------------------------------------------------------------
 Slack: 19.520ns (period - min period limit)
@@ -1566,7 +1577,7 @@ Slack: 19.520ns (period - min period limit)
   Min period limit: 0.480ns (2083.333MHz) (Tcp)
   Physical resource: button_sensing/button_condr5/M_ctr_q[3]/CLK
   Logical resource: button_sensing/button_condr5/M_ctr_q_2/CK
-  Location pin: SLICE_X4Y30.CLK
+  Location pin: SLICE_X0Y37.CLK
   Clock network: clk_BUFGP
 --------------------------------------------------------------------------------
 Slack: 19.520ns (period - min period limit)
@@ -1574,7 +1585,7 @@ Slack: 19.520ns (period - min period limit)
   Min period limit: 0.480ns (2083.333MHz) (Tcp)
   Physical resource: button_sensing/button_condr5/M_ctr_q[3]/CLK
   Logical resource: button_sensing/button_condr5/M_ctr_q_3/CK
-  Location pin: SLICE_X4Y30.CLK
+  Location pin: SLICE_X0Y37.CLK
   Clock network: clk_BUFGP
 --------------------------------------------------------------------------------
 Slack: 19.520ns (period - min period limit)
@@ -1582,7 +1593,7 @@ Slack: 19.520ns (period - min period limit)
   Min period limit: 0.480ns (2083.333MHz) (Tcp)
   Physical resource: button_sensing/button_condr5/M_ctr_q[7]/CLK
   Logical resource: button_sensing/button_condr5/M_ctr_q_4/CK
-  Location pin: SLICE_X4Y31.CLK
+  Location pin: SLICE_X0Y38.CLK
   Clock network: clk_BUFGP
 --------------------------------------------------------------------------------
 Slack: 19.520ns (period - min period limit)
@@ -1590,7 +1601,7 @@ Slack: 19.520ns (period - min period limit)
   Min period limit: 0.480ns (2083.333MHz) (Tcp)
   Physical resource: button_sensing/button_condr5/M_ctr_q[7]/CLK
   Logical resource: button_sensing/button_condr5/M_ctr_q_5/CK
-  Location pin: SLICE_X4Y31.CLK
+  Location pin: SLICE_X0Y38.CLK
   Clock network: clk_BUFGP
 --------------------------------------------------------------------------------
 Slack: 19.520ns (period - min period limit)
@@ -1598,7 +1609,7 @@ Slack: 19.520ns (period - min period limit)
   Min period limit: 0.480ns (2083.333MHz) (Tcp)
   Physical resource: button_sensing/button_condr5/M_ctr_q[7]/CLK
   Logical resource: button_sensing/button_condr5/M_ctr_q_6/CK
-  Location pin: SLICE_X4Y31.CLK
+  Location pin: SLICE_X0Y38.CLK
   Clock network: clk_BUFGP
 --------------------------------------------------------------------------------
 Slack: 19.520ns (period - min period limit)
@@ -1606,7 +1617,7 @@ Slack: 19.520ns (period - min period limit)
   Min period limit: 0.480ns (2083.333MHz) (Tcp)
   Physical resource: button_sensing/button_condr5/M_ctr_q[7]/CLK
   Logical resource: button_sensing/button_condr5/M_ctr_q_7/CK
-  Location pin: SLICE_X4Y31.CLK
+  Location pin: SLICE_X0Y38.CLK
   Clock network: clk_BUFGP
 --------------------------------------------------------------------------------
 Slack: 19.520ns (period - min period limit)
@@ -1614,7 +1625,7 @@ Slack: 19.520ns (period - min period limit)
   Min period limit: 0.480ns (2083.333MHz) (Tcp)
   Physical resource: button_sensing/button_condr5/M_ctr_q[11]/CLK
   Logical resource: button_sensing/button_condr5/M_ctr_q_8/CK
-  Location pin: SLICE_X4Y32.CLK
+  Location pin: SLICE_X0Y39.CLK
   Clock network: clk_BUFGP
 --------------------------------------------------------------------------------
 Slack: 19.520ns (period - min period limit)
@@ -1622,7 +1633,7 @@ Slack: 19.520ns (period - min period limit)
   Min period limit: 0.480ns (2083.333MHz) (Tcp)
   Physical resource: button_sensing/button_condr5/M_ctr_q[11]/CLK
   Logical resource: button_sensing/button_condr5/M_ctr_q_9/CK
-  Location pin: SLICE_X4Y32.CLK
+  Location pin: SLICE_X0Y39.CLK
   Clock network: clk_BUFGP
 --------------------------------------------------------------------------------
 Slack: 19.520ns (period - min period limit)
@@ -1630,7 +1641,7 @@ Slack: 19.520ns (period - min period limit)
   Min period limit: 0.480ns (2083.333MHz) (Tcp)
   Physical resource: button_sensing/button_condr5/M_ctr_q[11]/CLK
   Logical resource: button_sensing/button_condr5/M_ctr_q_10/CK
-  Location pin: SLICE_X4Y32.CLK
+  Location pin: SLICE_X0Y39.CLK
   Clock network: clk_BUFGP
 --------------------------------------------------------------------------------
 Slack: 19.520ns (period - min period limit)
@@ -1638,7 +1649,7 @@ Slack: 19.520ns (period - min period limit)
   Min period limit: 0.480ns (2083.333MHz) (Tcp)
   Physical resource: button_sensing/button_condr5/M_ctr_q[11]/CLK
   Logical resource: button_sensing/button_condr5/M_ctr_q_11/CK
-  Location pin: SLICE_X4Y32.CLK
+  Location pin: SLICE_X0Y39.CLK
   Clock network: clk_BUFGP
 --------------------------------------------------------------------------------
 Slack: 19.520ns (period - min period limit)
@@ -1646,7 +1657,7 @@ Slack: 19.520ns (period - min period limit)
   Min period limit: 0.480ns (2083.333MHz) (Tcp)
   Physical resource: button_sensing/button_condr5/M_ctr_q[15]/CLK
   Logical resource: button_sensing/button_condr5/M_ctr_q_12/CK
-  Location pin: SLICE_X4Y33.CLK
+  Location pin: SLICE_X0Y40.CLK
   Clock network: clk_BUFGP
 --------------------------------------------------------------------------------
 Slack: 19.520ns (period - min period limit)
@@ -1654,23 +1665,7 @@ Slack: 19.520ns (period - min period limit)
   Min period limit: 0.480ns (2083.333MHz) (Tcp)
   Physical resource: button_sensing/button_condr5/M_ctr_q[15]/CLK
   Logical resource: button_sensing/button_condr5/M_ctr_q_13/CK
-  Location pin: SLICE_X4Y33.CLK
-  Clock network: clk_BUFGP
---------------------------------------------------------------------------------
-Slack: 19.520ns (period - min period limit)
-  Period: 20.000ns
-  Min period limit: 0.480ns (2083.333MHz) (Tcp)
-  Physical resource: button_sensing/button_condr5/M_ctr_q[15]/CLK
-  Logical resource: button_sensing/button_condr5/M_ctr_q_14/CK
-  Location pin: SLICE_X4Y33.CLK
-  Clock network: clk_BUFGP
---------------------------------------------------------------------------------
-Slack: 19.520ns (period - min period limit)
-  Period: 20.000ns
-  Min period limit: 0.480ns (2083.333MHz) (Tcp)
-  Physical resource: button_sensing/button_condr5/M_ctr_q[15]/CLK
-  Logical resource: button_sensing/button_condr5/M_ctr_q_15/CK
-  Location pin: SLICE_X4Y33.CLK
+  Location pin: SLICE_X0Y40.CLK
   Clock network: clk_BUFGP
 --------------------------------------------------------------------------------
 
@@ -1687,7 +1682,7 @@ Clock to Setup on destination clock clk
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-clk            |    9.241|         |         |         |
+clk            |    9.901|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 
@@ -1696,23 +1691,23 @@ Timing summary:
 
 Timing errors: 0  Score: 0  (Setup/Max: 0, Hold: 0)
 
-Constraints cover 23832 paths, 0 nets, and 3183 connections
+Constraints cover 25576 paths, 0 nets, and 3672 connections
 
 Design statistics:
-   Minimum period:   9.241ns{1}   (Maximum frequency: 108.213MHz)
+   Minimum period:   9.901ns{1}   (Maximum frequency: 101.000MHz)
 
 
 ------------------------------------Footnotes-----------------------------------
 1)  The minimum period statistic assumes all single cycle delays.
 
-Analysis completed Fri Dec  1 23:16:29 2017 
+Analysis completed Sat Dec  2 14:22:26 2017 
 --------------------------------------------------------------------------------
 
 Trace Settings:
 -------------------------
 Trace Settings 
 
-Peak Memory Usage: 399 MB
+Peak Memory Usage: 402 MB
 
 
 

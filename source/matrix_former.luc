@@ -5,15 +5,17 @@ module matrix_former (
     input change_matrix[6][6],
     input valid,
     output new_matrix[6][6],
-    input multiplier,
+    input multiplier[8],
     input old_score[8],
-    output new_score[8]
+    output new_score[8],
+    input enable
   ) {
   
   .clk(clk) {
-    edge_detector edge_detector(#RISE(1), #FALL(0));
+    edge_detector edge_detector(#RISE(1), #FALL(0));    
     .rst(rst) {
-      
+      fsm state = {IDLE, CHANGE};
+      dff change_matrix_dff[6][6];
     }
   }
   
@@ -21,9 +23,21 @@ module matrix_former (
     edge_detector.in = valid;
     new_matrix = old_matrix;
     new_score = old_score;
-    if(edge_detector.out) {
-      new_matrix = old_matrix^change_matrix;
-      new_score = old_score+1*multiplier;
+    
+    case(state.q) {
+      state.IDLE:
+        //if valid signal given, store change_matrix and move to next state
+        if (edge_detector.out) {
+          change_matrix_dff.d = change_matrix;
+          state.d = state.CHANGE;
+        }
+                    
+      state.CHANGE:
+         if (enable) {
+            new_matrix = old_matrix^change_matrix_dff.q;
+            new_score = old_score+1*multiplier;
+            state.d = state.IDLE;
+          }
     }
   }
 }

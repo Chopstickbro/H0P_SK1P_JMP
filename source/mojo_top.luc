@@ -14,7 +14,9 @@ module mojo_top (
     output row [6],
     output col [6],
     input buttoncol[6],
-    input buttonrow[6]
+    input buttonrow[6],
+    input shiftright,
+    input shiftleft
   ) {
   
   sig rst;                  // reset signal
@@ -25,8 +27,10 @@ module mojo_top (
     reset_conditioner reset_cond;
     .rst(rst) {
       dff matrix_store[6][6]; //store matrix
-      fsm game_state = {INIT, PLAYING};
+      fsm game_state = {INIT, UPDATEMATRIX, SHIFTMATRIX};
       dff score[8];
+      dff powerup;
+      dff multiplier_dff[8];
     }
   }
   
@@ -34,6 +38,8 @@ module mojo_top (
   button_sensing button_sensing(.clk(clk), .rst(rst));
   button_checker button_checker(.clk(clk), .rst(rst));
   matrix_former matrix_former(.clk(clk), .rst(rst));
+  shifter shifter (.clk(clk), .rst(rst));
+  multiplier multiplier(.clk(clk), .rst(rst));
     
   
   always {
@@ -65,20 +71,50 @@ module mojo_top (
     col = led_multiplexer.column;
 
     matrix_former.old_matrix = matrix_store.q;
-    matrix_store.d = matrix_former.new_matrix;
+    
     matrix_former.valid = button_checker.validout;
     matrix_former.old_score = score.q;
-    score.d = matrix_former.new_score;
-    matrix_former.multiplier = 1;
+    matrix_former.multiplier = multiplier_dff.q;
     matrix_former.change_matrix = button_checker.matrixout;
+    matrix_former.enable = 0;
+    
 
+    shifter.old_matrix = matrix_store.q;
+    shifter.enable = 0;
+    shifter.shift_left = shiftleft;
+    shifter.shift_right = shiftright;
+    shifter.old_powerup_counter = powerup.q;
+    
+    
+    multiplier.ar = button_sensing.a_row;
+    multiplier.ac = button_sensing.a_col;
+    multiplier.br = button_sensing.b_row;
+    multiplier.bc = button_sensing.b_col;
+    multiplier.valid = button_checker.validout;
+    multiplier.old_multiplier = multiplier_dff.q;
+    multiplier_dff.d = multiplier.new_multiplier;
+    
+    
+
+    
+    
     case(game_state.q){
       game_state.INIT:
         matrix_store.d = {6b111111, 6b111111, 6b110111, 6b111111, 6b111111,6b111111};
-        game_state.d = game_state.PLAYING;
+        powerup.d = 0;
+        game_state.d = game_state.UPDATEMATRIX;
         
-      game_state.PLAYING:
-        led[2] = 1;
+      game_state.UPDATEMATRIX:
+        matrix_store.d = matrix_former.new_matrix;
+        score.d = matrix_former.new_score;
+        matrix_former.enable = 1;
+        game_state.d = game_state.SHIFTMATRIX;
+        
+      game_state.SHIFTMATRIX:
+        matrix_store.d = shifter.new_matrix;
+        powerup.d = shifter.new_power_counter;
+        shifter.enable = 1;
+        game_state.d = game_state.UPDATEMATRIX;
     }
 
         

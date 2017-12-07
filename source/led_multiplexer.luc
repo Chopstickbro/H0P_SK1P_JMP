@@ -7,7 +7,7 @@ module led_multiplexer (
     output timerout //timer output for timer dff
   ) {
   
-  const N = 17;
+  const N = 10;
   dff timer[N](.clk(clk), .rst(rst));
   fsm column_sel(.clk(timer.q[N-1]), .rst(rst)) = {ONE, TWO, THREE, FOUR, FIVE, SIX};
   

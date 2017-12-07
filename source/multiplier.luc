@@ -1,0 +1,30 @@
+module multiplier (
+    input clk,  // clock
+    input rst,  // reset
+    output new_multiplier[8],
+    input old_multiplier[8],
+    input ar[3],
+    input ac[3],
+    input br[3],
+    input bc[3],
+    input valid
+  ) {
+  
+  .clk(clk) {
+    edge_detector edge_detector(#RISE(1), #FALL(0));
+    .rst(rst) {
+      dff last_row[3];
+      dff last_col[3];
+    }
+  }
+
+  always {
+    new_multiplier = old_multiplier;
+    edge_detector.in = valid;
+    if (edge_detector.out) {
+      if (ar == last_row.q && ac == last_col.q) new_multiplier = old_multiplier+1;
+      last_row.d = br;
+      last_col.d = bc;
+    }      
+  }
+}
