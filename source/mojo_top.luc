@@ -27,6 +27,7 @@ module mojo_top (
   
   led_multiplexer led_multiplexer(.clk(clk), .rst(rst));
   button_sensing button_sensing(.clk(clk), .rst(rst));
+  button_checker button_checker(.clk(clk), .rst(rst));
   
   always {
     reset_cond.in = ~rst_n; // input raw inverted reset signal
@@ -40,22 +41,30 @@ module mojo_top (
     button_sensing.buttoncol=buttoncol;
     button_sensing.buttonrow=buttonrow;
     
+    button_checker.read = button_sensing.read;
+    button_checker.a_col = button_sensing.a_col;
+    button_checker.b_col = button_sensing.b_col;
+    button_checker.a_row = button_sensing.a_row;
+    button_checker.b_row = button_sensing.b_row;
+    button_checker.matrixin = {6b111111, 6b111111,6b111000,6b000111,6b111111,6b111111};
+    led[0] = button_checker.validout;
+    led[1] = button_checker.invalidout;
+    
+    led_multiplexer.inp_int = button_checker.matrixout;
+    
     
 
-        
+    /*    
     led_multiplexer.inp_int[0] = button_sensing.a_col;
     led_multiplexer.inp_int[1] = button_sensing.a_row;
     led_multiplexer.inp_int[2] = buttoncol;
     led_multiplexer.inp_int[3] = b111111;
     led_multiplexer.inp_int[4] = button_sensing.b_col;
     led_multiplexer.inp_int[5] = button_sensing.b_row;
-    
+    */
     row = led_multiplexer.row;
     col = led_multiplexer.column;
-    
-    
-    
-    led[0] = led_multiplexer.timerout;
+
     
   }
 }

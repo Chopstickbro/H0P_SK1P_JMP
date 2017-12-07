@@ -67,6 +67,29 @@ module mojo_top_0 (
     .read(M_button_sensing_read)
   );
   
+  wire [1-1:0] M_button_checker_validout;
+  wire [36-1:0] M_button_checker_matrixout;
+  wire [1-1:0] M_button_checker_invalidout;
+  reg [36-1:0] M_button_checker_matrixin;
+  reg [3-1:0] M_button_checker_a_row;
+  reg [3-1:0] M_button_checker_b_row;
+  reg [3-1:0] M_button_checker_a_col;
+  reg [3-1:0] M_button_checker_b_col;
+  reg [1-1:0] M_button_checker_read;
+  button_checker_4 button_checker (
+    .clk(clk),
+    .rst(rst),
+    .matrixin(M_button_checker_matrixin),
+    .a_row(M_button_checker_a_row),
+    .b_row(M_button_checker_b_row),
+    .a_col(M_button_checker_a_col),
+    .b_col(M_button_checker_b_col),
+    .read(M_button_checker_read),
+    .validout(M_button_checker_validout),
+    .matrixout(M_button_checker_matrixout),
+    .invalidout(M_button_checker_invalidout)
+  );
+  
   always @* begin
     M_reset_cond_in = ~rst_n;
     rst = M_reset_cond_out;
@@ -76,14 +99,16 @@ module mojo_top_0 (
     avr_rx = 1'bz;
     M_button_sensing_buttoncol = buttoncol;
     M_button_sensing_buttonrow = buttonrow;
-    M_led_multiplexer_inp_int[0+5-:6] = M_button_sensing_a_col;
-    M_led_multiplexer_inp_int[6+5-:6] = M_button_sensing_a_row;
-    M_led_multiplexer_inp_int[12+5-:6] = buttoncol;
-    M_led_multiplexer_inp_int[18+5-:6] = 6'h3f;
-    M_led_multiplexer_inp_int[24+5-:6] = M_button_sensing_b_col;
-    M_led_multiplexer_inp_int[30+5-:6] = M_button_sensing_b_row;
+    M_button_checker_read = M_button_sensing_read;
+    M_button_checker_a_col = M_button_sensing_a_col;
+    M_button_checker_b_col = M_button_sensing_b_col;
+    M_button_checker_a_row = M_button_sensing_a_row;
+    M_button_checker_b_row = M_button_sensing_b_row;
+    M_button_checker_matrixin = 36'hfffe07fff;
+    led[0+0-:1] = M_button_checker_validout;
+    led[1+0-:1] = M_button_checker_invalidout;
+    M_led_multiplexer_inp_int = M_button_checker_matrixout;
     row = M_led_multiplexer_row;
     col = M_led_multiplexer_column;
-    led[0+0-:1] = M_led_multiplexer_timerout;
   end
 endmodule
