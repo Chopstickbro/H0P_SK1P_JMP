@@ -7,7 +7,15 @@ module multiplier (
     input ac[3],
     input br[3],
     input bc[3],
-    input valid
+    input valid,
+    input enable,
+    output alufn[6],
+    output a[8],
+    output b[8],
+    input alu_result[6],
+    output done,
+    output check_signala[3],
+    output check_signalb[3]
   ) {
   
   .clk(clk) {
@@ -15,16 +23,65 @@ module multiplier (
     .rst(rst) {
       dff last_row[3];
       dff last_col[3];
+      dff ar_dff[3];
+      dff ac_dff[3];
+      dff br_dff[3];
+      dff bc_dff[3];
+      dff check[1];
+      fsm state = {IDLE, CHECKROW, CHECKCOLUMN,SAVEBUT, INCREMENT};
     }
   }
 
   always {
+    alufn = 0;
+    a = 0;
+    b = 0;
+    done = 0;
     new_multiplier = old_multiplier;
     edge_detector.in = valid;
-    if (edge_detector.out) {
-      if (ar == last_row.q && ac == last_col.q) new_multiplier = old_multiplier+1;
-      last_row.d = br;
-      last_col.d = bc;
-    }      
+    
+    check_signala = ac;
+    check_signalb = last_col.q;
+    
+    case(state.q) {
+      state.IDLE:
+        done = 1;
+        if (edge_detector.out) {
+          done = 0;
+          ar_dff.d = ar;
+          ac_dff.d = ac;
+          bc_dff.d = bc;
+          br_dff.d = br;
+          state.d = state.CHECKROW;
+        }
+      state.CHECKROW:
+          if (enable) {
+            alufn = h33;
+            a = ar_dff.q;
+            b = last_row.q;
+            check.d = alu_result;
+            if (alu_result) state.d = state.CHECKCOLUMN;
+            else state.d = state.SAVEBUT;
+          }
+            
+      state.CHECKCOLUMN:
+         alufn = h33;
+         a = ac_dff.q;
+         b = last_col.q;
+         if (alu_result) state.d = state.INCREMENT;
+         else state.d = state.SAVEBUT;
+        
+      state.SAVEBUT:
+        last_row.d = br_dff.q;
+        last_col.d = bc_dff.q;
+        state.d = state.IDLE;
+        
+      state.INCREMENT:
+        alufn = h00;
+        a = old_multiplier;
+        b = 1;
+        new_multiplier = alu_result;
+        state.d = state.SAVEBUT;
+      }      
   }
 }

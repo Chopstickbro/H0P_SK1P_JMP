@@ -1,0 +1,64 @@
+module level_selector (
+    input clk,  // clock
+    input rst,  // reset    
+    input button_row[3],
+    output led_matrix[6][6],
+    output powerup_set[3],
+    output done,
+    input enable,
+    input valid
+  ) {
+  
+  fsm state(.clk(clk), .rst(rst)) = {IDLE, SET_POWERUP};
+
+  always {
+    done = 0;
+    powerup_set = 0;
+    led_matrix = {6b111111, 6b011111, 6b001111, 6b000111, 6b000011, 6b000001};
+    
+    case(state.q) {
+      state.IDLE:
+        if (enable && valid) state.d = state.SET_POWERUP;
+        
+      state.SET_POWERUP:
+        if (button_row == 0) {
+          powerup_set = 1;
+          done = 1;
+          state.d = state.IDLE;
+        }
+        
+        if (button_row == 1) {
+          powerup_set = 2;
+          done = 1;
+          state.d = state.IDLE;
+        }
+        
+        if (button_row == 2) {
+          powerup_set = 3;
+          done = 1;
+          state.d = state.IDLE;
+        }
+        
+        if (button_row == 3) {
+          powerup_set = 4;
+          done = 1;
+          state.d = state.IDLE;
+        }
+        
+        if (button_row == 4) {
+          powerup_set = 5;
+          done = 1;
+          state.d = state.IDLE;
+        }
+        
+        if (button_row == 5) {
+          powerup_set = 6;
+          done = 1;
+          state.d = state.IDLE;
+        }
+
+        
+    }
+        
+  }
+}

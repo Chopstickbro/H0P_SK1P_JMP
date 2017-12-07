@@ -6,38 +6,79 @@ module matrix_former (
     input valid,
     output new_matrix[6][6],
     output add_score,
-    input enable
+    input enable,
+    output alufn[6],
+    output a[8],
+    output b[8],
+    input alu_result[6],
+    output done
   ) {
   
   .clk(clk) {
     edge_detector edge_detector(#RISE(1), #FALL(0));    
     .rst(rst) {
-      fsm state = {IDLE, CHANGE};
+      fsm state = {IDLE, CHANGE1,CHANGE2, CHANGE3, CHANGE4, CHANGE5, CHANGE6};
       dff change_matrix_dff[6][6];
-      dff valid_dff[1];
+      dff done_dff(#INIT(1));
     }
   }
   
   always {
+    done = done_dff.q;
     edge_detector.in = valid;
     new_matrix = old_matrix;
-    add_score = valid_dff.q;
-    
+    add_score = 0;
+    alufn = h16;
+    a = 0;
+    b = 0;
     case(state.q) {
       state.IDLE:
         //if valid signal given, store change_matrix and move to next state
         if (edge_detector.out) {
+          done_dff.d = 0;
           change_matrix_dff.d = change_matrix;
-          valid_dff.d = 0;
-          state.d = state.CHANGE;
+          state.d = state.CHANGE1;
         }
                     
-      state.CHANGE:
+      state.CHANGE1:
          if (enable) {
-            new_matrix = old_matrix^change_matrix_dff.q;
-            valid_dff.d = 1;
-            state.d = state.IDLE;
+            a = old_matrix[0];
+            b = change_matrix_dff.q[0];
+            new_matrix[0] = alu_result;
+            state.d = state.CHANGE2;
           }
+        
+      state.CHANGE2:
+        a = old_matrix[1];
+        b = change_matrix_dff.q[1];
+        new_matrix[1] = alu_result;
+        state.d = state.CHANGE3;
+        
+      state.CHANGE3:
+        a = old_matrix[2];
+        b = change_matrix_dff.q[2];
+        new_matrix[2] = alu_result;
+        state.d = state.CHANGE4;
+        
+      state.CHANGE4:
+        a = old_matrix[3];
+        b = change_matrix_dff.q[3];
+        new_matrix[3] = alu_result;
+        state.d = state.CHANGE5;
+        
+      state.CHANGE5:
+        a = old_matrix[4];
+        b = change_matrix_dff.q[4];
+        new_matrix[4] = alu_result;
+        state.d = state.CHANGE6;
+        
+      state.CHANGE6:
+        a = old_matrix[5];
+        b = change_matrix_dff.q[5];
+        new_matrix[5] = alu_result;
+        done_dff.d = 1;
+        add_score = 1;
+        state.d = state.IDLE;      
     }
   }
 }
