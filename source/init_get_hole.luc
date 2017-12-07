@@ -1,0 +1,36 @@
+module init_get_hole (
+    input clk,  // clock
+    input rst,  // reset
+    output mat_out[6][6],
+    output led_mat[6][6],
+    output done,
+    input valid,
+    input bc[3],
+    input br[3],
+    output test_led
+  ) {
+  .clk(clk) {
+    .rst(rst) {
+      dff timer[24];
+      dff test;
+    }
+  }
+  
+
+  always {
+    test_led = test.q;
+    led_mat = 6x{{6b000000}};
+    done = 0;
+    mat_out = 6x{{6b111111}};
+    timer.d = timer.q+1;
+    if (timer.q[23]) led_mat = 6x{{6b111111}};
+    
+    if (valid) {
+      mat_out = 6x{{6b111111}};
+      mat_out[br][bc] = 0;
+      done = 1;
+      test.d =1;
+    }
+        
+  }
+}

@@ -23,3 +23,27 @@ NET "col[4]" LOC = P81;
 NET "col[4]" IOSTANDARD = LVTTL;
 NET "col[5]" LOC = P83;
 NET "col[5]" IOSTANDARD = LVTTL;
+
+NET "seg[0]" LOC = P84;
+NET "seg[0]" IOSTANDARD = LVTTL;
+NET "seg[1]" LOC = P87;
+NET "seg[1]" IOSTANDARD = LVTTL;
+NET "seg[2]" LOC = P92;
+NET "seg[2]" IOSTANDARD = LVTTL;
+NET "seg[3]" LOC = P94;
+NET "seg[3]" IOSTANDARD = LVTTL;
+NET "seg[4]" LOC = P97;
+NET "seg[4]" IOSTANDARD = LVTTL;
+NET "seg[5]" LOC = P99;
+NET "seg[5]" IOSTANDARD = LVTTL;
+NET "seg[6]" LOC = P101;
+NET "seg[6]" IOSTANDARD = LVTTL;
+
+NET "sel[0]" LOC = P85;
+NET "sel[0]" IOSTANDARD = LVTTL;
+NET "sel[1]" LOC = P88;
+NET "sel[1]" IOSTANDARD = LVTTL;
+NET "sel[2]" LOC = P93;
+NET "sel[2]" IOSTANDARD = LVTTL;
+NET "sel[3]" LOC = P95;
+NET "sel[3]" IOSTANDARD = LVTTL;

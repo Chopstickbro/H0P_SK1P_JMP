@@ -5,9 +5,7 @@ module matrix_former (
     input change_matrix[6][6],
     input valid,
     output new_matrix[6][6],
-    input multiplier[8],
-    input old_score[8],
-    output new_score[8],
+    output add_score,
     input enable
   ) {
   
@@ -16,26 +14,28 @@ module matrix_former (
     .rst(rst) {
       fsm state = {IDLE, CHANGE};
       dff change_matrix_dff[6][6];
+      dff valid_dff[1];
     }
   }
   
   always {
     edge_detector.in = valid;
     new_matrix = old_matrix;
-    new_score = old_score;
+    add_score = valid_dff.q;
     
     case(state.q) {
       state.IDLE:
         //if valid signal given, store change_matrix and move to next state
         if (edge_detector.out) {
           change_matrix_dff.d = change_matrix;
+          valid_dff.d = 0;
           state.d = state.CHANGE;
         }
                     
       state.CHANGE:
          if (enable) {
             new_matrix = old_matrix^change_matrix_dff.q;
-            new_score = old_score+1*multiplier;
+            valid_dff.d = 1;
             state.d = state.IDLE;
           }
     }

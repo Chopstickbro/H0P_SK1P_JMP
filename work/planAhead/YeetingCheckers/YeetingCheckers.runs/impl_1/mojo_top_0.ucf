@@ -10,22 +10,16 @@
 
 NET "buttonrow[0]" LOC = P51;
 NET "buttonrow[0]" IOSTANDARD = LVTTL;
-NET "buttonrow[0]" PULLDOWN;
 NET "buttonrow[1]" LOC = P41;
 NET "buttonrow[1]" IOSTANDARD = LVTTL;
-NET "buttonrow[1]" PULLDOWN;
 NET "buttonrow[2]" LOC = P35;
 NET "buttonrow[2]" IOSTANDARD = LVTTL;
-NET "buttonrow[2]" PULLDOWN;
 NET "buttonrow[3]" LOC = P33;
 NET "buttonrow[3]" IOSTANDARD = LVTTL;
-NET "buttonrow[3]" PULLDOWN;
 NET "buttonrow[4]" LOC = P30;
 NET "buttonrow[4]" IOSTANDARD = LVTTL;
-NET "buttonrow[4]" PULLDOWN;
 NET "buttonrow[5]" LOC = P27;
 NET "buttonrow[5]" IOSTANDARD = LVTTL;
-NET "buttonrow[5]" PULLDOWN;
 
 NET "buttoncol[0]" LOC = P50;
 NET "buttoncol[0]" IOSTANDARD = LVTTL;
@@ -82,6 +76,30 @@ NET "col[4]" LOC = P81;
 NET "col[4]" IOSTANDARD = LVTTL;
 NET "col[5]" LOC = P83;
 NET "col[5]" IOSTANDARD = LVTTL;
+
+NET "seg[0]" LOC = P84;
+NET "seg[0]" IOSTANDARD = LVTTL;
+NET "seg[1]" LOC = P87;
+NET "seg[1]" IOSTANDARD = LVTTL;
+NET "seg[2]" LOC = P92;
+NET "seg[2]" IOSTANDARD = LVTTL;
+NET "seg[3]" LOC = P94;
+NET "seg[3]" IOSTANDARD = LVTTL;
+NET "seg[4]" LOC = P97;
+NET "seg[4]" IOSTANDARD = LVTTL;
+NET "seg[5]" LOC = P99;
+NET "seg[5]" IOSTANDARD = LVTTL;
+NET "seg[6]" LOC = P101;
+NET "seg[6]" IOSTANDARD = LVTTL;
+
+NET "sel[0]" LOC = P85;
+NET "sel[0]" IOSTANDARD = LVTTL;
+NET "sel[1]" LOC = P88;
+NET "sel[1]" IOSTANDARD = LVTTL;
+NET "sel[2]" LOC = P93;
+NET "sel[2]" IOSTANDARD = LVTTL;
+NET "sel[3]" LOC = P95;
+NET "sel[3]" IOSTANDARD = LVTTL;
 
 ####################################################################################
 # Constraints from file : 'mojo.ucf'

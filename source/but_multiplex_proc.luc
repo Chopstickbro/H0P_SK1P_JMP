@@ -1,0 +1,52 @@
+module but_multiplex_proc (
+    input clk,  // clock
+    input rst,  // reset
+    input button_row[3],
+    input button_col[3],
+    input new_button,
+    output a_row[3],  //button A Row
+    output a_col[3],  //button A Column
+    output b_row[3],  //button B Row
+    output b_col[3],  //button B Column
+    output read   //read ready
+  ) {
+  
+  .clk(clk) {
+    button_conditioner button_conditioner;
+    .rst(rst) {
+      fsm state = {GETA, GETB};
+      dff ar[3];
+      dff br[3];
+      dff bc[3];
+      dff ac[3];
+    }
+  }
+
+  always {
+    button_conditioner.in = new_button;
+    read = 0;
+    a_row = ar.q;
+    b_row = br.q;
+    a_col = ac.q;
+    b_col = bc.q;
+    case(state.q) {
+      state.GETA:
+        if (button_conditioner.out) {
+          ar.d = button_row;
+          ac.d = button_col;
+          state.d = state.GETB;
+        }
+        
+      state.GETB:
+        if (button_conditioner.out) {
+           if (button_row != ar.q && button_col != ac.q) {
+              br.d = button_row;
+              bc.d = button_col;
+              state.d = state.GETA;
+              read = 1;
+            }
+        }
+    } 
+        
+  }
+}

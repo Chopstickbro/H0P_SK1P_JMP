@@ -1,0 +1,250 @@
+module button_multiplex (
+    input clk,  // clock
+    input rst,  // reset
+    output button_rows[6],
+    input button_cols[6],
+    output new_button,    
+    output br[3],
+    output bc[3]
+  ) {
+      const N = 10;
+      dff timer[N](.clk(clk), .rst(rst));
+      fsm state(.clk(timer.q[N-1]), .rst(rst)) = {ONE, TWO, THREE, FOUR, FIVE, SIX};         
+    
+  
+
+  always {
+    button_rows = 6b000000;
+    br = 6;
+    bc = 6;
+    new_button = 0;
+    
+    case(state.q) {
+      state.ONE:
+        button_rows[0] = 1;
+        if (button_cols[0]) {
+          bc = 0;
+          br = 0;
+          new_button = 1;
+        }
+        else if (button_cols[1]) {
+          bc = 1;
+          br = 0;
+          new_button = 1;
+        }
+        else if (button_cols[2]) {
+          bc = 2;
+          br = 0;
+          new_button = 1;
+        }
+        else if (button_cols[3]) {
+          bc = 3;
+          br = 0;
+          new_button = 1;
+        }
+        else if (button_cols[4]) {
+          bc = 4;
+          br = 0;
+          new_button = 1;
+        }
+        else if (button_cols[5]) {
+          bc = 5;
+          br = 0;
+          new_button = 1;
+        }
+        else {}
+        state.d = state.TWO;
+        
+       state.TWO:
+        button_rows[1] = 1;
+        if (button_cols[0]) {
+          bc = 0;
+          br = 1;
+          new_button = 1;
+        }
+        else if (button_cols[1]) {
+          bc = 1;
+          br = 1;
+          new_button = 1;
+        }
+        else if (button_cols[2]) {
+          bc = 2;
+          br = 1;
+          new_button = 1;
+        }
+        else if (button_cols[3]) {
+          bc = 3;
+          br = 1;
+          new_button = 1;
+        }
+        else if (button_cols[4]) {
+          bc = 4;
+          br = 1;
+          new_button = 1;
+        }
+        else if (button_cols[5]) {
+          bc = 5;
+          br = 1;
+          new_button = 1;
+        }
+        else {
+
+          }
+        state.d = state.THREE;
+        
+       state.THREE:
+        button_rows[2] = 1;
+        if (button_cols[0]) {
+          bc = 0;
+          br = 2;
+          new_button = 1;
+        }
+        else if (button_cols[1]) {
+          bc = 1;
+          br = 2;
+          new_button = 1;
+        }
+        else if (button_cols[2]) {
+          bc = 2;
+          br = 2;
+          new_button = 1;
+        }
+        else if (button_cols[3]) {
+          bc = 3;
+          br = 2;
+          new_button = 1;
+        }
+        else if (button_cols[4]) {
+          bc = 4;
+          br = 2;
+          new_button = 1;
+        }
+        else if (button_cols[5]) {
+          bc = 5;
+          br = 2;
+          new_button = 1;
+        }
+        else {
+
+          }
+        state.d = state.FOUR;
+        
+      state.FOUR:
+        button_rows[3] = 1;
+        if (button_cols[0]) {
+          bc = 0;
+          br = 3;
+          new_button = 1;
+        }
+        else if (button_cols[1]) {
+          bc = 1;
+          br = 3;
+          new_button = 1;
+        }
+        else if (button_cols[2]) {
+          bc = 2;
+          br = 3;
+          new_button = 1;
+        }
+        else if (button_cols[3]) {
+          bc = 3;
+          br = 3;
+          new_button = 1;
+        }
+        else if (button_cols[4]) {
+          bc = 4;
+          br = 3;
+          new_button = 1;
+        }
+        else if (button_cols[5]) {
+          bc = 5;
+          br = 3;
+          new_button = 1;
+        }
+        else {
+
+          }
+        state.d = state.FIVE;
+        
+      state.FIVE:
+        button_rows[4] = 1;
+        
+        if (button_cols[0]) {
+          bc = 0;
+          br = 4;
+          new_button = 1;
+        }
+        else if (button_cols[1]) {
+          bc = 1;
+          br = 4;
+          new_button = 1;
+        }
+        else if (button_cols[2]) {
+          bc = 2;
+          br = 4;
+          new_button = 1;
+        }
+        else if (button_cols[3]) {
+          bc = 3;
+          br = 4;
+          new_button = 1;
+        }
+        else if (button_cols[4]) {
+          bc = 4;
+          br = 4;
+          new_button = 1;
+        }
+        else if (button_cols[5]) {
+          bc = 5;
+          br = 4;
+          new_button = 1;
+        }
+        else {
+
+          }
+        state.d = state.SIX;
+        
+       state.SIX:
+        button_rows[5] = 1;
+        
+        if (button_cols[0]) {
+          bc = 0;
+          br = 5;
+          new_button = 1;
+        }
+        else if (button_cols[1]) {
+          bc = 1;
+          br = 5;
+          new_button = 1;
+        }
+        else if (button_cols[2]) {
+          bc = 2;
+          br = 5;
+          new_button = 1;
+        }
+        else if (button_cols[3]) {
+          bc = 3;
+          br = 5;
+          new_button = 1;
+        }
+        else if (button_cols[4]) {
+          bc = 4;
+          br = 5;
+          new_button = 1;
+        }
+        else if (button_cols[5]) {
+          bc = 5;
+          br = 5;
+          new_button = 1;
+        }
+        else {
+
+          }
+        state.d = state.ONE;
+        
+    }
+    timer.d = timer.q+1;
+
+        
+  }
+}
